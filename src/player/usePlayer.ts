@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PlaybackStep } from '@/workouts/types'
 import { coach } from './coach'
-import { cuesBetween, type NameOf } from './cues'
+import { cuesBetween, type CoachContext } from './cues'
 import {
   completeReps,
   createPlayer,
@@ -33,16 +33,16 @@ export interface PlayerControls {
   extend: (ms: number) => void
 }
 
-export function usePlayer(steps: PlaybackStep[], nameOf: NameOf): PlayerControls {
+export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): PlayerControls {
   const [state, setState] = useState(() => createPlayer(steps))
   const [now, setNow] = useState(clockNow)
   const stateRef = useRef(state)
   const lastTimeRef = useRef(now)
-  const nameRef = useRef(nameOf)
+  const contextRef = useRef(coachContext)
 
   useEffect(() => {
-    nameRef.current = nameOf
-  }, [nameOf])
+    contextRef.current = coachContext
+  }, [coachContext])
 
   useEffect(() => {
     const fresh = createPlayer(steps)
@@ -54,7 +54,7 @@ export function usePlayer(steps: PlaybackStep[], nameOf: NameOf): PlayerControls
     const time = clockNow()
     const previous = stateRef.current
     const next = transition(previous, time)
-    const cues = cuesBetween(previous, next, lastTimeRef.current, time, nameRef.current)
+    const cues = cuesBetween(previous, next, lastTimeRef.current, time, contextRef.current)
     stateRef.current = next
     lastTimeRef.current = time
     if (next !== previous) {

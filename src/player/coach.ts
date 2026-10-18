@@ -1,3 +1,4 @@
+import type { TrainerId } from '@/figure/look'
 import { getSettings } from '@/settings/settings'
 import type { Cue } from './cues'
 
@@ -63,20 +64,63 @@ export function availableVoices(): SpeechSynthesisVoice[] {
   return window.speechSynthesis.getVoices().filter((voice) => voice.lang.toLowerCase().startsWith('en'))
 }
 
-function speak(text: string) {
+const FEMALE_VOICES = /samantha|ava|allison|susan|victoria|karen|moira|tessa|fiona|serena|zira|aria|jenny|michelle|emma|libby|sonia|natasha|joanna|salli|kendra|kimberly|female|woman/i
+const MALE_VOICES = /daniel|alex|fred|aaron|arthur|oliver|tom|rishi|gordon|guy|davis|ryan|christopher|eric|brian|matthew|justin|joey|male|man\b/i
+const QUALITY_VOICES = /natural|neural|online|premium|enhanced|siri|google/i
+
+export function preferredVoice(voices: SpeechSynthesisVoice[], trainer: TrainerId): SpeechSynthesisVoice | undefined {
+  const english = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+  let best: SpeechSynthesisVoice | undefined
+  let bestScore = -Infinity
+  for (const voice of english) {
+    const female = FEMALE_VOICES.test(voice.name)
+    const male = !female && MALE_VOICES.test(voice.name)
+    let score = 0
+    if ((trainer === 'female' && female) || (trainer === 'male' && male)) {
+      score += 6
+    } else if (female || male) {
+      score -= 4
+    }
+    if (QUALITY_VOICES.test(voice.name)) {
+      score += 3
+    }
+    if (voice.lang.toLowerCase() === 'en-us') {
+      score += 1
+    }
+    if (voice.localService) {
+      score += 0.5
+    }
+    if (score > bestScore) {
+      best = voice
+      bestScore = score
+    }
+  }
+  return best
+}
+
+const DELIVERY: Record<TrainerId, { rate: number; pitch: number }> = {
+  female: { rate: 1.04, pitch: 1.06 },
+  male: { rate: 0.98, pitch: 0.92 },
+}
+
+function speak(text: string, interrupt: boolean) {
   if (!speechAvailable()) {
     return
   }
   const synth = window.speechSynthesis
-  synth.cancel()
+  if (interrupt) {
+    synth.cancel()
+  }
   const utterance = new SpeechSynthesisUtterance(text)
-  const { voiceName } = getSettings()
-  const voice = voiceName ? synth.getVoices().find((candidate) => candidate.name === voiceName) : undefined
+  const { voiceName, trainer } = getSettings()
+  const voices = synth.getVoices()
+  const voice = (voiceName ? voices.find((candidate) => candidate.name === voiceName) : undefined) ?? preferredVoice(voices, trainer)
   if (voice) {
     utterance.voice = voice
   }
   utterance.lang = voice?.lang ?? 'en-US'
-  utterance.rate = 1.02
+  utterance.rate = DELIVERY[trainer].rate
+  utterance.pitch = DELIVERY[trainer].pitch
   synth.speak(utterance)
 }
 
@@ -100,10 +144,12 @@ export const coach = {
   },
   play(cues: Cue[]) {
     const settings = getSettings()
+    let spoken = false
     for (const cue of cues) {
       if (cue.kind === 'say') {
         if (settings.voice) {
-          speak(cue.text)
+          speak(cue.text, !spoken)
+          spoken = true
         }
       } else {
         if (settings.beeps) {

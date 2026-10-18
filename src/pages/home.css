@@ -70,13 +70,25 @@
 }
 
 .quick-start {
-  display: grid;
-  gap: var(--space-2);
-  align-content: start;
-  justify-items: start;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
   text-decoration: none;
   background: linear-gradient(135deg, rgba(255, 106, 43, 0.18), rgba(255, 106, 43, 0.02)), var(--color-surface);
   border-color: rgba(255, 106, 43, 0.35);
+}
+
+.quick-start__text {
+  flex: 1;
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  min-width: 0;
+}
+
+.quick-start__stage {
+  width: 120px;
+  flex: none;
 }
 
 .quick-start__title {

@@ -12,6 +12,7 @@ interface ImportMetaEnv {
   readonly VITE_ADSENSE_SLOT_CONTENT?: string
   readonly VITE_SITE_URL?: string
   readonly VITE_CONTACT_EMAIL?: string
+  readonly VITE_SUPPORT_URL?: string
 }
 
 interface ImportMeta {

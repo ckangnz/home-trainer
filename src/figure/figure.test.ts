@@ -204,12 +204,20 @@ describe('animation sampling', () => {
     expect(-box.y).toBeGreaterThan(bounds.maxY)
   })
 
-  it('produces finite render parts', () => {
+  it('produces finite render parts for every trainer', () => {
     const prepared = prepareAnimation(squat)
-    for (const part of skeletonParts(sampleSkeleton(prepared, 700))) {
-      const values = JSON.stringify(part).match(/-?\d+(\.\d+)?(e-?\d+)?/g) ?? []
-      expect(JSON.stringify(part)).not.toContain('null')
-      expect(values.length).toBeGreaterThan(0)
+    for (const trainer of ['female', 'male'] as const) {
+      const parts = skeletonParts(sampleSkeleton(prepared, 700), { trainer, skin: 'medium' })
+      expect(new Set(parts.map((part) => part.id)).size).toBe(parts.length)
+      for (const part of parts) {
+        const serialized = JSON.stringify(part)
+        expect(serialized).not.toContain('NaN')
+        if (part.kind === 'path') {
+          const numbers = part.d.match(/-?\d+(\.\d+)?/g) ?? []
+          expect(numbers.length).toBeGreaterThan(4)
+          expect(numbers.every((value) => Number.isFinite(Number(value)))).toBe(true)
+        }
+      }
     }
   })
 

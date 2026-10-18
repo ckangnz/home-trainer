@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { availableVoices, coach } from '@/player/coach'
-import { updateSettings, useSettings, type Settings } from '@/settings/settings'
+import { updateSettings, useSettings } from '@/settings/settings'
 import { SelectField } from '@/components/ui'
+import { TrainerPicker } from '@/components/TrainerPicker'
 import { usePageMeta } from '@/app/meta'
 import './history.css'
 
-function Toggle({ label, hint, field }: { label: string; hint: string; field: keyof Omit<Settings, 'voiceName'> }) {
+type ToggleField = 'voice' | 'beeps' | 'vibration' | 'keepAwake'
+
+function Toggle({ label, hint, field }: { label: string; hint: string; field: ToggleField }) {
   const settings = useSettings()
   return (
     <label className="switch">
@@ -44,6 +47,11 @@ export function SettingsPage() {
       <header className="page__header">
         <h1 className="page__title">Settings</h1>
       </header>
+
+      <section className="card stack">
+        <h2 className="section__title">Your trainer</h2>
+        <TrainerPicker />
+      </section>
 
       <section className="card stack">
         <h2 className="section__title">Coach</h2>

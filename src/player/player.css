@@ -54,6 +54,26 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.trainer-hello {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.trainer-hello__stage {
+  width: 96px;
+  flex: none;
+}
+
+.trainer-hello__bubble {
+  position: relative;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  font-weight: 600;
+}
+
 .ready,
 .pause,
 .done {
@@ -218,20 +238,12 @@
   padding-top: var(--space-7);
 }
 
-.done__badge {
-  display: grid;
-  place-items: center;
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: var(--color-success-soft);
-  color: var(--color-success);
-  animation: pop 420ms cubic-bezier(0.2, 0.9, 0.3, 1.3);
+.done__stage {
+  width: min(70vw, 260px);
 }
 
-.done__badge .icon {
-  width: 44px;
-  height: 44px;
+.done__actions {
+  justify-content: center;
 }
 
 .done__ad {
@@ -253,17 +265,6 @@
   background: rgba(5, 8, 18, 0.82);
   backdrop-filter: blur(6px);
   text-align: center;
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.4);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 @media (min-width: 900px) and (min-height: 600px) {

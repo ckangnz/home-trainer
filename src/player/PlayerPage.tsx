@@ -9,11 +9,13 @@ import { summarizeStreak } from '@/history/streaks'
 import { AdUnit } from '@/ads/AdUnit'
 import { shouldRequestPauseAd, shouldRequestSummaryAd } from '@/ads/policy'
 import { updateSettings, useSettings } from '@/settings/settings'
+import { TRAINERS } from '@/figure/look'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { DEFAULT_ROUTINE_DEFAULTS } from '@/workouts/routine'
 import { expandRoutine, formatClock, formatDuration, workStepCount } from '@/workouts/steps'
 import type { PauseStep, PlaybackStep, RoutineBody, WorkStep } from '@/workouts/types'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
+import { Confetti, ShareResultButton, SupportCard } from '@/components/Support'
 import { TimerRing } from '@/components/TimerRing'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
@@ -114,8 +116,16 @@ function PlayerSession({ session }: { session: Session }) {
   const settings = useSettings()
   const steps = useMemo(() => expandRoutine(frozen.body, getExercise), [frozen])
   const totalWork = useMemo(() => workStepCount(steps), [steps])
-  const nameOf = useCallback((exerciseId: string) => getExercise(exerciseId)?.name ?? 'the next exercise', [])
-  const player = usePlayer(steps, nameOf)
+  const coachContext = useMemo(
+    () => ({
+      nameOf: (exerciseId: string) => getExercise(exerciseId)?.name ?? 'the next exercise',
+      tipOf: (exerciseId: string) => getExercise(exerciseId)?.tips[0],
+      trainer: settings.trainer,
+      trainerName: TRAINERS[settings.trainer].name,
+    }),
+    [settings.trainer],
+  )
+  const player = usePlayer(steps, coachContext)
   const { state, now } = player
   const wallStart = useRef(0)
   const recorded = useRef(new Set<number>())
@@ -260,6 +270,9 @@ function PlayerSession({ session }: { session: Session }) {
 }
 
 function ReadyView({ session, onStart }: { session: Session; onStart: () => void }) {
+  const settings = useSettings()
+  const trainer = TRAINERS[settings.trainer]
+  const first = session.body.items.map((item) => getExercise(item.exerciseId)).find(Boolean)
   return (
     <div className="player__scroll">
       <div className="ready">
@@ -267,6 +280,16 @@ function ReadyView({ session, onStart }: { session: Session; onStart: () => void
           <h1 className="page__title">{session.title}</h1>
           {session.body.description ? <p className="muted">{session.body.description}</p> : null}
         </header>
+        {first ? (
+          <div className="trainer-hello">
+            <div className="trainer-hello__stage stage">
+              <Figure animation={first.animation} label={`${trainer.name} demonstrating ${first.name}`} />
+            </div>
+            <p className="trainer-hello__bubble">
+              Hi, I&apos;m {trainer.name}! Ready when you are. We&apos;ll start with {first.name.toLowerCase()}.
+            </p>
+          </div>
+        ) : null}
         <RoutineStats body={session.body} />
         <button type="button" className="btn btn--primary btn--lg btn--block" onClick={onStart}>
           <Icon name="play" />
@@ -451,14 +474,21 @@ function DoneView({
   adKey: string | null
   onAgain: () => void
 }) {
+  const settings = useSettings()
+  const cheer = getExercise('jumping-jacks')
   return (
     <div className="player__scroll">
+      <Confetti />
       <div className="done">
-        <span className="done__badge" aria-hidden="true">
-          <Icon name="check" />
-        </span>
+        {cheer ? (
+          <div className="done__stage stage">
+            <Figure animation={cheer.animation} fps={60} label={`${TRAINERS[settings.trainer].name} celebrating`} />
+          </div>
+        ) : null}
         <h1 className="page__title">Workout complete!</h1>
-        <p className="muted">{session.title}</p>
+        <p className="muted">
+          {session.title} · {TRAINERS[settings.trainer].name} is proud of you
+        </p>
         <dl className="routine-stats done__stats">
           <div>
             <dt>Time</dt>
@@ -477,15 +507,17 @@ function DoneView({
             </dd>
           </div>
         </dl>
-        <div className="row row--wrap">
+        <div className="row row--wrap done__actions">
           <Link to="/app" className="btn btn--primary btn--lg">
             Done
           </Link>
           <button type="button" className="btn btn--lg" onClick={onAgain}>
             <Icon name="repeat" />
-            Do it again
+            Again
           </button>
+          <ShareResultButton title={session.title} minutes={Math.max(1, Math.round(durationMs / 60000))} />
         </div>
+        <SupportCard />
         {showAd ? <AdUnit key={adKey ?? 'done'} placement="rest" className="done__ad" /> : null}
       </div>
     </div>

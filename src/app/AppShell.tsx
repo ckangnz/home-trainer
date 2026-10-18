@@ -82,6 +82,11 @@ export function AppShell() {
           <Link to="/exercises">Exercise library</Link>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
+          {SITE.supportUrl ? (
+            <a href={SITE.supportUrl} target="_blank" rel="noreferrer">
+              Support {SITE.name}
+            </a>
+          ) : null}
         </nav>
         <p className="faint">
           {SITE.name} is free and supported by ads. Exercise guidance is general information, not medical advice.

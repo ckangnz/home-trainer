@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react'
+import type { SkinTone, TrainerId } from '@/figure/look'
 
 export interface Settings {
   voice: boolean
@@ -6,6 +7,8 @@ export interface Settings {
   vibration: boolean
   keepAwake: boolean
   voiceName: string | null
+  trainer: TrainerId
+  skin: SkinTone
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -14,7 +17,12 @@ export const DEFAULT_SETTINGS: Settings = {
   vibration: true,
   keepAwake: true,
   voiceName: null,
+  trainer: 'female',
+  skin: 'medium',
 }
+
+const TRAINER_IDS: TrainerId[] = ['female', 'male']
+const SKIN_TONES: SkinTone[] = ['light', 'medium', 'deep']
 
 const KEY = 'hometrainer.settings.v1'
 
@@ -38,6 +46,8 @@ function read(): Settings {
     vibration: typeof stored.vibration === 'boolean' ? stored.vibration : DEFAULT_SETTINGS.vibration,
     keepAwake: typeof stored.keepAwake === 'boolean' ? stored.keepAwake : DEFAULT_SETTINGS.keepAwake,
     voiceName: typeof stored.voiceName === 'string' ? stored.voiceName : null,
+    trainer: TRAINER_IDS.includes(stored.trainer as TrainerId) ? (stored.trainer as TrainerId) : DEFAULT_SETTINGS.trainer,
+    skin: SKIN_TONES.includes(stored.skin as SkinTone) ? (stored.skin as SkinTone) : DEFAULT_SETTINGS.skin,
   }
   return cached
 }

@@ -105,6 +105,8 @@ describe('player machine', () => {
   })
 })
 
+const coach = { nameOf: names, tipOf: (id: string) => (id === 'squat' ? 'Keep your chest lifted.' : undefined), trainer: 'female' as const, trainerName: 'Maya' }
+
 describe('coach cues', () => {
   it('announces work with its target, side, and set', () => {
     expect(workAnnouncement(steps[3] as Extract<PlaybackStep, { kind: 'work' }>, names)).toBe('Push-up, 10 reps, set 1 of 2.')
@@ -113,30 +115,50 @@ describe('coach cues', () => {
     ).toBe('Squat, left side, 1 minute.')
   })
 
-  it('announces entries, halfway, and the final countdown', () => {
+  it('introduces the trainer, starts work, and previews the final exercise', () => {
     const ready = createPlayer(steps)
     const started = startPlayer(ready, 0)
-    expect(cuesBetween(ready, started, 0, 0, names)).toEqual([{ kind: 'say', text: 'Get ready. First up: Squat.' }])
+    const intro = cuesBetween(ready, started, 0, 0, coach)
+    expect(intro).toHaveLength(1)
+    expect(intro[0]).toMatchObject({ kind: 'say', text: expect.stringContaining('Maya') })
+    expect(intro[0]).toMatchObject({ text: expect.stringContaining('Squat') })
+
     const working = tickPlayer(started, 5000)
-    expect(cuesBetween(started, working, 4900, 5000, names)).toEqual([
-      { kind: 'beep', tone: 'go' },
-      { kind: 'say', text: 'Squat, 30 seconds.' },
-    ])
-    expect(cuesBetween(working, working, 19000, 20500, names)).toEqual([{ kind: 'say', text: 'Halfway there.' }])
-    expect(cuesBetween(working, working, 31500, 33500, names)).toEqual([
-      { kind: 'beep', tone: 'count' },
-      { kind: 'beep', tone: 'count' },
-    ])
+    const go = cuesBetween(started, working, 4900, 5000, coach)
+    expect(go[0]).toEqual({ kind: 'beep', tone: 'go' })
+    expect(go[1]).toMatchObject({ kind: 'say', text: expect.stringMatching(/^Squat, 30 seconds\. /) })
+
     const resting = tickPlayer(working, 35000)
-    expect(cuesBetween(working, resting, 34900, 35000, names)).toEqual([{ kind: 'say', text: 'Rest. Next up: Push-up.' }])
+    const rest = cuesBetween(working, resting, 34900, 35000, coach)
+    expect(rest).toEqual([{ kind: 'say', text: expect.stringContaining('Push-up') }])
+  })
+
+  it('coaches during long exercises with a tip, halfway, ten seconds left, and a countdown', () => {
+    const long: PlaybackStep[] = [{ ...(steps[1] as Extract<PlaybackStep, { kind: 'work' }>), target: { kind: 'time', ms: 60000 } }]
+    const running = startPlayer(createPlayer(long), 0)
+    expect(cuesBetween(running, running, 5000, 6500, coach)).toEqual([{ kind: 'say', text: 'Keep your chest lifted.' }])
+    expect(cuesBetween(running, running, 29000, 30500, coach)).toEqual([{ kind: 'say', text: expect.any(String) }])
+    expect(cuesBetween(running, running, 49000, 50500, coach)).toEqual([{ kind: 'say', text: expect.any(String) }])
+    expect(cuesBetween(running, running, 56500, 58500, coach)).toEqual([
+      { kind: 'beep', tone: 'count' },
+      { kind: 'beep', tone: 'count' },
+    ])
+  })
+
+  it('speaks in each trainer\'s own voice', () => {
+    const ready = createPlayer(steps)
+    const started = startPlayer(ready, 0)
+    const maya = cuesBetween(ready, started, 0, 0, coach)
+    const leo = cuesBetween(ready, started, 0, 0, { ...coach, trainer: 'male', trainerName: 'Leo' })
+    expect(maya[0]).not.toEqual(leo[0])
+    expect(leo[0]).toMatchObject({ text: expect.stringContaining('Leo') })
   })
 
   it('celebrates the finish', () => {
     const atReps = nextStep(nextStep(nextStep(startPlayer(createPlayer(steps), 0), 1), 2), 3)
     const finished = completeReps(atReps, 4)
-    expect(cuesBetween(atReps, finished, 3, 4, names)).toEqual([
-      { kind: 'beep', tone: 'end' },
-      { kind: 'say', text: 'Workout complete. Great job!' },
-    ])
+    const cues = cuesBetween(atReps, finished, 3, 4, coach)
+    expect(cues[0]).toEqual({ kind: 'beep', tone: 'end' })
+    expect(cues[1]).toMatchObject({ kind: 'say', text: expect.stringMatching(/complete|wrap|Done/) })
   })
 })

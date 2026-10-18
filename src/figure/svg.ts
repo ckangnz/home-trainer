@@ -1,25 +1,58 @@
-import { along } from './math'
+import type { Look, SkinTone, TrainerId } from './look'
 import type { Part, Tone } from './types'
 import type { Shadow } from './parts'
 import type { ViewBox } from './framing'
 
 export type Palette = Record<Tone | 'floor' | 'shadow' | 'stage', string>
 
-export const DEFAULT_PALETTE: Palette = {
-  skin: '#3d4a66',
-  skinFar: '#97a3bb',
-  shirt: '#f97316',
-  shorts: '#1e293b',
-  shortsFar: '#7d899f',
-  shoe: '#111827',
-  shoeFar: '#8b96ab',
-  hair: '#141b2d',
-  prop: '#9aa8bd',
-  propSoft: '#dde5ef',
-  floor: '#cbd5e1',
-  shadow: '#0f172a',
-  stage: '#f8fafc',
+const SKIN: Record<SkinTone, Pick<Palette, 'skin' | 'skinFar' | 'skinShade'>> = {
+  light: { skin: '#f2c6a3', skinFar: '#dcab85', skinShade: '#c48b62' },
+  medium: { skin: '#cf9466', skinFar: '#b77c4f', skinShade: '#9c6540' },
+  deep: { skin: '#8a5638', skinFar: '#74462c', skinShade: '#5c3620' },
 }
+
+const OUTFIT: Record<TrainerId, Omit<Palette, 'skin' | 'skinFar' | 'skinShade' | 'prop' | 'propSoft' | 'floor' | 'shadow' | 'stage'>> = {
+  female: {
+    top: '#ff6a2b',
+    topFar: '#d9531c',
+    bottom: '#22305a',
+    bottomFar: '#182340',
+    shoe: '#f8fafc',
+    shoeFar: '#d5dce6',
+    sole: '#ff6a2b',
+    hair: '#3a2315',
+    hairShade: '#24150b',
+    eye: '#1f1a17',
+    accent: '#ff6a2b',
+  },
+  male: {
+    top: '#ff6a2b',
+    topFar: '#d9531c',
+    bottom: '#1f2a44',
+    bottomFar: '#161e33',
+    shoe: '#f8fafc',
+    shoeFar: '#d5dce6',
+    sole: '#22305a',
+    hair: '#1c1410',
+    hairShade: '#0f0a07',
+    eye: '#1f1a17',
+    accent: '#ff6a2b',
+  },
+}
+
+export function paletteFor(look: Look): Palette {
+  return {
+    ...SKIN[look.skin],
+    ...OUTFIT[look.trainer],
+    prop: '#9aa8bd',
+    propSoft: '#dde5ef',
+    floor: '#cbd5e1',
+    shadow: '#0f172a',
+    stage: '#f8fafc',
+  }
+}
+
+export const DEFAULT_PALETTE: Palette = paletteFor({ trainer: 'female', skin: 'medium' })
 
 function fixed(value: number): string {
   return Number(value.toFixed(4)).toString()
@@ -29,27 +62,23 @@ export function polyPoints(points: readonly (readonly [number, number])[]): stri
   return points.map((point) => `${fixed(point[0])},${fixed(point[1])}`).join(' ')
 }
 
-export function capPath(part: Extract<Part, { kind: 'cap' }>): string {
-  const start = along(part.center, part.from, part.r)
-  const end = along(part.center, part.to, part.r)
-  const sweep = part.to - part.from
-  const large = Math.abs(sweep) > 180 ? 1 : 0
-  return `M${fixed(start[0])} ${fixed(start[1])}A${fixed(part.r)} ${fixed(part.r)} 0 ${large} 1 ${fixed(end[0])} ${fixed(end[1])}Z`
-}
-
 export function partToSvg(part: Part, palette: Palette): string {
-  const color = palette[part.tone]
   switch (part.kind) {
     case 'seg':
-      return `<line x1="${fixed(part.a[0])}" y1="${fixed(part.a[1])}" x2="${fixed(part.b[0])}" y2="${fixed(part.b[1])}" stroke="${color}" stroke-width="${fixed(part.width)}" stroke-linecap="round"/>`
-    case 'poly':
+      return `<line x1="${fixed(part.a[0])}" y1="${fixed(part.a[1])}" x2="${fixed(part.b[0])}" y2="${fixed(part.b[1])}" stroke="${palette[part.tone]}" stroke-width="${fixed(part.width)}" stroke-linecap="round"/>`
+    case 'poly': {
+      const color = palette[part.tone]
       return part.closed
         ? `<polygon points="${polyPoints(part.points)}" fill="${color}" stroke="${color}" stroke-width="${fixed(part.width)}" stroke-linejoin="round"/>`
         : `<polyline points="${polyPoints(part.points)}" fill="none" stroke="${color}" stroke-width="${fixed(part.width)}" stroke-linejoin="round" stroke-linecap="round"/>`
+    }
     case 'circle':
-      return `<circle cx="${fixed(part.center[0])}" cy="${fixed(part.center[1])}" r="${fixed(part.r)}" fill="${color}"/>`
-    case 'cap':
-      return `<path d="${capPath(part)}" fill="${color}"/>`
+      return `<circle cx="${fixed(part.center[0])}" cy="${fixed(part.center[1])}" r="${fixed(part.r)}" fill="${palette[part.tone]}"/>`
+    case 'path': {
+      const fill = part.tone ? palette[part.tone] : 'none'
+      const stroke = part.outline ? ` stroke="${palette[part.outline]}" stroke-width="${fixed(part.outlineWidth ?? 0.006)}" stroke-linejoin="round" stroke-linecap="round"` : ''
+      return `<path d="${part.d}" fill="${fill}"${stroke}/>`
+    }
   }
 }
 

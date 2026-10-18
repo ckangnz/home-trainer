@@ -1,0 +1,54 @@
+.trainer-picker {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.trainer-picker__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.trainer-option {
+  display: grid;
+  gap: var(--space-1);
+  justify-items: center;
+  padding: var(--space-2) var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  cursor: pointer;
+  text-align: center;
+}
+
+.trainer-option[aria-checked='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.trainer-option__stage {
+  width: 100%;
+}
+
+.trainer-option__name {
+  font-weight: 750;
+  font-size: var(--text-lg);
+}
+
+.trainer-picker__skins {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.skin-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-border-strong);
+  cursor: pointer;
+}
+
+.skin-swatch[aria-checked='true'] {
+  box-shadow: 0 0 0 3px var(--color-accent);
+}

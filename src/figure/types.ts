@@ -122,12 +122,18 @@ export interface Skeleton {
 export type Tone =
   | 'skin'
   | 'skinFar'
-  | 'shirt'
-  | 'shorts'
-  | 'shortsFar'
+  | 'skinShade'
+  | 'top'
+  | 'topFar'
+  | 'bottom'
+  | 'bottomFar'
   | 'shoe'
   | 'shoeFar'
+  | 'sole'
   | 'hair'
+  | 'hairShade'
+  | 'eye'
+  | 'accent'
   | 'prop'
   | 'propSoft'
 
@@ -135,4 +141,4 @@ export type Part =
   | { kind: 'seg'; id: string; a: Vec2; b: Vec2; width: number; tone: Tone }
   | { kind: 'poly'; id: string; points: Vec2[]; width: number; tone: Tone; closed: boolean }
   | { kind: 'circle'; id: string; center: Vec2; r: number; tone: Tone }
-  | { kind: 'cap'; id: string; center: Vec2; r: number; from: number; to: number; tone: Tone }
+  | { kind: 'path'; id: string; d: string; points: Vec2[]; tone: Tone | null; outline?: Tone; outlineWidth?: number }

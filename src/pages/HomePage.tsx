@@ -10,6 +10,8 @@ import { CURATED_WORKOUTS, getCuratedWorkout } from '@/workouts/curated'
 import { estimateDurationMs, formatDuration } from '@/workouts/steps'
 import type { Routine } from '@/workouts/types'
 import { WorkoutCard } from '@/components/WorkoutCard'
+import { TRAINERS } from '@/figure/look'
+import { useSettings } from '@/settings/settings'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import './home.css'
@@ -76,6 +78,8 @@ export function HomePage() {
   const week = lastDays(completions, today)
   const firstName = user?.displayName?.split(' ')[0]
   const classic = getCuratedWorkout('classic-7-minute')
+  const settings = useSettings()
+  const cheer = getExercise('jumping-jacks')
 
   return (
     <div className="page">
@@ -113,13 +117,20 @@ export function HomePage() {
         </div>
         {classic ? (
           <Link to={`/app/play/workout/${classic.id}`} className="quick-start card">
-            <span className="badge badge--accent">Quick start</span>
-            <h2 className="quick-start__title">{classic.name}</h2>
-            <p className="muted">{classic.summary}</p>
-            <span className="btn btn--primary">
-              <Icon name="play" />
-              Start now
-            </span>
+            <div className="quick-start__text">
+              <span className="badge badge--accent">Quick start with {TRAINERS[settings.trainer].name}</span>
+              <h2 className="quick-start__title">{classic.name}</h2>
+              <p className="muted">{classic.summary}</p>
+              <span className="btn btn--primary">
+                <Icon name="play" />
+                Start now
+              </span>
+            </div>
+            {cheer ? (
+              <div className="quick-start__stage stage">
+                <Figure animation={cheer.animation} label={`${TRAINERS[settings.trainer].name} warming up`} />
+              </div>
+            ) : null}
           </Link>
         ) : null}
       </section>

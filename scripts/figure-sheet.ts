@@ -3,7 +3,8 @@ import { join, resolve } from 'node:path'
 import { prepareAnimation, sampleSkeleton, thumbSkeleton } from '../src/figure/animate'
 import { animationBounds, viewBoxFor } from '../src/figure/framing'
 import { propParts, shadowFor, skeletonParts } from '../src/figure/parts'
-import { DEFAULT_PALETTE, sceneToSvg } from '../src/figure/svg'
+import { paletteFor, sceneToSvg } from '../src/figure/svg'
+import type { Look } from '../src/figure/look'
 import { EXERCISES } from '../src/exercises'
 import { BASE_POSES } from '../src/exercises/kit'
 import type { Exercise } from '../src/exercises/types'
@@ -32,6 +33,11 @@ const source = process.env.BASES
     ? Object.values(await catalogs[`../src/exercises/catalog/${only}.ts`]()).flat()
     : EXERCISES
 
+const look: Look = {
+  trainer: process.env.LOOK === 'male' ? 'male' : 'female',
+  skin: process.env.SKIN === 'light' || process.env.SKIN === 'deep' ? process.env.SKIN : 'medium',
+}
+const palette = paletteFor(look)
 const FRAMES = Number(process.env.FRAMES ?? 8)
 const CELL = Number(process.env.CELL ?? 220)
 const outDir = resolve(process.argv[2] ?? 'figure-sheets')
@@ -63,7 +69,8 @@ selected.forEach((exercise, rowIndex) => {
       const skeleton = sampleSkeleton(prepared, time)
       const svg = sceneToSvg({
         viewBox,
-        parts: skeletonParts(skeleton),
+        parts: skeletonParts(skeleton, look),
+        palette,
         back: props.back,
         under: props.under,
         shadow: shadowFor(skeleton),
@@ -88,7 +95,7 @@ if (GRID > 0) {
     const viewBox = viewBoxFor(animationBounds(prepared), 1)
     const props = propParts(prepared.props)
     const skeleton = process.env.AT === 'thumb' ? thumbSkeleton(prepared) : sampleSkeleton(prepared, Number(process.env.AT ?? 0) * prepared.cycleMs)
-    const svg = sceneToSvg({ viewBox, parts: skeletonParts(skeleton), back: props.back, under: props.under, shadow: shadowFor(skeleton), pixelWidth: CELL })
+    const svg = sceneToSvg({ viewBox, parts: skeletonParts(skeleton, look), back: props.back, under: props.under, shadow: shadowFor(skeleton), palette, pixelWidth: CELL })
     const x = (index % GRID) * (CELL + 8)
     const y = Math.floor(index / GRID) * (CELL + 26)
     return `<g transform="translate(${x},${y})"><text x="4" y="15" font-size="13" fill="#f1f5f9" font-family="Helvetica">${escapeXml(exercise.name)}</text>${svg.replace('<svg ', '<svg x="0" y="22" ')}</g>`
