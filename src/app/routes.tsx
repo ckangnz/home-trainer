@@ -52,7 +52,7 @@ export function AppRoutes() {
       <Route
         path="/app/play/:kind/:id"
         element={
-          <RequireAuth>
+          <RequireAuth guestWhenUnconfigured>
             <Loading>
               <PlayerPage />
             </Loading>
@@ -69,6 +69,16 @@ export function AppRoutes() {
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="terms" element={<TermsPage />} />
         <Route
+          path="app/settings"
+          element={
+            <RequireAuth guestWhenUnconfigured>
+              <Loading>
+                <SettingsPage />
+              </Loading>
+            </RequireAuth>
+          }
+        />
+        <Route
           path="app"
           element={
             <RequireAuth>
@@ -82,7 +92,6 @@ export function AppRoutes() {
           <Route path="routines/new" element={<RoutineEditorPage />} />
           <Route path="routines/:id" element={<RoutineEditorPage />} />
           <Route path="history" element={<HistoryPage />} />
-          <Route path="settings" element={<SettingsPage />} />
           <Route path="import" element={<ImportPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

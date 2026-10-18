@@ -26,6 +26,8 @@ const PUBLIC_NAV: NavItem[] = [
   { to: '/exercises', label: 'Exercises', icon: 'grid' },
 ]
 
+const GUEST_NAV: NavItem[] = [...PUBLIC_NAV, { to: '/app/settings', label: 'Settings', icon: 'settings' }]
+
 function Avatar() {
   const { user } = useAuth()
   const initial = (user?.displayName ?? user?.email ?? '?').trim().charAt(0).toUpperCase()
@@ -39,7 +41,7 @@ function Avatar() {
 export function AppShell() {
   const { status, signIn } = useAuth()
   const signedIn = status === 'signed-in'
-  const nav = signedIn ? SIGNED_IN_NAV : PUBLIC_NAV
+  const nav = signedIn ? SIGNED_IN_NAV : status === 'unconfigured' ? GUEST_NAV : PUBLIC_NAV
 
   return (
     <div className="shell">

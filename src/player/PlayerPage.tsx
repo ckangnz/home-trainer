@@ -4,6 +4,7 @@ import { getExercise } from '@/exercises'
 import type { Exercise } from '@/exercises/types'
 import { Figure } from '@/figure/Figure'
 import { useData } from '@/data/DataProvider'
+import { useAuth } from '@/auth/AuthProvider'
 import type { CompletionSource } from '@/data/models'
 import { summarizeStreak } from '@/history/streaks'
 import { AdUnit } from '@/ads/AdUnit'
@@ -35,6 +36,7 @@ type Resolution = { status: 'loading' } | { status: 'missing' } | { status: 'rea
 
 function useSession(kind: string, id: string): Resolution {
   const { ready, getRoutine } = useData()
+  const { status } = useAuth()
   if (kind === 'workout') {
     const workout = getCuratedWorkout(id)
     return workout
@@ -54,6 +56,9 @@ function useSession(kind: string, id: string): Resolution {
     return { status: 'ready', session: { title: exercise.name, body, source: { kind: 'exercise', id }, exitTo: `/exercises/${id}` } }
   }
   if (kind === 'routine') {
+    if (status !== 'signed-in' && status !== 'loading') {
+      return { status: 'missing' }
+    }
     if (!ready) {
       return { status: 'loading' }
     }

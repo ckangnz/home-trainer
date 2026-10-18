@@ -36,8 +36,9 @@ export function ExerciseDetailPage() {
 
   const related = EXERCISES.filter((candidate) => candidate.id !== exercise.id && candidate.category === exercise.category).slice(0, 6)
   const signedIn = status === 'signed-in'
+  const guest = status === 'unconfigured'
   const requireSignIn = (action: () => void) => {
-    if (signedIn) {
+    if (signedIn || guest) {
       action()
     } else {
       void signIn().then((ok) => {

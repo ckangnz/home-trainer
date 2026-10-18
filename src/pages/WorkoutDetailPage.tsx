@@ -19,8 +19,9 @@ export function WorkoutDetailPage() {
   }
 
   const signedIn = status === 'signed-in'
+  const guest = status === 'unconfigured'
   const whenSignedIn = (action: () => void) => {
-    if (signedIn) {
+    if (signedIn || guest) {
       action()
     } else {
       void signIn().then((ok) => {

@@ -42,16 +42,19 @@ function SetupNotice() {
       <div className="card stack">
         <h1 className="page__title">Firebase is not configured</h1>
         <p className="muted">
-          Copy <code>.env.example</code> to <code>.env.local</code>, add your Firebase web configuration, and restart the
-          dev server. The public exercise library and workouts work without it.
+          Copy <code>env.example</code> to <code>.env.local</code> (or add the <code>VITE_FIREBASE_*</code> repository
+          secrets), add your Firebase web configuration, and rebuild. Workouts, exercises, and settings work without it.
         </p>
       </div>
     </section>
   )
 }
 
-export function RequireAuth({ children }: { children?: ReactNode }) {
+export function RequireAuth({ children, guestWhenUnconfigured = false }: { children?: ReactNode; guestWhenUnconfigured?: boolean }) {
   const { status } = useAuth()
+  if (status === 'unconfigured' && guestWhenUnconfigured) {
+    return children ? <>{children}</> : <Outlet />
+  }
   if (status === 'loading') {
     return (
       <div className="center" role="status" aria-label="Loading">

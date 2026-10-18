@@ -38,7 +38,7 @@ function useVoices(): SpeechSynthesisVoice[] {
 
 export function SettingsPage() {
   usePageMeta('Settings')
-  const { user, signOut } = useAuth()
+  const { user, signOut, status } = useAuth()
   const settings = useSettings()
   const voices = useVoices()
 
@@ -92,6 +92,7 @@ export function SettingsPage() {
         </div>
       </section>
 
+      {status === 'signed-in' ? (
       <section className="card stack">
         <h2 className="section__title">Account</h2>
         <p className="muted">Signed in as {user?.email ?? user?.displayName ?? 'your Google account'}.</p>
@@ -107,6 +108,7 @@ export function SettingsPage() {
           </button>
         </div>
       </section>
+      ) : null}
 
       <section className="card stack">
         <h2 className="section__title">About</h2>
