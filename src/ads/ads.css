@@ -1,0 +1,25 @@
+.ad-unit {
+  display: grid;
+  gap: var(--space-1);
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.ad-unit__label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+.ad-unit__placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 120px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}

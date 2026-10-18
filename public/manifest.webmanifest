@@ -1,0 +1,23 @@
+{
+  "name": "HomeTrainer — Free 7-Minute Workouts",
+  "short_name": "HomeTrainer",
+  "description": "Free 7-minute workouts with animated guides, a voice coach, and routines you can share.",
+  "id": "./app",
+  "start_url": "./app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "categories": ["health", "fitness", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "7-minute workout", "url": "./app/play/workout/classic-7-minute" },
+    { "name": "My routines", "url": "./app" }
+  ]
+}

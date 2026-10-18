@@ -1,0 +1,52 @@
+.figure {
+  --fig-skin: #3d4a66;
+  --fig-skinFar: #97a3bb;
+  --fig-shirt: var(--color-figure-shirt, #f97316);
+  --fig-shorts: #1e293b;
+  --fig-shortsFar: #7d899f;
+  --fig-shoe: #111827;
+  --fig-shoeFar: #8b96ab;
+  --fig-hair: #141b2d;
+  --fig-prop: #9aa8bd;
+  --fig-propSoft: #dde5ef;
+  --fig-floor: #cbd5e1;
+  --fig-shadow: #0f172a;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.fig-nofill {
+  fill: none;
+}
+
+.fig-floor {
+  stroke: var(--fig-floor);
+  stroke-width: 0.012;
+}
+
+.fig-shadow {
+  fill: var(--fig-shadow);
+}
+
+.fig-s-skin { stroke: var(--fig-skin); }
+.fig-f-skin { fill: var(--fig-skin); }
+.fig-s-skinFar { stroke: var(--fig-skinFar); }
+.fig-f-skinFar { fill: var(--fig-skinFar); }
+.fig-s-shirt { stroke: var(--fig-shirt); }
+.fig-f-shirt { fill: var(--fig-shirt); }
+.fig-s-shorts { stroke: var(--fig-shorts); }
+.fig-f-shorts { fill: var(--fig-shorts); }
+.fig-s-shortsFar { stroke: var(--fig-shortsFar); }
+.fig-f-shortsFar { fill: var(--fig-shortsFar); }
+.fig-s-shoe { stroke: var(--fig-shoe); }
+.fig-f-shoe { fill: var(--fig-shoe); }
+.fig-s-shoeFar { stroke: var(--fig-shoeFar); }
+.fig-f-shoeFar { fill: var(--fig-shoeFar); }
+.fig-s-hair { stroke: var(--fig-hair); }
+.fig-f-hair { fill: var(--fig-hair); }
+.fig-s-prop { stroke: var(--fig-prop); }
+.fig-f-prop { fill: var(--fig-prop); }
+.fig-s-propSoft { stroke: var(--fig-propSoft); }
+.fig-f-propSoft { fill: var(--fig-propSoft); }

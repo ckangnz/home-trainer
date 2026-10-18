@@ -1,0 +1,44 @@
+.timer-ring {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  flex: none;
+}
+
+.timer-ring--lg {
+  width: min(58vw, 240px);
+  height: min(58vw, 240px);
+}
+
+.timer-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.timer-ring__track {
+  fill: none;
+  stroke: var(--color-surface-3);
+  stroke-width: 9;
+}
+
+.timer-ring__value {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 9;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 120ms linear;
+}
+
+.timer-ring--rest .timer-ring__value {
+  stroke: var(--color-rest);
+}
+
+.timer-ring__center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}

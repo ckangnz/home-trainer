@@ -1,0 +1,138 @@
+import type { Easing, Vec2 } from './math'
+
+export type View = 'side' | 'front'
+
+export type LimbId = 'armL' | 'armR' | 'legL' | 'legR'
+
+export type LimbSide = 'L' | 'R'
+
+export type Triple = readonly [number, number, number?]
+
+export interface Reach {
+  at: Vec2
+  angle?: number
+  bend?: 1 | -1
+  point?: 'end' | 'tip' | 'heel'
+}
+
+export type LimbSpec = Triple | Reach
+
+export type JointId =
+  | 'hip'
+  | 'waist'
+  | 'neck'
+  | 'head'
+  | 'shoulderL'
+  | 'elbowL'
+  | 'wristL'
+  | 'handL'
+  | 'hipL'
+  | 'kneeL'
+  | 'ankleL'
+  | 'toeL'
+  | 'heelL'
+  | 'shoulderR'
+  | 'elbowR'
+  | 'wristR'
+  | 'handR'
+  | 'hipR'
+  | 'kneeR'
+  | 'ankleR'
+  | 'toeR'
+  | 'heelR'
+
+export type SegmentId =
+  | 'lowerSpine'
+  | 'upperSpine'
+  | 'upperArmL'
+  | 'forearmL'
+  | 'handL'
+  | 'thighL'
+  | 'shinL'
+  | 'footL'
+  | 'upperArmR'
+  | 'forearmR'
+  | 'handR'
+  | 'thighR'
+  | 'shinR'
+  | 'footR'
+
+export type Anchor = { joint: JointId; at: Vec2 } | 'ground'
+
+export interface PoseSpec {
+  root?: Vec2
+  torso?: number
+  spine?: number
+  neck?: number
+  armL?: LimbSpec
+  armR?: LimbSpec
+  legL?: LimbSpec
+  legR?: LimbSpec
+  anchor?: Anchor
+  scale?: Partial<Record<SegmentId, number>>
+}
+
+export interface Keyframe {
+  pose: PoseSpec
+  ms: number
+  hold?: number
+  ease?: Easing
+}
+
+export type Prop =
+  | { kind: 'chair'; x: number; facing: 1 | -1 }
+  | { kind: 'wall'; x: number; side: 1 | -1 }
+  | { kind: 'mat'; x0: number; x1: number }
+
+export interface FigureAnimation {
+  view: View
+  keyframes: Keyframe[]
+  props?: Prop[]
+  thumb?: number
+}
+
+export interface Skeleton {
+  view: View
+  points: Record<JointId, Vec2>
+  phi: {
+    lowerSpine: number
+    upperSpine: number
+    head: number
+    upperArmL: number
+    forearmL: number
+    handL: number
+    thighL: number
+    shinL: number
+    footL: number
+    upperArmR: number
+    forearmR: number
+    handR: number
+    thighR: number
+    shinR: number
+    footR: number
+  }
+  rel: {
+    torso: number
+    spine: number
+    neck: number
+    limbs: Record<LimbId, readonly [number, number, number]>
+  }
+}
+
+export type Tone =
+  | 'skin'
+  | 'skinFar'
+  | 'shirt'
+  | 'shorts'
+  | 'shortsFar'
+  | 'shoe'
+  | 'shoeFar'
+  | 'hair'
+  | 'prop'
+  | 'propSoft'
+
+export type Part =
+  | { kind: 'seg'; id: string; a: Vec2; b: Vec2; width: number; tone: Tone }
+  | { kind: 'poly'; id: string; points: Vec2[]; width: number; tone: Tone; closed: boolean }
+  | { kind: 'circle'; id: string; center: Vec2; r: number; tone: Tone }
+  | { kind: 'cap'; id: string; center: Vec2; r: number; from: number; to: number; tone: Tone }
