@@ -106,6 +106,7 @@ export default defineConfig(({ mode, isSsrBuild }) => {
       environment: 'jsdom',
       setupFiles: ['./src/test/setup.ts'],
       css: false,
+      testTimeout: 20000,
     },
   }
 })

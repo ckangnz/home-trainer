@@ -1,5 +1,6 @@
 import { sampleSkeleton, type PreparedAnimation } from './animate'
-import { partExtent, propParts, skeletonParts } from './parts'
+import { partExtent, propParts } from './parts'
+import type { JointId } from './types'
 
 export interface Bounds {
   minX: number
@@ -18,6 +19,15 @@ export interface ViewBox {
 
 const boundsCache = new WeakMap<PreparedAnimation, Bounds>()
 
+const JOINT_MARGIN: Partial<Record<JointId, number>> = {
+  head: 0.22,
+  hip: 0.13,
+  waist: 0.12,
+  neck: 0.12,
+}
+
+const DEFAULT_MARGIN = 0.085
+
 export function animationBounds(prepared: PreparedAnimation, samples = 36): Bounds {
   const cached = boundsCache.get(prepared)
   if (cached) {
@@ -33,10 +43,10 @@ export function animationBounds(prepared: PreparedAnimation, samples = 36): Boun
   const count = prepared.cycleMs > 0 ? samples : 1
   for (let index = 0; index < count; index += 1) {
     const skeleton = sampleSkeleton(prepared, (prepared.cycleMs * index) / count)
-    for (const part of skeletonParts(skeleton)) {
-      for (const point of partExtent(part)) {
-        include(point[0], point[1])
-      }
+    for (const [joint, point] of Object.entries(skeleton.points) as [JointId, readonly [number, number]][]) {
+      const margin = JOINT_MARGIN[joint] ?? DEFAULT_MARGIN
+      include(point[0] - margin, point[1] - margin)
+      include(point[0] + margin, point[1] + margin)
     }
   }
   const props = propParts(prepared.props)
