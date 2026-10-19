@@ -68,11 +68,5 @@ export function GoogleMark() {
 }
 
 export function BrandMark() {
-  return (
-    <svg viewBox="0 0 32 32" className="brand-mark" aria-hidden="true">
-      <rect width="32" height="32" rx="9" fill="var(--color-accent)" />
-      <circle cx="19" cy="8.5" r="3" fill="#210c02" />
-      <path d="M17.5 12.5 13 18l4 2.5-3 6M17.5 12.5l4 4.5 3-1.5M13 18l-4.5.5" stroke="#210c02" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
-  )
+  return <img src={`${import.meta.env.BASE_URL}icons/icon.svg`} className="brand-mark" width={30} height={30} alt="" />
 }
