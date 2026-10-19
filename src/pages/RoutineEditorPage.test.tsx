@@ -49,6 +49,13 @@ async function renderEditor(path = '/app/routines/new') {
   return screen.findByLabelText('Workout name')
 }
 
+function choose(picker: HTMLElement, search: string, name: RegExp): HTMLElement {
+  fireEvent.change(within(picker).getByRole('searchbox'), { target: { value: search } })
+  const button = within(picker).getByRole('button', { name })
+  fireEvent.click(button)
+  return button
+}
+
 describe('routine editor', () => {
   beforeEach(() => {
     saved.length = 0
@@ -60,7 +67,7 @@ describe('routine editor', () => {
     fireEvent.change(name, { target: { value: 'Leg day' } })
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    choose(picker, 'squat', /^Squat\s*Legs/)
     fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
 
     fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
@@ -89,8 +96,8 @@ describe('routine editor', () => {
 
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /^Push-up\s*Upper body/ }))
+    choose(picker, 'jumping jacks', /Jumping jacks/)
+    choose(picker, 'push-up', /^Push-up\s*Upper body/)
     fireEvent.click(within(picker).getByRole('button', { name: /^Add 2 exercises/ }))
 
     const pushUp = screen.getByRole('button', { name: /^Push-up/, expanded: false })
@@ -118,8 +125,8 @@ describe('routine editor', () => {
     await renderEditor()
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    choose(picker, 'jumping jacks', /Jumping jacks/)
+    choose(picker, 'squat', /^Squat\s*Legs/)
     fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
 
     fireEvent.click(screen.getAllByRole('button', { name: 'Move up' })[1])
@@ -149,7 +156,7 @@ describe('routine editor', () => {
     await renderEditor()
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    choose(picker, 'squat', /^Squat\s*Legs/)
     fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
     fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
     fireEvent.click(screen.getByRole('button', { name: 'Reps', pressed: false }))
@@ -165,20 +172,17 @@ describe('routine editor', () => {
     await renderEditor()
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     let picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    const squat = within(picker).getByRole('button', { name: /^Squat\s*Legs/ })
-    fireEvent.click(squat)
-    expect(squat).toHaveAttribute('aria-pressed', 'true')
+    expect(choose(picker, 'squat', /^Squat\s*Legs/)).toHaveAttribute('aria-pressed', 'true')
     expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
-    fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
-    fireEvent.click(squat)
-    expect(squat).toHaveAttribute('aria-pressed', 'false')
+    choose(picker, 'jumping jacks', /Jumping jacks/)
+    expect(choose(picker, 'squat', /^Squat\s*Legs/)).toHaveAttribute('aria-pressed', 'false')
     fireEvent.click(within(picker).getByRole('button', { name: /^Add 1 exercise$/ }))
     expect(screen.getByRole('button', { name: /^Jumping jacks/, expanded: false })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: /Add more exercises/ }))
     picker = await screen.findByRole('dialog', { name: 'Add exercises' })
-    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    choose(picker, 'squat', /^Squat\s*Legs/)
     fireEvent.click(within(picker).getByRole('button', { name: 'Close' }))
     expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
   })
