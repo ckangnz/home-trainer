@@ -34,6 +34,7 @@ export const app = {
     },
   },
   history: {
+    saveToHealth: 'Health',
     title: 'History',
     currentStreak: 'Current streak',
     bestStreak: 'Best streak',

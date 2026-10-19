@@ -5,7 +5,7 @@ import { Icon } from '@/app/Icons'
 import { detectPlatform } from '@/app/platform'
 import { useFormat, useT } from '@/i18n'
 import { richText } from '@/i18n/richText'
-import { SHORTCUT_NAME, appleWorkoutType, buildTcx, exportFileName, shortcutUrl, type HealthWorkout } from './export'
+import { SHORTCUT_INSTALL_URL, SHORTCUT_NAME, appleWorkoutType, buildTcx, exportFileName, shortcutUrl, type HealthWorkout } from './export'
 import './health.css'
 
 const TIME_OPTIONS: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: '2-digit' }
@@ -65,8 +65,14 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
         <Icon name="heart" />
         {t('social.health.sendToApple')}
       </a>
+      {SHORTCUT_INSTALL_URL ? (
+        <a className="btn btn--small" href={SHORTCUT_INSTALL_URL} target="_blank" rel="noreferrer">
+          <Icon name="download" />
+          {t('social.health.getShortcut')}
+        </a>
+      ) : null}
       <button type="button" className="btn btn--ghost btn--small" aria-expanded={setup} onClick={() => setSetup((value) => !value)}>
-        {setup ? t('social.health.hideSetup') : t('social.health.showSetup')}
+        {setup ? t('social.health.hideSetup') : SHORTCUT_INSTALL_URL ? t('social.health.buildYourself') : t('social.health.showSetup')}
       </button>
       {setup ? (
         <ol className="health-steps">

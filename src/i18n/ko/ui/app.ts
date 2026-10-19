@@ -37,6 +37,7 @@ export const app = {
     },
   },
   history: {
+    saveToHealth: '건강 앱',
     title: '기록',
     currentStreak: '현재 연속 기록',
     bestStreak: '최고 연속 기록',

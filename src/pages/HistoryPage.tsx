@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
 import { groupByDay, summarizeStreak } from '@/history/streaks'
@@ -8,6 +8,9 @@ import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import { useContent, useFormat, useT, type Localizer } from '@/i18n'
 import { AdUnit } from '@/ads/AdUnit'
+import { ShareResultButton } from '@/components/Support'
+import { HealthExportDialog } from '@/health/HealthExportDialog'
+import { healthWorkoutFrom } from '@/health/fromCompletion'
 import './history.css'
 
 const DAY_FORMAT: Intl.DateTimeFormatOptions = { weekday: 'long', month: 'short', day: 'numeric' }
@@ -30,6 +33,7 @@ export function HistoryPage() {
   const content = useContent()
   usePageMeta(t('app.history.title'))
   const { completions, removeCompletion, ready } = useData()
+  const [exporting, setExporting] = useState<{ entry: Completion; title: string } | null>(null)
   const today = useMemo(() => new Date(), [])
   const streak = summarizeStreak(completions, today)
   const totalMs = completions.reduce((sum, completion) => sum + completion.durationMs, 0)
@@ -90,18 +94,25 @@ export function HistoryPage() {
                           {t('app.history.moves', { done: entry.exercises, total: entry.totalExercises })}
                         </span>
                       </div>
-                      <button
-                        type="button"
-                        className="btn btn--ghost btn--icon"
-                        aria-label={t('app.history.removeName', { name: title })}
-                        onClick={() => {
-                          if (window.confirm(t('app.history.confirmRemove'))) {
-                            removeCompletion(entry.id)
-                          }
-                        }}
-                      >
-                        <Icon name="trash" />
-                      </button>
+                      <div className="history-entry__actions">
+                        <button type="button" className="btn btn--small" onClick={() => setExporting({ entry, title })}>
+                          <Icon name="heart" />
+                          {t('app.history.saveToHealth')}
+                        </button>
+                        <ShareResultButton title={title} minutes={Math.max(1, Math.round(entry.durationMs / 60000))} className="btn btn--small" />
+                        <button
+                          type="button"
+                          className="btn btn--ghost btn--icon"
+                          aria-label={t('app.history.removeName', { name: title })}
+                          onClick={() => {
+                            if (window.confirm(t('app.history.confirmRemove'))) {
+                              removeCompletion(entry.id)
+                            }
+                          }}
+                        >
+                          <Icon name="trash" />
+                        </button>
+                      </div>
                     </li>
                   )
                 })}
@@ -110,6 +121,9 @@ export function HistoryPage() {
           ))}
         </div>
       )}
+      {exporting ? (
+        <HealthExportDialog workout={healthWorkoutFrom(exporting.entry, exporting.title)} open onClose={() => setExporting(null)} />
+      ) : null}
     </div>
   )
 }

@@ -49,6 +49,15 @@ service cloud.firestore {
       allow delete: if isOwner(userId);
     }
 
+    match /users/{userId}/private/settings {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasOnly(['settings', 'updatedAt'])
+        && request.resource.data.settings is map
+        && request.resource.data.settings.keys().hasOnly(['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'language'])
+        && request.resource.data.updatedAt is number;
+    }
+
     match /users/{userId}/friends/{friendId} {
       allow read: if isOwner(userId);
       allow create: if isSignedIn()

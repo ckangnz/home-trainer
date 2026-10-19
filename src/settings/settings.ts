@@ -37,18 +37,14 @@ const KEY = 'hometrainer.settings.v1'
 const listeners = new Set<() => void>()
 let cached: Settings | null = null
 
-function read(): Settings {
-  if (cached) {
-    return cached
-  }
-  let stored: Partial<Settings> = {}
-  try {
-    const raw = typeof localStorage === 'undefined' ? null : localStorage.getItem(KEY)
-    stored = raw ? (JSON.parse(raw) as Partial<Settings>) : {}
-  } catch {
-    stored = {}
-  }
-  cached = {
+export const SYNCED_KEYS = ['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'language'] as const
+
+export type SyncedSettings = Pick<Settings, (typeof SYNCED_KEYS)[number]>
+
+const UPDATED_KEY = 'hometrainer.settings.updatedAt'
+
+export function normalizeSettings(stored: Partial<Record<keyof Settings, unknown>>): Settings {
+  return {
     voice: typeof stored.voice === 'boolean' ? stored.voice : DEFAULT_SETTINGS.voice,
     beeps: typeof stored.beeps === 'boolean' ? stored.beeps : DEFAULT_SETTINGS.beeps,
     vibration: typeof stored.vibration === 'boolean' ? stored.vibration : DEFAULT_SETTINGS.vibration,
@@ -64,7 +60,64 @@ function read(): Settings {
       ? (stored.language as LanguagePreference)
       : DEFAULT_SETTINGS.language,
   }
+}
+
+export function syncedPart(settings: Settings): SyncedSettings {
+  const part = {} as Record<string, unknown>
+  for (const key of SYNCED_KEYS) {
+    part[key] = settings[key]
+  }
+  return part as SyncedSettings
+}
+
+function read(): Settings {
+  if (cached) {
+    return cached
+  }
+  let stored: Partial<Settings> = {}
+  try {
+    const raw = typeof localStorage === 'undefined' ? null : localStorage.getItem(KEY)
+    stored = raw ? (JSON.parse(raw) as Partial<Settings>) : {}
+  } catch {
+    stored = {}
+  }
+  cached = normalizeSettings(stored)
   return cached
+}
+
+let updatedAt: number | null = null
+
+export function settingsUpdatedAt(): number {
+  if (updatedAt === null) {
+    const raw = typeof localStorage === 'undefined' ? null : localStorage.getItem(UPDATED_KEY)
+    updatedAt = raw ? Number(raw) || 0 : 0
+  }
+  return updatedAt
+}
+
+function persist(next: Settings, at: number): void {
+  cached = next
+  updatedAt = at
+  try {
+    localStorage.setItem(KEY, JSON.stringify(next))
+    localStorage.setItem(UPDATED_KEY, String(at))
+  } catch {
+    return
+  }
+}
+
+export function stampSettings(): number {
+  const at = Date.now()
+  persist(read(), at)
+  return at
+}
+
+export function applyRemoteSettings(remote: Partial<Record<keyof Settings, unknown>>, at: number): void {
+  const current = read()
+  persist(normalizeSettings({ ...current, ...syncedPart(normalizeSettings(remote)), voiceName: current.voiceName }), at)
+  for (const listener of listeners) {
+    listener()
+  }
 }
 
 export function getSettings(): Settings {
@@ -72,12 +125,10 @@ export function getSettings(): Settings {
 }
 
 export function updateSettings(patch: Partial<Settings>): void {
-  cached = { ...read(), ...patch }
-  try {
-    localStorage.setItem(KEY, JSON.stringify(cached))
-  } catch {
-    // Settings still apply for this session when storage is unavailable.
-  }
+  const previous = read()
+  const next = { ...previous, ...patch }
+  const changed = SYNCED_KEYS.some((key) => next[key] !== previous[key])
+  persist(next, changed ? Date.now() : settingsUpdatedAt())
   for (const listener of listeners) {
     listener()
   }

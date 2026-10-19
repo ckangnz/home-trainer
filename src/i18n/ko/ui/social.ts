@@ -149,6 +149,8 @@ export const social = {
     appleHealth: 'Apple 건강',
     appleExplain: '무료 단축어 앱으로 시작 시간, 운동 시간, 활동 칼로리와 함께 {type} 운동을 기록해요.',
     sendToApple: 'Apple 건강으로 보내기',
+    getShortcut: '처음인가요? 단축어 받기',
+    buildYourself: '직접 만들기',
     hideSetup: '설정 방법 숨기기',
     showSetup: '처음인가요? 단축어 설정하기',
     step1: '{shortcuts} 앱을 열고 {plus}를 탭한 다음, 단축어 이름을 {name}(으)로 지정해요.',

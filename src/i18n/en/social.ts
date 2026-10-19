@@ -149,6 +149,8 @@ export const social = {
     appleHealth: 'Apple Health',
     appleExplain: 'Logs a {type} workout with its start time, duration, and active calories using the free Shortcuts app.',
     sendToApple: 'Send to Apple Health',
+    getShortcut: 'First time? Get the shortcut',
+    buildYourself: 'Or build it yourself',
     hideSetup: 'Hide setup',
     showSetup: 'First time? Set up the shortcut',
     step1: 'Open {shortcuts}, tap {plus}, and name the shortcut {name}.',

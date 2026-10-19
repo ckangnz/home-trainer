@@ -12,6 +12,10 @@ export interface HealthWorkout {
 
 export const SHORTCUT_NAME = 'HomeTrainer to Health'
 
+const INSTALL_URL = import.meta.env.VITE_HEALTH_SHORTCUT_URL?.trim() ?? ''
+
+export const SHORTCUT_INSTALL_URL = /^https:\/\/www\.icloud\.com\/shortcuts\/[0-9a-f]+/i.test(INSTALL_URL) ? INSTALL_URL : ''
+
 const APPLE_TYPE: Record<Category, string> = {
   cardio: 'High Intensity Interval Training',
   fullBody: 'Functional Strength Training',
