@@ -71,6 +71,7 @@ describe('player machine', () => {
     const finished = completeReps(atReps, 9000)
     expect(finished.status).toBe('finished')
     expect(finished.completedWork).toBe(2)
+    expect(finished.workLog.map((entry) => entry.ms)).toEqual([1000, 6000])
   })
 
   it('restarts the current exercise or goes back one exercise', () => {
@@ -81,9 +82,11 @@ describe('player machine', () => {
     const atRest = tickPlayer(restarted, 45000)
     expect(atRest.index).toBe(2)
     expect(atRest.completedWork).toBe(1)
+    expect(atRest.workLog).toEqual([{ exerciseId: atRest.steps[1].kind === 'work' ? atRest.steps[1].exerciseId : '', ms: 30000 }])
     const back = previousStep(atRest, 46000)
     expect(back.index).toBe(1)
     expect(back.completedWork).toBe(0)
+    expect(back.workLog).toEqual([])
   })
 
   it('extends only pause steps', () => {

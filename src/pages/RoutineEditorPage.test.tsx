@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, within } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ReactNode } from 'react'
@@ -52,6 +52,33 @@ async function renderEditor(path = '/app/routines/new') {
 describe('routine editor', () => {
   beforeEach(() => {
     saved.length = 0
+    sessionStorage.clear()
+  })
+
+  it('shows how-to in place and keeps the draft after leaving the page', async () => {
+    const name = await renderEditor()
+    fireEvent.change(name, { target: { value: 'Leg day' } })
+    fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
+    const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
+    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /Done/ }))
+
+    fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
+    fireEvent.click(screen.getByRole('button', { name: /How to do it/ }))
+    const info = await screen.findByRole('dialog', { name: 'Squat' })
+    expect(within(info).getByRole('heading', { name: 'Form tips' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Routine name')).toHaveValue('Leg day')
+
+    cleanup()
+    const restored = await renderEditor()
+    expect(restored).toHaveValue('Leg day')
+    expect(screen.getByRole('button', { name: /^Squat/ })).toBeInTheDocument()
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Save' }))
+    })
+    cleanup()
+    expect(await renderEditor()).toHaveValue('My routine')
   })
 
   it('builds a routine with defaults and per-exercise overrides', async () => {

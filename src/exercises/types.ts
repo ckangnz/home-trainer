@@ -9,6 +9,9 @@ export type Category =
   | 'stretch'
   | 'yoga'
   | 'warmup'
+  | 'weights'
+  | 'mobility'
+  | 'recovery'
 
 export type Muscle =
   | 'chest'
@@ -16,6 +19,9 @@ export type Muscle =
   | 'triceps'
   | 'biceps'
   | 'upperBack'
+  | 'lats'
+  | 'traps'
+  | 'forearms'
   | 'lowerBack'
   | 'abs'
   | 'obliques'
@@ -25,9 +31,24 @@ export type Muscle =
   | 'calves'
   | 'hipFlexors'
   | 'adductors'
+  | 'abductors'
+  | 'neck'
   | 'fullBody'
 
-export type Equipment = 'none' | 'chair' | 'wall' | 'mat'
+export type Equipment =
+  | 'none'
+  | 'chair'
+  | 'wall'
+  | 'mat'
+  | 'dumbbells'
+  | 'kettlebell'
+  | 'barbell'
+  | 'bench'
+  | 'band'
+  | 'foamRoller'
+  | 'massageBall'
+  | 'strap'
+  | 'box'
 
 export type Sided = 'symmetric' | 'alternating' | 'perSide'
 

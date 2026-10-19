@@ -20,6 +20,9 @@ const RoutineEditorPage = lazyPage(() => import('@/pages/RoutineEditorPage'), 'R
 const HistoryPage = lazyPage(() => import('@/pages/HistoryPage'), 'HistoryPage')
 const SettingsPage = lazyPage(() => import('@/pages/SettingsPage'), 'SettingsPage')
 const ImportPage = lazyPage(() => import('@/sharing/ImportPage'), 'ImportPage')
+const FriendsPage = lazyPage(() => import('@/friends/FriendsPage'), 'FriendsPage')
+const FriendPage = lazyPage(() => import('@/friends/FriendPage'), 'FriendPage')
+const FriendAddPage = lazyPage(() => import('@/friends/FriendAddPage'), 'FriendAddPage')
 const PlayerPage = lazyPage(() => import('@/player/PlayerPage'), 'PlayerPage')
 
 function Loading({ children }: { children: ReactNode }) {
@@ -93,6 +96,9 @@ export function AppRoutes() {
           <Route path="routines/:id" element={<RoutineEditorPage />} />
           <Route path="history" element={<HistoryPage />} />
           <Route path="import" element={<ImportPage />} />
+          <Route path="friends" element={<FriendsPage />} />
+          <Route path="friends/add/:code" element={<FriendAddPage />} />
+          <Route path="friends/:uid" element={<FriendPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>

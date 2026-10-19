@@ -1,12 +1,13 @@
 import { normalizeBody, ROUTINE_SCHEMA_VERSION } from '@/workouts/routine'
 import type { Routine, RoutineBody, RoutineItem, RoutineSource } from '@/workouts/types'
 import { CODE_ALPHABET, CODE_LENGTH } from '@/sharing/code'
+import type { Muscle } from '@/exercises/types'
 
 export const COMPLETION_SCHEMA_VERSION = 2
 
 export const SHARE_SCHEMA_VERSION = 2
 
-export type CompletionSource = { kind: 'routine' | 'curated' | 'exercise'; id: string }
+export type CompletionSource = { kind: 'routine' | 'curated' | 'exercise' | 'cooldown'; id: string }
 
 export interface Completion {
   id: string
@@ -19,6 +20,9 @@ export interface Completion {
   durationMs: number
   exercises: number
   totalExercises: number
+  calories?: number
+  muscles?: Muscle[]
+  exerciseIds?: string[]
 }
 
 export interface SharedRoutine {
@@ -87,6 +91,13 @@ function parseSource(value: unknown): RoutineSource | undefined {
   if (value.kind === 'share' && isText(value.code, 20)) {
     return { kind: 'share', code: value.code }
   }
+  if (value.kind === 'friend' && isText(value.uid, 128) && isText(value.routineId, 80)) {
+    const source: RoutineSource = { kind: 'friend', uid: value.uid, routineId: value.routineId }
+    if (isText(value.ownerName, 80)) {
+      source.ownerName = value.ownerName
+    }
+    return source
+  }
   return undefined
 }
 
@@ -118,7 +129,7 @@ export function parseCompletion(id: string, ownerId: string, value: unknown): Co
     return null
   }
   const source = value.source
-  if (!['routine', 'curated', 'exercise'].includes(String(source.kind)) || !isText(source.id, 80)) {
+  if (!['routine', 'curated', 'exercise', 'cooldown'].includes(String(source.kind)) || !isText(source.id, 80)) {
     return null
   }
   const numbers = [value.durationMs, value.exercises, value.totalExercises]
@@ -128,7 +139,7 @@ export function parseCompletion(id: string, ownerId: string, value: unknown): Co
   if (!isTimestamp(value.startedAt) || !isTimestamp(value.completedAt)) {
     return null
   }
-  return {
+  const completion: Completion = {
     id,
     ownerId,
     schemaVersion: COMPLETION_SCHEMA_VERSION,
@@ -140,6 +151,20 @@ export function parseCompletion(id: string, ownerId: string, value: unknown): Co
     exercises: value.exercises as number,
     totalExercises: value.totalExercises as number,
   }
+  if (typeof value.calories === 'number' && Number.isFinite(value.calories) && value.calories >= 0) {
+    completion.calories = Math.round(value.calories)
+  }
+  if (isTextList(value.muscles, 30, 40)) {
+    completion.muscles = value.muscles as Muscle[]
+  }
+  if (isTextList(value.exerciseIds, 80, 60)) {
+    completion.exerciseIds = value.exerciseIds
+  }
+  return completion
+}
+
+function isTextList(value: unknown, maxItems: number, maxLength: number): value is string[] {
+  return Array.isArray(value) && value.length <= maxItems && value.every((entry) => isText(entry, maxLength))
 }
 
 export function isShareCode(code: string): boolean {

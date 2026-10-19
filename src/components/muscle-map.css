@@ -1,0 +1,119 @@
+.muscle-map {
+  --muscle-map-body: #1d2643;
+  --muscle-map-idle: #2e3b5e;
+  --muscle-map-level-1: #7d4433;
+  --muscle-map-level-2: #b85332;
+  --muscle-map-level-3: var(--color-accent);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.muscle-map--sm {
+  max-width: 180px;
+}
+
+.muscle-map--lg {
+  max-width: 420px;
+}
+
+.muscle-map__chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.muscle-map__body {
+  fill: var(--muscle-map-body);
+}
+
+.muscle-map__region {
+  fill: var(--muscle-map-idle);
+  transition: fill 160ms ease;
+}
+
+.muscle-map__region[data-level='1'] {
+  fill: var(--muscle-map-level-1);
+}
+
+.muscle-map__region[data-level='2'] {
+  fill: var(--muscle-map-level-2);
+}
+
+.muscle-map__region[data-level='3'] {
+  fill: var(--muscle-map-level-3);
+}
+
+.muscle-map__caption {
+  fill: var(--color-text-faint);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muscle-map--sm .muscle-map__caption {
+  font-size: 18px;
+}
+
+.muscle-map__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.muscle-map__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.muscle-map__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--muscle-map-idle);
+}
+
+.muscle-map__swatch[data-level='1'] {
+  background: var(--muscle-map-level-1);
+}
+
+.muscle-map__swatch[data-level='2'] {
+  background: var(--muscle-map-level-2);
+}
+
+.muscle-map__swatch[data-level='3'] {
+  background: var(--muscle-map-level-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .muscle-map__region {
+    transition: none;
+  }
+}
+
+.muscle-map--lg .muscle-map__caption {
+  font-size: 11px;
+}
+
+.routine-muscles {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+}
+
+.routine-muscles .section__title {
+  justify-self: start;
+}
+
+.routine-muscles__chips {
+  justify-content: center;
+}

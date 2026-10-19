@@ -4,6 +4,11 @@ export type PlayerStatus = 'ready' | 'running' | 'paused' | 'finished'
 
 export type EntryTrigger = 'user' | 'timer'
 
+export interface WorkLogEntry {
+  exerciseId: string
+  ms: number
+}
+
 export interface PlayerState {
   steps: PlaybackStep[]
   index: number
@@ -17,6 +22,7 @@ export interface PlayerState {
   pausedMs: number
   pausedSince: number | null
   completedWork: number
+  workLog: WorkLogEntry[]
   runId: number
 }
 
@@ -34,6 +40,7 @@ export function createPlayer(steps: PlaybackStep[]): PlayerState {
     pausedMs: 0,
     pausedSince: null,
     completedWork: 0,
+    workLog: [],
     runId: 0,
   }
 }
@@ -64,7 +71,11 @@ export function stepRemaining(state: PlayerState, now: number): number | null {
 
 function enter(state: PlayerState, index: number, now: number, trigger: EntryTrigger, carryMs = 0): PlayerState {
   const leaving = currentStep(state)
-  const completedWork = state.completedWork + (leaving?.kind === 'work' && index > state.index ? 1 : 0)
+  const finishedWork = leaving?.kind === 'work' && index > state.index
+  const completedWork = state.completedWork + (finishedWork ? 1 : 0)
+  const workLog = finishedWork
+    ? [...state.workLog, { exerciseId: leaving.exerciseId, ms: Math.max(0, stepElapsed(state, now) - carryMs) }]
+    : state.workLog
   if (index >= state.steps.length) {
     return {
       ...state,
@@ -76,6 +87,7 @@ function enter(state: PlayerState, index: number, now: number, trigger: EntryTri
       enteredBy: trigger,
       finishedAt: now,
       completedWork,
+      workLog,
     }
   }
   const running = state.status === 'running'
@@ -87,6 +99,7 @@ function enter(state: PlayerState, index: number, now: number, trigger: EntryTri
     extraMs: 0,
     enteredBy: trigger,
     completedWork,
+    workLog,
   }
 }
 
@@ -168,7 +181,11 @@ export function previousStep(state: PlayerState, now: number): PlayerState {
   }
   for (let index = state.index - 1; index >= 0; index -= 1) {
     if (state.steps[index].kind === 'work') {
-      return { ...enter(state, index, now, 'user'), completedWork: Math.max(0, state.completedWork - 1) }
+      return {
+        ...enter(state, index, now, 'user'),
+        completedWork: Math.max(0, state.completedWork - 1),
+        workLog: state.workLog.slice(0, -1),
+      }
     }
   }
   return { ...enter(state, state.index, now, 'user'), completedWork: state.completedWork }

@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { availableVoices, coach } from '@/player/coach'
-import { updateSettings, useSettings } from '@/settings/settings'
+import { WEIGHT_RANGE, updateSettings, useSettings } from '@/settings/settings'
 import { SelectField } from '@/components/ui'
 import { TrainerPicker } from '@/components/TrainerPicker'
+import { Stepper } from '@/components/Stepper'
 import { usePageMeta } from '@/app/meta'
 import './history.css'
 
@@ -54,6 +55,20 @@ export function SettingsPage() {
       </section>
 
       <section className="card stack">
+        <h2 className="section__title">Calories</h2>
+        <Stepper
+          label="Body weight"
+          hint="Used to estimate calories burned. Stays on this device."
+          value={settings.weightKg}
+          min={WEIGHT_RANGE[0]}
+          max={WEIGHT_RANGE[1]}
+          step={1}
+          format={(value) => `${value} kg`}
+          onChange={(weightKg) => updateSettings({ weightKg })}
+        />
+      </section>
+
+      <section className="card stack">
         <h2 className="section__title">Coach</h2>
         <div className="settings-group">
           <Toggle field="voice" label="Voice coach" hint="Announces each exercise, rests, and the halfway point." />
@@ -96,7 +111,10 @@ export function SettingsPage() {
       <section className="card stack">
         <h2 className="section__title">Account</h2>
         <p className="muted">Signed in as {user?.email ?? user?.displayName ?? 'your Google account'}.</p>
-        <div>
+        <div className="row row--wrap">
+          <Link to="/app/friends" className="btn">
+            Friends
+          </Link>
           <button
             type="button"
             className="btn"

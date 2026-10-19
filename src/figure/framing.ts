@@ -1,5 +1,5 @@
 import { sampleSkeleton, type PreparedAnimation } from './animate'
-import { partExtent, propParts } from './parts'
+import { heldPropParts, partExtent, propParts } from './parts'
 import type { JointId } from './types'
 
 export interface Bounds {
@@ -47,6 +47,11 @@ export function animationBounds(prepared: PreparedAnimation, samples = 36): Boun
       const margin = JOINT_MARGIN[joint] ?? DEFAULT_MARGIN
       include(point[0] - margin, point[1] - margin)
       include(point[0] + margin, point[1] + margin)
+    }
+    for (const part of heldPropParts(skeleton, prepared.props)) {
+      for (const point of partExtent(part)) {
+        include(point[0], point[1])
+      }
     }
   }
   const props = propParts(prepared.props)

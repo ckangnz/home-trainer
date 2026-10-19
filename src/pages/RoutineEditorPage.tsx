@@ -10,6 +10,8 @@ import { blankRoutine, DEFAULT_ROUTINE_DEFAULTS, effectiveTarget, LIMITS, moveIt
 import { estimateDurationMs, formatDuration } from '@/workouts/steps'
 import type { RoutineBody, RoutineDefaults, RoutineItem, RoutineSource } from '@/workouts/types'
 import { ExercisePicker } from '@/components/ExercisePicker'
+import { ExerciseInfoDialog } from '@/components/ExerciseInfoDialog'
+import { clearDraft, draftKey, loadDraft, saveDraft } from '@/workouts/drafts'
 import { Field, TextField } from '@/components/ui'
 import { Stepper } from '@/components/Stepper'
 import { useToast } from '@/app/Toast'
@@ -37,6 +39,7 @@ function ItemEditor({
   onChange,
   onMove,
   onRemove,
+  onInfo,
 }: {
   item: RoutineItem
   index: number
@@ -47,6 +50,7 @@ function ItemEditor({
   onChange: (item: RoutineItem) => void
   onMove: (to: number) => void
   onRemove: () => void
+  onInfo: (exercise: Exercise) => void
 }) {
   const exercise = getExercise(item.exerciseId)
   if (!exercise) {
@@ -193,9 +197,10 @@ function ItemEditor({
             />
           ) : null}
           <div className="row row--between">
-            <Link to={`/exercises/${exercise.id}`} className="section__link">
+            <button type="button" className="btn btn--small btn--ghost" onClick={() => onInfo(exercise)}>
+              <Icon name="info" />
               How to do it
-            </Link>
+            </button>
             <button type="button" className="btn btn--small btn--danger" onClick={onRemove}>
               <Icon name="trash" />
               Remove
@@ -227,9 +232,12 @@ export function RoutineEditorPage() {
   const routine = id ? getRoutine(id) : undefined
   const navigate = useNavigate()
   const { notify } = useToast()
+  const [storageKey] = useState(() => draftKey(id, params.get('from')))
+  const [restored] = useState(() => loadDraft(storageKey))
   const [seed] = useState(() => (isNew ? seedFrom(params.get('from')) : null))
-  const [draft, setDraft] = useState<RoutineBody | null>(() => seed?.body ?? null)
-  const [dirty, setDirty] = useState(false)
+  const [draft, setDraft] = useState<RoutineBody | null>(() => restored ?? seed?.body ?? null)
+  const [dirty, setDirty] = useState(restored !== null)
+  const [info, setInfo] = useState<Exercise | null>(null)
   const [expanded, setExpanded] = useState<string | null>(null)
   const [picking, setPicking] = useState(false)
   usePageMeta(isNew ? 'New routine' : 'Edit routine')
@@ -239,6 +247,12 @@ export function RoutineEditorPage() {
       setDraft({ name: routine.name, description: routine.description, defaults: routine.defaults, items: routine.items })
     }
   }, [isNew, draft, routine])
+
+  useEffect(() => {
+    if (dirty && draft) {
+      saveDraft(storageKey, draft)
+    }
+  }, [dirty, draft, storageKey])
 
   useEffect(() => {
     if (!dirty) {
@@ -290,6 +304,7 @@ export function RoutineEditorPage() {
     } else {
       createRoutine(body, seed?.source)
     }
+    clearDraft(storageKey)
     setDirty(false)
     notify('Routine saved')
     navigate('/app')
@@ -297,6 +312,7 @@ export function RoutineEditorPage() {
 
   const cancel = () => {
     if (!dirty || window.confirm('Discard your changes?')) {
+      clearDraft(storageKey)
       setDirty(false)
       navigate('/app')
     }
@@ -434,6 +450,7 @@ export function RoutineEditorPage() {
                 onChange={(next) => edit({ ...draft, items: draft.items.map((entry) => (entry.id === item.id ? next : entry)) })}
                 onMove={(to) => edit({ ...draft, items: moveItem(draft.items, index, to) })}
                 onRemove={() => edit({ ...draft, items: draft.items.filter((entry) => entry.id !== item.id) })}
+                onInfo={setInfo}
               />
             ))}
           </ol>
@@ -452,6 +469,7 @@ export function RoutineEditorPage() {
           className="btn btn--danger"
           onClick={() => {
             if (window.confirm(`Delete "${routine.name}"? This cannot be undone.`)) {
+              clearDraft(storageKey)
               setDirty(false)
               removeRoutine(routine.id)
               navigate('/app')
@@ -462,6 +480,8 @@ export function RoutineEditorPage() {
           Delete routine
         </button>
       ) : null}
+
+      <ExerciseInfoDialog exercise={info} onClose={() => setInfo(null)} />
 
       <ExercisePicker
         open={picking}

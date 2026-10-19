@@ -24,7 +24,7 @@ export function SupportCard() {
   )
 }
 
-export function ShareResultButton({ title, minutes }: { title: string; minutes: number }) {
+export function ShareResultButton({ title, minutes, className = 'btn btn--lg' }: { title: string; minutes: number; className?: string }) {
   const { notify } = useToast()
   const [busy, setBusy] = useState(false)
   const share = async () => {
@@ -45,7 +45,7 @@ export function ShareResultButton({ title, minutes }: { title: string; minutes: 
     }
   }
   return (
-    <button type="button" className="btn btn--lg" disabled={busy} onClick={() => void share()}>
+    <button type="button" className={className} disabled={busy} onClick={() => void share()}>
       <Icon name="share" />
       Share
     </button>

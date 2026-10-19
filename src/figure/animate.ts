@@ -1,7 +1,7 @@
-import { ease, lerp, lerpAngle, lerpVec, type Easing, type Vec2 } from './math'
+import { distance, ease, lerp, lerpAngle, lerpVec, overshoots, type Easing, type Vec2 } from './math'
 import { LIMBS, isArm, limbSide, mirrorSign } from './rig'
 import { isReach, normalizePose, solvePose, type NormalizedPose, type Triple3 } from './solve'
-import type { Anchor, FigureAnimation, LimbId, Prop, Reach, SegmentId, Skeleton, View } from './types'
+import type { Anchor, Feel, FigureAnimation, JointId, LimbId, Prop, Reach, SegmentId, Skeleton, View } from './types'
 
 export type { NormalizedPose }
 
@@ -19,6 +19,7 @@ interface TimelineSegment {
   start: number
   end: number
   moving: boolean
+  lively: boolean
 }
 
 export interface PreparedAnimation {
@@ -28,6 +29,7 @@ export interface PreparedAnimation {
   cycleMs: number
   props: Prop[]
   thumb: number
+  feel: Feel
 }
 
 const prepareCache = new WeakMap<FigureAnimation, PreparedAnimation>()
@@ -50,17 +52,19 @@ export function prepareAnimation(animation: FigureAnimation): PreparedAnimation 
       ease: keyframe.ease ?? 'inOut',
     }
   })
+  const feel = animation.feel ?? 'smooth'
   const timeline: TimelineSegment[] = []
   let cursor = 0
   keyframes.forEach((keyframe, index) => {
     if (keyframe.hold > 0) {
-      timeline.push({ from: index, to: index, start: cursor, end: cursor + keyframe.hold, moving: false })
+      timeline.push({ from: index, to: index, start: cursor, end: cursor + keyframe.hold, moving: false, lively: false })
       cursor += keyframe.hold
     }
     const next = (index + 1) % keyframes.length
     const moveMs = keyframes[next].ms
     if (moveMs > 0 && keyframes.length > 1) {
-      timeline.push({ from: index, to: next, start: cursor, end: cursor + moveMs, moving: true })
+      const lively = wantsLively(keyframes[next], feel) && livelyIsSafe(keyframes[index], keyframes[next], animation.view)
+      timeline.push({ from: index, to: next, start: cursor, end: cursor + moveMs, moving: true, lively })
       cursor += moveMs
     }
   })
@@ -72,6 +76,7 @@ export function prepareAnimation(animation: FigureAnimation): PreparedAnimation 
     cycleMs: cursor,
     props: animation.props ?? [],
     thumb,
+    feel,
   }
   prepareCache.set(animation, prepared)
   return prepared
@@ -151,7 +156,14 @@ function blendScale(a: NormalizedPose['scale'], b: NormalizedPose['scale'], t: n
   return result
 }
 
-function blendPose(a: PreparedKeyframe, b: PreparedKeyframe, t: number): NormalizedPose {
+interface BlendWeights {
+  contact: number
+  free: number
+  root: number
+}
+
+function blendPose(a: PreparedKeyframe, b: PreparedKeyframe, weights: BlendWeights): NormalizedPose {
+  const { contact: t, free, root } = weights
   const limbs = {} as Record<LimbId, Triple3 | Reach>
   for (const limb of LIMBS) {
     const specA = a.pose.limbs[limb]
@@ -160,15 +172,15 @@ function blendPose(a: PreparedKeyframe, b: PreparedKeyframe, t: number): Normali
       const point = sharedPoint(specA, specB)
       limbs[limb] = blendReach(asContact(specA, a.skeleton, limb, point), asContact(specB, b.skeleton, limb, point), t)
     } else {
-      limbs[limb] = blendTriple(a.skeleton.rel.limbs[limb], b.skeleton.rel.limbs[limb], t)
+      limbs[limb] = blendTriple(a.skeleton.rel.limbs[limb], b.skeleton.rel.limbs[limb], free)
     }
   }
   const anchored = sameAnchor(a.pose.anchor, b.pose.anchor)
   const pose: NormalizedPose = {
-    root: lerpVec(a.skeleton.points.hip, b.skeleton.points.hip, t),
-    torso: lerpAngle(a.pose.torso, b.pose.torso, t),
-    spine: lerpAngle(a.pose.spine, b.pose.spine, t),
-    neck: lerpAngle(a.pose.neck, b.pose.neck, t),
+    root: lerpVec(a.skeleton.points.hip, b.skeleton.points.hip, root),
+    torso: lerpAngle(a.pose.torso, b.pose.torso, free),
+    spine: lerpAngle(a.pose.spine, b.pose.spine, free),
+    neck: lerpAngle(a.pose.neck, b.pose.neck, free),
     limbs,
     anchor: anchored ? blendAnchor(a.pose.anchor as Anchor, b.pose.anchor as Anchor, t) : undefined,
     scale: blendScale(a.pose.scale, b.pose.scale, t),
@@ -191,9 +203,59 @@ function locate(prepared: PreparedAnimation, timeMs: number): SamplePoint {
   if (!segment.moving) {
     return { keyframe: keyframes[segment.from], pose: keyframes[segment.from].pose }
   }
+  const from = keyframes[segment.from]
   const target = keyframes[segment.to]
   const progress = (t - segment.start) / (segment.end - segment.start)
-  return { pose: blendPose(keyframes[segment.from], target, ease(target.ease, progress)) }
+  return { pose: blendPose(from, target, blendWeights(from, target, progress, segment.lively)) }
+}
+
+const LANDING_DROP = 0.02
+
+const LIVELY_PROBES = [0.2, 0.3, 0.4, 0.5, 0.6, 0.75, 0.9]
+
+const NEAR_FLOOR = 0.16
+
+const END_JOINT: Record<LimbId, Record<NonNullable<Reach['point']>, JointId>> = {
+  armL: { end: 'wristL', tip: 'handL', heel: 'wristL' },
+  armR: { end: 'wristR', tip: 'handR', heel: 'wristR' },
+  legL: { end: 'ankleL', tip: 'toeL', heel: 'heelL' },
+  legR: { end: 'ankleR', tip: 'toeR', heel: 'heelR' },
+}
+
+function wantsLively(target: PreparedKeyframe, feel: Feel): boolean {
+  return overshoots(target.ease) || feel === 'bouncy'
+}
+
+function livelyIsSafe(from: PreparedKeyframe, target: PreparedKeyframe, view: View): boolean {
+  for (const progress of LIVELY_PROBES) {
+    const calm = solvePose(blendPose(from, target, blendWeights(from, target, progress, false)), view)
+    const pose = blendPose(from, target, blendWeights(from, target, progress, true))
+    const lively = solvePose(pose, view)
+    for (const joint of Object.keys(lively.points) as JointId[]) {
+      const y = lively.points[joint][1]
+      if (y < NEAR_FLOOR && y < calm.points[joint][1] - 0.004) {
+        return false
+      }
+    }
+    for (const limb of LIMBS) {
+      const spec = pose.limbs[limb]
+      if (isReach(spec) && distance(lively.points[END_JOINT[limb][spec.point ?? 'end']], spec.at) > 0.008) {
+        return false
+      }
+    }
+  }
+  return true
+}
+
+function blendWeights(from: PreparedKeyframe, target: PreparedKeyframe, progress: number, lively: boolean): BlendWeights {
+  const springy = overshoots(target.ease)
+  const contact = ease(springy ? 'inOut' : target.ease, progress)
+  if (!lively) {
+    return { contact, free: contact, root: contact }
+  }
+  const free = ease(springy ? target.ease : 'back', progress)
+  const landing = target.skeleton.points.hip[1] < from.skeleton.points.hip[1] - LANDING_DROP
+  return { contact, free, root: landing ? free : contact }
 }
 
 export function samplePose(prepared: PreparedAnimation, timeMs: number): NormalizedPose {

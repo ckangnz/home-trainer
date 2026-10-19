@@ -27,7 +27,10 @@ export interface RoutineBody {
   items: RoutineItem[]
 }
 
-export type RoutineSource = { kind: 'curated'; id: string } | { kind: 'share'; code: string }
+export type RoutineSource =
+  | { kind: 'curated'; id: string }
+  | { kind: 'share'; code: string }
+  | { kind: 'friend'; uid: string; routineId: string; ownerName?: string }
 
 export interface Routine extends RoutineBody {
   id: string

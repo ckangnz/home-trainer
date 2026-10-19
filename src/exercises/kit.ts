@@ -1,7 +1,10 @@
 import type { Vec2 } from '@/figure/math'
 import { ANKLE_REST_HEIGHT, HAND_REST_HEIGHT, RIG, STAND_HIP_HEIGHT, WIDTH } from '@/figure/rig'
 import type { Easing } from '@/figure/math'
-import type { FigureAnimation, Keyframe, PoseSpec, Prop, Reach, Triple, View } from '@/figure/types'
+import { BALL_RADIUS, BENCH_HEIGHT, ROLLER_RADIUS } from '@/figure/parts'
+import type { Feel, FigureAnimation, Keyframe, PoseSpec, Prop, Reach, Triple, View } from '@/figure/types'
+
+export { BALL_RADIUS, BENCH_HEIGHT, ROLLER_RADIUS }
 
 export const HIP = STAND_HIP_HEIGHT
 
@@ -51,7 +54,7 @@ export function key(posed: PoseSpec, ms: number, hold = 0, ease: Easing = 'inOut
   return { pose: posed, ms, hold, ease }
 }
 
-export function anim(view: View, keyframes: Keyframe[], extra: { props?: Prop[]; thumb?: number } = {}): FigureAnimation {
+export function anim(view: View, keyframes: Keyframe[], extra: { props?: Prop[]; thumb?: number; feel?: Feel } = {}): FigureAnimation {
   return { view, keyframes, ...extra }
 }
 
@@ -151,7 +154,41 @@ export const STAND_FRONT: PoseSpec = {
   legR: flat(-RIG.hipHalfWidth - 0.02),
 }
 
-export const BASE_POSES: Record<string, { view: View; pose: PoseSpec }> = {
+export const STAND_HOLD: PoseSpec = {
+  ...STAND,
+  ...arms([4, 6]),
+}
+
+export const STAND_HOLD_PROPS: Prop[] = [{ kind: 'dumbbell', hand: 'both' }]
+
+export const SUPINE_ON_BENCH: PoseSpec = {
+  root: [0, BENCH_HEIGHT + LYING_HIP],
+  torso: -90,
+  ...legs(flat(0.5)),
+  ...arms([90, 0]),
+}
+
+export const SUPINE_ON_BENCH_PROPS: Prop[] = [{ kind: 'bench', x0: -0.85, x1: 0.18 }]
+
+export const ROLLER_CALF: PoseSpec = {
+  root: [0, 0.24],
+  torso: -25,
+  ...legs([62, 0, 0]),
+  ...arms(palm(-0.28)),
+}
+
+export const ROLLER_CALF_PROPS: Prop[] = [{ kind: 'foamRoller', under: 'kneeL', dx: 0.2 }]
+
+export const ROLLER_UPPER_BACK: PoseSpec = {
+  root: [0, LYING_HIP],
+  torso: -70,
+  ...legs(flat(0.42)),
+  ...arms([35, 150]),
+}
+
+export const ROLLER_UPPER_BACK_PROPS: Prop[] = [{ kind: 'foamRoller', under: 'waist', dx: -0.14 }]
+
+export const BASE_POSES: Record<string, { view: View; pose: PoseSpec; props?: Prop[] }> = {
   STAND: { view: 'side', pose: STAND },
   STAND_FRONT: { view: 'front', pose: STAND_FRONT },
   HIGH_PLANK: { view: 'side', pose: HIGH_PLANK },
@@ -163,4 +200,8 @@ export const BASE_POSES: Record<string, { view: View; pose: PoseSpec }> = {
   SEATED: { view: 'side', pose: SEATED },
   KNEEL_TALL: { view: 'side', pose: KNEEL_TALL },
   SIDE_LYING_FRONT: { view: 'front', pose: SIDE_LYING_FRONT },
+  STAND_HOLD: { view: 'side', pose: STAND_HOLD, props: STAND_HOLD_PROPS },
+  SUPINE_ON_BENCH: { view: 'side', pose: SUPINE_ON_BENCH, props: SUPINE_ON_BENCH_PROPS },
+  ROLLER_CALF: { view: 'side', pose: ROLLER_CALF, props: ROLLER_CALF_PROPS },
+  ROLLER_UPPER_BACK: { view: 'side', pose: ROLLER_UPPER_BACK, props: ROLLER_UPPER_BACK_PROPS },
 }

@@ -9,6 +9,7 @@ export interface Settings {
   voiceName: string | null
   trainer: TrainerId
   skin: SkinTone
+  weightKg: number
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -19,7 +20,10 @@ export const DEFAULT_SETTINGS: Settings = {
   voiceName: null,
   trainer: 'female',
   skin: 'medium',
+  weightKg: 70,
 }
+
+export const WEIGHT_RANGE: readonly [number, number] = [30, 250]
 
 const TRAINER_IDS: TrainerId[] = ['female', 'male']
 const SKIN_TONES: SkinTone[] = ['light', 'medium', 'deep']
@@ -48,6 +52,10 @@ function read(): Settings {
     voiceName: typeof stored.voiceName === 'string' ? stored.voiceName : null,
     trainer: TRAINER_IDS.includes(stored.trainer as TrainerId) ? (stored.trainer as TrainerId) : DEFAULT_SETTINGS.trainer,
     skin: SKIN_TONES.includes(stored.skin as SkinTone) ? (stored.skin as SkinTone) : DEFAULT_SETTINGS.skin,
+    weightKg:
+      typeof stored.weightKg === 'number' && stored.weightKg >= WEIGHT_RANGE[0] && stored.weightKg <= WEIGHT_RANGE[1]
+        ? stored.weightKg
+        : DEFAULT_SETTINGS.weightKg,
   }
   return cached
 }

@@ -34,6 +34,11 @@
 .fig-f-accent { fill: var(--fig-accent); }
 .fig-f-prop { fill: var(--fig-prop); }
 .fig-f-propSoft { fill: var(--fig-propSoft); }
+.fig-f-iron { fill: var(--fig-iron); }
+.fig-f-ironLight { fill: var(--fig-ironLight); }
+.fig-f-foam { fill: var(--fig-foam); }
+.fig-f-foamLight { fill: var(--fig-foamLight); }
+.fig-f-band { fill: var(--fig-band); }
 
 .fig-s-skin { stroke: var(--fig-skin); }
 .fig-s-top { stroke: var(--fig-top); }
@@ -46,3 +51,62 @@
 .fig-s-hairShade { stroke: var(--fig-hairShade); }
 .fig-s-prop { stroke: var(--fig-prop); }
 .fig-s-propSoft { stroke: var(--fig-propSoft); }
+.fig-s-iron { stroke: var(--fig-iron); }
+.fig-s-ironLight { stroke: var(--fig-ironLight); }
+.fig-s-foam { stroke: var(--fig-foam); }
+.fig-s-foamLight { stroke: var(--fig-foamLight); }
+.fig-s-band { stroke: var(--fig-band); }
+
+.fig-enter {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation:
+    fig-enter-fade 260ms ease-out both,
+    fig-enter-pop 560ms cubic-bezier(0.34, 1.45, 0.64, 1) both;
+  animation:
+    fig-enter-fade 260ms ease-out both,
+    fig-enter-pop 560ms linear(0, 0.25 9%, 0.61 20%, 0.86 31%, 1.01 42%, 1.06 51%, 1.05 60%, 1.02 70%, 1 82%, 1) both;
+}
+
+.fig-leave {
+  pointer-events: none;
+  animation: fig-leave-fade 320ms ease-in both;
+}
+
+@keyframes fig-enter-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fig-enter-pop {
+  from {
+    transform: translateY(1.5%) scale(0.92);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fig-leave-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fig-enter,
+  .fig-leave {
+    animation: none;
+  }
+
+  .fig-leave {
+    display: none;
+  }
+}

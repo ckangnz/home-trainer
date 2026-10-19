@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { getExercise } from '@/exercises'
+import { EXERCISES, getExercise } from '@/exercises'
+import { MUSCLE_LABEL } from '@/exercises/labels'
+import { muscleLoad } from '@/exercises/muscles'
 import type { Exercise } from '@/exercises/types'
 import { Figure } from '@/figure/Figure'
 import { useData } from '@/data/DataProvider'
@@ -15,12 +17,17 @@ import { getCuratedWorkout } from '@/workouts/curated'
 import { DEFAULT_ROUTINE_DEFAULTS } from '@/workouts/routine'
 import { expandRoutine, formatClock, formatDuration, workStepCount } from '@/workouts/steps'
 import type { PauseStep, PlaybackStep, RoutineBody, WorkStep } from '@/workouts/types'
+import { COOLDOWN_SEPARATOR, cooldownBody, cooldownId, suggestCooldown } from '@/workouts/cooldown'
+import { estimateCalories, primaryCategory, workedMuscles, type WorkedExercise } from '@/workouts/summary'
+import type { HealthWorkout } from '@/health/export'
+import { HealthExportDialog } from '@/health/HealthExportDialog'
+import { MuscleMap } from '@/components/MuscleMap'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
 import { Confetti, ShareResultButton, SupportCard } from '@/components/Support'
 import { TimerRing } from '@/components/TimerRing'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
-import { activeDurationMs, currentStep, progressFraction, stepElapsed, stepLimitMs, stepRemaining } from './machine'
+import { activeDurationMs, currentStep, type WorkLogEntry, progressFraction, stepElapsed, stepLimitMs, stepRemaining } from './machine'
 import { usePlayer, type PlayerControls } from './usePlayer'
 import { useWakeLock } from './useWakeLock'
 import './player.css'
@@ -54,6 +61,18 @@ function useSession(kind: string, id: string): Resolution {
       items: [{ id: 'single', exerciseId: exercise.id, target: exercise.defaultTarget }],
     }
     return { status: 'ready', session: { title: exercise.name, body, source: { kind: 'exercise', id }, exitTo: `/exercises/${id}` } }
+  }
+  if (kind === 'cooldown') {
+    const exercises = id
+      .split(COOLDOWN_SEPARATOR)
+      .slice(0, 12)
+      .map((entry) => getExercise(entry))
+      .filter((exercise): exercise is Exercise => exercise !== undefined)
+    if (exercises.length === 0) {
+      return { status: 'missing' }
+    }
+    const body = cooldownBody(exercises)
+    return { status: 'ready', session: { title: body.name, body, source: { kind: 'cooldown', id: 'stretch' }, exitTo: '/app' } }
   }
   if (kind === 'routine') {
     if (status !== 'signed-in' && status !== 'loading') {
@@ -103,6 +122,36 @@ const PAUSE_TITLE: Record<PauseStep['reason'], string> = {
   set: 'Rest',
   round: 'Round complete',
   switch: 'Switch sides',
+}
+
+interface SessionSummary {
+  worked: WorkedExercise[]
+  calories: number
+  muscles: ReturnType<typeof workedMuscles>
+  activeMs: number
+  health: HealthWorkout
+}
+
+function summarize(title: string, log: WorkLogEntry[], activeMs: number, weightKg: number, startedAt: number, endedAt: number): SessionSummary {
+  const worked = log
+    .map((entry) => ({ exercise: getExercise(entry.exerciseId), ms: entry.ms }))
+    .filter((entry): entry is WorkedExercise => entry.exercise !== undefined)
+  const calories = estimateCalories(worked, activeMs, weightKg)
+  return {
+    worked,
+    calories,
+    muscles: workedMuscles(worked),
+    activeMs,
+    health: {
+      title,
+      startedAt: new Date(startedAt).toISOString(),
+      endedAt: new Date(endedAt).toISOString(),
+      activeMs,
+      calories,
+      category: primaryCategory(worked),
+      exercises: worked.length,
+    },
+  }
 }
 
 function exerciseOf(step: WorkStep | undefined): Exercise | undefined {
@@ -161,22 +210,35 @@ function PlayerSession({ session }: { session: Session }) {
     // Ads are decided once per step entry; later re-renders of the same step must not request again.
   }, [stepKey])
 
+  const finished = state.status === 'finished'
+  const summary = useMemo(() => {
+    if (!finished || state.startedAt === null || state.finishedAt === null) {
+      return null
+    }
+    const endedAt = wallStart.current + (state.finishedAt - state.startedAt)
+    return summarize(frozen.title, state.workLog, Math.round(activeDurationMs(state, state.finishedAt)), settings.weightKg, wallStart.current, endedAt)
+  }, [finished, state, frozen.title, settings.weightKg])
+
   useEffect(() => {
-    if (state.status !== 'finished' || state.startedAt === null || state.completedWork === 0 || recorded.current.has(state.runId)) {
+    if (summary === null || state.completedWork === 0 || recorded.current.has(state.runId)) {
       return
     }
     recorded.current.add(state.runId)
-    addCompletion({
+    const completion = {
       id: `${frozen.source.kind}-${frozen.source.id}-${wallStart.current}`,
       title: frozen.title,
       source: frozen.source,
-      startedAt: new Date(wallStart.current).toISOString(),
-      completedAt: new Date().toISOString(),
-      durationMs: Math.round(activeDurationMs(state, now)),
+      startedAt: summary.health.startedAt,
+      completedAt: summary.health.endedAt,
+      durationMs: summary.activeMs,
       exercises: state.completedWork,
       totalExercises: totalWork,
-    })
-  }, [state, now, addCompletion, frozen, totalWork])
+      calories: summary.calories,
+      muscles: summary.muscles,
+      exerciseIds: [...new Set(summary.worked.map((entry) => entry.exercise.id))].slice(0, 80),
+    }
+    addCompletion(completion)
+  }, [summary, state.completedWork, state.runId, addCompletion, frozen, totalWork])
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -241,6 +303,7 @@ function PlayerSession({ session }: { session: Session }) {
       ) : state.status === 'finished' ? (
         <DoneView
           session={frozen}
+          summary={summary}
           durationMs={activeDurationMs(state, now)}
           exercises={state.completedWork}
           total={totalWork}
@@ -462,6 +525,7 @@ function PauseView({
 
 function DoneView({
   session,
+  summary,
   durationMs,
   exercises,
   total,
@@ -471,6 +535,7 @@ function DoneView({
   onAgain,
 }: {
   session: Session
+  summary: SessionSummary | null
   durationMs: number
   exercises: number
   total: number
@@ -480,7 +545,25 @@ function DoneView({
   onAgain: () => void
 }) {
   const settings = useSettings()
+  const navigate = useNavigate()
+  const [exporting, setExporting] = useState(false)
+  const [roller, setRoller] = useState(false)
   const cheer = getExercise('jumping-jacks')
+  const worked = summary?.worked ?? []
+  const load = useMemo(() => muscleLoad(worked.map((entry) => ({ exercise: entry.exercise, weight: entry.ms }))), [worked])
+  const isCooldown = session.source.kind === 'cooldown'
+  const stretches = useMemo(
+    () =>
+      isCooldown || !summary
+        ? []
+        : suggestCooldown(summary.muscles, EXERCISES, {
+            count: 5,
+            exclude: worked.map((entry) => entry.exercise.id),
+            equipment: roller ? 'roller' : 'none',
+          }),
+    [isCooldown, summary, worked, roller],
+  )
+
   return (
     <div className="player__scroll">
       <Confetti />
@@ -490,7 +573,7 @@ function DoneView({
             <Figure animation={cheer.animation} fps={60} label={`${TRAINERS[settings.trainer].name} celebrating`} />
           </div>
         ) : null}
-        <h1 className="page__title">Workout complete!</h1>
+        <h1 className="page__title">{isCooldown ? 'All stretched out!' : 'Workout complete!'}</h1>
         <p className="muted">
           {session.title} · {TRAINERS[settings.trainer].name} is proud of you
         </p>
@@ -506,24 +589,92 @@ function DoneView({
             </dd>
           </div>
           <div>
+            <dt>Calories</dt>
+            <dd>{summary ? `${summary.calories} kcal` : '–'}</dd>
+          </div>
+          <div>
             <dt>Streak</dt>
             <dd>
               {streak} {streak === 1 ? 'day' : 'days'}
             </dd>
           </div>
         </dl>
-        <div className="row row--wrap done__actions">
-          <Link to="/app" className="btn btn--primary btn--lg">
+        <div className="done__actions">
+          <Link to="/app" className="btn btn--primary btn--lg btn--block">
+            <Icon name="check" />
             Done
           </Link>
-          <button type="button" className="btn btn--lg" onClick={onAgain}>
-            <Icon name="repeat" />
-            Again
-          </button>
-          <ShareResultButton title={session.title} minutes={Math.max(1, Math.round(durationMs / 60000))} />
+          <div className="done__tools">
+            <button type="button" className="btn done__tool" onClick={onAgain}>
+              <Icon name="repeat" />
+              Again
+            </button>
+            {summary ? (
+              <button type="button" className="btn done__tool" onClick={() => setExporting(true)}>
+                <Icon name="heart" />
+                Save to Health
+              </button>
+            ) : null}
+            <ShareResultButton title={session.title} minutes={Math.max(1, Math.round(durationMs / 60000))} className="btn done__tool" />
+          </div>
         </div>
+
+        {summary && summary.muscles.length > 0 ? (
+          <section className="card done__muscles">
+            <h2 className="section__title">Muscles you worked</h2>
+            <MuscleMap load={load} size="md" legend />
+            <div className="chip-row done__chips">
+              {summary.muscles.slice(0, 6).map((muscle) => (
+                <span key={muscle} className="chip chip--static">
+                  {MUSCLE_LABEL[muscle]}
+                </span>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {stretches.length > 0 ? (
+          <section className="card done__cooldown">
+            <div className="section__head">
+              <div className="stack stack--tight">
+                <h2 className="section__title">Cool down with these stretches</h2>
+                <p className="faint">Picked for the muscles you just trained · about {Math.ceil((stretches.length * 50) / 60)} min</p>
+              </div>
+            </div>
+            <label className="switch done__roller">
+              <span className="stack stack--tight">
+                <strong>I have a foam roller</strong>
+                <span className="faint">Include rolling and massage-ball moves.</span>
+              </span>
+              <input type="checkbox" checked={roller} onChange={(event) => setRoller(event.target.checked)} />
+            </label>
+            <ul className="done__stretch-list">
+              {stretches.map((exercise) => (
+                <li key={exercise.id} className="done__stretch">
+                  <span className="done__stretch-thumb stage">
+                    <Figure animation={exercise.animation} playing={false} label="" />
+                  </span>
+                  <span className="stack stack--tight">
+                    <strong>{exercise.name}</strong>
+                    <span className="faint">{exercise.muscles.slice(0, 2).map((muscle) => MUSCLE_LABEL[muscle]).join(' · ')}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <button
+              type="button"
+              className="btn btn--primary btn--lg btn--block"
+              onClick={() => navigate(`/app/play/cooldown/${cooldownId(stretches)}`)}
+            >
+              <Icon name="play" />
+              Start cool-down
+            </button>
+          </section>
+        ) : null}
+
         <SupportCard />
         {showAd ? <AdUnit key={adKey ?? 'done'} placement="rest" className="done__ad" /> : null}
+        {summary ? <HealthExportDialog workout={summary.health} open={exporting} onClose={() => setExporting(false)} /> : null}
       </div>
     </div>
   )

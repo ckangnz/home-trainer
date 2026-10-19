@@ -13,7 +13,7 @@ const FEATURES: { icon: IconName; title: string; body: string }[] = [
   {
     icon: 'grid',
     title: `${Math.max(10, Math.floor(EXERCISES.length / 10) * 10)}+ animated moves`,
-    body: 'Every exercise has a looping animation, step-by-step instructions, and form tips.',
+    body: 'Bodyweight, dumbbells, kettlebells, barbells, stretching, and foam rolling. Each move has an animation, steps, form tips, and a muscle map.',
   },
   {
     icon: 'edit',
@@ -24,6 +24,16 @@ const FEATURES: { icon: IconName; title: string; body: string }[] = [
     icon: 'share',
     title: 'Share with a code',
     body: 'Send a short code to a friend and your routine lands in their list in one tap.',
+  },
+  {
+    icon: 'users',
+    title: 'Train with friends',
+    body: 'Add friends or your personal trainer to see each other’s workouts and copy each other’s routines.',
+  },
+  {
+    icon: 'heart',
+    title: 'Save to Health',
+    body: 'Send finished workouts with time and estimated calories to Apple Health, or export a file for other apps.',
   },
   {
     icon: 'download',

@@ -105,15 +105,24 @@ textarea {
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
+  transition:
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-spring);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.95);
+  transition-duration: 90ms;
+}
+
+.btn--primary:hover {
+  box-shadow: 0 8px 24px -10px rgba(255, 106, 43, 0.7);
 }
 
 .btn:hover {
   background: var(--color-surface-3);
-}
-
-.btn:active {
-  transform: scale(0.98);
 }
 
 .btn:disabled {
@@ -632,6 +641,64 @@ textarea.ui-control {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.page {
+  animation: page-enter var(--duration-slow) var(--ease-out) both;
+}
+
+.grid > *,
+.list > * {
+  animation: item-enter var(--duration-slow) var(--ease-out) both;
+}
+
+.grid > :nth-child(2),
+.list > :nth-child(2) {
+  animation-delay: 40ms;
+}
+
+.grid > :nth-child(3),
+.list > :nth-child(3) {
+  animation-delay: 80ms;
+}
+
+.grid > :nth-child(4),
+.list > :nth-child(4) {
+  animation-delay: 120ms;
+}
+
+.grid > :nth-child(5),
+.list > :nth-child(5) {
+  animation-delay: 160ms;
+}
+
+.grid > :nth-child(n + 6),
+.list > :nth-child(n + 6) {
+  animation-delay: 200ms;
+}
+
+.card {
+  transition:
+    border-color var(--duration-fast) ease,
+    transform var(--duration-base) var(--ease-out);
+}
+
+.dialog[open] .dialog__body {
+  animation: item-enter var(--duration-base) var(--ease-spring) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

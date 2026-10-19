@@ -26,42 +26,53 @@ function RoutineCard({ routine, onShare, onDelete }: { routine: Routine; onShare
   const moves = routine.items.filter((item) => getExercise(item.exerciseId)).length
   return (
     <article className="routine-card card">
-      <div className="routine-card__thumb stage">
-        {preview ? <Figure animation={preview.animation} playing={false} label="" /> : null}
-      </div>
-      <div className="routine-card__body">
-        <h3 className="routine-card__name">{routine.name}</h3>
-        <p className="faint">
-          {moves} moves · {formatDuration(estimateDurationMs(routine, getExercise))}
-          {routine.defaults.rounds > 1 ? ` · ${routine.defaults.rounds} rounds` : ''}
-          {routine.shareCode ? ' · Shared' : ''}
-        </p>
-        <div className="routine-card__actions">
-          <Link
-            to={`/app/play/routine/${routine.id}`}
-            className={`btn btn--primary btn--small${moves === 0 ? ' is-disabled' : ''}`}
-            aria-disabled={moves === 0}
-            onClick={(event) => {
-              if (moves === 0) {
-                event.preventDefault()
-              }
-            }}
-          >
-            <Icon name="play" />
-            Play
-          </Link>
-          <Link to={`/app/routines/${routine.id}`} className="btn btn--small">
-            <Icon name="edit" />
-            Edit
-          </Link>
-          <button type="button" className="btn btn--small" onClick={onShare}>
-            <Icon name="share" />
-            Share
-          </button>
-          <button type="button" className="btn btn--small btn--ghost" aria-label={`Delete ${routine.name}`} onClick={onDelete}>
-            <Icon name="trash" />
-          </button>
+      <div className="routine-card__main">
+        <div className="routine-card__thumb stage">
+          {preview ? <Figure animation={preview.animation} playing={false} label="" /> : null}
         </div>
+        <div className="routine-card__body">
+          <h3 className="routine-card__name">{routine.name}</h3>
+          <p className="faint">
+            {moves} moves · {formatDuration(estimateDurationMs(routine, getExercise))}
+            {routine.defaults.rounds > 1 ? ` · ${routine.defaults.rounds} rounds` : ''}
+          </p>
+          {routine.shareCode || routine.source?.kind === 'friend' ? (
+            <div className="routine-card__tags">
+              {routine.shareCode ? <span className="badge">Shared</span> : null}
+              {routine.source?.kind === 'friend' ? <span className="badge">From {routine.source.ownerName ?? 'a friend'}</span> : null}
+            </div>
+          ) : null}
+        </div>
+      </div>
+      <div className="routine-card__actions">
+        <Link
+          to={`/app/play/routine/${routine.id}`}
+          className={`btn btn--primary routine-card__play${moves === 0 ? ' is-disabled' : ''}`}
+          aria-disabled={moves === 0}
+          onClick={(event) => {
+            if (moves === 0) {
+              event.preventDefault()
+            }
+          }}
+        >
+          <Icon name="play" />
+          Play
+        </Link>
+        <Link to={`/app/routines/${routine.id}`} className="btn btn--icon routine-card__tool" aria-label={`Edit ${routine.name}`} title="Edit">
+          <Icon name="edit" />
+        </Link>
+        <button type="button" className="btn btn--icon routine-card__tool" aria-label={`Share ${routine.name}`} title="Share" onClick={onShare}>
+          <Icon name="share" />
+        </button>
+        <button
+          type="button"
+          className="btn btn--icon routine-card__tool routine-card__tool--danger"
+          aria-label={`Delete ${routine.name}`}
+          title="Delete"
+          onClick={onDelete}
+        >
+          <Icon name="trash" />
+        </button>
       </div>
     </article>
   )

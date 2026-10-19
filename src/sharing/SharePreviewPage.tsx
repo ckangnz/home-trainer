@@ -8,6 +8,7 @@ import type { SharedRoutine } from '@/data/models'
 import { getExercise } from '@/exercises'
 import { withFreshIds } from '@/workouts/routine'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
+import { RoutineMuscles } from '@/components/RoutineMuscles'
 import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
@@ -136,6 +137,8 @@ export function SharePreviewPage() {
           </button>
         )}
       </div>
+
+      <RoutineMuscles body={share.routine} />
 
       <section className="section">
         <h2 className="section__title">The moves</h2>

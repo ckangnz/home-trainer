@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path'
 import { prepareAnimation, sampleSkeleton, thumbSkeleton } from '../src/figure/animate'
 import { animationBounds, viewBoxFor } from '../src/figure/framing'
 import { propParts, shadowFor, skeletonParts } from '../src/figure/parts'
+import { SecondaryMotion, STILL, type Secondary } from '../src/figure/secondary'
 import { paletteFor, sceneToSvg } from '../src/figure/svg'
 import type { Look } from '../src/figure/look'
 import { EXERCISES } from '../src/exercises'
@@ -20,18 +21,21 @@ const baseExercises: Exercise[] = Object.entries(BASE_POSES).map(([name, base]) 
   impact: 'low',
   sided: 'symmetric',
   defaultTarget: { kind: 'time', seconds: 30 },
-  animation: { view: base.view, keyframes: [{ pose: base.pose, ms: 0 }] },
+  animation: { view: base.view, keyframes: [{ pose: base.pose, ms: 0 }], props: base.props },
   summary: '',
   steps: [],
   tips: [],
 }))
 const catalogs = import.meta.glob<Record<string, Exercise[]>>('../src/exercises/catalog/*.ts')
 const only = process.env.CATALOG
+const external = process.env.SOURCE
 const source = process.env.BASES
   ? baseExercises
-  : only
-    ? Object.values(await catalogs[`../src/exercises/catalog/${only}.ts`]()).flat()
-    : EXERCISES
+  : external
+    ? Object.values((await import(resolve(external))) as Record<string, Exercise[]>).flat()
+    : only
+      ? Object.values(await catalogs[`../src/exercises/catalog/${only}.ts`]()).flat()
+      : EXERCISES
 
 const look: Look = {
   trainer: process.env.LOOK === 'male' ? 'male' : 'female',
@@ -55,6 +59,21 @@ const selected = source.filter(
 )
 const rows: string[] = []
 const labelWidth = 170
+const MOTION = Boolean(process.env.MOTION)
+const MOTION_STEP_MS = 1000 / 30
+
+function secondaryAt(prepared: ReturnType<typeof prepareAnimation>, time: number): Secondary {
+  if (!MOTION) {
+    return STILL
+  }
+  const motion = new SecondaryMotion()
+  const end = prepared.cycleMs + time
+  let result = STILL
+  for (let clock = 0; clock <= end; clock += MOTION_STEP_MS) {
+    result = motion.step(sampleSkeleton(prepared, clock), MOTION_STEP_MS, clock)
+  }
+  return result
+}
 
 selected.forEach((exercise, rowIndex) => {
   const prepared = prepareAnimation(exercise.animation)
@@ -69,7 +88,7 @@ selected.forEach((exercise, rowIndex) => {
       const skeleton = sampleSkeleton(prepared, time)
       const svg = sceneToSvg({
         viewBox,
-        parts: skeletonParts(skeleton, look),
+        parts: skeletonParts(skeleton, look, prepared.props, secondaryAt(prepared, time)),
         palette,
         back: props.back,
         under: props.under,
@@ -95,7 +114,7 @@ if (GRID > 0) {
     const viewBox = viewBoxFor(animationBounds(prepared), 1)
     const props = propParts(prepared.props)
     const skeleton = process.env.AT === 'thumb' ? thumbSkeleton(prepared) : sampleSkeleton(prepared, Number(process.env.AT ?? 0) * prepared.cycleMs)
-    const svg = sceneToSvg({ viewBox, parts: skeletonParts(skeleton, look), back: props.back, under: props.under, shadow: shadowFor(skeleton), palette, pixelWidth: CELL })
+    const svg = sceneToSvg({ viewBox, parts: skeletonParts(skeleton, look, prepared.props), back: props.back, under: props.under, shadow: shadowFor(skeleton), palette, pixelWidth: CELL })
     const x = (index % GRID) * (CELL + 8)
     const y = Math.floor(index / GRID) * (CELL + 26)
     return `<g transform="translate(${x},${y})"><text x="4" y="15" font-size="13" fill="#f1f5f9" font-family="Helvetica">${escapeXml(exercise.name)}</text>${svg.replace('<svg ', '<svg x="0" y="22" ')}</g>`

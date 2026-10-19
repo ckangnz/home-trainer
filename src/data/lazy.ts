@@ -9,3 +9,15 @@ export function loadRepository(): Promise<Repository> {
   })
   return pending
 }
+
+type FriendsRepository = typeof import('./friends')
+
+let pendingFriends: Promise<FriendsRepository> | null = null
+
+export function loadFriendsRepository(): Promise<FriendsRepository> {
+  pendingFriends ??= import('./friends').catch((error: unknown) => {
+    pendingFriends = null
+    throw error
+  })
+  return pendingFriends
+}

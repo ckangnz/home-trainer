@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { EXERCISES } from '@/exercises'
-import { CATEGORY_LABEL, CATEGORY_ORDER, MUSCLE_LABEL } from '@/exercises/labels'
+import { CATEGORY_LABEL, CATEGORY_ORDER, GEAR_LABEL, GEAR_ORDER, MUSCLE_LABEL, gearGroup, type GearGroup } from '@/exercises/labels'
 import type { Category } from '@/exercises/types'
 import { ExerciseCard } from '@/components/ExerciseCard'
 import { usePageMeta } from '@/app/meta'
@@ -11,19 +11,27 @@ function isCategory(value: string | null): value is Category {
   return value !== null && (CATEGORY_ORDER as string[]).includes(value)
 }
 
+function isGear(value: string | null): value is GearGroup {
+  return value !== null && (GEAR_ORDER as string[]).includes(value)
+}
+
 export function ExercisesPage() {
   const [params, setParams] = useSearchParams()
   const category = isCategory(params.get('category')) ? (params.get('category') as Category) : null
   const query = params.get('q') ?? ''
+  const gear = isGear(params.get('gear')) ? (params.get('gear') as GearGroup) : null
   usePageMeta(
     category ? `${CATEGORY_LABEL[category]} exercises` : 'Exercise library',
-    'Browse animated bodyweight exercises for cardio, strength, core, stretching, and yoga, each with step-by-step instructions and form tips.',
+    'Browse animated exercises for cardio, bodyweight strength, weights, core, stretching, mobility, foam rolling, and yoga, each with step-by-step instructions and form tips.',
   )
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase()
     return EXERCISES.filter((exercise) => {
       if (category && exercise.category !== category && !exercise.tags.includes(category)) {
+        return false
+      }
+      if (gear && gearGroup(exercise.equipment) !== gear) {
         return false
       }
       if (!needle) {
@@ -34,10 +42,17 @@ export function ExercisesPage() {
         .toLowerCase()
       return haystack.includes(needle)
     })
-  }, [category, query])
+  }, [category, query, gear])
 
-  const update = (next: { category?: Category | null; q?: string }) => {
+  const update = (next: { category?: Category | null; q?: string; gear?: GearGroup | null }) => {
     const merged = new URLSearchParams(params)
+    if (next.gear !== undefined) {
+      if (next.gear) {
+        merged.set('gear', next.gear)
+      } else {
+        merged.delete('gear')
+      }
+    }
     if (next.category !== undefined) {
       if (next.category) {
         merged.set('category', next.category)
@@ -60,8 +75,8 @@ export function ExercisesPage() {
       <header className="page__header">
         <h1 className="page__title">Exercise library</h1>
         <p className="page__lead">
-          {EXERCISES.length} bodyweight moves with animated demos. Tap any exercise for instructions, then add it to your
-          own routine.
+          {EXERCISES.length} moves with animated demos, from bodyweight and weights to stretching and foam rolling. Tap
+          any exercise for instructions, then add it to your own routine.
         </p>
       </header>
 
@@ -90,6 +105,22 @@ export function ExercisesPage() {
               onClick={() => update({ category: category === entry ? null : entry })}
             >
               {CATEGORY_LABEL[entry]}
+            </button>
+          ))}
+        </div>
+        <div className="chip-row chip-row--scroll" role="group" aria-label="Filter by equipment">
+          <button type="button" className="chip" aria-pressed={gear === null} onClick={() => update({ gear: null })}>
+            Any equipment
+          </button>
+          {GEAR_ORDER.map((entry) => (
+            <button
+              key={entry}
+              type="button"
+              className="chip"
+              aria-pressed={gear === entry}
+              onClick={() => update({ gear: gear === entry ? null : entry })}
+            >
+              {GEAR_LABEL[entry]}
             </button>
           ))}
         </div>

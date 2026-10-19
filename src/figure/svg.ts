@@ -5,13 +5,25 @@ import type { ViewBox } from './framing'
 
 export type Palette = Record<Tone | 'floor' | 'shadow' | 'stage', string>
 
+type EquipmentTone = 'prop' | 'propSoft' | 'iron' | 'ironLight' | 'foam' | 'foamLight' | 'band'
+
+const EQUIPMENT: Pick<Palette, EquipmentTone> = {
+  prop: '#9aa8bd',
+  propSoft: '#dde5ef',
+  iron: '#3a4354',
+  ironLight: '#7d8899',
+  foam: '#2a9d8f',
+  foamLight: '#8fd5c9',
+  band: '#e0457b',
+}
+
 const SKIN: Record<SkinTone, Pick<Palette, 'skin' | 'skinFar' | 'skinShade'>> = {
   light: { skin: '#f2c6a3', skinFar: '#dcab85', skinShade: '#c48b62' },
   medium: { skin: '#cf9466', skinFar: '#b77c4f', skinShade: '#9c6540' },
   deep: { skin: '#8a5638', skinFar: '#74462c', skinShade: '#5c3620' },
 }
 
-const OUTFIT: Record<TrainerId, Omit<Palette, 'skin' | 'skinFar' | 'skinShade' | 'prop' | 'propSoft' | 'floor' | 'shadow' | 'stage'>> = {
+const OUTFIT: Record<TrainerId, Omit<Palette, 'skin' | 'skinFar' | 'skinShade' | EquipmentTone | 'floor' | 'shadow' | 'stage'>> = {
   female: {
     top: '#ff6a2b',
     topFar: '#d9531c',
@@ -44,8 +56,7 @@ export function paletteFor(look: Look): Palette {
   return {
     ...SKIN[look.skin],
     ...OUTFIT[look.trainer],
-    prop: '#9aa8bd',
-    propSoft: '#dde5ef',
+    ...EQUIPMENT,
     floor: '#cbd5e1',
     shadow: '#0f172a',
     stage: '#f8fafc',

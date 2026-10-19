@@ -79,16 +79,30 @@ export interface Keyframe {
   ease?: Easing
 }
 
+export type Grip = 'L' | 'R' | 'both'
+
 export type Prop =
   | { kind: 'chair'; x: number; facing: 1 | -1 }
   | { kind: 'wall'; x: number; side: 1 | -1 }
   | { kind: 'mat'; x0: number; x1: number }
+  | { kind: 'bench'; x0: number; x1: number }
+  | { kind: 'box'; x0: number; x1: number; height: number }
+  | { kind: 'dumbbell'; hand: Grip }
+  | { kind: 'kettlebell'; hand: Grip; hang?: 'down' | 'arm' }
+  | { kind: 'barbell'; plate?: number }
+  | { kind: 'band'; from: Vec2 | JointId; hand: Grip }
+  | { kind: 'strap'; foot: LimbSide; hand: Grip }
+  | { kind: 'foamRoller'; under: JointId; dx?: number }
+  | { kind: 'massageBall'; under: JointId; dx?: number; y?: number }
+
+export type Feel = 'smooth' | 'bouncy'
 
 export interface FigureAnimation {
   view: View
   keyframes: Keyframe[]
   props?: Prop[]
   thumb?: number
+  feel?: Feel
 }
 
 export interface Skeleton {
@@ -136,6 +150,11 @@ export type Tone =
   | 'accent'
   | 'prop'
   | 'propSoft'
+  | 'iron'
+  | 'ironLight'
+  | 'foam'
+  | 'foamLight'
+  | 'band'
 
 export type Part =
   | { kind: 'seg'; id: string; a: Vec2; b: Vec2; width: number; tone: Tone }

@@ -1,6 +1,6 @@
 import type { Category, Equipment, Exercise, Muscle, Sided, Target } from './types'
 
-export const CATEGORY_ORDER: Category[] = ['cardio', 'fullBody', 'upperBody', 'lowerBody', 'core', 'stretch', 'yoga', 'warmup']
+export const CATEGORY_ORDER: Category[] = ['cardio', 'fullBody', 'upperBody', 'lowerBody', 'core', 'weights', 'stretch', 'mobility', 'recovery', 'yoga', 'warmup']
 
 export const CATEGORY_LABEL: Record<Category, string> = {
   cardio: 'Cardio & HIIT',
@@ -11,6 +11,9 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   stretch: 'Stretching',
   yoga: 'Yoga',
   warmup: 'Warm-up',
+  weights: 'Weights',
+  mobility: 'Mobility',
+  recovery: 'Foam rolling & recovery',
 }
 
 export const MUSCLE_LABEL: Record<Muscle, string> = {
@@ -19,6 +22,9 @@ export const MUSCLE_LABEL: Record<Muscle, string> = {
   triceps: 'Triceps',
   biceps: 'Biceps',
   upperBack: 'Upper back',
+  lats: 'Lats',
+  traps: 'Traps',
+  forearms: 'Forearms',
   lowerBack: 'Lower back',
   abs: 'Abs',
   obliques: 'Obliques',
@@ -28,6 +34,8 @@ export const MUSCLE_LABEL: Record<Muscle, string> = {
   calves: 'Calves',
   hipFlexors: 'Hip flexors',
   adductors: 'Inner thighs',
+  abductors: 'Outer hips',
+  neck: 'Neck',
   fullBody: 'Full body',
 }
 
@@ -36,6 +44,46 @@ export const EQUIPMENT_LABEL: Record<Equipment, string> = {
   chair: 'Chair',
   wall: 'Wall',
   mat: 'Mat',
+  dumbbells: 'Dumbbells',
+  kettlebell: 'Kettlebell',
+  barbell: 'Barbell',
+  bench: 'Bench',
+  band: 'Resistance band',
+  foamRoller: 'Foam roller',
+  massageBall: 'Massage ball',
+  strap: 'Stretch strap',
+  box: 'Step or box',
+}
+
+export type GearGroup = 'none' | 'weights' | 'band' | 'recovery'
+
+export const GEAR_ORDER: GearGroup[] = ['none', 'weights', 'band', 'recovery']
+
+export const GEAR_LABEL: Record<GearGroup, string> = {
+  none: 'No equipment',
+  weights: 'Free weights',
+  band: 'Bands',
+  recovery: 'Roller & tools',
+}
+
+const GEAR_OF: Record<Equipment, GearGroup> = {
+  none: 'none',
+  chair: 'none',
+  wall: 'none',
+  mat: 'none',
+  dumbbells: 'weights',
+  kettlebell: 'weights',
+  barbell: 'weights',
+  bench: 'weights',
+  box: 'none',
+  band: 'band',
+  foamRoller: 'recovery',
+  massageBall: 'recovery',
+  strap: 'recovery',
+}
+
+export function gearGroup(equipment: Equipment): GearGroup {
+  return GEAR_OF[equipment]
 }
 
 export const LEVEL_LABEL: Record<1 | 2 | 3, string> = {

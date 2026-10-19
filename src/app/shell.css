@@ -147,6 +147,43 @@
   color: var(--color-accent-strong);
 }
 
+.tabbar__link,
+.shell__link {
+  position: relative;
+}
+
+.nav-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  line-height: 1;
+  animation: badge-pop 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.shell__link .nav-badge {
+  margin-left: var(--space-1);
+}
+
+.tabbar__link .nav-badge {
+  position: absolute;
+  top: 6px;
+  left: calc(50% + 6px);
+}
+
+@keyframes badge-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
 @media (min-width: 860px) {
   .shell {
     padding-bottom: 0;

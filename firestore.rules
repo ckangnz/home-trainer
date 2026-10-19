@@ -11,6 +11,23 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == userId;
     }
 
+    function isFriendOf(userId) {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(userId)/friends/$(request.auth.uid));
+    }
+
+    function requestExists(from, to) {
+      return exists(/databases/$(database)/documents/friendRequests/$(from + '_' + to));
+    }
+
+    function validName(name) {
+      return name is string && name.size() > 0 && name.size() <= 80;
+    }
+
+    function validPhoto(data, field) {
+      return !(field in data) || (data[field] is string && data[field].size() <= 500);
+    }
+
     function validRoutineBody(routine) {
       return routine.name is string
         && routine.name.size() > 0
@@ -21,13 +38,72 @@ service cloud.firestore {
         && routine.items.size() <= 60;
     }
 
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasOnly(['displayName', 'photoURL', 'friendCode', 'updatedAt'])
+        && validName(request.resource.data.displayName)
+        && validPhoto(request.resource.data, 'photoURL')
+        && request.resource.data.friendCode is string
+        && request.resource.data.friendCode.matches('^[0-9A-HJKMNP-TV-Z]{8}$');
+      allow delete: if isOwner(userId);
+    }
+
+    match /users/{userId}/friends/{friendId} {
+      allow read: if isOwner(userId);
+      allow create: if isSignedIn()
+        && userId != friendId
+        && request.resource.data.uid == friendId
+        && request.resource.data.keys().hasOnly(['uid', 'displayName', 'photoURL', 'since'])
+        && validName(request.resource.data.displayName)
+        && validPhoto(request.resource.data, 'photoURL')
+        && request.resource.data.since is string
+        && ((request.auth.uid == userId && requestExists(friendId, userId))
+          || (request.auth.uid == friendId && requestExists(userId, friendId)));
+      allow update: if false;
+      allow delete: if isSignedIn() && (request.auth.uid == userId || request.auth.uid == friendId);
+    }
+
+    match /friendCodes/{code} {
+      allow get: if isSignedIn();
+      allow list: if false;
+      allow create, update: if isSignedIn()
+        && code.matches('^[0-9A-HJKMNP-TV-Z]{8}$')
+        && (resource == null || resource.data.uid == request.auth.uid)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['uid', 'displayName', 'photoURL'])
+        && validName(request.resource.data.displayName)
+        && validPhoto(request.resource.data, 'photoURL');
+      allow delete: if isSignedIn() && resource.data.uid == request.auth.uid;
+    }
+
+    match /friendRequests/{id} {
+      allow read: if isSignedIn() && (resource.data.from == request.auth.uid || resource.data.to == request.auth.uid);
+      allow create: if isSignedIn()
+        && request.resource.data.from == request.auth.uid
+        && request.resource.data.to is string
+        && request.resource.data.to != request.auth.uid
+        && id == request.auth.uid + '_' + request.resource.data.to
+        && !exists(/databases/$(database)/documents/users/$(request.auth.uid)/friends/$(request.resource.data.to))
+        && request.resource.data.keys().hasOnly(['from', 'fromName', 'fromPhoto', 'to', 'toName', 'toPhoto', 'createdAt'])
+        && validName(request.resource.data.fromName)
+        && validName(request.resource.data.toName)
+        && validPhoto(request.resource.data, 'fromPhoto')
+        && validPhoto(request.resource.data, 'toPhoto')
+        && request.resource.data.createdAt is string;
+      allow update: if false;
+      allow delete: if isSignedIn() && (resource.data.from == request.auth.uid || resource.data.to == request.auth.uid);
+    }
+
     match /users/{userId}/routines/{routineId} {
-      allow read, delete: if isOwner(userId);
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow delete: if isOwner(userId);
       allow create, update: if isOwner(userId) && validRoutineBody(request.resource.data);
     }
 
     match /users/{userId}/completions/{completionId} {
-      allow read, delete: if isOwner(userId);
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow delete: if isOwner(userId);
       allow create, update: if isOwner(userId)
         && request.resource.data.title is string
         && request.resource.data.title.size() <= 120

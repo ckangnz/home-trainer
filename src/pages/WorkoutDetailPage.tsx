@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { LEVEL_LABEL, formatSeconds } from '@/exercises/labels'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
+import { RoutineMuscles } from '@/components/RoutineMuscles'
 import { useAuth } from '@/auth/AuthProvider'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
@@ -75,6 +76,8 @@ export function WorkoutDetailPage() {
           .
         </p>
       </section>
+
+      <RoutineMuscles body={workout} />
 
       <section className="section">
         <h2 className="section__title">The moves</h2>

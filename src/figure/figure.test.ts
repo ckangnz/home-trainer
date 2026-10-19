@@ -3,9 +3,9 @@ import { distance, lerpAngle, wrap180, type Vec2 } from './math'
 import { ANKLE_REST_HEIGHT, RIG, STAND_HIP_HEIGHT } from './rig'
 import { isReach, solveSpec, twoBone } from './solve'
 import { prepareAnimation, samplePose, sampleSkeleton } from './animate'
-import { skeletonParts } from './parts'
+import { BENCH_HEIGHT, gripPoint, heldPropParts, partExtent, propParts, ROLLER_RADIUS, skeletonParts } from './parts'
 import { animationBounds, viewBoxFor } from './framing'
-import type { FigureAnimation, PoseSpec } from './types'
+import type { FigureAnimation, Part, PoseSpec, Prop } from './types'
 
 function close(a: Vec2, b: Vec2, tolerance = 1e-6) {
   expect(distance(a, b)).toBeLessThan(tolerance)
@@ -250,5 +250,140 @@ describe('animation sampling', () => {
       expect(distance(previous, elbow)).toBeLessThan(0.03)
       previous = elbow
     }
+  })
+})
+
+describe('equipment props', () => {
+  const curl: FigureAnimation = {
+    view: 'side',
+    keyframes: [
+      { pose: { armL: [4, 6], armR: [4, 6] }, ms: 900 },
+      { pose: { armL: [10, 140], armR: [10, 140] }, ms: 900 },
+    ],
+  }
+
+  const withProps = (animation: FigureAnimation, props: Prop[]): FigureAnimation => ({ ...animation, props })
+
+  const find = (parts: Part[], id: string): Part => {
+    const part = parts.find((candidate) => candidate.id === id)
+    if (!part) {
+      throw new Error(`missing ${id}`)
+    }
+    return part
+  }
+
+  const index = (parts: Part[], id: string) => parts.findIndex((part) => part.id === id)
+
+  it('keeps a dumbbell in each hand on every frame', () => {
+    const prepared = prepareAnimation(withProps(curl, [{ kind: 'dumbbell', hand: 'both' }]))
+    for (const time of [0, 300, 900, 1400]) {
+      const skeleton = sampleSkeleton(prepared, time)
+      const parts = skeletonParts(skeleton, undefined, prepared.props)
+      for (const side of ['L', 'R'] as const) {
+        const hub = find(parts, `dumbbell0${side}-hub`)
+        expect(hub.kind).toBe('circle')
+        if (hub.kind === 'circle') {
+          close(hub.center, gripPoint(skeleton, side))
+          expect(distance(hub.center, skeleton.points[`wrist${side}`])).toBeLessThan(RIG.hand)
+        }
+      }
+    }
+  })
+
+  it('keeps the same part ids across frames so the live renderer can patch them', () => {
+    const props: Prop[] = [
+      { kind: 'dumbbell', hand: 'L' },
+      { kind: 'kettlebell', hand: 'R' },
+      { kind: 'band', from: [0.9, 1.1], hand: 'both' },
+      { kind: 'strap', foot: 'L', hand: 'both' },
+      { kind: 'foamRoller', under: 'hip' },
+    ]
+    const prepared = prepareAnimation(withProps(curl, props))
+    const ids = (time: number) => skeletonParts(sampleSkeleton(prepared, time), undefined, prepared.props).map((part) => part.id)
+    const first = ids(0)
+    expect(new Set(first).size).toBe(first.length)
+    expect(ids(450)).toEqual(first)
+    expect(ids(1200)).toEqual(first)
+  })
+
+  it('layers held equipment with the near and far side of the body', () => {
+    const side = skeletonParts(
+      sampleSkeleton(prepareAnimation(curl), 0),
+      undefined,
+      [{ kind: 'dumbbell', hand: 'both' }, { kind: 'barbell' }, { kind: 'foamRoller', under: 'hip' }, { kind: 'kettlebell', hand: 'L' }],
+    )
+    expect(index(side, 'dumbbell0L-head')).toBeGreaterThan(index(side, 'handL'))
+    expect(index(side, 'dumbbell0R-head')).toBeLessThan(index(side, 'torso'))
+    expect(index(side, 'barbell1-plate')).toBeGreaterThan(index(side, 'handL'))
+    expect(index(side, 'foamRoller2-body')).toBeLessThan(index(side, 'torso'))
+    expect(index(side, 'kettlebell3-bell')).toBeLessThan(index(side, 'handL'))
+    expect(index(side, 'kettlebell3-bell')).toBeGreaterThan(index(side, 'forearmL'))
+    const front = skeletonParts(solveSpec({}, 'front'), undefined, [{ kind: 'dumbbell', hand: 'L' }, { kind: 'barbell' }])
+    expect(index(front, 'dumbbell0L-bar')).toBeLessThan(index(front, 'handL'))
+    expect(index(front, 'barbell1-bar')).toBeGreaterThan(index(front, 'torso'))
+    expect(index(front, 'barbell1-bar')).toBeLessThan(index(front, 'upperArmR'))
+  })
+
+  it('rolls a foam roller along the floor under its joint', () => {
+    const prepared = prepareAnimation({
+      view: 'side',
+      keyframes: [
+        { pose: { root: [0.1, 0.24], torso: -25, legL: [62, 0], legR: [62, 0] }, ms: 1000 },
+        { pose: { root: [-0.1, 0.24], torso: -25, legL: [62, 0], legR: [62, 0] }, ms: 1000 },
+      ],
+      props: [{ kind: 'foamRoller', under: 'kneeL', dx: 0.2 }],
+    })
+    const marks: number[] = []
+    for (const time of [0, 400, 1000, 1500]) {
+      const skeleton = sampleSkeleton(prepared, time)
+      const parts = heldPropParts(skeleton, prepared.props)
+      const body = find(parts, 'foamRoller0-body')
+      const mark = find(parts, 'foamRoller0-mark')
+      if (body.kind === 'circle' && mark.kind === 'circle') {
+        expect(body.center[0]).toBeCloseTo(skeleton.points.kneeL[0] + 0.2)
+        expect(body.center[1]).toBeCloseTo(ROLLER_RADIUS)
+        expect(Math.min(...partExtent(body).map((point) => point[1]))).toBeCloseTo(0)
+        marks.push(mark.center[1])
+      }
+    }
+    expect(marks.length).toBe(4)
+    expect(Math.max(...marks) - Math.min(...marks)).toBeGreaterThan(0.01)
+  })
+
+  it('anchors bands to points or joints and straps to the sole', () => {
+    const skeleton = solveSpec({ armL: [80, 0] }, 'side')
+    const parts = heldPropParts(skeleton, [
+      { kind: 'band', from: [1, 1.1], hand: 'L' },
+      { kind: 'band', from: 'ankleL', hand: 'L' },
+      { kind: 'strap', foot: 'L', hand: 'L' },
+    ])
+    const wall = find(parts, 'band0-strandL')
+    const floor = find(parts, 'band1-strandL')
+    const strap = find(parts, 'strap2-strandL')
+    if (wall.kind === 'seg' && floor.kind === 'seg' && strap.kind === 'seg') {
+      close(wall.a, [1, 1.1])
+      close(wall.b, gripPoint(skeleton, 'L'))
+      expect(floor.a[1]).toBeGreaterThan(0)
+      expect(floor.a[1]).toBeLessThan(RIG.soleRadius)
+      expect(strap.a[1]).toBeLessThan(skeleton.points.ankleL[1])
+    } else {
+      throw new Error('expected segments')
+    }
+  })
+
+  it('draws static benches and boxes on the floor and frames held equipment', () => {
+    const { back } = propParts([
+      { kind: 'bench', x0: -0.8, x1: 0.2 },
+      { kind: 'box', x0: 0.4, x1: 0.8, height: 0.4 },
+    ])
+    const pad = find(back, 'bench0-pad')
+    const top = Math.max(...partExtent(pad).map((point) => point[1]))
+    expect(top).toBeCloseTo(BENCH_HEIGHT)
+    for (const part of back) {
+      expect(Math.min(...partExtent(part).map((point) => point[1]))).toBeGreaterThanOrEqual(0)
+    }
+    const press = prepareAnimation({ view: 'front', keyframes: [{ pose: {}, ms: 0 }], props: [{ kind: 'barbell' }] })
+    const bounds = animationBounds(press)
+    expect(bounds.maxX - bounds.minX).toBeGreaterThan(1.6)
   })
 })

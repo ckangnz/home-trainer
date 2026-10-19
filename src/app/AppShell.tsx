@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
+import { useFriends } from '@/friends/FriendsProvider'
 import { InstallPrompt } from '@/pwa/InstallPrompt'
 import { BrandMark, Icon, type IconName } from './Icons'
 import { SITE } from './site'
@@ -16,8 +17,8 @@ const SIGNED_IN_NAV: NavItem[] = [
   { to: '/app', label: 'Home', icon: 'home', end: true },
   { to: '/workouts', label: 'Workouts', icon: 'bolt' },
   { to: '/exercises', label: 'Exercises', icon: 'grid' },
+  { to: '/app/friends', label: 'Friends', icon: 'users' },
   { to: '/app/history', label: 'History', icon: 'history' },
-  { to: '/app/settings', label: 'Settings', icon: 'settings' },
 ]
 
 const PUBLIC_NAV: NavItem[] = [
@@ -42,6 +43,13 @@ export function AppShell() {
   const { status, signIn } = useAuth()
   const signedIn = status === 'signed-in'
   const nav = signedIn ? SIGNED_IN_NAV : status === 'unconfigured' ? GUEST_NAV : PUBLIC_NAV
+  const { incoming } = useFriends()
+  const badge = (item: NavItem) =>
+    item.to === '/app/friends' && incoming.length > 0 ? (
+      <span className="nav-badge" aria-label={`${incoming.length} friend requests`}>
+        {incoming.length}
+      </span>
+    ) : null
 
   return (
     <div className="shell">
@@ -54,6 +62,7 @@ export function AppShell() {
           {nav.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.end} className="shell__link">
               {item.label}
+              {badge(item)}
             </NavLink>
           ))}
         </nav>
@@ -100,6 +109,7 @@ export function AppShell() {
           <NavLink key={item.to} to={item.to} end={item.end} className="tabbar__link">
             <Icon name={item.icon} />
             <span>{item.label}</span>
+            {badge(item)}
           </NavLink>
         ))}
         {status === 'signed-out' ? (

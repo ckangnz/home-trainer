@@ -4,6 +4,8 @@ import { Figure } from '@/figure/Figure'
 import { EXERCISES, getExercise } from '@/exercises'
 import { CATEGORY_LABEL, EQUIPMENT_LABEL, LEVEL_LABEL, MUSCLE_LABEL, formatTarget } from '@/exercises/labels'
 import { ExerciseCard } from '@/components/ExerciseCard'
+import { MuscleMap } from '@/components/MuscleMap'
+import { muscleLoad } from '@/exercises/muscles'
 import { AddToRoutineDialog } from '@/components/AddToRoutineDialog'
 import { AdUnit } from '@/ads/AdUnit'
 import { useAuth } from '@/auth/AuthProvider'
@@ -118,6 +120,7 @@ export function ExerciseDetailPage() {
 
           <section className="stack">
             <h2 className="section__title">Muscles worked</h2>
+            <MuscleMap load={muscleLoad([exercise])} size="md" label={`${exercise.name} works`} legend />
             <div className="chip-row">
               {exercise.muscles.map((muscle) => (
                 <span key={muscle} className="chip chip--static">

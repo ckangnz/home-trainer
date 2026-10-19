@@ -57,7 +57,26 @@ export function lerpVec(a: Vec2, b: Vec2, t: number): Vec2 {
   return [lerp(a[0], b[0], t), lerp(a[1], b[1], t)]
 }
 
-export type Easing = 'linear' | 'in' | 'out' | 'inOut'
+export type Easing = 'linear' | 'in' | 'out' | 'inOut' | 'natural' | 'back' | 'spring' | 'anticipate'
+
+function cubicBezier(x1: number, y1: number, x2: number, y2: number, x: number): number {
+  const cx = 3 * x1
+  const bx = 3 * (x2 - x1) - cx
+  const ax = 1 - cx - bx
+  const cy = 3 * y1
+  const by = 3 * (y2 - y1) - cy
+  const ay = 1 - cy - by
+  let t = x
+  for (let index = 0; index < 6; index += 1) {
+    const current = ((ax * t + bx) * t + cx) * t - x
+    const slope = (3 * ax * t + 2 * bx) * t + cx
+    if (Math.abs(current) < 1e-6 || Math.abs(slope) < 1e-6) {
+      break
+    }
+    t = clamp(t - current / slope, 0, 1)
+  }
+  return ((ay * t + by) * t + cy) * t
+}
 
 export function ease(kind: Easing, t: number): number {
   const x = clamp(t, 0, 1)
@@ -70,5 +89,19 @@ export function ease(kind: Easing, t: number): number {
       return Math.sin((x * Math.PI) / 2)
     case 'inOut':
       return (1 - Math.cos(Math.PI * x)) / 2
+    case 'natural':
+      return cubicBezier(0.42, 0, 0.22, 1, x)
+    case 'back': {
+      const u = x - 1
+      return 1 + 2.2 * u * u * u + 1.2 * u * u
+    }
+    case 'spring':
+      return 1 - Math.exp(-6 * x) * Math.cos(x * Math.PI * 2.6) * (1 - x)
+    case 'anticipate':
+      return x * x * (2.2 * x - 1.2)
   }
+}
+
+export function overshoots(kind: Easing): boolean {
+  return kind === 'back' || kind === 'spring' || kind === 'anticipate'
 }
