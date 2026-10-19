@@ -108,6 +108,7 @@ export default defineConfig(({ mode, isSsrBuild }) => {
       setupFiles: ['./src/test/setup.ts'],
       css: false,
       testTimeout: 20000,
+      maxWorkers: process.env.CI ? 2 : undefined,
       env: {
         VITE_FIREBASE_API_KEY: '',
         VITE_FIREBASE_AUTH_DOMAIN: '',
