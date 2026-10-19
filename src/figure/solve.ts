@@ -32,9 +32,12 @@ export interface NormalizedPose {
   spine: number
   neck: number
   limbs: Record<LimbId, Triple3 | Reach>
+  grip: Partial<Record<'L' | 'R', number>>
   anchor?: Anchor
   scale: Partial<Record<SegmentId, number>>
 }
+
+export const DEFAULT_GRIP: Record<View, number> = { side: 0, front: 90 }
 
 export function isReach(spec: LimbSpec | Triple3): spec is Reach {
   return !Array.isArray(spec)
@@ -62,6 +65,7 @@ export function normalizePose(spec: PoseSpec): NormalizedPose {
     spine: spec.spine ?? 0,
     neck: spec.neck ?? 0,
     limbs,
+    grip: { L: spec.gripL, R: spec.gripR },
     anchor: spec.anchor,
     scale: spec.scale ?? {},
   }
@@ -415,6 +419,10 @@ export function solvePose(pose: NormalizedPose, view: View): Skeleton {
         legL: chains.legL.rel,
         legR: chains.legR.rel,
       },
+    },
+    grip: {
+      L: pose.grip.L ?? DEFAULT_GRIP[view],
+      R: pose.grip.R ?? DEFAULT_GRIP[view],
     },
   }
 }

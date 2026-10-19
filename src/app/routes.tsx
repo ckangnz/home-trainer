@@ -1,5 +1,6 @@
 import { Suspense, lazy, type ComponentType, type ReactNode } from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
+import { useT } from '@/i18n/translate'
 import { LandingPage } from '@/pages/LandingPage'
 import { ExercisesPage } from '@/pages/ExercisesPage'
 import { ExerciseDetailPage } from '@/pages/ExerciseDetailPage'
@@ -26,10 +27,11 @@ const FriendAddPage = lazyPage(() => import('@/friends/FriendAddPage'), 'FriendA
 const PlayerPage = lazyPage(() => import('@/player/PlayerPage'), 'PlayerPage')
 
 function Loading({ children }: { children: ReactNode }) {
+  const t = useT()
   return (
     <Suspense
       fallback={
-        <div className="center" role="status" aria-label="Loading">
+        <div className="center" role="status" aria-label={t('common.loading')}>
           <div className="spinner" />
         </div>
       }

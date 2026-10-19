@@ -42,11 +42,17 @@ export interface Routine extends RoutineBody {
   updatedAt: string
 }
 
+export type BodyArea = 'fullBody' | 'arms' | 'chest' | 'back' | 'shoulders' | 'core' | 'glutes' | 'legs'
+
+export type WorkoutGoal = 'cardio' | 'strength' | 'flexibility' | 'recovery'
+
 export interface CuratedWorkout extends RoutineBody {
   id: string
   summary: string
   level: 1 | 2 | 3
   focus: Category[]
+  areas: BodyArea[]
+  goal: WorkoutGoal
 }
 
 export type WorkTarget = { kind: 'time'; ms: number } | { kind: 'reps'; reps: number }

@@ -5,7 +5,7 @@ import { animationBounds, viewBoxFor } from '../src/figure/framing'
 import { propParts, shadowFor, skeletonParts } from '../src/figure/parts'
 import { SecondaryMotion, STILL, type Secondary } from '../src/figure/secondary'
 import { paletteFor, sceneToSvg } from '../src/figure/svg'
-import type { Look } from '../src/figure/look'
+import { TRAINER_ORDER, TRAINERS, type Look, type SkinTone, type TrainerId } from '../src/figure/look'
 import { collectExercises, playableAnimation } from '../src/exercises/registry'
 import { BASE_POSES } from '../src/exercises/kit'
 import type { Exercise } from '../src/exercises/types'
@@ -40,10 +40,14 @@ const source = process.env.BASES
           animation: playableAnimation(exercise),
         }))
 
-const look: Look = {
-  trainer: process.env.LOOK === 'male' ? 'male' : 'female',
-  skin: process.env.SKIN === 'light' || process.env.SKIN === 'deep' ? process.env.SKIN : 'medium',
+const SKINS: readonly SkinTone[] = ['light', 'medium', 'deep']
+const requestedSkin = SKINS.find((skin) => skin === process.env.SKIN)
+
+function lookFor(trainer: TrainerId): Look {
+  return { trainer, skin: requestedSkin ?? TRAINERS[trainer].skin }
 }
+
+const look = lookFor(TRAINER_ORDER.find((id) => id === process.env.LOOK) ?? 'female')
 const palette = paletteFor(look)
 const FRAMES = Number(process.env.FRAMES ?? 8)
 const CELL = Number(process.env.CELL ?? 220)
@@ -54,6 +58,45 @@ mkdirSync(outDir, { recursive: true })
 
 function escapeXml(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+if (process.env.LINEUP) {
+  const poses = (process.env.LINEUP === '1' ? 'STAND,STAND_FRONT' : process.env.LINEUP).split(',')
+  const cells = TRAINER_ORDER.flatMap((trainer) =>
+    poses.map((name, column) => {
+      const base = BASE_POSES[name]
+      const prepared = prepareAnimation({ view: base.view, keyframes: [{ pose: base.pose, ms: 0 }], props: base.props })
+      const viewBox = viewBoxFor(animationBounds(prepared), 1)
+      const props = propParts(prepared.props)
+      const skeleton = sampleSkeleton(prepared, 0)
+      const trainerLook = lookFor(trainer)
+      const svg = sceneToSvg({
+        viewBox,
+        parts: skeletonParts(skeleton, trainerLook, prepared.props),
+        back: props.back,
+        under: props.under,
+        shadow: shadowFor(skeleton),
+        palette: paletteFor(trainerLook),
+        pixelWidth: CELL,
+      })
+      const label = column === 0 ? `${TRAINERS[trainer].name} (${trainer})` : name
+      return `<g transform="translate(${column * (CELL + 8)},0)"><text x="6" y="17" font-size="15" fill="#f1f5f9" font-family="Helvetica">${escapeXml(label)}</text>${svg.replace('<svg ', '<svg x="0" y="24" ')}</g>`
+    }),
+  )
+  const columns = Number(process.env.COLUMNS ?? 1)
+  const perRow = poses.length
+  const blocks = TRAINER_ORDER.map((_, row) => cells.slice(row * perRow, row * perRow + perRow).join(''))
+  const blockWidth = perRow * (CELL + 8)
+  const blockHeight = CELL + 26
+  const placed = blocks.map(
+    (block, index) => `<g transform="translate(${(index % columns) * (blockWidth + 16)},${Math.floor(index / columns) * blockHeight})">${block}</g>`,
+  )
+  const width = columns * (blockWidth + 16)
+  const height = Math.ceil(blocks.length / columns) * blockHeight
+  const file = join(outDir, 'lineup.svg')
+  writeFileSync(file, `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="100%" height="100%" fill="#0f172a"/>${placed.join('')}</svg>`)
+  console.log(`Wrote ${file} (${TRAINER_ORDER.length} trainers)`)
+  process.exit(0)
 }
 
 const ids = new Set(source.map((exercise) => exercise.id))

@@ -15,6 +15,11 @@ export const FAMILY_LABEL: Record<string, string> = {
   curl: 'Biceps curl',
   dip: 'Triceps',
   'jumping-jack': 'Jumping jack',
+  'figure-four': 'Figure-four',
+  'hamstring-stretch': 'Hamstring stretch',
+  'quad-stretch': 'Quad stretch',
+  'hip-flexor': 'Hip flexor stretch',
+  'hip-opener': 'Hip opener',
 }
 
 export const EXISTING_FAMILIES: Record<string, { family: string; variant: string }> = {
@@ -86,4 +91,18 @@ export const EXISTING_FAMILIES: Record<string, { family: string; variant: string
   'seal-jacks': { family: 'jumping-jack', variant: 'Seal' },
   'squat-jacks': { family: 'jumping-jack', variant: 'Squat' },
   'star-jumps': { family: 'jumping-jack', variant: 'Star' },
+  'figure-four-stretch': { family: 'figure-four', variant: 'Lying' },
+  'pigeon-pose': { family: 'figure-four', variant: 'Pigeon' },
+  'seated-hamstring-stretch': { family: 'hamstring-stretch', variant: 'Seated' },
+  'strap-hamstring-stretch': { family: 'hamstring-stretch', variant: 'Strap' },
+  'standing-hamstring-stretch': { family: 'hamstring-stretch', variant: 'Standing' },
+  'quad-stretch': { family: 'quad-stretch', variant: 'Standing' },
+  'lying-quad-stretch': { family: 'quad-stretch', variant: 'Lying' },
+  'strap-quad-stretch': { family: 'quad-stretch', variant: 'Strap' },
+  'couch-stretch': { family: 'quad-stretch', variant: 'Couch' },
+  'hip-flexor-stretch': { family: 'hip-flexor', variant: 'Kneeling' },
+  'banded-hip-flexor-stretch': { family: 'hip-flexor', variant: 'Banded' },
+  'butterfly-stretch': { family: 'hip-opener', variant: 'Butterfly' },
+  'lizard-pose': { family: 'hip-opener', variant: 'Lizard' },
+  'seated-straddle-stretch': { family: 'hip-opener', variant: 'Straddle' },
 }

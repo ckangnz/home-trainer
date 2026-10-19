@@ -7,6 +7,7 @@ import { useToast } from '@/app/Toast'
 import { Icon } from '@/app/Icons'
 import { SITE, absoluteUrl } from '@/app/site'
 import type { Routine, RoutineBody } from '@/workouts/types'
+import { useT, type MessageKey } from '@/i18n'
 import { formatCode, sharePath } from './code'
 
 function shareUrl(code: string): string {
@@ -33,9 +34,10 @@ async function copy(text: string): Promise<boolean> {
 export function ShareDialog({ routine, open, onClose }: { routine: Routine; open: boolean; onClose: () => void }) {
   const { user } = useAuth()
   const { setShareCode } = useData()
+  const t = useT()
   const { notify } = useToast()
   const [busy, setBusy] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<MessageKey | null>(null)
   const code = routine.shareCode
 
   const create = async (replace?: string) => {
@@ -43,7 +45,7 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
       return
     }
     if (typeof navigator !== 'undefined' && !navigator.onLine) {
-      setError('You are offline. Connect to the internet to create a share code.')
+      setError('social.share.offline')
       return
     }
     setBusy(true)
@@ -56,7 +58,7 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
         await repository.deleteShare(replace).catch(() => undefined)
       }
     } catch {
-      setError('Could not create a share code. Please try again.')
+      setError('social.share.createFailed')
     } finally {
       setBusy(false)
     }
@@ -72,9 +74,9 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
       const repository = await loadRepository()
       await repository.deleteShare(code)
       setShareCode(routine, undefined)
-      notify('Sharing stopped')
+      notify(t('social.share.stopped'))
     } catch {
-      setError('Could not stop sharing. Please try again.')
+      setError('social.share.stopFailed')
     } finally {
       setBusy(false)
     }
@@ -85,7 +87,7 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
       return
     }
     const url = shareUrl(code)
-    const text = `Try my "${routine.name}" workout on ${SITE.name}. Code: ${formatCode(code)}`
+    const text = t('social.share.text', { name: routine.name, site: SITE.name, code: formatCode(code) })
     if (typeof navigator.share === 'function') {
       try {
         await navigator.share({ title: routine.name, text, url })
@@ -94,23 +96,23 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
         return
       }
     }
-    notify((await copy(`${text}\n${url}`)) ? 'Copied invite to clipboard' : 'Could not copy')
+    notify((await copy(`${text}\n${url}`)) ? t('social.share.inviteCopied') : t('social.share.copyFailed'))
   }
 
   return (
-    <Dialog open={open} title={`Share ${routine.name}`} onClose={onClose}>
+    <Dialog open={open} title={t('social.share.title', { name: routine.name })} onClose={onClose}>
       {code ? (
         <div className="stack">
-          <p className="muted">Anyone with this code or link can preview your routine and add a copy to their list.</p>
+          <p className="muted">{t('social.share.explain')}</p>
           <div className="share-code">
             <span className="share-code__value tabular">{formatCode(code)}</span>
             <button
               type="button"
               className="btn btn--small"
-              onClick={async () => notify((await copy(formatCode(code))) ? 'Code copied' : 'Could not copy')}
+              onClick={async () => notify((await copy(formatCode(code))) ? t('social.share.codeCopied') : t('social.share.copyFailed'))}
             >
               <Icon name="copy" />
-              Copy code
+              {t('social.share.copyCode')}
             </button>
           </div>
           <div className="share-code">
@@ -118,42 +120,39 @@ export function ShareDialog({ routine, open, onClose }: { routine: Routine; open
             <button
               type="button"
               className="btn btn--small"
-              onClick={async () => notify((await copy(shareUrl(code))) ? 'Link copied' : 'Could not copy')}
+              onClick={async () => notify((await copy(shareUrl(code))) ? t('social.share.linkCopied') : t('social.share.copyFailed'))}
             >
               <Icon name="link" />
-              Copy link
+              {t('social.share.copyLink')}
             </button>
           </div>
           <button type="button" className="btn btn--primary" onClick={() => void nativeShare()}>
             <Icon name="share" />
-            Share…
+            {t('social.share.share')}
           </button>
-          <p className="faint">Edited the routine since sharing? Make a new code so friends get the latest version.</p>
+          <p className="faint">{t('social.share.editedHint')}</p>
           <div className="row row--wrap">
             <button type="button" className="btn btn--small" disabled={busy} onClick={() => void create(code)}>
               <Icon name="repeat" />
-              New code with latest changes
+              {t('social.share.newCode')}
             </button>
             <button type="button" className="btn btn--small btn--danger" disabled={busy} onClick={() => void stop()}>
-              Stop sharing
+              {t('social.share.stop')}
             </button>
           </div>
         </div>
       ) : (
         <div className="stack">
-          <p className="muted">
-            Create a short code your friends can paste into {SITE.name} to copy this routine into their own list. They will
-            get their own copy, and your routine stays private.
-          </p>
+          <p className="muted">{t('social.share.intro', { site: SITE.name })}</p>
           <button type="button" className="btn btn--primary" disabled={busy} onClick={() => void create()}>
             <Icon name="share" />
-            {busy ? 'Creating…' : 'Create share code'}
+            {busy ? t('social.share.creating') : t('social.share.create')}
           </button>
         </div>
       )}
       {error ? (
         <p className="notice notice--error" role="alert">
-          {error}
+          {t(error)}
         </p>
       ) : null}
     </Dialog>

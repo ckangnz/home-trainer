@@ -1,34 +1,36 @@
 import { variationsOf } from '@/exercises'
-import { LEVEL_LABEL } from '@/exercises/labels'
+import { useContent, useT, type Localizer } from '@/i18n'
 import type { ExerciseInfo } from '@/exercises/types'
 
-export function variantLabel(exercise: ExerciseInfo): string {
-  return exercise.variant ?? exercise.name
+export function variantLabel(exercise: ExerciseInfo, content?: Localizer): string {
+  return content ? (content.exerciseVariant(exercise) ?? content.exerciseName(exercise)) : (exercise.variant ?? exercise.name)
 }
 
 export function VariationPicker({ exercise, onPick }: { exercise: ExerciseInfo; onPick: (next: ExerciseInfo) => void }) {
   const variations = variationsOf(exercise)
+  const t = useT()
+  const content = useContent()
   if (variations.length < 2) {
     return null
   }
   return (
     <div className="stack stack--tight">
-      <span className="ui-field__label">Variation</span>
-      <div className="chip-row chip-row--scroll" role="group" aria-label={`${exercise.name} variations`}>
+      <span className="ui-field__label">{t('app.components.variations.label')}</span>
+      <div className="chip-row chip-row--scroll" role="group" aria-label={t('app.components.variations.group', { name: content.exerciseName(exercise) })}>
         {variations.map((option) => (
           <button
             key={option.id}
             type="button"
             className="chip"
             aria-pressed={option.id === exercise.id}
-            title={`${option.name} · ${LEVEL_LABEL[option.level]}`}
+            title={`${content.exerciseName(option)} · ${content.labels.level[option.level]}`}
             onClick={() => {
               if (option.id !== exercise.id) {
                 onPick(option)
               }
             }}
           >
-            {variantLabel(option)}
+            {variantLabel(option, content)}
           </button>
         ))}
       </div>

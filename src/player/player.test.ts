@@ -165,3 +165,15 @@ describe('coach cues', () => {
     expect(cues[1]).toMatchObject({ kind: 'say', text: expect.stringMatching(/complete|wrap|Done/) })
   })
 })
+
+describe('Korean coach cues', () => {
+  it('announces exercises and phrases in Korean', async () => {
+    const { workAnnouncement, entryAnnouncement } = await import('./cues')
+    const step = { kind: 'work' as const, exerciseId: 'squat', target: { kind: 'reps' as const, reps: 12 }, side: 'left' as const, set: 1, sets: 3, round: 1, rounds: 1, item: 1, items: 1 }
+    expect(workAnnouncement(step, () => '스쿼트', 'ko')).toBe('스쿼트, 왼쪽, 12회, 3세트 중 1세트.')
+    expect(workAnnouncement({ ...step, side: undefined, sets: 1, target: { kind: 'time', ms: 60000 } }, () => 'Plank')).toBe('Plank, 1 minute.')
+    const finished = { ...createPlayer([step]), status: 'finished' as const }
+    const korean = entryAnnouncement(finished, { nameOf: () => '스쿼트', trainer: 'kai', language: 'ko' })
+    expect(korean).toMatch(/[가-힣]/)
+  })
+})

@@ -78,6 +78,19 @@
   text-decoration: none;
 }
 
+.avatar--lg {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  font-size: var(--text-xl);
+}
+
+.settings-account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .avatar__initial {
   display: grid;
   place-items: center;

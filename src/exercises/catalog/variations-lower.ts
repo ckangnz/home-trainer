@@ -15,6 +15,7 @@ import {
   arms,
   flat,
   foot,
+  grips,
   hand,
   key,
   legs,
@@ -30,6 +31,8 @@ const PLANTED = toes(TOE, 0)
 const HIP_STANCE = RIG.hipHalfWidth + 0.02
 const DUMBBELLS: Prop[] = STAND_HOLD_PROPS
 const ONE_DUMBBELL: Prop = { kind: 'dumbbell', hand: 'L' }
+const GOBLET_DUMBBELL: Prop = { kind: 'dumbbell', hand: 'both', hold: 'end' }
+const NEUTRAL = grips(90)
 const BELL: Prop = { kind: 'kettlebell', hand: 'both' }
 const MAT: Prop = { kind: 'mat', x0: -0.95, x1: 0.78 }
 
@@ -70,12 +73,12 @@ function onHips(base: PoseSpec, lift: number): PoseSpec {
   return pose(base, arms(hand(along(skeleton.points.hip, normal, lift), normal + 180)))
 }
 
-const dbSquatUp = STAND_HOLD
-const dbSquatDown = pose(STAND, { root: [-0.2, 0.52], torso: 36, neck: -16 }, arms([36, 4]))
+const dbSquatUp = pose(STAND_HOLD, NEUTRAL)
+const dbSquatDown = pose(STAND, { root: [-0.2, 0.52], torso: 36, neck: -16 }, arms([36, 4]), NEUTRAL)
 
-const GOBLET = arms([14, 140])
+const GOBLET = arms([30, 150, 50])
 const gobletUp = pose(STAND, GOBLET)
-const gobletDown = pose(STAND, { root: [-0.13, 0.55], torso: 24, neck: -8 }, GOBLET)
+const gobletDown = pose(STAND, { root: [-0.13, 0.55], torso: 24, neck: -8 }, arms([40, 164, 50]))
 
 const SUMO_STANCE = 0.36
 const SUMO_FEET: PoseSpec = { legL: flat(SUMO_STANCE), legR: flat(-SUMO_STANCE) }
@@ -97,13 +100,13 @@ const splitFront = toes(TOE, 0)
 const splitBack = toes(-0.8, -48)
 const splitUp = pose(STAND, { root: [-0.32, 0.84], torso: 4, legL: splitFront, legR: toes(-0.8, -42) }, arms([6, 10]))
 const splitDown = pose(STAND, { root: [-0.42, 0.55], torso: 8, legL: splitFront, legR: splitBack }, arms([10, 10]))
-const dbSplitUp = pose(splitUp, arms([4, 6]))
-const dbSplitDown = pose(splitDown, arms([8, 6]))
+const dbSplitUp = pose(splitUp, arms([4, 6]), NEUTRAL)
+const dbSplitDown = pose(splitDown, arms([8, 6]), NEUTRAL)
 
 const BULGARIAN_CHAIR: Prop = { kind: 'chair', x: -0.53, facing: 1 }
 const bulgarianRear = foot([-0.5, 0.5], 201.5)
-const bulgarianUp = pose(STAND, { root: [0, 0.87], torso: 6, legL: flat(0.38), legR: bulgarianRear }, arms([6, 6]))
-const bulgarianDown = pose(STAND, { root: [-0.05, 0.56], torso: 14, legL: flat(0.38), legR: bulgarianRear }, arms([14, 6]))
+const bulgarianUp = pose(STAND, { root: [0, 0.87], torso: 6, legL: flat(0.38), legR: bulgarianRear }, arms([6, 6]), NEUTRAL)
+const bulgarianDown = pose(STAND, { root: [-0.05, 0.56], torso: 14, legL: flat(0.38), legR: bulgarianRear }, arms([14, 6]), NEUTRAL)
 
 const lungeTall = pose(STAND, legs(PLANTED), arms([6, 10]))
 
@@ -135,22 +138,26 @@ function kneeDriveLunge(): Keyframe[] {
 
 const SIDE_STEP = 0.95
 
+function gobletHold(base: PoseSpec): PoseSpec {
+  return clasped(base, 0.1)
+}
+
 function lateralLunge(side: Side): Keyframe[] {
   const s = side === 'L' ? 1 : -1
   const support = flat(-HIP_STANCE * s)
   const stepped = lead(side, flat(SIDE_STEP * s), support)
   const thigh = (scale: number) => (side === 'L' ? { thighL: scale } : { thighR: scale })
-  const stand = clasped(STAND_FRONT)
-  const lift = clasped(pose(STAND_FRONT, { root: [-0.02 * s, 0.955] }, lead(side, foot([0.45 * s, 0.25], 0), support)))
-  const land = clasped(pose(STAND_FRONT, { root: [((SIDE_STEP - HIP_STANCE) / 2) * s, 0.848] }, stepped))
-  const sink = clasped(
+  const stand = gobletHold(STAND_FRONT)
+  const lift = gobletHold(pose(STAND_FRONT, { root: [-0.02 * s, 0.955] }, lead(side, foot([0.45 * s, 0.25], 0), support)))
+  const land = gobletHold(pose(STAND_FRONT, { root: [((SIDE_STEP - HIP_STANCE) / 2) * s, 0.848] }, stepped))
+  const sink = gobletHold(
     pose(STAND_FRONT, stepped, {
       root: [0.542 * s, 0.764],
       torso: -3 * s,
       scale: { lowerSpine: 0.94, upperSpine: 0.94, ...thigh(0.8) },
     }),
   )
-  const bottom = clasped(
+  const bottom = gobletHold(
     pose(STAND_FRONT, stepped, {
       root: [0.65 * s, 0.66],
       torso: -6 * s,
@@ -222,7 +229,7 @@ const dbBridgeUp = onHips(bridgeUp, 0.17)
 const marchLeft = pose(bridgeUp, { legL: foot([0.36, 0.42], -10) })
 const marchRight = pose(bridgeUp, { legR: foot([0.36, 0.42], -10) })
 
-const calfDown = pose(STAND_HOLD, legs(PLANTED))
+const calfDown = pose(STAND_HOLD, legs(PLANTED), NEUTRAL)
 const calfUp = pose(calfDown, { root: [0.07, 1.05] }, legs(toes(TOE, -36)))
 
 const CALF_WALL: Prop = { kind: 'wall', x: 0.55, side: 1 }
@@ -277,7 +284,7 @@ export const VARIATIONS_LOWER: Exercise[] = [
     impact: 'low',
     sided: 'symmetric',
     defaultTarget: { kind: 'reps', reps: 12 },
-    animation: anim('side', [key(gobletUp, 1100, 150), key(gobletDown, 1300, 120)], { props: [ONE_DUMBBELL], thumb: 1 }),
+    animation: anim('side', [key(gobletUp, 1100, 150), key(gobletDown, 1300, 120)], { props: [GOBLET_DUMBBELL], thumb: 1 }),
     summary: 'Hold one dumbbell upright at your chest and squat deep to build your legs while keeping your torso tall.',
     steps: [
       'Cup one end of a dumbbell with both hands and hold it against your chest.',
@@ -453,7 +460,7 @@ export const VARIATIONS_LOWER: Exercise[] = [
     sided: 'alternating',
     defaultTarget: { kind: 'reps', reps: 12 },
     animation: anim('side', [...reverseLunge(gobletTall, 'L', GOBLET), ...reverseLunge(gobletTall, 'R', GOBLET)], {
-      props: [ONE_DUMBBELL],
+      props: [GOBLET_DUMBBELL],
       thumb: 3,
     }),
     summary: 'A reverse lunge holding one dumbbell at your chest that strengthens your legs and keeps your core braced.',
@@ -478,7 +485,7 @@ export const VARIATIONS_LOWER: Exercise[] = [
     impact: 'low',
     sided: 'alternating',
     defaultTarget: { kind: 'reps', reps: 12 },
-    animation: anim('front', [...lateralLunge('L'), ...lateralLunge('R')], { props: [ONE_DUMBBELL], thumb: 4 }),
+    animation: anim('front', [...lateralLunge('L'), ...lateralLunge('R')], { props: [GOBLET_DUMBBELL], thumb: 4 }),
     summary: 'A side lunge holding a dumbbell at your chest that strengthens your legs and inner thighs side to side.',
     steps: [
       'Stand with your feet hip-width apart, holding a dumbbell at your chest with both hands.',

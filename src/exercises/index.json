@@ -1183,6 +1183,8 @@
    "seconds": 20
   },
   "summary": "A one-legged stretch for the front of the thigh, a classic after runs, rides or a long day of sitting.",
+  "family": "quad-stretch",
+  "variant": "Standing",
   "catalog": "stretch",
   "cycleMs": 3800
  },
@@ -1205,6 +1207,8 @@
    "seconds": 30
   },
   "summary": "A seated forward reach that lengthens the hamstrings and calves, with no balance needed.",
+  "family": "hamstring-stretch",
+  "variant": "Seated",
   "catalog": "stretch",
   "cycleMs": 4000
  },
@@ -1226,6 +1230,8 @@
    "seconds": 20
   },
   "summary": "A half-kneeling stretch that opens the front of the hip, a welcome reset after long hours of sitting.",
+  "family": "hip-flexor",
+  "variant": "Kneeling",
   "catalog": "stretch",
   "cycleMs": 4000
  },
@@ -1292,6 +1298,8 @@
    "seconds": 30
   },
   "summary": "A seated stretch for the inner thighs and hips, done with the soles of your feet pressed together.",
+  "family": "hip-opener",
+  "variant": "Butterfly",
   "catalog": "stretch",
   "cycleMs": 3600
  },
@@ -3412,6 +3420,8 @@
    "seconds": 30
   },
   "summary": "A deep low lunge with both hands inside the front foot that opens the hips, groin and hip flexors.",
+  "family": "hip-opener",
+  "variant": "Lizard",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3436,6 +3446,8 @@
    "seconds": 30
   },
   "summary": "A classic yoga hip opener that stretches the outer hip and glute of the front leg and the hip flexor of the back leg.",
+  "family": "figure-four",
+  "variant": "Pigeon",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3458,6 +3470,8 @@
    "seconds": 30
   },
   "summary": "A lying stretch for the deep glute and outer hip that is gentler on the knees than pigeon pose.",
+  "family": "figure-four",
+  "variant": "Lying",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3479,6 +3493,8 @@
    "seconds": 20
   },
   "summary": "A face-down quad stretch that needs no balance, making it an easy cool-down after legs or a run.",
+  "family": "quad-stretch",
+  "variant": "Lying",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3500,6 +3516,8 @@
    "seconds": 30
   },
   "summary": "A deep kneeling stretch with your back foot up a wall that opens tight quads and hip flexors.",
+  "family": "quad-stretch",
+  "variant": "Couch",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3521,6 +3539,8 @@
    "seconds": 20
   },
   "summary": "A standing hinge over one straight leg that stretches the hamstring and calf with no mat needed.",
+  "family": "hamstring-stretch",
+  "variant": "Standing",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3587,6 +3607,8 @@
    "seconds": 30
   },
   "summary": "A wide-legged seated fold that lengthens the inner thighs and hamstrings.",
+  "family": "hip-opener",
+  "variant": "Straddle",
   "catalog": "mobility",
   "cycleMs": 3900
  },
@@ -3924,6 +3946,8 @@
    "seconds": 30
   },
   "summary": "Lie on your back and use a strap to ease one straight leg up for a relaxed, supported hamstring stretch.",
+  "family": "hamstring-stretch",
+  "variant": "Strap",
   "catalog": "recovery",
   "cycleMs": 3600
  },
@@ -3948,6 +3972,8 @@
    "seconds": 30
   },
   "summary": "Lie face down and use a strap to draw one heel toward your glute for a gentle front-of-thigh stretch.",
+  "family": "quad-stretch",
+  "variant": "Strap",
   "catalog": "recovery",
   "cycleMs": 3600
  },
@@ -4021,6 +4047,8 @@
    "seconds": 30
   },
   "summary": "Half kneel with a band pulling the front of your back hip forward to deepen a classic hip flexor stretch.",
+  "family": "hip-flexor",
+  "variant": "Banded",
   "catalog": "recovery",
   "cycleMs": 4300
  },
@@ -5196,5 +5224,246 @@
   "variant": "Cross",
   "catalog": "variations-upper",
   "cycleMs": 740
+ },
+ {
+  "id": "chair-figure-four-stretch",
+  "name": "Chair figure-four stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "abductors",
+   "lowerBack"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated figure-four on a chair that eases the outer hip and glute without getting down on the floor.",
+  "family": "figure-four",
+  "variant": "Chair",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "seated-figure-four-stretch",
+  "name": "Seated figure-four stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "abductors",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A floor figure-four propped on your hands that lets you control how deep the hip and glute stretch goes.",
+  "family": "figure-four",
+  "variant": "Seated",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "wall-figure-four-stretch",
+  "name": "Wall figure-four stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "abductors",
+   "lowerBack"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A lying figure-four with your bottom foot resting on a wall, so the wall holds your leg and you can simply relax.",
+  "family": "figure-four",
+  "variant": "Wall",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "single-leg-hamstring-stretch",
+  "name": "Single-leg hamstring stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "calves",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated hamstring stretch done one leg at a time with the other knee bent, gentler than folding over both legs.",
+  "family": "hamstring-stretch",
+  "variant": "Single-leg",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "chair-hamstring-stretch",
+  "name": "Chair hamstring stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated hamstring stretch on the edge of a chair, an easy option when getting down to the floor is hard.",
+  "family": "hamstring-stretch",
+  "variant": "Chair",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "supported-quad-stretch",
+  "name": "Chair-supported quad stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A standing quad stretch with one hand on a chair back, so you can relax into the stretch without wobbling.",
+  "family": "quad-stretch",
+  "variant": "Supported",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "side-lying-quad-stretch",
+  "name": "Side-lying quad stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A quad stretch lying on your side with your head resting on your arm, so there is nothing to balance.",
+  "family": "quad-stretch",
+  "variant": "Side-lying",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "standing-hip-flexor-stretch",
+  "name": "Standing hip flexor stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A split-stance hip flexor stretch done standing, a knee-friendly option when kneeling is uncomfortable.",
+  "family": "hip-flexor",
+  "variant": "Standing",
+  "catalog": "stretch-variations",
+  "cycleMs": 3900
+ },
+ {
+  "id": "rocking-frog-stretch",
+  "name": "Rocking frog stretch",
+  "category": "mobility",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "adductors",
+   "hipFlexors",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A wide-knee rocking stretch, like child's pose with the knees apart, that opens the groin and inner thighs.",
+  "family": "hip-opener",
+  "variant": "Rocking frog",
+  "catalog": "stretch-variations",
+  "cycleMs": 4900
+ },
+ {
+  "id": "windshield-wipers",
+  "name": "Windshield wipers",
+  "category": "mobility",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "obliques",
+   "abductors",
+   "lowerBack",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A lying hip mobility drill that drops both bent knees to one side and then the other to loosen the hips and lower back.",
+  "family": "hip-opener",
+  "variant": "Windshield wipers",
+  "catalog": "stretch-variations",
+  "cycleMs": 5800
  }
 ]

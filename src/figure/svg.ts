@@ -17,23 +17,28 @@ const EQUIPMENT: Pick<Palette, EquipmentTone> = {
   band: '#e0457b',
 }
 
-const SKIN: Record<SkinTone, Pick<Palette, 'skin' | 'skinFar' | 'skinShade'>> = {
-  light: { skin: '#f2c6a3', skinFar: '#dcab85', skinShade: '#c48b62' },
-  medium: { skin: '#cf9466', skinFar: '#b77c4f', skinShade: '#9c6540' },
-  deep: { skin: '#8a5638', skinFar: '#74462c', skinShade: '#5c3620' },
+const SKIN: Record<SkinTone, Pick<Palette, 'skin' | 'skinFar' | 'skinShade' | 'skinLight' | 'lip'>> = {
+  light: { skin: '#f3c7a5', skinFar: '#ddab86', skinShade: '#c48b62', skinLight: '#fbdcc2', lip: '#c86f68' },
+  medium: { skin: '#cf9466', skinFar: '#b77c4f', skinShade: '#9c6540', skinLight: '#e2ab7f', lip: '#a0544a' },
+  deep: { skin: '#8a5638', skinFar: '#73462c', skinShade: '#5c3620', skinLight: '#a46a47', lip: '#64332a' },
 }
 
-const OUTFIT: Record<TrainerId, Omit<Palette, 'skin' | 'skinFar' | 'skinShade' | EquipmentTone | 'floor' | 'shadow' | 'stage'>> = {
+type OutfitTone = 'top' | 'topFar' | 'bottom' | 'bottomFar' | 'trim' | 'shoe' | 'shoeFar' | 'sole' | 'shoeAccent' | 'hair' | 'hairShade' | 'hairLight' | 'eye' | 'accent'
+
+const OUTFIT: Record<TrainerId, Pick<Palette, OutfitTone>> = {
   female: {
     top: '#ff6a2b',
     topFar: '#d9531c',
     bottom: '#22305a',
     bottomFar: '#182340',
+    trim: '#ff8a52',
     shoe: '#f8fafc',
     shoeFar: '#d5dce6',
     sole: '#ff6a2b',
+    shoeAccent: '#ff6a2b',
     hair: '#3a2315',
     hairShade: '#24150b',
+    hairLight: '#6b4428',
     eye: '#1f1a17',
     accent: '#ff6a2b',
   },
@@ -42,20 +47,119 @@ const OUTFIT: Record<TrainerId, Omit<Palette, 'skin' | 'skinFar' | 'skinShade' |
     topFar: '#d9531c',
     bottom: '#1f2a44',
     bottomFar: '#161e33',
+    trim: '#ff8a52',
     shoe: '#f8fafc',
     shoeFar: '#d5dce6',
     sole: '#22305a',
-    hair: '#1c1410',
-    hairShade: '#0f0a07',
+    shoeAccent: '#22305a',
+    hair: '#4a2e1c',
+    hairShade: '#2e1c10',
+    hairLight: '#7a5234',
     eye: '#1f1a17',
     accent: '#ff6a2b',
   },
+  sofia: {
+    top: '#e2367a',
+    topFar: '#b8245f',
+    bottom: '#2a1f3d',
+    bottomFar: '#1d152b',
+    trim: '#ff6fa5',
+    shoe: '#fdf2f8',
+    shoeFar: '#e5d3de',
+    sole: '#e2367a',
+    shoeAccent: '#e2367a',
+    hair: '#3b2416',
+    hairShade: '#26160c',
+    hairLight: '#9a6a3f',
+    eye: '#21160f',
+    accent: '#e2367a',
+  },
+  zara: {
+    top: '#ffc229',
+    topFar: '#e09f0c',
+    bottom: '#6a3df0',
+    bottomFar: '#5128c9',
+    trim: '#ffd666',
+    shoe: '#f8fafc',
+    shoeFar: '#d5dce6',
+    sole: '#6a3df0',
+    shoeAccent: '#6a3df0',
+    hair: '#17110e',
+    hairShade: '#0b0806',
+    hairLight: '#3d2e26',
+    eye: '#140e0b',
+    accent: '#6a3df0',
+  },
+  marcus: {
+    top: '#2563eb',
+    topFar: '#1d4fc4',
+    bottom: '#1e2533',
+    bottomFar: '#151a24',
+    trim: '#ef4444',
+    shoe: '#1f2937',
+    shoeFar: '#111827',
+    sole: '#f8fafc',
+    shoeAccent: '#ef4444',
+    hair: '#141010',
+    hairShade: '#080606',
+    hairLight: '#3a3030',
+    eye: '#140e0b',
+    accent: '#ef4444',
+  },
+  kai: {
+    top: '#14a38b',
+    topFar: '#0f806d',
+    bottom: '#4b5563',
+    bottomFar: '#394150',
+    trim: '#e5e7eb',
+    shoe: '#f8fafc',
+    shoeFar: '#d5dce6',
+    sole: '#14a38b',
+    shoeAccent: '#14a38b',
+    hair: '#231812',
+    hairShade: '#140d09',
+    hairLight: '#54402f',
+    eye: '#1a1310',
+    accent: '#14a38b',
+  },
+  nina: {
+    top: '#8b5cf6',
+    topFar: '#7044dc',
+    bottom: '#1c1b2e',
+    bottomFar: '#13121f',
+    trim: '#c4b5fd',
+    shoe: '#f8fafc',
+    shoeFar: '#d5dce6',
+    sole: '#8b5cf6',
+    shoeAccent: '#8b5cf6',
+    hair: '#b4532a',
+    hairShade: '#8a3c1b',
+    hairLight: '#e38b55',
+    eye: '#2a1d16',
+    accent: '#8b5cf6',
+  },
+}
+
+function channels(hex: string): number[] {
+  return [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16))
+}
+
+export function mixColor(from: string, to: string, amount: number): string {
+  const a = channels(from)
+  const b = channels(to)
+  return `#${a.map((value, index) => Math.round(value + (b[index] - value) * amount).toString(16).padStart(2, '0')).join('')}`
 }
 
 export function paletteFor(look: Look): Palette {
+  const skin = SKIN[look.skin] ?? SKIN.medium
+  const outfit = OUTFIT[look.trainer] ?? OUTFIT.female
   return {
-    ...SKIN[look.skin],
-    ...OUTFIT[look.trainer],
+    ...skin,
+    ...outfit,
+    blush: mixColor(skin.skin, '#f0607a', 0.16),
+    hairFade: mixColor(outfit.hair, skin.skin, 0.42),
+    topLight: mixColor(outfit.top, '#ffffff', 0.2),
+    bottomLight: mixColor(outfit.bottom, '#ffffff', 0.1),
     ...EQUIPMENT,
     floor: '#cbd5e1',
     shadow: '#0f172a',

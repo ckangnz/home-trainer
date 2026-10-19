@@ -17,6 +17,7 @@ import {
   arms,
   flat,
   foot,
+  grips,
   hand,
   key,
   legs,
@@ -32,24 +33,28 @@ function lead(side: Side, working: Reach, support: Reach): PoseSpec {
 }
 
 const DUMBBELLS: Prop[] = STAND_HOLD_PROPS
+const ONE_BY_END: Prop = { kind: 'dumbbell', hand: 'both', hold: 'end' }
 
 const curlDown = STAND_HOLD
 const curlUp = pose(STAND, arms([12, 138]))
 
-const hammerLeft = pose(STAND_HOLD, { armL: [12, 132] })
-const hammerRight = pose(STAND_HOLD, { armR: [12, 132] })
+const NEUTRAL = grips(90)
+const HOLD_NEUTRAL = pose(STAND_HOLD, NEUTRAL)
+
+const hammerLeft = pose(HOLD_NEUTRAL, { armL: [12, 132] })
+const hammerRight = pose(HOLD_NEUTRAL, { armR: [12, 132] })
 
 const pressDown = pose(STAND_FRONT, arms([82, 100]))
 const pressUp = pose(STAND_FRONT, arms([168, 10]))
 
-const lateralDown = pose(STAND_FRONT, arms([10, 14]))
-const lateralUp = pose(STAND_FRONT, arms([86, 16]))
+const lateralDown = pose(STAND_FRONT, arms([10, 14]), grips(0))
+const lateralUp = pose(STAND_FRONT, arms([86, 16]), grips(0))
 
 const frontRaiseUp = pose(STAND_HOLD, arms([90, 6]))
 
 const HINGE: PoseSpec = { root: [-0.21, 0.89], torso: 64, neck: -16, legL: flat(0), legR: flat(0) }
-const rowDown = pose(STAND, HINGE, arms([64, 4]))
-const rowUp = pose(STAND, HINGE, arms([4, 72]))
+const rowDown = pose(STAND, HINGE, arms([64, 4]), NEUTRAL)
+const rowUp = pose(STAND, HINGE, arms([4, 72]), NEUTRAL)
 
 const BENCH_ROW: Prop = { kind: 'bench', x0: -0.6, x1: 0.72 }
 const benchRowBase: PoseSpec = {
@@ -60,30 +65,30 @@ const benchRowBase: PoseSpec = {
   legL: flat(0.05),
   armR: palm(0.52, BENCH_HEIGHT),
 }
-const benchRowDown = pose(benchRowBase, { armL: [76, 10] })
-const benchRowUp = pose(benchRowBase, { torso: 76, armL: [-14, 92] })
+const benchRowDown = pose(benchRowBase, { armL: [76, 10], gripL: 90 })
+const benchRowUp = pose(benchRowBase, { torso: 76, armL: [-14, 92], gripL: 90 })
 
 const benchPressDown = pose(SUPINE_ON_BENCH, arms([-25, 115]), { scale: { upperArmL: 0.65, upperArmR: 0.65 } })
 const benchPressUp = pose(SUPINE_ON_BENCH, arms([88, 2]))
 
-const pulloverUp = pose(SUPINE_ON_BENCH, arms([95, 14]))
-const pulloverBack = pose(SUPINE_ON_BENCH, arms([168, 22]))
+const pulloverUp = pose(SUPINE_ON_BENCH, arms([95, 14, -70]))
+const pulloverBack = pose(SUPINE_ON_BENCH, arms([168, 22, -70]))
 
-const skullUp = pose(SUPINE_ON_BENCH, arms([104, 4]))
-const skullDown = pose(SUPINE_ON_BENCH, arms([116, 122]))
+const skullUp = pose(SUPINE_ON_BENCH, arms([104, 4]), NEUTRAL)
+const skullDown = pose(SUPINE_ON_BENCH, arms([116, 122]), NEUTRAL)
 
-const overheadUp = pose(STAND, arms([176, 8]))
-const overheadDown = pose(STAND, arms([180, 142]))
+const overheadUp = pose(STAND, arms([176, 8, 70]))
+const overheadDown = pose(STAND, arms([180, 142, 70]))
 
 const KICK_HINGE: PoseSpec = { root: [-0.2, 0.9], torso: 68, neck: -16, legL: flat(0), legR: flat(0) }
-const kickBent = pose(STAND, KICK_HINGE, arms([-20, 96]))
-const kickBack = pose(STAND, KICK_HINGE, arms([-22, 4]))
+const kickBent = pose(STAND, KICK_HINGE, arms([-20, 96]), NEUTRAL)
+const kickBack = pose(STAND, KICK_HINGE, arms([-22, 4]), NEUTRAL)
 
 const rdlTop = pose(STAND_HOLD, arms([6, 4]))
 const rdlBottom = pose(STAND, { root: [-0.2, 0.9], torso: 74, neck: -16 }, arms([74, 2]))
 
 const PLANTED = toes(RIG.footToe, 0)
-const lungeTall = pose(STAND, legs(PLANTED), arms([4, 6]))
+const lungeTall = pose(STAND, legs(PLANTED), arms([4, 6]), NEUTRAL)
 
 function weightedLunge(side: Side): Keyframe[] {
   const lift = pose(lungeTall, { root: [-0.02, 0.945], torso: 3 }, lead(side, toes(-0.25, -30, 0.11), PLANTED))
@@ -96,26 +101,26 @@ const BOX_TOP = 0.4
 const STEP_BOX: Prop = { kind: 'box', x0: 0.1, x1: 0.58, height: BOX_TOP }
 const FLOOR_FOOT = flat(-0.14)
 const BOX_FOOT = flat(0.24, BOX_TOP)
-const stepFloor = pose(STAND_HOLD, { root: [-0.14, HIP], legL: FLOOR_FOOT, legR: FLOOR_FOOT })
+const stepFloor = pose(HOLD_NEUTRAL, { root: [-0.14, HIP], legL: FLOOR_FOOT, legR: FLOOR_FOOT })
 const stepLift = pose(stepFloor, { root: [-0.13, HIP - 0.01], legL: foot([0.2, 0.58], 10) })
 const stepPlant = pose(stepFloor, { root: [-0.06, HIP - 0.07], torso: 14, legL: BOX_FOOT }, arms([14, 6]))
-const stepDrive = pose(STAND_HOLD, { root: [0.2, HIP + BOX_TOP - 0.02], torso: 4, legL: BOX_FOOT, legR: foot([0.02, 0.62], 30) })
-const stepTop = pose(STAND_HOLD, { root: [0.24, HIP + BOX_TOP], legL: BOX_FOOT, legR: BOX_FOOT })
-const stepLower = pose(STAND_HOLD, { root: [0.1, 1.08], torso: 10, legL: BOX_FOOT, legR: foot([-0.1, 0.3], 20) })
+const stepDrive = pose(HOLD_NEUTRAL, { root: [0.2, HIP + BOX_TOP - 0.02], torso: 4, legL: BOX_FOOT, legR: foot([0.02, 0.62], 30) })
+const stepTop = pose(HOLD_NEUTRAL, { root: [0.24, HIP + BOX_TOP], legL: BOX_FOOT, legR: BOX_FOOT })
+const stepLower = pose(HOLD_NEUTRAL, { root: [0.1, 1.08], torso: 10, legL: BOX_FOOT, legR: foot([-0.1, 0.3], 20) })
 const stepDown = pose(stepPlant, { legR: FLOOR_FOOT })
 
-const farmerStand = pose(STAND_HOLD, arms([2, 4]))
+const farmerStand = pose(HOLD_NEUTRAL, arms([2, 4]))
 const farmerLeft = pose(farmerStand, { legL: [68, 82, 14] })
 const farmerRight = pose(farmerStand, { legR: [68, 82, 14] })
 
 const RENEGADE_HAND = hand([0.58, 0.16], -90)
-const renegadeBase = pose(HIGH_PLANK, { torso: 72, ...arms(RENEGADE_HAND) })
+const renegadeBase = pose(HIGH_PLANK, { torso: 72, ...arms(RENEGADE_HAND) }, NEUTRAL)
 const renegadeLeft = pose(renegadeBase, { torso: 71, armL: [-30, 100] })
 const renegadeRight = pose(renegadeBase, { torso: 71, armR: [-30, 100] })
 
-const thrusterRack = pose(STAND, arms([40, 150]))
-const thrusterSquat = pose(STAND, { root: [-0.16, 0.56], torso: 30, neck: -10 }, arms([55, 150]))
-const thrusterPress = pose(STAND, arms([176, 6]))
+const thrusterRack = pose(STAND, arms([40, 150]), NEUTRAL)
+const thrusterSquat = pose(STAND, { root: [-0.16, 0.56], torso: 30, neck: -10 }, arms([55, 150]), NEUTRAL)
+const thrusterPress = pose(STAND, arms([176, 6]), NEUTRAL)
 
 const BARBELL: Prop = { kind: 'barbell' }
 const SQUAT_LOW: PoseSpec = { root: [-0.15, 0.57], torso: 34, neck: -10 }
@@ -246,7 +251,7 @@ export const WEIGHTS: Exercise[] = [
     defaultTarget: { kind: 'reps', reps: 12 },
     animation: anim(
       'side',
-      [key(STAND_HOLD, 1200, 100), key(hammerLeft, 1000, 120), key(STAND_HOLD, 1200, 100), key(hammerRight, 1000, 120)],
+      [key(HOLD_NEUTRAL, 1200, 100), key(hammerLeft, 1000, 120), key(HOLD_NEUTRAL, 1200, 100), key(hammerRight, 1000, 120)],
       { props: DUMBBELLS, thumb: 1 },
     ),
     summary: 'An alternating curl with your palms facing each other that builds your biceps and grip-strong forearms.',
@@ -448,7 +453,7 @@ export const WEIGHTS: Exercise[] = [
     sided: 'symmetric',
     defaultTarget: { kind: 'reps', reps: 10 },
     animation: anim('side', [key(pulloverUp, 1300, 150), key(pulloverBack, 1500, 150)], {
-      props: [...SUPINE_ON_BENCH_PROPS, ...DUMBBELLS],
+      props: [...SUPINE_ON_BENCH_PROPS, ONE_BY_END],
       thumb: 1,
     }),
     summary: 'Lying on a bench, sweep a dumbbell from over your chest to behind your head to work your lats and chest.',
@@ -502,7 +507,7 @@ export const WEIGHTS: Exercise[] = [
     sided: 'symmetric',
     defaultTarget: { kind: 'reps', reps: 12 },
     animation: anim('side', [key(overheadUp, 1300, 150), key(overheadDown, 1100, 120)], {
-      props: [{ kind: 'dumbbell', hand: 'both' }],
+      props: [ONE_BY_END],
       thumb: 1,
     }),
     summary: 'Lower a dumbbell behind your head and press it back overhead to strengthen the backs of your arms.',

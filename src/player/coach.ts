@@ -1,6 +1,8 @@
-import type { TrainerId } from '@/figure/look'
+import { TRAINERS, type TrainerId, type VoiceGender } from '@/figure/look'
 import { getSettings } from '@/settings/settings'
 import type { Cue } from './cues'
+import { getLanguage } from '@/i18n/language'
+import type { Language } from '@/i18n/types'
 
 type AudioContextConstructor = typeof AudioContext
 
@@ -61,22 +63,28 @@ export function availableVoices(): SpeechSynthesisVoice[] {
   if (!speechAvailable()) {
     return []
   }
-  return window.speechSynthesis.getVoices().filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+  const prefix = getLanguage()
+  return window.speechSynthesis.getVoices().filter((voice) => voice.lang.toLowerCase().startsWith(prefix))
 }
 
-const FEMALE_VOICES = /samantha|ava|allison|susan|victoria|karen|moira|tessa|fiona|serena|zira|aria|jenny|michelle|emma|libby|sonia|natasha|joanna|salli|kendra|kimberly|female|woman/i
-const MALE_VOICES = /daniel|alex|fred|aaron|arthur|oliver|tom|rishi|gordon|guy|davis|ryan|christopher|eric|brian|matthew|justin|joey|male|man\b/i
+const FEMALE_VOICES = /samantha|ava|allison|susan|victoria|karen|moira|tessa|fiona|serena|zira|aria|jenny|michelle|emma|libby|sonia|natasha|joanna|salli|kendra|kimberly|yuna|sunhi|heami|seoyeon|jimin|sora|female|woman/i
+const MALE_VOICES = /daniel|alex|fred|aaron|arthur|oliver|tom|rishi|gordon|guy|davis|ryan|christopher|eric|brian|matthew|justin|joey|injoon|minsu|hyunsu|male|man\b/i
 const QUALITY_VOICES = /natural|neural|online|premium|enhanced|siri|google/i
 
-export function preferredVoice(voices: SpeechSynthesisVoice[], trainer: TrainerId): SpeechSynthesisVoice | undefined {
-  const english = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+export function voiceGenderOf(trainer: TrainerId): VoiceGender {
+  return TRAINERS[trainer]?.gender ?? 'female'
+}
+
+export function preferredVoice(voices: SpeechSynthesisVoice[], trainer: TrainerId, language: Language = 'en'): SpeechSynthesisVoice | undefined {
+  const gender = voiceGenderOf(trainer)
+  const english = voices.filter((voice) => voice.lang.toLowerCase().startsWith(language))
   let best: SpeechSynthesisVoice | undefined
   let bestScore = -Infinity
   for (const voice of english) {
     const female = FEMALE_VOICES.test(voice.name)
     const male = !female && MALE_VOICES.test(voice.name)
     let score = 0
-    if ((trainer === 'female' && female) || (trainer === 'male' && male)) {
+    if ((gender === 'female' && female) || (gender === 'male' && male)) {
       score += 6
     } else if (female || male) {
       score -= 4
@@ -84,7 +92,7 @@ export function preferredVoice(voices: SpeechSynthesisVoice[], trainer: TrainerI
     if (QUALITY_VOICES.test(voice.name)) {
       score += 3
     }
-    if (voice.lang.toLowerCase() === 'en-us') {
+    if (voice.lang.toLowerCase() === (language === 'ko' ? 'ko-kr' : 'en-us')) {
       score += 1
     }
     if (voice.localService) {
@@ -101,6 +109,11 @@ export function preferredVoice(voices: SpeechSynthesisVoice[], trainer: TrainerI
 const DELIVERY: Record<TrainerId, { rate: number; pitch: number }> = {
   female: { rate: 1.04, pitch: 1.06 },
   male: { rate: 0.98, pitch: 0.92 },
+  sofia: { rate: 1.0, pitch: 1.02 },
+  zara: { rate: 1.1, pitch: 1.08 },
+  marcus: { rate: 0.94, pitch: 0.84 },
+  kai: { rate: 0.95, pitch: 0.96 },
+  nina: { rate: 1.06, pitch: 1.12 },
 }
 
 function speak(text: string, interrupt: boolean) {
@@ -113,14 +126,17 @@ function speak(text: string, interrupt: boolean) {
   }
   const utterance = new SpeechSynthesisUtterance(text)
   const { voiceName, trainer } = getSettings()
+  const language = getLanguage()
   const voices = synth.getVoices()
-  const voice = (voiceName ? voices.find((candidate) => candidate.name === voiceName) : undefined) ?? preferredVoice(voices, trainer)
+  const chosen = voiceName ? voices.find((candidate) => candidate.name === voiceName) : undefined
+  const voice = (chosen && chosen.lang.toLowerCase().startsWith(language) ? chosen : undefined) ?? preferredVoice(voices, trainer, language)
   if (voice) {
     utterance.voice = voice
   }
-  utterance.lang = voice?.lang ?? 'en-US'
-  utterance.rate = DELIVERY[trainer].rate
-  utterance.pitch = DELIVERY[trainer].pitch
+  utterance.lang = voice?.lang ?? (language === 'ko' ? 'ko-KR' : 'en-US')
+  const delivery = DELIVERY[trainer] ?? DELIVERY.female
+  utterance.rate = delivery.rate
+  utterance.pitch = delivery.pitch
   synth.speak(utterance)
 }
 

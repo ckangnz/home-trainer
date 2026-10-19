@@ -3,20 +3,22 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { TextField } from '@/components/ui'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
+import { useT, type MessageKey } from '@/i18n'
 import { parseCode, sharePath } from './code'
 
 export function ImportPage() {
-  usePageMeta('Import a routine')
+  const t = useT()
+  usePageMeta(t('social.importPage.title'))
   const [params] = useSearchParams()
   const [value, setValue] = useState(params.get('code') ?? '')
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<MessageKey | null>(null)
   const navigate = useNavigate()
 
   const submit = (event: FormEvent) => {
     event.preventDefault()
     const code = parseCode(value)
     if (code === null) {
-      setError('Enter the 8-character code, like HT-7KQ2-M9XP, or paste the full link.')
+      setError('social.importPage.invalid')
       return
     }
     navigate(sharePath(code))
@@ -28,19 +30,19 @@ export function ImportPage() {
       setValue(text.trim())
       setError(null)
     } catch {
-      setError('Your browser did not allow pasting. Long-press the field and paste instead.')
+      setError('social.importPage.pasteBlocked')
     }
   }
 
   return (
     <div className="page page--narrow">
       <header className="page__header">
-        <h1 className="page__title">Import a routine</h1>
-        <p className="page__lead">Got a code from a friend? Paste it here to preview the routine and add your own copy.</p>
+        <h1 className="page__title">{t('social.importPage.title')}</h1>
+        <p className="page__lead">{t('social.importPage.lead')}</p>
       </header>
       <form className="card stack" onSubmit={submit}>
         <TextField
-          label="Share code or link"
+          label={t('social.importPage.field')}
           value={value}
           onChange={(event) => {
             setValue(event.target.value)
@@ -53,18 +55,18 @@ export function ImportPage() {
         />
         {error ? (
           <p className="notice notice--error" role="alert">
-            {error}
+            {t(error)}
           </p>
         ) : null}
         <div className="row row--wrap">
           <button type="submit" className="btn btn--primary">
             <Icon name="forward" />
-            Preview routine
+            {t('social.importPage.preview')}
           </button>
           {typeof navigator !== 'undefined' && navigator.clipboard && 'readText' in navigator.clipboard ? (
             <button type="button" className="btn" onClick={() => void paste()}>
               <Icon name="copy" />
-              Paste
+              {t('social.importPage.paste')}
             </button>
           ) : null}
         </div>

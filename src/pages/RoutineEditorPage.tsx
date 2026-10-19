@@ -2,11 +2,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
 import { getExercise } from '@/exercises'
-import { formatSeconds, formatTarget } from '@/exercises/labels'
 import type { ExerciseInfo, Target } from '@/exercises/types'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { blankRoutine, DEFAULT_ROUTINE_DEFAULTS, effectiveTarget, LIMITS, moveItem, newId, withFreshIds } from '@/workouts/routine'
-import { estimateDurationMs, formatDuration } from '@/workouts/steps'
+import { estimateDurationMs } from '@/workouts/steps'
 import type { RoutineBody, RoutineDefaults, RoutineItem, RoutineSource } from '@/workouts/types'
 import { ExercisePicker } from '@/components/ExercisePicker'
 import { ExerciseInfoDialog } from '@/components/ExerciseInfoDialog'
@@ -17,8 +16,10 @@ import { Stepper } from '@/components/Stepper'
 import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
-import './editor.css'
 import { ExerciseFigure } from '@/components/ExerciseFigure'
+import { RoutineMuscles } from '@/components/RoutineMuscles'
+import { useContent, useFormat, useT, type Localizer, type TFunction } from '@/i18n'
+import './editor.css'
 
 type TargetMode = 'default' | 'time' | 'reps'
 
@@ -54,13 +55,16 @@ function ItemEditor({
   onInfo: (exercise: ExerciseInfo) => void
 }) {
   const exercise = getExercise(item.exerciseId)
+  const t = useT()
+  const fmt = useFormat()
+  const content = useContent()
   if (!exercise) {
     return (
       <li className="editor-item card">
         <div className="editor-item__row">
-          <span className="muted">Unavailable exercise ({item.exerciseId})</span>
+          <span className="muted">{t('app.editor.unavailable', { id: item.exerciseId })}</span>
           <button type="button" className="btn btn--small btn--danger" onClick={onRemove}>
-            Remove
+            {t('common.remove')}
           </button>
         </div>
       </li>
@@ -69,9 +73,9 @@ function ItemEditor({
   const mode = targetMode(item)
   const sets = item.sets ?? 1
   const summary = [
-    formatTarget(effectiveTarget(item, defaults), exercise.sided),
-    sets > 1 ? `${sets} sets` : null,
-    item.restAfterSec !== undefined ? `rest ${formatSeconds(item.restAfterSec)}` : null,
+    fmt.target(effectiveTarget(item, defaults), exercise.sided),
+    sets > 1 ? t('app.editor.sets', { count: sets }) : null,
+    item.restAfterSec !== undefined ? t('app.editor.restAfter', { time: fmt.seconds(item.restAfterSec) }) : null,
   ]
     .filter(Boolean)
     .join(' · ')
@@ -94,17 +98,17 @@ function ItemEditor({
           <ExerciseFigure exerciseId={exercise.id} lazy playing={expanded} label="" />
         </span>
         <button type="button" className="editor-item__title" onClick={onToggle} aria-expanded={expanded}>
-          <span className="editor-item__name">{exercise.name}</span>
+          <span className="editor-item__name">{content.exerciseName(exercise)}</span>
           <span className="faint">{summary}</span>
         </button>
         <div className="editor-item__order">
-          <button type="button" className="btn btn--ghost btn--icon" aria-label="Move up" disabled={index === 0} onClick={() => onMove(index - 1)}>
+          <button type="button" className="btn btn--ghost btn--icon" aria-label={t('app.editor.moveUp')} disabled={index === 0} onClick={() => onMove(index - 1)}>
             <Icon name="up" />
           </button>
           <button
             type="button"
             className="btn btn--ghost btn--icon"
-            aria-label="Move down"
+            aria-label={t('app.editor.moveDown')}
             disabled={index === count - 1}
             onClick={() => onMove(index + 1)}
           >
@@ -116,41 +120,41 @@ function ItemEditor({
         <div className="editor-item__panel">
           <VariationPicker exercise={exercise} onPick={(next) => onChange({ ...item, exerciseId: next.id })} />
           <div className="stack">
-            <span className="ui-field__label">Target</span>
-            <div className="segmented" role="group" aria-label="Target type">
+            <span className="ui-field__label">{t('app.editor.target')}</span>
+            <div className="segmented" role="group" aria-label={t('app.editor.targetType')}>
               <button type="button" aria-pressed={mode === 'default'} onClick={() => setTarget(undefined)}>
-                Default · {formatSeconds(defaults.workSec)}
+                {t('app.editor.defaultTime', { time: fmt.seconds(defaults.workSec) })}
               </button>
               <button
                 type="button"
                 aria-pressed={mode === 'time'}
                 onClick={() => setTarget({ kind: 'time', seconds: item.target?.kind === 'time' ? item.target.seconds : defaults.workSec })}
               >
-                Time
+                {t('app.editor.time')}
               </button>
               <button
                 type="button"
                 aria-pressed={mode === 'reps'}
                 onClick={() => setTarget({ kind: 'reps', reps: item.target?.kind === 'reps' ? item.target.reps : defaultRepsFor(exercise) })}
               >
-                Reps
+                {t('app.editor.reps')}
               </button>
             </div>
           </div>
           {item.target?.kind === 'time' ? (
             <Stepper
-              label={exercise.sided === 'perSide' ? 'Time per side' : 'Time'}
+              label={exercise.sided === 'perSide' ? t('app.editor.timePerSide') : t('app.editor.time')}
               value={item.target.seconds}
               min={LIMITS.targetSec[0]}
               max={LIMITS.targetSec[1]}
               step={5}
-              format={formatSeconds}
+              format={fmt.seconds}
               onChange={(seconds) => setTarget({ kind: 'time', seconds })}
             />
           ) : null}
           {item.target?.kind === 'reps' ? (
             <Stepper
-              label={exercise.sided === 'perSide' ? 'Reps per side' : 'Reps'}
+              label={exercise.sided === 'perSide' ? t('app.editor.repsPerSide') : t('app.editor.reps')}
               value={item.target.reps}
               min={LIMITS.reps[0]}
               max={LIMITS.reps[1]}
@@ -159,7 +163,7 @@ function ItemEditor({
             />
           ) : null}
           <Stepper
-            label="Sets"
+            label={t('app.editor.setsLabel')}
             value={sets}
             min={1}
             max={LIMITS.sets[1]}
@@ -177,29 +181,29 @@ function ItemEditor({
           />
           {sets > 1 ? (
             <Stepper
-              label="Rest between sets"
+              label={t('app.editor.restBetweenSets')}
               value={item.setRestSec ?? defaults.restSec}
               min={0}
               max={LIMITS.restSec[1]}
               step={5}
-              format={formatSeconds}
+              format={fmt.seconds}
               onChange={(setRestSec) => onChange({ ...item, setRestSec })}
             />
           ) : null}
           {index < count - 1 ? (
             <div className="stack stack--tight">
               <Stepper
-                label="Rest after this exercise"
+                label={t('app.editor.restAfterExercise')}
                 hint={
                   item.restAfterSec === undefined
-                    ? 'Routine default'
-                    : `Custom · default ${formatSeconds(defaults.restSec)}`
+                    ? t('app.editor.restDefault', { time: fmt.seconds(defaults.restSec) })
+                    : t('app.editor.restCustom', { time: fmt.seconds(defaults.restSec) })
                 }
                 value={item.restAfterSec ?? defaults.restSec}
                 min={0}
                 max={LIMITS.restSec[1]}
                 step={5}
-                format={formatSeconds}
+                format={fmt.seconds}
                 onChange={(restAfterSec) => onChange({ ...item, restAfterSec })}
               />
               {item.restAfterSec !== undefined ? (
@@ -213,21 +217,21 @@ function ItemEditor({
                   }}
                 >
                   <Icon name="repeat" />
-                  Use the routine default
+                  {t('app.editor.useDefaultRest')}
                 </button>
               ) : null}
             </div>
           ) : (
-            <p className="faint">Last exercise: the workout ends after this one{defaults.rounds > 1 ? ' or the next round begins' : ''}.</p>
+            <p className="faint">{defaults.rounds > 1 ? t('app.editor.lastExerciseRounds') : t('app.editor.lastExercise')}</p>
           )}
           <div className="row row--between">
             <button type="button" className="btn btn--small btn--ghost" onClick={() => onInfo(exercise)}>
               <Icon name="info" />
-              How to do it
+              {t('app.editor.howTo')}
             </button>
             <button type="button" className="btn btn--small btn--danger" onClick={onRemove}>
               <Icon name="trash" />
-              Remove
+              {t('common.remove')}
             </button>
           </div>
         </div>
@@ -236,14 +240,19 @@ function ItemEditor({
   )
 }
 
-function seedFrom(workoutId: string | null): { body: RoutineBody; source?: RoutineSource } {
+function seedFrom(workoutId: string | null, t: TFunction, content: Localizer): { body: RoutineBody; source?: RoutineSource } {
   const workout = workoutId ? getCuratedWorkout(workoutId) : undefined
   if (!workout) {
     return { body: blankRoutine() }
   }
   const copy = withFreshIds(workout)
   return {
-    body: { name: `${workout.name} (my version)`, description: workout.description, defaults: copy.defaults, items: copy.items },
+    body: {
+      name: t('app.editor.myVersion', { name: content.workoutName(workout) }),
+      description: content.workoutDescription(workout),
+      defaults: copy.defaults,
+      items: copy.items,
+    },
     source: { kind: 'curated', id: workout.id },
   }
 }
@@ -256,15 +265,18 @@ export function RoutineEditorPage() {
   const routine = id ? getRoutine(id) : undefined
   const navigate = useNavigate()
   const { notify } = useToast()
+  const t = useT()
+  const fmt = useFormat()
+  const content = useContent()
   const [storageKey] = useState(() => draftKey(id, params.get('from')))
   const [restored] = useState(() => loadDraft(storageKey))
-  const [seed] = useState(() => (isNew ? seedFrom(params.get('from')) : null))
+  const [seed] = useState(() => (isNew ? seedFrom(params.get('from'), t, content) : null))
   const [draft, setDraft] = useState<RoutineBody | null>(() => restored ?? seed?.body ?? null)
   const [dirty, setDirty] = useState(restored !== null)
   const [info, setInfo] = useState<ExerciseInfo | null>(null)
   const [expanded, setExpanded] = useState<string | null>(null)
   const [picking, setPicking] = useState(false)
-  usePageMeta(isNew ? 'New routine' : 'Edit routine')
+  usePageMeta(isNew ? t('app.editor.metaNew') : t('app.editor.metaEdit'))
 
   useEffect(() => {
     if (!isNew && draft === null && routine) {
@@ -293,7 +305,7 @@ export function RoutineEditorPage() {
 
   if (!isNew && !ready) {
     return (
-      <div className="center" role="status" aria-label="Loading routine">
+      <div className="center" role="status" aria-label={t('app.editor.loading')}>
         <div className="spinner" />
       </div>
     )
@@ -302,9 +314,9 @@ export function RoutineEditorPage() {
     return (
       <div className="page page--narrow">
         <div className="empty">
-          <p>This routine no longer exists.</p>
+          <p>{t('app.editor.missing')}</p>
           <Link to="/app" className="btn">
-            Back home
+            {t('app.editor.backHome')}
           </Link>
         </div>
       </div>
@@ -322,7 +334,7 @@ export function RoutineEditorPage() {
   const defaults = { ...DEFAULT_ROUTINE_DEFAULTS, ...draft.defaults }
 
   const save = () => {
-    const body = { ...draft, name: draft.name.trim() || 'My routine' }
+    const body = { ...draft, name: draft.name.trim() || t('app.editor.defaultName') }
     if (routine) {
       updateRoutine(routine, body)
     } else {
@@ -330,12 +342,12 @@ export function RoutineEditorPage() {
     }
     clearDraft(storageKey)
     setDirty(false)
-    notify('Routine saved')
+    notify(t('app.editor.saved'))
     navigate('/app')
   }
 
   const cancel = () => {
-    if (!dirty || window.confirm('Discard your changes?')) {
+    if (!dirty || window.confirm(t('app.editor.confirmDiscard'))) {
       clearDraft(storageKey)
       setDirty(false)
       navigate('/app')
@@ -347,119 +359,127 @@ export function RoutineEditorPage() {
       <header className="row row--between">
         <button type="button" className="btn btn--ghost" onClick={cancel}>
           <Icon name="back" />
-          Cancel
+          {t('common.cancel')}
         </button>
         <button type="button" className="btn btn--primary" onClick={save}>
           <Icon name="check" />
-          Save
+          {t('common.save')}
         </button>
       </header>
 
       <section className="stack">
         <TextField
-          label="Routine name"
+          label={t('app.editor.name')}
           className="editor__name"
           value={draft.name}
           maxLength={LIMITS.name}
           onChange={(event) => edit({ ...draft, name: event.target.value })}
-          placeholder="Morning burner"
+          placeholder={t('app.editor.namePlaceholder')}
         />
-        <Field label="Description (optional)">
+        <Field label={t('app.editor.description')}>
           <textarea
             className="ui-control"
             value={draft.description ?? ''}
             maxLength={LIMITS.description}
             onChange={(event) => edit({ ...draft, description: event.target.value })}
-            placeholder="What is this routine for?"
+            placeholder={t('app.editor.descriptionPlaceholder')}
           />
         </Field>
       </section>
 
       <div className="editor__summary card">
         <div>
-          <span className="faint">Total</span>
-          <strong className="tabular">{formatDuration(duration)}</strong>
+          <span className="faint">{t('app.editor.total')}</span>
+          <strong className="tabular">{fmt.duration(duration)}</strong>
         </div>
         <div>
-          <span className="faint">Moves</span>
+          <span className="faint">{t('app.editor.moves')}</span>
           <strong className="tabular">{draft.items.length}</strong>
         </div>
         <div>
-          <span className="faint">Rounds</span>
+          <span className="faint">{t('app.editor.rounds')}</span>
           <strong className="tabular">{defaults.rounds}</strong>
         </div>
       </div>
 
       <section className="card stack">
-        <h2 className="section__title">Timing</h2>
-        <p className="faint">These apply to every exercise. Open an exercise below to give it its own time, reps, sets, or rest.</p>
+        <h2 className="section__title">{t('app.editor.defaultsTitle')}</h2>
+        <p className="faint">{t('app.editor.defaultsIntro')}</p>
         <Stepper
-          label="Work time"
-          hint="How long each exercise lasts"
+          label={t('app.editor.workTime')}
+          hint={t('app.editor.workTimeHint')}
           value={defaults.workSec}
           min={LIMITS.workSec[0]}
           max={LIMITS.workSec[1]}
           step={5}
-          format={formatSeconds}
+          format={fmt.seconds}
           onChange={(workSec) => setDefaults({ workSec })}
         />
         <Stepper
-          label="Rest between exercises"
-          hint="Break after each exercise"
+          label={t('app.editor.restSec')}
+          hint={t('app.editor.restSecHint')}
           value={defaults.restSec}
           min={0}
           max={LIMITS.restSec[1]}
           step={5}
-          format={formatSeconds}
+          format={fmt.seconds}
           onChange={(restSec) => setDefaults({ restSec })}
         />
-        <Stepper label="Rounds" value={defaults.rounds} min={1} max={LIMITS.rounds[1]} step={1} onChange={(rounds) => setDefaults({ rounds })} />
         <Stepper
-          label="Rest between rounds"
-          hint={defaults.rounds === 1 ? 'Add rounds to repeat the whole list' : 'Longer break before repeating the list'}
+          label={t('app.editor.rounds')}
+          hint={t('app.editor.roundsHint')}
+          value={defaults.rounds}
+          min={1}
+          max={LIMITS.rounds[1]}
+          step={1}
+          onChange={(rounds) => setDefaults({ rounds })}
+        />
+        <Stepper
+          label={t('app.editor.roundRest')}
+          hint={defaults.rounds === 1 ? t('app.editor.roundRestSingle') : t('app.editor.roundRestHint')}
           value={defaults.roundRestSec}
           min={0}
           max={LIMITS.roundRestSec[1]}
           step={15}
-          format={formatSeconds}
+          format={fmt.seconds}
           disabled={defaults.rounds === 1}
           onChange={(roundRestSec) => setDefaults({ roundRestSec })}
         />
         <Stepper
-          label="Get ready countdown"
+          label={t('app.editor.getReady')}
           value={defaults.getReadySec}
           min={0}
           max={LIMITS.getReadySec[1]}
           step={5}
-          format={formatSeconds}
+          format={fmt.seconds}
           onChange={(getReadySec) => setDefaults({ getReadySec })}
         />
         <Stepper
-          label="Switch sides pause"
-          hint="For one-sided exercises"
+          label={t('app.editor.switchSides')}
+          hint={t('app.editor.switchSidesHint')}
           value={defaults.switchSec}
           min={0}
           max={LIMITS.switchSec[1]}
           step={1}
-          format={formatSeconds}
+          format={fmt.seconds}
           onChange={(switchSec) => setDefaults({ switchSec })}
         />
       </section>
 
       <section className="section">
         <div className="section__head">
-          <h2 className="section__title">Exercises</h2>
+          <h2 className="section__title">{t('app.editor.exercises')}</h2>
           <button type="button" className="btn btn--small btn--primary" onClick={() => setPicking(true)}>
             <Icon name="plus" />
-            Add
+            {t('app.editor.add')}
           </button>
         </div>
         {draft.items.length === 0 ? (
           <div className="empty">
-            <p>Add exercises from the library to build your routine.</p>
+            <p>{t('app.editor.empty')}</p>
             <button type="button" className="btn btn--primary" onClick={() => setPicking(true)}>
               <Icon name="plus" />
-              Add exercises
+              {t('app.editor.addExercises')}
             </button>
           </div>
         ) : (
@@ -484,17 +504,19 @@ export function RoutineEditorPage() {
         {draft.items.length > 0 && draft.items.length < LIMITS.items ? (
           <button type="button" className="btn btn--block" onClick={() => setPicking(true)}>
             <Icon name="plus" />
-            Add more exercises
+            {t('app.editor.addMore')}
           </button>
         ) : null}
       </section>
+
+      <RoutineMuscles body={draft} title={t('app.editor.muscles')} />
 
       {routine ? (
         <button
           type="button"
           className="btn btn--danger"
           onClick={() => {
-            if (window.confirm(`Delete "${routine.name}"? This cannot be undone.`)) {
+            if (window.confirm(t('app.home.confirmDelete', { name: routine.name }))) {
               clearDraft(storageKey)
               setDirty(false)
               removeRoutine(routine.id)
@@ -503,7 +525,7 @@ export function RoutineEditorPage() {
           }}
         >
           <Icon name="trash" />
-          Delete routine
+          {t('app.editor.deleteRoutine')}
         </button>
       ) : null}
 
@@ -512,11 +534,16 @@ export function RoutineEditorPage() {
       <ExercisePicker
         open={picking}
         onClose={() => setPicking(false)}
-        onPick={(exercise) => {
-          if (draft.items.length >= LIMITS.items) {
-            return
-          }
-          setDraft((current) => (current ? { ...current, items: [...current.items, { id: newId(), exerciseId: exercise.id }] } : current))
+        limit={Math.max(0, LIMITS.items - draft.items.length)}
+        onAdd={(exercises) => {
+          setDraft((current) =>
+            current
+              ? {
+                  ...current,
+                  items: [...current.items, ...exercises.map((exercise) => ({ id: newId(), exerciseId: exercise.id }))].slice(0, LIMITS.items),
+                }
+              : current,
+          )
           setDirty(true)
         }}
       />

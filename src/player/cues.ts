@@ -1,4 +1,6 @@
 import type { TrainerId } from '@/figure/look'
+import type { Language } from '@/i18n/types'
+import { BANKS_KO } from './cues.ko'
 import type { PlaybackStep, WorkStep } from '@/workouts/types'
 import { stepElapsed, stepLimitMs, type PlayerState } from './machine'
 
@@ -11,9 +13,10 @@ export interface CoachContext {
   tipOf?: (exerciseId: string) => string | undefined
   trainer?: TrainerId
   trainerName?: string
+  language?: Language
 }
 
-interface PhraseBank {
+export interface PhraseBank {
   intro: (trainer: string, first: string) => string[]
   go: string[]
   halfway: string[]
@@ -48,13 +51,75 @@ const BANKS: Record<TrainerId, PhraseBank> = {
     switchSides: ['Switch sides.', 'Other side.'],
     finish: ['Workout complete. Great work today.', 'Done. Strong session. Rest up.', "That's it. Well earned."],
   },
+  sofia: {
+    intro: (trainer, first) => [`Hey there, I'm ${trainer}! Let's make this feel amazing. First up: ${first}.`, `Hi, ${trainer} here. Breathe in, and let's begin with ${first}.`],
+    go: ['Here we go!', "Let's shine!", "Let's flow!", 'Begin, beautiful work!'],
+    halfway: ['Halfway, you look fantastic!', 'Halfway there, keep that energy!', 'Halfway. Smooth and strong.'],
+    tenLeft: ['Ten seconds, stay with me!', 'Ten more, you can do this!', 'Last ten, finish proud!'],
+    rest: (next) => [`Lovely work. Shake it out. Next: ${next}.`, `So good! Sip some water. Up next: ${next}.`, `Beautiful. Breathe. Coming up: ${next}.`],
+    lastUp: (next) => [`Last one: ${next}. Finish beautifully!`, `Final move next: ${next}. Give it your heart!`],
+    round: (done, total) => [`Round ${done} done! ${total - done} to go, you're glowing.`, `That's round ${done}. ${total - done} more, together.`],
+    switchSides: ['Other side, lovely!', 'Switch sides!'],
+    finish: ['All done! You were amazing today!', "That's a wrap. Feel that glow!", 'Finished! Proud of you, see you soon!'],
+  },
+  zara: {
+    intro: (trainer, first) => [`What's up! I'm ${trainer}, and we're turning it up. First: ${first}!`, `${trainer} in the house! Let's go hard. First up: ${first}!`],
+    go: ['Go go go!', 'Turn it up!', "Let's get it!", 'Bring the energy!'],
+    halfway: ['Halfway! Keep that fire!', "Halfway, don't you dare slow down!", 'Halfway! Strong and loud!'],
+    tenLeft: ['Ten seconds! Empty the tank!', 'Ten more! Push push push!', 'Last ten, make it count!'],
+    rest: (next) => [`Yes! Catch your breath. Next: ${next}.`, `That's what I'm talking about! Next up: ${next}.`, `Big work! Quick rest. Coming up: ${next}.`],
+    lastUp: (next) => [`Last one: ${next}! Leave it all out here!`, `Final round of fire: ${next}! Let's go!`],
+    round: (done, total) => [`Round ${done} smashed! ${total - done} to go!`, `Round ${done} down! ${total - done} more, stay hype!`],
+    switchSides: ['Switch it up!', 'Other side, go!'],
+    finish: ['Done! You absolutely crushed it!', 'Workout over! That was fire!', 'Finished! Go celebrate, champ!'],
+  },
+  marcus: {
+    intro: (trainer, first) => [`I'm ${trainer}. Today we build strength. First: ${first}.`, `${trainer} here. Lock in. First up: ${first}.`],
+    go: ['Work.', 'Drive!', 'Power up.', "Let's build."],
+    halfway: ['Halfway. Own every rep.', 'Halfway. Stay tight.', 'Halfway. Strong body, strong mind.'],
+    tenLeft: ['Ten seconds. Dig deep.', 'Ten more. No quitting.', 'Last ten. Finish like a champion.'],
+    rest: (next) => [`Good. Reset your breath. Next: ${next}.`, `Strong set. Recover. Up next: ${next}.`, `That's power. Rest. Next: ${next}.`],
+    lastUp: (next) => [`Last one: ${next}. Everything you've got.`, `Final exercise: ${next}. Finish strong.`],
+    round: (done, total) => [`Round ${done} done. ${total - done} left. Stay locked in.`, `That's round ${done}. ${total - done} more. Keep building.`],
+    switchSides: ['Switch sides.', 'Other side. Same power.'],
+    finish: ['Session complete. You got stronger today.', 'Done. Respect. Rest and refuel.', 'That was real work. Well done.'],
+  },
+  kai: {
+    intro: (trainer, first) => [`Hey, I'm ${trainer}. Let's move with intention. First up: ${first}.`, `${trainer} here. Settle in, nice and easy. First: ${first}.`],
+    go: ['And go.', 'Find your rhythm.', 'Here we go, nice and smooth.', 'Begin.'],
+    halfway: ['Halfway. Breathe and stay present.', 'Halfway. Nice and steady.', 'Halfway. Feel every movement.'],
+    tenLeft: ['Ten seconds. Stay calm and strong.', 'Ten more. Breathe through it.', 'Last ten. Keep it smooth.'],
+    rest: (next) => [`Nice work. Let your breath settle. Next: ${next}.`, `Good flow. Relax your shoulders. Up next: ${next}.`, `Easy now. Recover. Coming up: ${next}.`],
+    lastUp: (next) => [`Last one: ${next}. Finish with focus.`, `Final move: ${next}. Stay with your breath.`],
+    round: (done, total) => [`Round ${done} complete. ${total - done} to go. Reset.`, `That's round ${done}. ${total - done} more. Stay easy.`],
+    switchSides: ['Switch sides, slow and steady.', 'Other side.'],
+    finish: ['Workout complete. Take a moment, you earned it.', 'Done. Good energy today.', 'All finished. Breathe it in.'],
+  },
+  nina: {
+    intro: (trainer, first) => [`Hi, I'm ${trainer}! Clean form, big smiles. First: ${first}.`, `${trainer} here, let's be precise and have fun. First up: ${first}.`],
+    go: ['Go!', 'And begin!', 'Form first, go!', 'Show me good form!'],
+    halfway: ['Halfway! Form is looking sharp.', 'Halfway, nice and controlled!', 'Halfway! Posture tall.'],
+    tenLeft: ['Ten seconds, keep it clean!', 'Ten more, stay precise!', 'Last ten, perfect reps!'],
+    rest: (next) => [`Nicely done! Quick breather. Next: ${next}.`, `Sharp work! Rest up. Up next: ${next}.`, `Lovely control. Breathe. Coming up: ${next}.`],
+    lastUp: (next) => [`Last one: ${next}. Make it your best form!`, `Final exercise: ${next}. Precise and proud!`],
+    round: (done, total) => [`Round ${done} done! ${total - done} to go, nice pacing.`, `That's round ${done}. ${total - done} more, keep it tidy.`],
+    switchSides: ['Switch sides!', 'Other side, same great form!'],
+    finish: ['Workout complete! Beautiful form today!', 'All done! That was so well executed!', 'Finished! High five, see you next time!'],
+  },
 }
 
 function pick<T>(options: T[], seed: number): T {
   return options[Math.abs(Math.round(seed)) % options.length]
 }
 
-function targetPhrase(step: WorkStep): string {
+function targetPhrase(step: WorkStep, language: Language): string {
+  if (language === 'ko') {
+    if (step.target.kind === 'reps') {
+      return `${step.target.reps}회`
+    }
+    const seconds = Math.round(step.target.ms / 1000)
+    return seconds % 60 === 0 ? `${seconds / 60}분` : `${seconds}초`
+  }
   if (step.target.kind === 'reps') {
     return `${step.target.reps} reps`
   }
@@ -66,12 +131,23 @@ function targetPhrase(step: WorkStep): string {
   return `${seconds} seconds`
 }
 
-export function workAnnouncement(step: WorkStep, nameOf: NameOf): string {
+export function workAnnouncement(step: WorkStep, nameOf: NameOf, language: Language = 'en'): string {
+  if (language === 'ko') {
+    const korean = [nameOf(step.exerciseId)]
+    if (step.side) {
+      korean.push(step.side === 'left' ? '왼쪽' : '오른쪽')
+    }
+    korean.push(targetPhrase(step, language))
+    if (step.sets > 1) {
+      korean.push(`${step.sets}세트 중 ${step.set}세트`)
+    }
+    return `${korean.join(', ')}.`
+  }
   const parts = [nameOf(step.exerciseId)]
   if (step.side) {
     parts.push(`${step.side} side`)
   }
-  parts.push(targetPhrase(step))
+  parts.push(targetPhrase(step, language))
   if (step.sets > 1) {
     parts.push(`set ${step.set} of ${step.sets}`)
   }
@@ -92,7 +168,8 @@ function isFinalWork(steps: PlaybackStep[], index: number): boolean {
 }
 
 function bankFor(context: CoachContext): PhraseBank {
-  return BANKS[context.trainer ?? 'female']
+  const banks = context.language === 'ko' ? BANKS_KO : BANKS
+  return banks[context.trainer ?? 'female'] ?? banks.female
 }
 
 export function entryAnnouncement(state: PlayerState, context: CoachContext): string | null {
@@ -106,13 +183,13 @@ export function entryAnnouncement(state: PlayerState, context: CoachContext): st
     return null
   }
   if (step.kind === 'work') {
-    return `${workAnnouncement(step, context.nameOf)} ${pick(bank.go, seed)}`
+    return `${workAnnouncement(step, context.nameOf, context.language)} ${pick(bank.go, seed)}`
   }
   const next = upNext(state.steps, state.index)
   const nextName = next ? context.nameOf(next.exerciseId) : null
   switch (step.reason) {
     case 'getReady':
-      return nextName ? pick(bank.intro(context.trainerName ?? 'your coach', nextName), seed) : 'Get ready.'
+      return nextName ? pick(bank.intro(context.trainerName ?? (context.language === 'ko' ? '코치' : 'your coach'), nextName), seed) : context.language === 'ko' ? '준비하세요.' : 'Get ready.'
     case 'switch':
       return pick(bank.switchSides, seed)
     case 'round': {
@@ -123,7 +200,7 @@ export function entryAnnouncement(state: PlayerState, context: CoachContext): st
     }
     default:
       if (!nextName || !next) {
-        return 'Rest.'
+        return context.language === 'ko' ? '휴식.' : 'Rest.'
       }
       return step.nextWork >= 0 && isFinalWork(state.steps, step.nextWork) ? pick(bank.lastUp(nextName), seed) : pick(bank.rest(nextName), seed)
   }

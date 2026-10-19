@@ -46,6 +46,10 @@ export function legs(both: Triple | Reach): Pick<PoseSpec, 'legL' | 'legR'> {
   return { legL: both, legR: both }
 }
 
+export function grips(angle: number): Pick<PoseSpec, 'gripL' | 'gripR'> {
+  return { gripL: angle, gripR: angle }
+}
+
 export function pose(base: PoseSpec, ...overrides: PoseSpec[]): PoseSpec {
   return Object.assign({}, base, ...overrides)
 }

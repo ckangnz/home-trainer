@@ -43,6 +43,14 @@ export function cleanPhoto(photo: string | null | undefined): string | undefined
   return photo
 }
 
+export function userPhoto(user: { photoURL: string | null; providerData?: { providerId: string; photoURL: string | null }[] } | null): string | undefined {
+  if (!user) {
+    return undefined
+  }
+  const google = user.providerData?.find((entry) => entry.providerId === 'google.com')?.photoURL
+  return cleanPhoto(user.photoURL) ?? cleanPhoto(google)
+}
+
 function parsePerson(uid: unknown, name: unknown, photo: unknown): PublicProfile | null {
   if (!isText(uid, 128)) {
     return null

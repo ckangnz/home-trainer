@@ -1,5 +1,5 @@
-import { MUSCLE_LABEL } from '@/exercises/labels'
-import { LEVEL_NAME, muscleLevel, topMuscles, type MapMuscle, type MuscleLevel, type MuscleLoad } from '@/exercises/muscles'
+import { muscleLevel, topMuscles, type MapMuscle, type MuscleLevel, type MuscleLoad } from '@/exercises/muscles'
+import { useLabels, useT, type Labels, type TFunction } from '@/i18n'
 import './muscle-map.css'
 
 interface MuscleMapProps {
@@ -71,9 +71,11 @@ const BACK: RegionPaths = {
 }
 
 const VIEWS = [
-  { id: 'front', caption: 'Front', regions: FRONT, x: 0 },
-  { id: 'back', caption: 'Back', regions: BACK, x: 170 },
+  { id: 'front', regions: FRONT, x: 0 },
+  { id: 'back', regions: BACK, x: 170 },
 ] as const
+
+const LEVEL_KEY = ['none', 'light', 'moderate', 'strong'] as const
 
 function Half({ d }: { d: string }) {
   return (
@@ -84,13 +86,18 @@ function Half({ d }: { d: string }) {
   )
 }
 
-function regionTitle(muscle: MapMuscle, level: MuscleLevel): string {
-  return `${MUSCLE_LABEL[muscle]}: ${LEVEL_NAME[level].toLowerCase()}`
+function regionTitle(t: TFunction, labels: Labels, muscle: MapMuscle, level: MuscleLevel): string {
+  return t('app.components.muscleMap.region', { muscle: labels.muscle[muscle], level: t(`app.components.muscleMap.levelsLower.${LEVEL_KEY[level]}`) })
 }
 
-export function MuscleMap({ load, size = 'md', label = 'Muscles worked', legend = false, className }: MuscleMapProps) {
+export function MuscleMap({ load, size = 'md', label: labelProp, legend = false, className }: MuscleMapProps) {
+  const t = useT()
+  const labels = useLabels()
+  const label = labelProp ?? t('app.components.muscleMap.label')
   const worked = topMuscles(load)
-  const summary = worked.length ? `${label}: ${worked.map((share) => share.label).join(', ')}` : `${label}: none highlighted`
+  const summary = worked.length
+    ? t('app.components.muscleMap.summary', { label, muscles: worked.map((share) => labels.muscle[share.muscle]).join(', ') })
+    : t('app.components.muscleMap.none', { label })
   return (
     <figure className={['muscle-map', `muscle-map--${size}`, className].filter(Boolean).join(' ')}>
       <svg className="muscle-map__chart" viewBox="16 0 338 476" role="img" aria-label={summary}>
@@ -104,7 +111,7 @@ export function MuscleMap({ load, size = 'md', label = 'Muscles worked', legend 
               const level = muscleLevel(load[muscle])
               return (
                 <g key={muscle} className="muscle-map__region" data-muscle={muscle} data-level={level}>
-                  <title>{regionTitle(muscle, level)}</title>
+                  <title>{regionTitle(t, labels, muscle, level)}</title>
                   {paths.map((d) => (
                     <Half key={d} d={d} />
                   ))}
@@ -112,7 +119,7 @@ export function MuscleMap({ load, size = 'md', label = 'Muscles worked', legend 
               )
             })}
             <text className="muscle-map__caption" x="100" y="466" textAnchor="middle">
-              {view.caption}
+              {t(`app.components.muscleMap.${view.id}`)}
             </text>
           </g>
         ))}
@@ -122,7 +129,7 @@ export function MuscleMap({ load, size = 'md', label = 'Muscles worked', legend 
           {([1, 2, 3] as const).map((level) => (
             <span key={level} className="muscle-map__legend-item">
               <span className="muscle-map__swatch" data-level={level} aria-hidden="true" />
-              {LEVEL_NAME[level]}
+              {t(`app.components.muscleMap.levels.${LEVEL_KEY[level]}`)}
             </span>
           ))}
         </figcaption>

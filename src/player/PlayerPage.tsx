@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { EXERCISES, getExercise } from '@/exercises'
-import { MUSCLE_LABEL } from '@/exercises/labels'
 import { getFullExercise, useExercisesLoaded } from '@/exercises/content'
 import { muscleLoad } from '@/exercises/muscles'
 import type { ExerciseInfo } from '@/exercises/types'
@@ -15,13 +14,14 @@ import { updateSettings, useSettings } from '@/settings/settings'
 import { TRAINERS } from '@/figure/look'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { DEFAULT_ROUTINE_DEFAULTS } from '@/workouts/routine'
-import { expandRoutine, formatClock, formatDuration, workStepCount } from '@/workouts/steps'
+import { expandRoutine, formatClock, workStepCount } from '@/workouts/steps'
 import type { PauseStep, PlaybackStep, RoutineBody, WorkStep } from '@/workouts/types'
 import { COOLDOWN_SEPARATOR, cooldownBody, cooldownId, suggestCooldown } from '@/workouts/cooldown'
 import { estimateCalories, primaryCategory, workedMuscles, type WorkedExercise } from '@/workouts/summary'
 import type { HealthWorkout } from '@/health/export'
 import { HealthExportDialog } from '@/health/HealthExportDialog'
 import { MuscleMap } from '@/components/MuscleMap'
+import { RoutineMuscles } from '@/components/RoutineMuscles'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
 import { Confetti, ShareResultButton, SupportCard } from '@/components/Support'
 import { TimerRing } from '@/components/TimerRing'
@@ -32,12 +32,44 @@ import { usePlayer, type PlayerControls } from './usePlayer'
 import { useWakeLock } from './useWakeLock'
 import './player.css'
 import { ExerciseFigure } from '@/components/ExerciseFigure'
+import { useContent, useFormat, useLanguage, useT, type Localizer, type TFunction } from '@/i18n'
 
 interface Session {
   title: string
   body: RoutineBody
   source: CompletionSource
   exitTo: string
+}
+
+function sessionTitle(session: Session, content: Localizer, t: TFunction): string {
+  const { source } = session
+  if (source.kind === 'curated') {
+    return content.workoutName({ id: source.id, name: session.title })
+  }
+  if (source.kind === 'exercise') {
+    return content.exerciseName({ id: source.id, name: session.title })
+  }
+  if (source.kind === 'cooldown') {
+    return t('player.cooldown.name')
+  }
+  return session.title
+}
+
+function sessionDescription(session: Session, content: Localizer, t: TFunction): string | undefined {
+  const { source } = session
+  if (source.kind === 'curated') {
+    return content.workoutDescription({ id: source.id, description: session.body.description })
+  }
+  if (source.kind === 'cooldown') {
+    return t('player.cooldown.description')
+  }
+  return session.body.description
+}
+
+function useSessionText(session: Session): { title: string; description: string | undefined } {
+  const content = useContent()
+  const t = useT()
+  return { title: sessionTitle(session, content, t), description: sessionDescription(session, content, t) }
 }
 
 type Resolution = { status: 'loading' } | { status: 'missing' } | { status: 'ready'; session: Session }
@@ -93,11 +125,13 @@ function useSession(kind: string, id: string): Resolution {
 export function PlayerPage() {
   const { kind = '', id = '' } = useParams()
   const resolution = useSession(kind, id)
-  usePageMeta(resolution.status === 'ready' ? resolution.session.title : 'Workout')
+  const content = useContent()
+  const t = useT()
+  usePageMeta(resolution.status === 'ready' ? sessionTitle(resolution.session, content, t) : t('player.pageTitle'))
 
   if (resolution.status === 'loading') {
     return (
-      <div className="player player--center" role="status" aria-label="Loading workout">
+      <div className="player player--center" role="status" aria-label={t('player.loading')}>
         <div className="spinner" />
       </div>
     )
@@ -106,9 +140,9 @@ export function PlayerPage() {
     return (
       <div className="player player--center">
         <div className="empty">
-          <p>This workout is not available.</p>
+          <p>{t('player.missing')}</p>
           <Link to="/app" className="btn btn--primary">
-            Back home
+            {t('player.backHome')}
           </Link>
         </div>
       </div>
@@ -120,9 +154,10 @@ export function PlayerPage() {
 function LoadedSession({ session }: { session: Session }) {
   const ids = useMemo(() => session.body.items.map((item) => item.exerciseId), [session])
   const ready = useExercisesLoaded(ids)
+  const t = useT()
   if (!ready) {
     return (
-      <div className="player player--center" role="status" aria-label="Loading workout">
+      <div className="player player--center" role="status" aria-label={t('player.loading')}>
         <div className="spinner" />
       </div>
     )
@@ -130,13 +165,13 @@ function LoadedSession({ session }: { session: Session }) {
   return <PlayerSession session={session} />
 }
 
-const PAUSE_TITLE: Record<PauseStep['reason'], string> = {
-  getReady: 'Get ready',
-  item: 'Rest',
-  set: 'Rest',
-  round: 'Round complete',
-  switch: 'Switch sides',
-}
+const PAUSE_TITLE = {
+  getReady: 'player.pauseTitle.getReady',
+  item: 'player.pauseTitle.rest',
+  set: 'player.pauseTitle.rest',
+  round: 'player.pauseTitle.round',
+  switch: 'player.pauseTitle.switch',
+} as const satisfies Record<PauseStep['reason'], string>
 
 interface SessionSummary {
   worked: WorkedExercise[]
@@ -172,9 +207,12 @@ function exerciseOf(step: WorkStep | undefined): ExerciseInfo | undefined {
   return step ? getExercise(step.exerciseId) : undefined
 }
 
-function targetLabel(step: WorkStep, exercise: ExerciseInfo | undefined): string {
-  const base = step.target.kind === 'reps' ? `${step.target.reps} reps` : formatClock(step.target.ms)
-  return exercise?.sided === 'perSide' && step.side ? `${base} · ${step.side} side` : base
+function targetLabel(step: WorkStep, exercise: ExerciseInfo | undefined, t: TFunction, reps: (count: number) => string): string {
+  const base = step.target.kind === 'reps' ? reps(step.target.reps) : formatClock(step.target.ms)
+  if (exercise?.sided === 'perSide' && step.side) {
+    return t(step.side === 'left' ? 'player.work.targetLeft' : 'player.work.targetRight', { base })
+  }
+  return base
 }
 
 function PlayerSession({ session }: { session: Session }) {
@@ -182,16 +220,24 @@ function PlayerSession({ session }: { session: Session }) {
   const navigate = useNavigate()
   const { addCompletion, completions } = useData()
   const settings = useSettings()
+  const t = useT()
+  const text = useSessionText(frozen)
+  const language = useLanguage()
+  const coachContent = useContent()
   const steps = useMemo(() => expandRoutine(frozen.body, getExercise), [frozen])
   const totalWork = useMemo(() => workStepCount(steps), [steps])
   const coachContext = useMemo(
     () => ({
-      nameOf: (exerciseId: string) => getExercise(exerciseId)?.name ?? 'the next exercise',
-      tipOf: (exerciseId: string) => getFullExercise(exerciseId)?.tips[0],
+      nameOf: (exerciseId: string) => {
+        const exercise = getExercise(exerciseId)
+        return exercise ? coachContent.exerciseName(exercise) : t('player.coachNextExercise')
+      },
+      tipOf: (exerciseId: string) => coachContent.exerciseTips({ id: exerciseId, tips: getFullExercise(exerciseId)?.tips })[0],
       trainer: settings.trainer,
       trainerName: TRAINERS[settings.trainer].name,
+      language,
     }),
-    [settings.trainer],
+    [settings.trainer, language, coachContent, t],
   )
   const player = usePlayer(steps, coachContext)
   const { state, now } = player
@@ -230,8 +276,8 @@ function PlayerSession({ session }: { session: Session }) {
       return null
     }
     const endedAt = wallStart.current + (state.finishedAt - state.startedAt)
-    return summarize(frozen.title, state.workLog, Math.round(activeDurationMs(state, state.finishedAt)), settings.weightKg, wallStart.current, endedAt)
-  }, [finished, state, frozen.title, settings.weightKg])
+    return summarize(text.title, state.workLog, Math.round(activeDurationMs(state, state.finishedAt)), settings.weightKg, wallStart.current, endedAt)
+  }, [finished, state, text.title, settings.weightKg])
 
   useEffect(() => {
     if (summary === null || state.completedWork === 0 || recorded.current.has(state.runId)) {
@@ -282,7 +328,7 @@ function PlayerSession({ session }: { session: Session }) {
   }, [state, player, start])
 
   const exit = () => {
-    if (active && !window.confirm('End this workout? This session will not be saved.')) {
+    if (active && !window.confirm(t('player.confirmEnd'))) {
       return
     }
     navigate(frozen.exitTo)
@@ -294,16 +340,16 @@ function PlayerSession({ session }: { session: Session }) {
   return (
     <div className="player" data-phase={state.status === 'finished' ? 'done' : state.status === 'ready' ? 'ready' : step?.kind}>
       <header className="player__top">
-        <button type="button" className="btn btn--ghost btn--icon" aria-label="End workout" onClick={exit}>
+        <button type="button" className="btn btn--ghost btn--icon" aria-label={t('player.endWorkout')} onClick={exit}>
           <Icon name="close" />
         </button>
-        <div className="player__progress" aria-label="Workout progress">
+        <div className="player__progress" aria-label={t('player.progress')}>
           <div className="player__progress-bar" style={{ transform: `scaleX(${progressFraction(state)})` }} />
         </div>
         <button
           type="button"
           className="btn btn--ghost btn--icon"
-          aria-label={muted ? 'Turn sound on' : 'Mute coach'}
+          aria-label={muted ? t('player.soundOn') : t('player.mute')}
           aria-pressed={muted}
           onClick={() => updateSettings(muted ? { voice: true, beeps: true } : { voice: false, beeps: false })}
         >
@@ -334,15 +380,15 @@ function PlayerSession({ session }: { session: Session }) {
       </div>
 
       {state.status === 'paused' ? (
-        <div className="player__overlay" role="dialog" aria-label="Paused">
+        <div className="player__overlay" role="dialog" aria-label={t('player.paused')}>
           <div className="stack">
-            <h2 className="page__title">Paused</h2>
+            <h2 className="page__title">{t('player.paused')}</h2>
             <button type="button" className="btn btn--primary btn--lg" onClick={player.resume}>
               <Icon name="play" />
-              Resume
+              {t('player.resume')}
             </button>
             <button type="button" className="btn btn--lg" onClick={exit}>
-              End workout
+              {t('player.endWorkout')}
             </button>
           </div>
         </div>
@@ -353,31 +399,36 @@ function PlayerSession({ session }: { session: Session }) {
 
 function ReadyView({ session, onStart }: { session: Session; onStart: () => void }) {
   const settings = useSettings()
+  const t = useT()
+  const content = useContent()
+  const text = useSessionText(session)
   const trainer = TRAINERS[settings.trainer]
   const first = session.body.items.map((item) => getExercise(item.exerciseId)).find(Boolean)
+  const firstName = first ? content.exerciseName(first) : ''
   return (
     <div className="player__scroll">
       <div className="ready">
         <header className="page__header">
-          <h1 className="page__title">{session.title}</h1>
-          {session.body.description ? <p className="muted">{session.body.description}</p> : null}
+          <h1 className="page__title">{text.title}</h1>
+          {text.description ? <p className="muted">{text.description}</p> : null}
         </header>
         {first ? (
           <div className="trainer-hello">
             <div className="trainer-hello__stage stage">
-              <ExerciseFigure exerciseId={first.id} label={`${trainer.name} demonstrating ${first.name}`} />
+              <ExerciseFigure exerciseId={first.id} label={t('player.ready.demonstrating', { trainer: trainer.name, exercise: firstName })} />
             </div>
             <p className="trainer-hello__bubble">
-              Hi, I&apos;m {trainer.name}! Ready when you are. We&apos;ll start with {first.name.toLowerCase()}.
+              {t('player.ready.hello', { trainer: trainer.name, exercise: firstName.toLowerCase() })}
             </p>
           </div>
         ) : null}
         <RoutineStats body={session.body} />
+        <RoutineMuscles body={session.body} />
         <button type="button" className="btn btn--primary btn--lg btn--block" onClick={onStart}>
           <Icon name="play" />
-          Start
+          {t('player.ready.start')}
         </button>
-        <p className="faint">Tip: turn your volume up for the voice coach. Your screen stays on while you train.</p>
+        <p className="faint">{t('player.ready.tip')}</p>
         <RoutineList body={session.body} linkExercises={false} />
       </div>
     </div>
@@ -386,14 +437,17 @@ function ReadyView({ session, onStart }: { session: Session; onStart: () => void
 
 function WorkView({ player, step }: { player: PlayerControls; step: WorkStep }) {
   const { state, now } = player
+  const t = useT()
+  const content = useContent()
   const exercise = exerciseOf(step)
+  const name = exercise ? content.exerciseName(exercise) : t('player.work.fallbackName')
   const running = state.status === 'running'
   const limit = stepLimitMs(state)
   const remaining = stepRemaining(state, now)
   const meta = [
-    `Exercise ${step.item} of ${step.items}`,
-    step.sets > 1 ? `Set ${step.set} of ${step.sets}` : null,
-    step.rounds > 1 ? `Round ${step.round} of ${step.rounds}` : null,
+    t('player.work.exerciseOf', { item: step.item, items: step.items }),
+    step.sets > 1 ? t('player.work.setOf', { set: step.set, sets: step.sets }) : null,
+    step.rounds > 1 ? t('player.work.roundOf', { round: step.round, rounds: step.rounds }) : null,
   ]
     .filter(Boolean)
     .join(' · ')
@@ -407,65 +461,67 @@ function WorkView({ player, step }: { player: PlayerControls; step: WorkStep }) 
             mirrored={step.side === 'right'}
             playing={running}
             restartKey={`${state.runId}-${state.index}`}
-            label={`${exercise.name} demonstration`}
+            label={t('player.work.demonstration', { name })}
           />
         ) : null}
-        {step.side ? <span className="work__side badge badge--accent">{step.side === 'left' ? 'Left side' : 'Right side'}</span> : null}
+        {step.side ? (
+          <span className="work__side badge badge--accent">{step.side === 'left' ? t('player.work.leftSide') : t('player.work.rightSide')}</span>
+        ) : null}
       </div>
       <div className="work__info">
         <p className="faint">{meta}</p>
-        <h1 className="work__name">{exercise?.name ?? 'Exercise'}</h1>
+        <h1 className="work__name">{name}</h1>
         {limit !== null && remaining !== null ? (
-          <TimerRing fraction={remaining / limit} label={`${formatClock(remaining)} remaining`}>
+          <TimerRing fraction={remaining / limit} label={t('player.work.remaining', { time: formatClock(remaining) })}>
             <span className="work__clock">{formatClock(remaining)}</span>
           </TimerRing>
         ) : step.target.kind === 'reps' ? (
           <div className="reps">
             <span className="reps__count tabular">{step.target.reps}</span>
-            <span className="reps__unit">reps{step.side ? ' this side' : ''}</span>
+            <span className="reps__unit">{step.side ? t('player.work.repsUnitSide') : t('player.work.repsUnit')}</span>
             <span className="faint tabular">{formatClock(stepElapsed(state, now))}</span>
           </div>
         ) : null}
       </div>
       <div className="player__controls">
-        <button type="button" className="btn btn--icon control" aria-label="Previous exercise" onClick={player.previous}>
+        <button type="button" className="btn btn--icon control" aria-label={t('player.work.previous')} onClick={player.previous}>
           <Icon name="previous" />
         </button>
         {step.target.kind === 'reps' ? (
           <button type="button" className="btn btn--primary btn--lg control control--main" onClick={player.done}>
             <Icon name="check" />
-            Done
+            {t('player.work.done')}
           </button>
         ) : (
           <button
             type="button"
             className="btn btn--primary btn--icon control control--round"
-            aria-label={running ? 'Pause' : 'Resume'}
+            aria-label={running ? t('player.pause') : t('player.resume')}
             onClick={running ? player.pause : player.resume}
           >
             <Icon name={running ? 'pause' : 'play'} />
           </button>
         )}
-        <button type="button" className="btn btn--icon control" aria-label="Skip exercise" onClick={player.next}>
+        <button type="button" className="btn btn--icon control" aria-label={t('player.work.skip')} onClick={player.next}>
           <Icon name="next" />
         </button>
       </div>
       {step.target.kind === 'reps' ? (
         <button type="button" className="btn btn--ghost btn--small work__pause" onClick={running ? player.pause : player.resume}>
           <Icon name={running ? 'pause' : 'play'} />
-          {running ? 'Pause' : 'Resume'}
+          {running ? t('player.pause') : t('player.resume')}
         </button>
       ) : null}
     </div>
   )
 }
 
-function roundTitle(step: PauseStep, steps: PlaybackStep[], index: number): string {
+function roundTitle(step: PauseStep, steps: PlaybackStep[], index: number, t: TFunction): string {
   if (step.reason !== 'round') {
-    return PAUSE_TITLE[step.reason]
+    return t(PAUSE_TITLE[step.reason])
   }
   const finished = steps.slice(0, index).reverse().find((candidate): candidate is WorkStep => candidate.kind === 'work')
-  return finished ? `Round ${finished.round} complete` : PAUSE_TITLE.round
+  return finished ? t('player.pauseTitle.roundNumber', { round: finished.round }) : t(PAUSE_TITLE.round)
 }
 
 function PauseView({
@@ -482,6 +538,9 @@ function PauseView({
   adKey: string | null
 }) {
   const { state, now } = player
+  const t = useT()
+  const content = useContent()
+  const fmt = useFormat()
   const next = steps[step.nextWork]
   const nextWork = next?.kind === 'work' ? next : undefined
   const exercise = exerciseOf(nextWork)
@@ -492,38 +551,38 @@ function PauseView({
   return (
     <div className="player__scroll">
       <div className="pause">
-        <p className="pause__title">{roundTitle(step, steps, state.index)}</p>
-        <TimerRing fraction={remaining / limit} tone="rest" size="lg" label={`${Math.ceil(remaining / 1000)} seconds left`}>
+        <p className="pause__title">{roundTitle(step, steps, state.index, t)}</p>
+        <TimerRing fraction={remaining / limit} tone="rest" size="lg" label={t('player.rest.secondsLeft', { n: Math.ceil(remaining / 1000) })}>
           <span className="pause__count tabular">{Math.ceil(remaining / 1000)}</span>
-          <span className="faint">seconds</span>
+          <span className="faint">{t('player.rest.seconds')}</span>
         </TimerRing>
         <div className="row row--wrap pause__controls">
           <button type="button" className="btn" onClick={() => player.extend(10000)}>
             <Icon name="plus" />
-            10 sec
+            {fmt.seconds(10)}
           </button>
           <button type="button" className="btn btn--primary" onClick={player.next}>
-            Skip
+            {t('player.rest.skip')}
             <Icon name="next" />
           </button>
         </div>
         {exercise && nextWork ? (
-          <section className="up-next card" aria-label="Up next">
+          <section className="up-next card" aria-label={t('player.rest.upNext')}>
             <div className="up-next__media stage">
               <ExerciseFigure
                 exerciseId={exercise.id}
                 mirrored={nextWork.side === 'right'}
                 playing={state.status === 'running'}
-                label={`${exercise.name} demonstration`}
+                label={t('player.work.demonstration', { name: content.exerciseName(exercise) })}
               />
             </div>
             <div className="stack stack--tight">
-              <p className="faint">{switching ? 'Now the other side' : 'Up next'}</p>
-              <h2 className="up-next__name">{exercise.name}</h2>
-              <p className="muted">{targetLabel(nextWork, exercise)}</p>
+              <p className="faint">{switching ? t('player.rest.otherSide') : t('player.rest.upNext')}</p>
+              <h2 className="up-next__name">{content.exerciseName(exercise)}</h2>
+              <p className="muted">{targetLabel(nextWork, exercise, t, fmt.reps)}</p>
               {!switching ? (
                 <ol className="up-next__steps">
-                  {(getFullExercise(exercise.id)?.steps ?? []).slice(0, 3).map((line) => (
+                  {content.exerciseSteps({ id: exercise.id, steps: getFullExercise(exercise.id)?.steps }).slice(0, 3).map((line) => (
                     <li key={line}>{line}</li>
                   ))}
                 </ol>
@@ -560,6 +619,12 @@ function DoneView({
 }) {
   const settings = useSettings()
   const navigate = useNavigate()
+  const t = useT()
+  const fmt = useFormat()
+  const content = useContent()
+  const { muscle: muscleLabel } = content.labels
+  const text = useSessionText(session)
+  const trainerName = TRAINERS[settings.trainer].name
   const [exporting, setExporting] = useState(false)
   const [roller, setRoller] = useState(false)
   const cheer = getExercise('jumping-jacks')
@@ -584,63 +649,59 @@ function DoneView({
       <div className="done">
         {cheer ? (
           <div className="done__stage stage">
-            <ExerciseFigure exerciseId={cheer.id} fps={60} label={`${TRAINERS[settings.trainer].name} celebrating`} />
+            <ExerciseFigure exerciseId={cheer.id} fps={60} label={t('player.done.celebrating', { trainer: trainerName })} />
           </div>
         ) : null}
-        <h1 className="page__title">{isCooldown ? 'All stretched out!' : 'Workout complete!'}</h1>
-        <p className="muted">
-          {session.title} · {TRAINERS[settings.trainer].name} is proud of you
-        </p>
+        <h1 className="page__title">{isCooldown ? t('player.done.stretched') : t('player.done.complete')}</h1>
+        <p className="muted">{t('player.done.proud', { title: text.title, trainer: trainerName })}</p>
         <dl className="routine-stats done__stats">
           <div>
-            <dt>Time</dt>
-            <dd>{formatDuration(durationMs)}</dd>
+            <dt>{t('player.done.time')}</dt>
+            <dd>{fmt.duration(durationMs)}</dd>
           </div>
           <div>
-            <dt>Moves</dt>
+            <dt>{t('player.done.moves')}</dt>
             <dd>
               {exercises}/{total}
             </dd>
           </div>
           <div>
-            <dt>Calories</dt>
-            <dd>{summary ? `${summary.calories} kcal` : '–'}</dd>
+            <dt>{t('player.done.calories')}</dt>
+            <dd>{summary ? t('units.calories', { n: summary.calories }) : '–'}</dd>
           </div>
           <div>
-            <dt>Streak</dt>
-            <dd>
-              {streak} {streak === 1 ? 'day' : 'days'}
-            </dd>
+            <dt>{t('player.done.streak')}</dt>
+            <dd>{t('units.days', { count: streak })}</dd>
           </div>
         </dl>
         <div className="done__actions">
           <Link to="/app" className="btn btn--primary btn--lg btn--block">
             <Icon name="check" />
-            Done
+            {t('player.done.done')}
           </Link>
           <div className="done__tools">
             <button type="button" className="btn done__tool" onClick={onAgain}>
               <Icon name="repeat" />
-              Again
+              {t('player.done.again')}
             </button>
             {summary ? (
               <button type="button" className="btn done__tool" onClick={() => setExporting(true)}>
                 <Icon name="heart" />
-                Save to Health
+                {t('player.done.saveHealth')}
               </button>
             ) : null}
-            <ShareResultButton title={session.title} minutes={Math.max(1, Math.round(durationMs / 60000))} className="btn done__tool" />
+            <ShareResultButton title={text.title} minutes={Math.max(1, Math.round(durationMs / 60000))} className="btn done__tool" />
           </div>
         </div>
 
         {summary && summary.muscles.length > 0 ? (
           <section className="card done__muscles">
-            <h2 className="section__title">Muscles you worked</h2>
+            <h2 className="section__title">{t('player.done.muscles')}</h2>
             <MuscleMap load={load} size="md" legend />
             <div className="chip-row done__chips">
               {summary.muscles.slice(0, 6).map((muscle) => (
                 <span key={muscle} className="chip chip--static">
-                  {MUSCLE_LABEL[muscle]}
+                  {muscleLabel[muscle]}
                 </span>
               ))}
             </div>
@@ -651,14 +712,14 @@ function DoneView({
           <section className="card done__cooldown">
             <div className="section__head">
               <div className="stack stack--tight">
-                <h2 className="section__title">Cool down with these stretches</h2>
-                <p className="faint">Picked for the muscles you just trained · about {Math.ceil((stretches.length * 50) / 60)} min</p>
+                <h2 className="section__title">{t('player.done.cooldownTitle')}</h2>
+                <p className="faint">{t('player.done.cooldownHint', { n: Math.ceil((stretches.length * 50) / 60) })}</p>
               </div>
             </div>
             <label className="switch done__roller">
               <span className="stack stack--tight">
-                <strong>I have a foam roller</strong>
-                <span className="faint">Include rolling and massage-ball moves.</span>
+                <strong>{t('player.done.roller')}</strong>
+                <span className="faint">{t('player.done.rollerHint')}</span>
               </span>
               <input type="checkbox" checked={roller} onChange={(event) => setRoller(event.target.checked)} />
             </label>
@@ -669,8 +730,8 @@ function DoneView({
                     <ExerciseFigure exerciseId={exercise.id} lazy playing={false} label="" />
                   </span>
                   <span className="stack stack--tight">
-                    <strong>{exercise.name}</strong>
-                    <span className="faint">{exercise.muscles.slice(0, 2).map((muscle) => MUSCLE_LABEL[muscle]).join(' · ')}</span>
+                    <strong>{content.exerciseName(exercise)}</strong>
+                    <span className="faint">{exercise.muscles.slice(0, 2).map((muscle) => muscleLabel[muscle]).join(' · ')}</span>
                   </span>
                 </li>
               ))}
@@ -681,7 +742,7 @@ function DoneView({
               onClick={() => navigate(`/app/play/cooldown/${cooldownId(stretches)}`)}
             >
               <Icon name="play" />
-              Start cool-down
+              {t('player.done.startCooldown')}
             </button>
           </section>
         ) : null}

@@ -1,55 +1,56 @@
 import { getExercise } from '@/exercises'
-import { TRAINERS, type SkinTone, type TrainerId } from '@/figure/look'
+import { TRAINER_ORDER, TRAINERS, type SkinTone, type TrainerId } from '@/figure/look'
 import { paletteFor } from '@/figure/svg'
+import { useT } from '@/i18n/translate'
 import { updateSettings, useSettings } from '@/settings/settings'
 import './trainer-picker.css'
 import { ExerciseFigure } from './ExerciseFigure'
 
-const SKINS: { id: SkinTone; label: string }[] = [
-  { id: 'light', label: 'Light' },
-  { id: 'medium', label: 'Medium' },
-  { id: 'deep', label: 'Deep' },
-]
+const SKINS: SkinTone[] = ['light', 'medium', 'deep']
 
-const TAGLINES: Record<TrainerId, string> = {
-  female: 'Upbeat and encouraging',
-  male: 'Calm and focused',
-}
+const PREVIEW_FPS = 24
 
 export function TrainerPicker() {
+  const t = useT()
   const settings = useSettings()
   const preview = getExercise('jumping-jacks')
+  const skinFor = (id: TrainerId): SkinTone => (id === settings.trainer ? settings.skin : TRAINERS[id].skin)
   return (
     <div className="trainer-picker">
-      <div className="trainer-picker__options" role="radiogroup" aria-label="Trainer">
-        {(Object.keys(TRAINERS) as TrainerId[]).map((id) => (
-          <button
-            key={id}
-            type="button"
-            role="radio"
-            aria-checked={settings.trainer === id}
-            className="trainer-option"
-            onClick={() => updateSettings({ trainer: id })}
-          >
-            <span className="trainer-option__stage stage">
-              {preview ? <ExerciseFigure exerciseId={preview.id} look={{ trainer: id, skin: settings.skin }} playing={false} label="" /> : null}
-            </span>
-            <span className="trainer-option__name">{TRAINERS[id].name}</span>
-            <span className="faint">{TAGLINES[id]}</span>
-          </button>
-        ))}
+      <div className="trainer-picker__options" role="radiogroup" aria-label={t('settings.trainerPicker.trainer')}>
+        {TRAINER_ORDER.map((id) => {
+          const trainer = TRAINERS[id]
+          const selected = settings.trainer === id
+          return (
+            <button
+              key={id}
+              type="button"
+              role="radio"
+              aria-checked={selected}
+              data-trainer={id}
+              className="trainer-option"
+              onClick={() => updateSettings(selected ? { trainer: id } : { trainer: id, skin: trainer.skin })}
+            >
+              <span className="trainer-option__stage stage">
+                {preview ? <ExerciseFigure exerciseId={preview.id} look={{ trainer: id, skin: skinFor(id) }} playing fps={PREVIEW_FPS} label="" /> : null}
+              </span>
+              <span className="trainer-option__name">{trainer.name}</span>
+              <span className="trainer-option__tagline faint">{t(`settings.trainerPicker.taglines.${id}`)}</span>
+            </button>
+          )
+        })}
       </div>
-      <div className="trainer-picker__skins" role="radiogroup" aria-label="Skin tone">
+      <div className="trainer-picker__skins" role="radiogroup" aria-label={t('settings.trainerPicker.skinTone')}>
         {SKINS.map((skin) => (
           <button
-            key={skin.id}
+            key={skin}
             type="button"
             role="radio"
-            aria-checked={settings.skin === skin.id}
-            aria-label={`${skin.label} skin tone`}
+            aria-checked={settings.skin === skin}
+            aria-label={t('settings.trainerPicker.skinLabel', { skin: t(`settings.trainerPicker.skins.${skin}`) })}
             className="skin-swatch"
-            style={{ background: paletteFor({ trainer: settings.trainer, skin: skin.id }).skin }}
-            onClick={() => updateSettings({ skin: skin.id })}
+            style={{ background: paletteFor({ trainer: settings.trainer, skin }).skin }}
+            onClick={() => updateSettings({ skin })}
           />
         ))}
       </div>

@@ -46,7 +46,7 @@ async function renderEditor(path = '/app/routines/new') {
       </MemoryRouter>
     </AppProviders>,
   )
-  return screen.findByLabelText('Routine name')
+  return screen.findByLabelText('Workout name')
 }
 
 describe('routine editor', () => {
@@ -61,13 +61,15 @@ describe('routine editor', () => {
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
     fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /Done/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
 
     fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
     fireEvent.click(screen.getByRole('button', { name: /How to do it/ }))
     const info = await screen.findByRole('dialog', { name: 'Squat' })
     expect(within(info).getByRole('heading', { name: 'Form tips' })).toBeInTheDocument()
-    expect(screen.getByLabelText('Routine name')).toHaveValue('Leg day')
+    expect(screen.getByLabelText('Workout name')).toHaveValue('Leg day')
+    const muscles = screen.getByRole('heading', { name: 'Muscles this workout targets' }).closest('section') as HTMLElement
+    expect(within(muscles).getByRole('img', { name: /Quads/ })).toBeInTheDocument()
 
     cleanup()
     const restored = await renderEditor()
@@ -78,7 +80,7 @@ describe('routine editor', () => {
       fireEvent.click(screen.getByRole('button', { name: 'Save' }))
     })
     cleanup()
-    expect(await renderEditor()).toHaveValue('My routine')
+    expect(await renderEditor()).toHaveValue('My workout')
   })
 
   it('builds a routine with defaults and per-exercise overrides', async () => {
@@ -89,7 +91,7 @@ describe('routine editor', () => {
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
     fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
     fireEvent.click(within(picker).getByRole('button', { name: /^Push-up\s*Upper body/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /Done · added 2/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /^Add 2 exercises/ }))
 
     const pushUp = screen.getByRole('button', { name: /^Push-up/, expanded: false })
     fireEvent.click(pushUp)
@@ -118,7 +120,7 @@ describe('routine editor', () => {
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
     fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
     fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /Done/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
 
     fireEvent.click(screen.getAllByRole('button', { name: 'Move up' })[1])
     const titles = screen.getAllByRole('button', { expanded: false }).map((button) => button.textContent ?? '')
@@ -148,7 +150,7 @@ describe('routine editor', () => {
     fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
     const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
     fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
-    fireEvent.click(within(picker).getByRole('button', { name: /Done/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /^Add \d+ exercises?/ }))
     fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
     fireEvent.click(screen.getByRole('button', { name: 'Reps', pressed: false }))
     fireEvent.click(within(screen.getByRole('group', { name: 'Squat variations' })).getByRole('button', { name: 'Kettlebell goblet' }))
@@ -157,5 +159,27 @@ describe('routine editor', () => {
       fireEvent.click(screen.getByRole('button', { name: 'Save' }))
     })
     expect(saved[0].items[0]).toMatchObject({ exerciseId: 'kettlebell-goblet-squat', target: { kind: 'reps' } })
+  })
+
+  it('only adds the exercises still selected when you confirm', async () => {
+    await renderEditor()
+    fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
+    let picker = await screen.findByRole('dialog', { name: 'Add exercises' })
+    const squat = within(picker).getByRole('button', { name: /^Squat\s*Legs/ })
+    fireEvent.click(squat)
+    expect(squat).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
+    fireEvent.click(within(picker).getByRole('button', { name: /Jumping jacks/ }))
+    fireEvent.click(squat)
+    expect(squat).toHaveAttribute('aria-pressed', 'false')
+    fireEvent.click(within(picker).getByRole('button', { name: /^Add 1 exercise$/ }))
+    expect(screen.getByRole('button', { name: /^Jumping jacks/, expanded: false })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: /Add more exercises/ }))
+    picker = await screen.findByRole('dialog', { name: 'Add exercises' })
+    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: 'Close' }))
+    expect(screen.queryByRole('button', { name: /^Squat/, expanded: false })).not.toBeInTheDocument()
   })
 })

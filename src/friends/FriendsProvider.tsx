@@ -3,7 +3,9 @@ import { useAuth } from '@/auth/AuthProvider'
 import { loadFriendsRepository } from '@/data/lazy'
 import type { Completion } from '@/data/models'
 import type { Routine } from '@/workouts/types'
-import { cleanName, cleanPhoto, type Friend, type FriendRequest, type OwnProfile, type PublicProfile } from './models'
+import { cleanName, userPhoto, type Friend, type FriendRequest, type OwnProfile, type PublicProfile } from './models'
+import { getLanguage } from '@/i18n/language'
+import { translator } from '@/i18n/translate'
 
 export interface FriendActivity {
   routines: Routine[]
@@ -29,10 +31,10 @@ interface FriendsContextValue {
 const FriendsContext = createContext<FriendsContextValue | null>(null)
 
 export function FriendsProvider({ children }: { children: ReactNode }) {
-  const { user } = useAuth()
+  const { user, profileVersion } = useAuth()
   const uid = user?.uid ?? null
   const displayName = cleanName(user?.displayName ?? user?.email?.split('@')[0])
-  const photo = cleanPhoto(user?.photoURL)
+  const photo = useMemo(() => userPhoto(user), [user, profileVersion])
   const me = useMemo<PublicProfile | null>(() => {
     if (uid === null) {
       return null
@@ -60,7 +62,7 @@ export function FriendsProvider({ children }: { children: ReactNode }) {
     if (me === null) {
       return
     }
-    const fail = () => setError('Could not load your friends. Check your connection.')
+    const fail = () => setError(translator(getLanguage())('social.friends.loadFailed'))
     let cancelled = false
     let stops: (() => void)[] = []
     loadFriendsRepository()

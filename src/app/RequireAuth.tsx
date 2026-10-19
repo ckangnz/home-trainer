@@ -1,18 +1,17 @@
 import type { ReactNode } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
+import { useT } from '@/i18n/translate'
 import { GoogleMark } from './Icons'
 
-export function SignInPanel({ title = 'Sign in to keep going', compact = false }: { title?: string; compact?: boolean }) {
+export function SignInPanel({ title, compact = false }: { title?: string; compact?: boolean }) {
+  const t = useT()
   const { signIn, error } = useAuth()
   return (
     <section className={compact ? 'card sign-in sign-in--compact' : 'page page--narrow'}>
       <div className={compact ? 'stack' : 'card sign-in stack'}>
-        <h1 className={compact ? 'section__title' : 'page__title'}>{title}</h1>
-        <p className="muted">
-          HomeTrainer is free. Sign in with Google to play workouts, save your own routines, import routines friends share
-          with you, and keep your streak.
-        </p>
+        <h1 className={compact ? 'section__title' : 'page__title'}>{title ?? t('shell.signInPanel.title')}</h1>
+        <p className="muted">{t('shell.signInPanel.body')}</p>
         <button
           type="button"
           className="btn btn--lg btn--outline"
@@ -21,7 +20,7 @@ export function SignInPanel({ title = 'Sign in to keep going', compact = false }
           }}
         >
           <GoogleMark />
-          Continue with Google
+          {t('common.continueWithGoogle')}
         </button>
         {error ? (
           <p className="notice notice--error" role="alert">
@@ -29,7 +28,9 @@ export function SignInPanel({ title = 'Sign in to keep going', compact = false }
           </p>
         ) : null}
         <p className="faint">
-          We only store your routines and workout history. See our <Link to="/privacy">privacy policy</Link>.
+          {t('shell.signInPanel.privacyBefore')}
+          <Link to="/privacy">{t('shell.signInPanel.privacyLink')}</Link>
+          {t('shell.signInPanel.privacyAfter')}
         </p>
       </div>
     </section>
@@ -37,10 +38,11 @@ export function SignInPanel({ title = 'Sign in to keep going', compact = false }
 }
 
 function SetupNotice() {
+  const t = useT()
   return (
     <section className="page page--narrow">
       <div className="card stack">
-        <h1 className="page__title">Firebase is not configured</h1>
+        <h1 className="page__title">{t('shell.setup.title')}</h1>
         <p className="muted">
           Copy <code>env.example</code> to <code>.env.local</code> (or add the <code>VITE_FIREBASE_*</code> repository
           secrets), add your Firebase web configuration, and rebuild. Workouts, exercises, and settings work without it.
@@ -51,13 +53,14 @@ function SetupNotice() {
 }
 
 export function RequireAuth({ children, guestWhenUnconfigured = false }: { children?: ReactNode; guestWhenUnconfigured?: boolean }) {
+  const t = useT()
   const { status } = useAuth()
   if (status === 'unconfigured' && guestWhenUnconfigured) {
     return children ? <>{children}</> : <Outlet />
   }
   if (status === 'loading') {
     return (
-      <div className="center" role="status" aria-label="Loading">
+      <div className="center" role="status" aria-label={t('common.loading')}>
         <div className="spinner" />
       </div>
     )

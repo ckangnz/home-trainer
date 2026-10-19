@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '@/app/meta'
+import { useT } from '@/i18n'
 
 export function NotFoundPage() {
-  usePageMeta('Page not found')
+  const t = useT()
+  usePageMeta(t('publicPages.notFound.meta'))
   return (
     <div className="page page--narrow">
       <div className="empty">
-        <h1 className="section__title">We could not find that page</h1>
-        <p>The link may be broken or the page may have moved.</p>
+        <h1 className="section__title">{t('publicPages.notFound.title')}</h1>
+        <p>{t('publicPages.notFound.body')}</p>
         <div className="row row--wrap">
           <Link to="/workouts" className="btn btn--primary">
-            Browse workouts
+            {t('publicPages.notFound.browse')}
           </Link>
           <Link to="/exercises" className="btn">
-            Exercise library
+            {t('publicPages.notFound.library')}
           </Link>
         </div>
       </div>

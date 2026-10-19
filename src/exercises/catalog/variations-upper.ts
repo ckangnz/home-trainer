@@ -22,6 +22,7 @@ import {
   breathe,
   flat,
   foot,
+  grips,
   hand,
   heel,
   key,
@@ -169,9 +170,9 @@ const longArmUp = pose(SUPINE_KNEES, { spine: 30, neck: 12 }, arms([168, 0]))
 const floorPressDown = pose(SUPINE_KNEES, arms([4, 96]), { scale: { upperArmL: 0.65, upperArmR: 0.65 } })
 const floorPressUp = pose(SUPINE_KNEES, arms([90, 2]))
 
-const arnoldStart = pose(STAND_FRONT, arms([14, 174]), { scale: { upperArmL: 0.45, upperArmR: 0.45 } })
-const arnoldOpen = pose(STAND_FRONT, arms([82, 100]))
-const arnoldTop = pose(STAND_FRONT, arms([168, 10]))
+const arnoldStart = pose(STAND_FRONT, arms([14, 174]), grips(90), { scale: { upperArmL: 0.45, upperArmR: 0.45 } })
+const arnoldOpen = pose(STAND_FRONT, arms([82, 100]), grips(-90))
+const arnoldTop = pose(STAND_FRONT, arms([168, 10]), grips(-90))
 
 const pressRack = pose(STAND_FRONT, arms([82, 100]))
 const pressLeftUp = pose(pressRack, { armL: [168, 10] })
@@ -199,7 +200,7 @@ const rowReach = pose(rowSeat, { torso: 8 }, arms([82, 6]))
 const rowPull = pose(rowSeat, { torso: -4 }, arms([-18, 100]))
 
 const HINGE: PoseSpec = { root: [-0.21, 0.89], torso: 64, neck: -16, legL: flat(0), legR: flat(0) }
-const hingeHang = pose(STAND, HINGE, arms([64, 4]))
+const hingeHang = pose(STAND, HINGE, arms([64, 4]), grips(90))
 const hingeRowLeft = pose(hingeHang, { armL: [4, 72] })
 const hingeRowRight = pose(hingeHang, { armR: [4, 72] })
 
@@ -583,7 +584,7 @@ export const VARIATIONS_UPPER: Exercise[] = [
     sided: 'symmetric',
     defaultTarget: { kind: 'reps', reps: 12 },
     animation: anim('side', [key(weightedCrunchDown, 900, 100), key(weightedCrunchUp, 900, 150)], {
-      props: [...mat(-1, 0.75), { kind: 'dumbbell', hand: 'both' }],
+      props: [...mat(-1, 0.75), { kind: 'dumbbell', hand: 'L' }],
       thumb: 1,
     }),
     summary: 'A crunch with a dumbbell held against your chest, adding load so your abs work harder in fewer reps.',

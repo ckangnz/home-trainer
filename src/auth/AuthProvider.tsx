@@ -2,6 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { User } from 'firebase/auth'
 import { isFirebaseConfigured } from '@/data/config'
 import { describeAuthError } from '@/data/authErrors'
+import { getLanguage } from '@/i18n/language'
+import { translate } from '@/i18n/translate'
 
 export type AuthStatus = 'loading' | 'signed-in' | 'signed-out' | 'unconfigured'
 
@@ -13,7 +15,9 @@ interface AuthContextValue {
   error: string | null
   signIn: () => Promise<boolean>
   signOut: () => Promise<void>
+  refreshProfile: () => Promise<boolean>
   clearError: () => void
+  profileVersion: number
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
@@ -25,6 +29,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<AuthStatus>(isFirebaseConfigured ? 'loading' : 'unconfigured')
   const [error, setError] = useState<string | null>(null)
   const moduleRef = useRef<AuthModule | null>(null)
+  const [profileVersion, setProfileVersion] = useState(0)
 
   useEffect(() => {
     if (!isFirebaseConfigured) {
@@ -38,7 +43,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           return
         }
         moduleRef.current = auth
-        auth.completeRedirectSignIn().catch((cause: unknown) => setError(describeAuthError(cause)))
+        auth
+          .completeRedirectSignIn()
+          .then(() => setProfileVersion((version) => version + 1))
+          .catch((cause: unknown) => setError(describeAuthError(cause)))
         unsubscribe = auth.subscribeToAuth(
           (nextUser) => {
             setUser(nextUser)
@@ -46,14 +54,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           },
           () => {
             setStatus('signed-out')
-            setError('Could not verify your session. Please sign in again.')
+            setError(translate(getLanguage(), 'shell.auth.sessionFailed'))
           },
         )
       })
       .catch(() => {
         if (!cancelled) {
           setStatus('signed-out')
-          setError('Could not load sign-in. Check your connection and reload.')
+          setError(translate(getLanguage(), 'shell.auth.loadFailed'))
         }
       })
     return () => {
@@ -67,6 +75,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const auth = moduleRef.current ?? (await loadAuth())
       await auth.signInWithGoogle()
+      setProfileVersion((version) => version + 1)
       return true
     } catch (cause) {
       setError(describeAuthError(cause))
@@ -84,11 +93,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  const refreshProfile = useCallback(async () => {
+    setError(null)
+    try {
+      const auth = moduleRef.current ?? (await loadAuth())
+      await auth.refreshGoogleProfile()
+      setProfileVersion((version) => version + 1)
+      return true
+    } catch (cause) {
+      setError(describeAuthError(cause))
+      return false
+    }
+  }, [])
+
   const clearError = useCallback(() => setError(null), [])
 
   const value = useMemo<AuthContextValue>(
-    () => ({ status, user, error, signIn, signOut, clearError }),
-    [status, user, error, signIn, signOut, clearError],
+    () => ({ status, user, error, signIn, signOut, refreshProfile, clearError, profileVersion }),
+    [status, user, error, signIn, signOut, refreshProfile, clearError, profileVersion],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

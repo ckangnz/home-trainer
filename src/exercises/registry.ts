@@ -17,6 +17,7 @@ export const CATALOG_ORDER = [
   'recovery',
   'variations-lower',
   'variations-upper',
+  'stretch-variations',
 ]
 
 export function catalogName(path: string): string {

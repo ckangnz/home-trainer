@@ -1,11 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import { distance, lerpAngle, wrap180, type Vec2 } from './math'
 import { ANKLE_REST_HEIGHT, RIG, STAND_HIP_HEIGHT } from './rig'
-import { isReach, solveSpec, twoBone } from './solve'
+import { DEFAULT_GRIP, isReach, solveSpec, twoBone } from './solve'
 import { prepareAnimation, samplePose, sampleSkeleton } from './animate'
-import { BENCH_HEIGHT, gripPoint, heldPropParts, partExtent, propParts, ROLLER_RADIUS, skeletonParts } from './parts'
+import { BENCH_HEIGHT, gripPoint, handleView, heldPropParts, partExtent, propParts, ROLLER_RADIUS, skeletonParts } from './parts'
 import { animationBounds, viewBoxFor } from './framing'
 import type { FigureAnimation, Part, PoseSpec, Prop } from './types'
+
+function centroid(points: Vec2[]): Vec2 {
+  const sum = points.reduce((total, point) => [total[0] + point[0], total[1] + point[1]] as Vec2, [0, 0] as Vec2)
+  return [sum[0] / points.length, sum[1] / points.length]
+}
 
 function close(a: Vec2, b: Vec2, tolerance = 1e-6) {
   expect(distance(a, b)).toBeLessThan(tolerance)
@@ -281,11 +286,9 @@ describe('equipment props', () => {
       const parts = skeletonParts(skeleton, undefined, prepared.props)
       for (const side of ['L', 'R'] as const) {
         const hub = find(parts, `dumbbell0${side}-hub`)
-        expect(hub.kind).toBe('circle')
-        if (hub.kind === 'circle') {
-          close(hub.center, gripPoint(skeleton, side))
-          expect(distance(hub.center, skeleton.points[`wrist${side}`])).toBeLessThan(RIG.hand)
-        }
+        const center = centroid(partExtent(hub))
+        close(center, gripPoint(skeleton, side), 1e-3)
+        expect(distance(center, skeleton.points[`wrist${side}`])).toBeLessThan(RIG.hand)
       }
     }
   })
@@ -312,14 +315,16 @@ describe('equipment props', () => {
       undefined,
       [{ kind: 'dumbbell', hand: 'both' }, { kind: 'barbell' }, { kind: 'foamRoller', under: 'hip' }, { kind: 'kettlebell', hand: 'L' }],
     )
-    expect(index(side, 'dumbbell0L-head')).toBeGreaterThan(index(side, 'handL'))
-    expect(index(side, 'dumbbell0R-head')).toBeLessThan(index(side, 'torso'))
+    expect(index(side, 'dumbbell0L-near')).toBeGreaterThan(index(side, 'handL'))
+    expect(index(side, 'dumbbell0L-bar')).toBeLessThan(index(side, 'handL'))
+    expect(index(side, 'dumbbell0R-near')).toBeLessThan(index(side, 'torso'))
     expect(index(side, 'barbell1-plate')).toBeGreaterThan(index(side, 'handL'))
     expect(index(side, 'foamRoller2-body')).toBeLessThan(index(side, 'torso'))
     expect(index(side, 'kettlebell3-bell')).toBeLessThan(index(side, 'handL'))
     expect(index(side, 'kettlebell3-bell')).toBeGreaterThan(index(side, 'forearmL'))
     const front = skeletonParts(solveSpec({}, 'front'), undefined, [{ kind: 'dumbbell', hand: 'L' }, { kind: 'barbell' }])
     expect(index(front, 'dumbbell0L-bar')).toBeLessThan(index(front, 'handL'))
+    expect(index(front, 'dumbbell0L-near')).toBeGreaterThan(index(front, 'handL'))
     expect(index(front, 'barbell1-bar')).toBeGreaterThan(index(front, 'torso'))
     expect(index(front, 'barbell1-bar')).toBeLessThan(index(front, 'upperArmR'))
   })
@@ -385,5 +390,150 @@ describe('equipment props', () => {
     const press = prepareAnimation({ view: 'front', keyframes: [{ pose: {}, ms: 0 }], props: [{ kind: 'barbell' }] })
     const bounds = animationBounds(press)
     expect(bounds.maxX - bounds.minX).toBeGreaterThan(1.6)
+  })
+})
+
+describe('dumbbell grip rotation', () => {
+  const hang: PoseSpec = { armL: [4, 6], armR: [4, 6] }
+  const one: Prop[] = [{ kind: 'dumbbell', hand: 'L' }]
+
+  const part = (parts: Part[], id: string): Part => {
+    const found = parts.find((candidate) => candidate.id === id)
+    if (!found) {
+      throw new Error(`missing ${id}`)
+    }
+    return found
+  }
+
+  const bar = (parts: Part[]) => {
+    const found = part(parts, 'dumbbell0L-bar')
+    if (found.kind !== 'seg') {
+      throw new Error('bar should be a segment')
+    }
+    return found
+  }
+
+  const span = (points: Vec2[], axis: Vec2) => {
+    const along = points.map((point) => point[0] * axis[0] + point[1] * axis[1])
+    return Math.max(...along) - Math.min(...along)
+  }
+
+  it('defaults to end-on in side view and across the hand in front view', () => {
+    expect(DEFAULT_GRIP).toEqual({ side: 0, front: 90 })
+    expect(solveSpec(hang, 'side').grip).toEqual({ L: 0, R: 0 })
+    expect(solveSpec(hang, 'front').grip).toEqual({ L: 90, R: 90 })
+    expect(solveSpec({ ...hang, gripL: 35 }, 'side').grip).toEqual({ L: 35, R: 0 })
+  })
+
+  it('projects the handle from the grip angle', () => {
+    const view = (grip: number) => handleView(solveSpec({ ...hang, gripL: grip }, 'side'), 'L')
+    expect(view(0).inPlane).toBeCloseTo(0)
+    expect(view(0).facing).toBeCloseTo(1)
+    expect(view(90).inPlane).toBeCloseTo(1)
+    expect(view(90).facing).toBeCloseTo(0)
+    expect(view(45).inPlane).toBeCloseTo(Math.SQRT1_2)
+    const { along, across } = view(30)
+    expect(along[0] * across[0] + along[1] * across[1]).toBeCloseTo(0)
+  })
+
+  it('draws an end-on hex head at the grip when the handle points at the camera', () => {
+    const skeleton = solveSpec(hang, 'side')
+    const parts = heldPropParts(skeleton, one)
+    const grip = gripPoint(skeleton, 'L')
+    const handle = bar(parts)
+    expect(distance(handle.a, handle.b)).toBeLessThan(1e-9)
+    const rim = part(parts, 'dumbbell0L-rim')
+    if (rim.kind !== 'poly') {
+      throw new Error('rim should be a polygon')
+    }
+    expect(rim.points).toHaveLength(6)
+    for (const [index, point] of rim.points.entries()) {
+      expect(distance(point, grip)).toBeCloseTo(0.066)
+      const angle = (Math.atan2(point[1] - grip[1], point[0] - grip[0]) * 180) / Math.PI
+      expect(wrap180(angle - (skeleton.phi.handL + 30 + index * 60))).toBeCloseTo(0)
+    }
+    for (const id of ['dumbbell0L-near', 'dumbbell0L-far']) {
+      for (const point of partExtent(part(parts, id))) {
+        expect(distance(point, grip)).toBeLessThan(0.075)
+      }
+    }
+  })
+
+  it('draws a full bar with two heads when the handle lies in the picture plane', () => {
+    const skeleton = solveSpec({ ...hang, gripL: 90 }, 'side')
+    const parts = heldPropParts(skeleton, one)
+    const view = handleView(skeleton, 'L')
+    const handle = bar(parts)
+    expect(distance(handle.a, handle.b)).toBeCloseTo(0.15)
+    const direction: Vec2 = [(handle.b[0] - handle.a[0]) / 0.15, (handle.b[1] - handle.a[1]) / 0.15]
+    expect(Math.abs(direction[0] * view.along[0] + direction[1] * view.along[1])).toBeCloseTo(0)
+    const near = centroid(partExtent(part(parts, 'dumbbell0L-near')))
+    const far = centroid(partExtent(part(parts, 'dumbbell0L-far')))
+    expect(distance(near, far)).toBeCloseTo(0.2, 2)
+    const rim = part(parts, 'dumbbell0L-rim')
+    if (rim.kind !== 'poly') {
+      throw new Error('rim should be a polygon')
+    }
+    expect(span(rim.points, view.across)).toBeCloseTo(0)
+  })
+
+  it('foreshortens the handle while the grip rotates between keyframes', () => {
+    const prepared = prepareAnimation({
+      view: 'front',
+      keyframes: [
+        { pose: { ...hang, gripL: 90 }, ms: 1000 },
+        { pose: { ...hang, gripL: -90 }, ms: 1000 },
+      ],
+      props: one,
+    })
+    const lengths = [0, 250, 500, 750, 999].map((time) => {
+      const handle = bar(heldPropParts(sampleSkeleton(prepared, 1000 + time), one))
+      return distance(handle.a, handle.b)
+    })
+    expect(lengths[0]).toBeCloseTo(0.15)
+    expect(lengths[2]).toBeLessThan(1e-3)
+    expect(lengths[1]).toBeGreaterThan(lengths[2])
+    expect(lengths[1]).toBeLessThan(lengths[0])
+    expect(lengths[3]).toBeGreaterThan(lengths[2])
+    expect(lengths[4]).toBeCloseTo(0.15, 3)
+    expect(samplePose(prepared, 1500).grip.L).toBeCloseTo(0)
+  })
+
+  it('keeps dumbbell part ids, kinds and order stable while the grip turns', () => {
+    const props: Prop[] = [{ kind: 'dumbbell', hand: 'both' }, { kind: 'dumbbell', hand: 'both', hold: 'end' }]
+    const prepared = prepareAnimation({
+      view: 'side',
+      keyframes: [
+        { pose: { ...hang, gripL: 0, gripR: 0 }, ms: 1000 },
+        { pose: { armL: [60, 90], armR: [60, 90], gripL: 160, gripR: 100 }, ms: 1000 },
+      ],
+      props,
+    })
+    const shapeOf = (time: number) =>
+      skeletonParts(sampleSkeleton(prepared, time), undefined, prepared.props)
+        .filter((candidate) => candidate.id.startsWith('dumbbell'))
+        .map((candidate) => `${candidate.id}:${candidate.kind}`)
+    const first = shapeOf(0)
+    expect(first.length).toBe(18)
+    expect(new Set(first).size).toBe(first.length)
+    for (const time of [300, 980, 1000, 1500, 1999]) {
+      expect(shapeOf(time)).toEqual(first)
+    }
+  })
+
+  it('holds one dumbbell by its end along the forearms', () => {
+    const skeleton = solveSpec({ armL: [176, 8, 70], armR: [176, 8, 70] }, 'side')
+    const parts = heldPropParts(skeleton, [{ kind: 'dumbbell', hand: 'both', hold: 'end' }])
+    const handle = parts.find((candidate) => candidate.id === 'dumbbell0-bar')
+    if (!handle || handle.kind !== 'seg') {
+      throw new Error('missing bar')
+    }
+    const forearm: Vec2 = [skeleton.points.wristL[0] - skeleton.points.elbowL[0], skeleton.points.wristL[1] - skeleton.points.elbowL[1]]
+    const axis: Vec2 = [handle.b[0] - handle.a[0], handle.b[1] - handle.a[1]]
+    const cross = forearm[0] * axis[1] - forearm[1] * axis[0]
+    expect(Math.abs(cross) / (Math.hypot(...forearm) * Math.hypot(...axis))).toBeLessThan(1e-6)
+    const heads = ['dumbbell0-near', 'dumbbell0-far'].map((id) => centroid(partExtent(part(parts, id))))
+    const top = heads.reduce((best, head) => (head[1] > best[1] ? head : best))
+    expect(top[1]).toBeGreaterThan(skeleton.points.wristL[1])
   })
 })

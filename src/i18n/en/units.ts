@@ -1,0 +1,17 @@
+export const units = {
+  sec: '{n} sec',
+  min: '{n} min',
+  minSec: '{m}:{ss} min',
+  hours: '{h} h',
+  hoursMin: '{h} h {m} min',
+  reps: '{count} reps',
+  perSide: '{base} per side',
+  kg: '{n} kg',
+  moves: { one: '{count} move', other: '{count} moves' },
+  exercises: { one: '{count} exercise', other: '{count} exercises' },
+  workouts: { one: '{count} workout', other: '{count} workouts' },
+  rounds: { one: '{count} round', other: '{count} rounds' },
+  sets: { one: '{count} set', other: '{count} sets' },
+  days: { one: '{count} day', other: '{count} days' },
+  calories: '{n} kcal',
+}

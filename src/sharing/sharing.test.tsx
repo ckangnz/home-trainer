@@ -83,7 +83,7 @@ describe('share code import', () => {
     expect(screen.getByText(/1 exercise is not available/)).toBeInTheDocument()
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /Add to my routines/ }))
+      fireEvent.click(screen.getByRole('button', { name: /Add to My workouts/ }))
     })
 
     expect(saved).toHaveLength(1)

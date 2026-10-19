@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { useFriends } from '@/friends/FriendsProvider'
-import { cleanPhoto } from '@/friends/models'
+import { userPhoto } from '@/friends/models'
+import type { MessageKey } from '@/i18n/en'
+import { useT } from '@/i18n/translate'
 import { InstallPrompt } from '@/pwa/InstallPrompt'
 import { BrandMark, Icon, type IconName } from './Icons'
 import { SITE } from './site'
@@ -10,36 +12,38 @@ import './shell.css'
 
 interface NavItem {
   to: string
-  label: string
+  label: MessageKey
   icon: IconName
   end?: boolean
 }
 
 const SIGNED_IN_NAV: NavItem[] = [
-  { to: '/app', label: 'Home', icon: 'home', end: true },
-  { to: '/workouts', label: 'Workouts', icon: 'bolt' },
-  { to: '/exercises', label: 'Exercises', icon: 'grid' },
-  { to: '/app/friends', label: 'Friends', icon: 'users' },
-  { to: '/app/history', label: 'History', icon: 'history' },
+  { to: '/app', label: 'shell.nav.home', icon: 'home', end: true },
+  { to: '/workouts', label: 'shell.nav.workouts', icon: 'bolt' },
+  { to: '/exercises', label: 'shell.nav.exercises', icon: 'grid' },
+  { to: '/app/friends', label: 'shell.nav.friends', icon: 'users' },
+  { to: '/app/history', label: 'shell.nav.history', icon: 'history' },
 ]
 
 const PUBLIC_NAV: NavItem[] = [
-  { to: '/', label: 'Home', icon: 'home', end: true },
-  { to: '/workouts', label: 'Workouts', icon: 'bolt' },
-  { to: '/exercises', label: 'Exercises', icon: 'grid' },
+  { to: '/', label: 'shell.nav.home', icon: 'home', end: true },
+  { to: '/workouts', label: 'shell.nav.workouts', icon: 'bolt' },
+  { to: '/exercises', label: 'shell.nav.exercises', icon: 'grid' },
 ]
 
-const GUEST_NAV: NavItem[] = [...PUBLIC_NAV, { to: '/app/settings', label: 'Settings', icon: 'settings' }]
+const GUEST_NAV: NavItem[] = [...PUBLIC_NAV, { to: '/app/settings', label: 'shell.nav.settings', icon: 'settings' }]
 
 function Avatar() {
-  const { user } = useAuth()
-  const [broken, setBroken] = useState(false)
+  const t = useT()
+  const { user, profileVersion } = useAuth()
+  const photo = userPhoto(user)
+  const [brokenPhoto, setBrokenPhoto] = useState<string | null>(null)
+  const broken = brokenPhoto !== null && brokenPhoto === photo
   const name = (user?.displayName ?? user?.email ?? '?').trim()
-  const photo = cleanPhoto(user?.photoURL)
   return (
-    <Link to="/app/settings" className="avatar" aria-label="Account and settings" title={name}>
+    <Link to="/app/settings" className="avatar" aria-label={t('shell.accountAndSettings')} title={name}>
       {photo && !broken ? (
-        <img src={photo} alt="" referrerPolicy="no-referrer" onError={() => setBroken(true)} />
+        <img key={`${photo}-${profileVersion}`} src={photo} alt="" referrerPolicy="no-referrer" onError={() => setBrokenPhoto(photo)} />
       ) : (
         <span className="avatar__initial">{name.charAt(0).toUpperCase()}</span>
       )}
@@ -48,13 +52,14 @@ function Avatar() {
 }
 
 export function AppShell() {
+  const t = useT()
   const { status, signIn } = useAuth()
   const signedIn = status === 'signed-in'
   const nav = signedIn ? SIGNED_IN_NAV : status === 'unconfigured' ? GUEST_NAV : PUBLIC_NAV
   const { incoming } = useFriends()
   const badge = (item: NavItem) =>
     item.to === '/app/friends' && incoming.length > 0 ? (
-      <span className="nav-badge" aria-label={`${incoming.length} friend requests`}>
+      <span className="nav-badge" aria-label={t('shell.friendRequests', { count: incoming.length })}>
         {incoming.length}
       </span>
     ) : null
@@ -66,10 +71,10 @@ export function AppShell() {
           <BrandMark />
           <span>{SITE.name}</span>
         </Link>
-        <nav className="shell__nav" aria-label="Primary">
+        <nav className="shell__nav" aria-label={t('shell.nav.primary')}>
           {nav.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.end} className="shell__link">
-              {item.label}
+              {t(item.label)}
               {badge(item)}
             </NavLink>
           ))}
@@ -85,7 +90,7 @@ export function AppShell() {
                 void signIn()
               }}
             >
-              Sign in
+              {t('common.signIn')}
             </button>
           ) : null}
         </div>
@@ -96,27 +101,25 @@ export function AppShell() {
       </main>
 
       <footer className="shell__footer">
-        <nav className="row row--wrap" aria-label="Footer">
-          <Link to="/workouts">Workouts</Link>
-          <Link to="/exercises">Exercise library</Link>
-          <Link to="/privacy">Privacy</Link>
-          <Link to="/terms">Terms</Link>
+        <nav className="row row--wrap" aria-label={t('shell.nav.footer')}>
+          <Link to="/workouts">{t('shell.footer.workouts')}</Link>
+          <Link to="/exercises">{t('shell.footer.library')}</Link>
+          <Link to="/privacy">{t('shell.footer.privacy')}</Link>
+          <Link to="/terms">{t('shell.footer.terms')}</Link>
           {SITE.supportUrl ? (
             <a href={SITE.supportUrl} target="_blank" rel="noreferrer">
-              Support {SITE.name}
+              {t('shell.footer.support', { name: SITE.name })}
             </a>
           ) : null}
         </nav>
-        <p className="faint">
-          {SITE.name} is free and supported by ads. Exercise guidance is general information, not medical advice.
-        </p>
+        <p className="faint">{t('shell.footer.disclaimer', { name: SITE.name })}</p>
       </footer>
 
-      <nav className="tabbar" aria-label="Primary">
+      <nav className="tabbar" aria-label={t('shell.nav.primary')}>
         {nav.map((item) => (
           <NavLink key={item.to} to={item.to} end={item.end} className="tabbar__link">
             <Icon name={item.icon} />
-            <span>{item.label}</span>
+            <span>{t(item.label)}</span>
             {badge(item)}
           </NavLink>
         ))}
@@ -129,7 +132,7 @@ export function AppShell() {
             }}
           >
             <Icon name="forward" />
-            <span>Sign in</span>
+            <span>{t('common.signIn')}</span>
           </button>
         ) : null}
       </nav>

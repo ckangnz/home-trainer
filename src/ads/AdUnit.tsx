@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useT } from '@/i18n'
 import './ads.css'
 
 const CLIENT = import.meta.env.VITE_ADSENSE_CLIENT?.trim() ?? ''
@@ -49,6 +50,7 @@ interface AdUnitProps {
 
 export function AdUnit({ placement, className }: AdUnitProps) {
   const slot = AD_SLOTS[placement]
+  const t = useT()
   const online = useOnline()
   const insRef = useRef<HTMLModElement>(null)
   const live = adsConfigured && slot !== '' && online
@@ -70,9 +72,9 @@ export function AdUnit({ placement, className }: AdUnitProps) {
   if (!live) {
     if (import.meta.env.DEV) {
       return (
-        <aside className={`ad-unit ad-unit--placeholder ${className ?? ''}`} aria-label="Advertisement">
-          <span className="ad-unit__label">Advertisement</span>
-          <div className="ad-unit__placeholder">Ad slot ({placement})</div>
+        <aside className={`ad-unit ad-unit--placeholder ${className ?? ''}`} aria-label={t('player.ads.label')}>
+          <span className="ad-unit__label">{t('player.ads.label')}</span>
+          <div className="ad-unit__placeholder">{t('player.ads.placeholder', { placement })}</div>
         </aside>
       )
     }
@@ -80,8 +82,8 @@ export function AdUnit({ placement, className }: AdUnitProps) {
   }
 
   return (
-    <aside className={`ad-unit ${className ?? ''}`} aria-label="Advertisement">
-      <span className="ad-unit__label">Advertisement</span>
+    <aside className={`ad-unit ${className ?? ''}`} aria-label={t('player.ads.label')}>
+      <span className="ad-unit__label">{t('player.ads.label')}</span>
       <ins
         ref={insRef}
         className="adsbygoogle"

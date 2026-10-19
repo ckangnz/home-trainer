@@ -1,7 +1,18 @@
 import { usePageMeta } from '@/app/meta'
 import { SITE } from '@/app/site'
+import { useLanguage, useT } from '@/i18n'
 
 const UPDATED = 'October 18, 2026'
+
+function EnglishOnlyNote() {
+  const language = useLanguage()
+  const t = useT()
+  return language === 'en' ? null : (
+    <p className="notice" lang={language}>
+      {t('publicPages.legal.englishOnly')}
+    </p>
+  )
+}
 
 function Contact() {
   return SITE.contactEmail ? (
@@ -19,6 +30,7 @@ export function PrivacyPage() {
         <h1 className="page__title">Privacy policy</h1>
         <p className="faint">Last updated {UPDATED}</p>
       </header>
+      <EnglishOnlyNote />
       <div className="prose">
         <p>
           {SITE.name} is a free workout app that runs in your browser. This policy explains what we collect, why, and the
@@ -35,7 +47,7 @@ export function PrivacyPage() {
             which workout you did) are stored in Google Cloud Firestore under your account.
           </li>
           <li>
-            <strong>Shared routines:</strong> when you share a routine we store a copy of it under a short code. Anyone
+            <strong>Shared workouts:</strong> when you share a workout we store a copy of it under a short code. Anyone
             with the code or link can view and copy that routine. It does not include your name or email.
           </li>
           <li>
@@ -101,6 +113,7 @@ export function TermsPage() {
         <h1 className="page__title">Terms of use</h1>
         <p className="faint">Last updated {UPDATED}</p>
       </header>
+      <EnglishOnlyNote />
       <div className="prose">
         <h2>Exercise safely</h2>
         <p>

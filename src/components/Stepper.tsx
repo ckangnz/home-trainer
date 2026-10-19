@@ -1,5 +1,6 @@
 import { useId } from 'react'
 import { Icon } from '@/app/Icons'
+import { useT } from '@/i18n'
 
 interface StepperProps {
   label: string
@@ -15,6 +16,7 @@ interface StepperProps {
 
 export function Stepper({ label, value, min, max, step, format = String, onChange, hint, disabled = false }: StepperProps) {
   const id = useId()
+  const t = useT()
   const set = (next: number) => onChange(Math.min(max, Math.max(min, next)))
   return (
     <div className="stepper-field" aria-disabled={disabled}>
@@ -27,7 +29,7 @@ export function Stepper({ label, value, min, max, step, format = String, onChang
       <div className="stepper" role="group" aria-labelledby={id}>
         <button
           type="button"
-          aria-label={`Decrease ${label.toLowerCase()}`}
+          aria-label={t('app.components.stepper.decrease', { label: label.toLowerCase() })}
           disabled={disabled || value <= min}
           onClick={() => set(value - step)}
         >
@@ -36,7 +38,7 @@ export function Stepper({ label, value, min, max, step, format = String, onChang
         <output aria-live="polite">{format(value)}</output>
         <button
           type="button"
-          aria-label={`Increase ${label.toLowerCase()}`}
+          aria-label={t('app.components.stepper.increase', { label: label.toLowerCase() })}
           disabled={disabled || value >= max}
           onClick={() => set(value + step)}
         >

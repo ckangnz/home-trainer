@@ -75,7 +75,7 @@ describe('routine normalization', () => {
       defaults: body().defaults,
       items: Array.from({ length: 70 }, (_, index) => ({ id: String(index), exerciseId: 'a', sets: 1 })),
     })
-    expect(normalized.name).toBe('My routine')
+    expect(normalized.name).toBe('My workout')
     expect(normalized.items).toHaveLength(LIMITS.items)
     expect(normalized.items[0]).toEqual({ id: '0', exerciseId: 'a' })
   })

@@ -84,7 +84,7 @@ export function normalizeItem(input: Partial<RoutineItem> & { exerciseId: string
 }
 
 export function normalizeBody(input: RoutineBody): RoutineBody {
-  const name = input.name.trim().slice(0, LIMITS.name) || 'My routine'
+  const name = input.name.trim().slice(0, LIMITS.name) || 'My workout'
   const description = input.description?.trim().slice(0, LIMITS.description)
   const body: RoutineBody = {
     name,
@@ -127,5 +127,5 @@ export function withFreshIds(body: RoutineBody): RoutineBody {
 }
 
 export function blankRoutine(): RoutineBody {
-  return { name: 'My routine', defaults: { ...DEFAULT_ROUTINE_DEFAULTS }, items: [] }
+  return { name: 'My workout', defaults: { ...DEFAULT_ROUTINE_DEFAULTS }, items: [] }
 }

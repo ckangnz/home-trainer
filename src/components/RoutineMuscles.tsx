@@ -1,12 +1,14 @@
 import { useMemo } from 'react'
 import { getExercise } from '@/exercises'
-import { MUSCLE_LABEL } from '@/exercises/labels'
+import { useLabels, useT } from '@/i18n'
 import { muscleLoad, topMuscles, weightedItems } from '@/exercises/muscles'
 import { effectiveTarget, normalizeDefaults } from '@/workouts/routine'
 import type { RoutineBody } from '@/workouts/types'
 import { MuscleMap } from './MuscleMap'
 
-export function RoutineMuscles({ body, title = 'Muscles this workout targets' }: { body: RoutineBody; title?: string }) {
+export function RoutineMuscles({ body, title }: { body: RoutineBody; title?: string }) {
+  const t = useT()
+  const labels = useLabels()
   const load = useMemo(() => {
     const defaults = normalizeDefaults(body.defaults)
     return muscleLoad(
@@ -23,12 +25,12 @@ export function RoutineMuscles({ body, title = 'Muscles this workout targets' }:
   }
   return (
     <section className="card routine-muscles">
-      <h2 className="section__title">{title}</h2>
+      <h2 className="section__title">{title ?? t('app.components.routineMuscles.title')}</h2>
       <MuscleMap load={load} size="md" legend />
       <div className="chip-row routine-muscles__chips">
         {top.map((entry) => (
           <span key={entry.muscle} className="chip chip--static">
-            {MUSCLE_LABEL[entry.muscle]}
+            {labels.muscle[entry.muscle]}
           </span>
         ))}
       </div>

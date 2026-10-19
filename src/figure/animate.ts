@@ -182,6 +182,10 @@ function blendPose(a: PreparedKeyframe, b: PreparedKeyframe, weights: BlendWeigh
     spine: lerpAngle(a.pose.spine, b.pose.spine, free),
     neck: lerpAngle(a.pose.neck, b.pose.neck, free),
     limbs,
+    grip: {
+      L: lerp(a.skeleton.grip.L, b.skeleton.grip.L, free),
+      R: lerp(a.skeleton.grip.R, b.skeleton.grip.R, free),
+    },
     anchor: anchored ? blendAnchor(a.pose.anchor as Anchor, b.pose.anchor as Anchor, t) : undefined,
     scale: blendScale(a.pose.scale, b.pose.scale, t),
   }

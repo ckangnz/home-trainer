@@ -143,9 +143,9 @@ describe('friends', () => {
     expect(await screen.findByText('Leg day')).toBeInTheDocument()
     expect(screen.getByText('90 kcal')).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /muscles this week/ })).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('tab', { name: /Routines/ }))
+    fireEvent.click(screen.getByRole('tab', { name: /Their workouts/ }))
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', { name: /Add to my routines/ }))
+      fireEvent.click(screen.getByRole('button', { name: /Add to My workouts/ }))
     })
     expect(savedRoutines).toHaveLength(1)
     expect(savedRoutines[0]).toMatchObject({ name: 'Week 1 homework', source: { kind: 'friend', uid: 'coach-1', routineId: 'homework' } })

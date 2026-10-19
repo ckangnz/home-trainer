@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Icon } from '@/app/Icons'
+import { useT } from '@/i18n'
 
 interface DialogProps {
   open: boolean
@@ -10,6 +11,7 @@ interface DialogProps {
 
 export function Dialog({ open, title, onClose, children }: DialogProps) {
   const ref = useRef<HTMLDialogElement>(null)
+  const t = useT()
 
   useEffect(() => {
     const dialog = ref.current
@@ -50,7 +52,7 @@ export function Dialog({ open, title, onClose, children }: DialogProps) {
         <div className="dialog__body">
           <div className="dialog__head">
             <h2 className="dialog__title">{title}</h2>
-            <button type="button" className="btn btn--ghost btn--icon" aria-label="Close" onClick={onClose}>
+            <button type="button" className="btn btn--ghost btn--icon" aria-label={t('common.close')} onClick={onClose}>
               <Icon name="close" />
             </button>
           </div>

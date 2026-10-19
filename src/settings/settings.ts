@@ -1,5 +1,7 @@
 import { useSyncExternalStore } from 'react'
-import type { SkinTone, TrainerId } from '@/figure/look'
+import { isTrainerId, type SkinTone, type TrainerId } from '@/figure/look'
+
+export type LanguagePreference = 'auto' | 'en' | 'ko'
 
 export interface Settings {
   voice: boolean
@@ -10,6 +12,7 @@ export interface Settings {
   trainer: TrainerId
   skin: SkinTone
   weightKg: number
+  language: LanguagePreference
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -21,12 +24,13 @@ export const DEFAULT_SETTINGS: Settings = {
   trainer: 'female',
   skin: 'medium',
   weightKg: 70,
+  language: 'auto',
 }
 
 export const WEIGHT_RANGE: readonly [number, number] = [30, 250]
 
-const TRAINER_IDS: TrainerId[] = ['female', 'male']
 const SKIN_TONES: SkinTone[] = ['light', 'medium', 'deep']
+export const LANGUAGE_PREFERENCES: LanguagePreference[] = ['auto', 'en', 'ko']
 
 const KEY = 'hometrainer.settings.v1'
 
@@ -50,12 +54,15 @@ function read(): Settings {
     vibration: typeof stored.vibration === 'boolean' ? stored.vibration : DEFAULT_SETTINGS.vibration,
     keepAwake: typeof stored.keepAwake === 'boolean' ? stored.keepAwake : DEFAULT_SETTINGS.keepAwake,
     voiceName: typeof stored.voiceName === 'string' ? stored.voiceName : null,
-    trainer: TRAINER_IDS.includes(stored.trainer as TrainerId) ? (stored.trainer as TrainerId) : DEFAULT_SETTINGS.trainer,
+    trainer: isTrainerId(stored.trainer) ? stored.trainer : DEFAULT_SETTINGS.trainer,
     skin: SKIN_TONES.includes(stored.skin as SkinTone) ? (stored.skin as SkinTone) : DEFAULT_SETTINGS.skin,
     weightKg:
       typeof stored.weightKg === 'number' && stored.weightKg >= WEIGHT_RANGE[0] && stored.weightKg <= WEIGHT_RANGE[1]
         ? stored.weightKg
         : DEFAULT_SETTINGS.weightKg,
+    language: LANGUAGE_PREFERENCES.includes(stored.language as LanguagePreference)
+      ? (stored.language as LanguagePreference)
+      : DEFAULT_SETTINGS.language,
   }
   return cached
 }
@@ -76,11 +83,11 @@ export function updateSettings(patch: Partial<Settings>): void {
   }
 }
 
-function subscribe(listener: () => void): () => void {
+export function subscribeSettings(listener: () => void): () => void {
   listeners.add(listener)
   return () => listeners.delete(listener)
 }
 
 export function useSettings(): Settings {
-  return useSyncExternalStore(subscribe, read, () => DEFAULT_SETTINGS)
+  return useSyncExternalStore(subscribeSettings, read, () => DEFAULT_SETTINGS)
 }

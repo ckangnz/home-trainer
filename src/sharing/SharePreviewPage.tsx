@@ -12,9 +12,10 @@ import { RoutineMuscles } from '@/components/RoutineMuscles'
 import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
+import { useT, type MessageKey } from '@/i18n'
 import { formatCode, parseCode } from './code'
 
-type Load = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; share: SharedRoutine }
+type Load = { status: 'loading' } | { status: 'error'; message: MessageKey } | { status: 'ready'; share: SharedRoutine }
 
 export function SharePreviewPage() {
   const { code: raw = '' } = useParams()
@@ -24,19 +25,20 @@ export function SharePreviewPage() {
   const { routines, createRoutine } = useData()
   const { notify } = useToast()
   const navigate = useNavigate()
+  const t = useT()
   usePageMeta(
-    load.status === 'ready' ? `${load.share.routine.name} — shared routine` : 'Shared routine',
-    'Preview a workout routine shared with you and add your own copy to HomeTrainer.',
+    load.status === 'ready' ? t('social.sharePreview.titleWithName', { name: load.share.routine.name }) : t('social.sharePreview.title'),
+    t('social.sharePreview.description'),
   )
 
   useEffect(() => {
     let cancelled = false
     if (code === null) {
-      setLoad({ status: 'error', message: 'That does not look like a valid share code.' })
+      setLoad({ status: 'error', message: 'social.sharePreview.invalid' })
       return
     }
     if (!isFirebaseConfigured) {
-      setLoad({ status: 'error', message: 'Shared routines are unavailable because Firebase is not configured.' })
+      setLoad({ status: 'error', message: 'social.sharePreview.unconfigured' })
       return
     }
     setLoad({ status: 'loading' })
@@ -44,12 +46,12 @@ export function SharePreviewPage() {
       .then((repository) => repository.fetchShare(code))
       .then((share) => {
         if (!cancelled) {
-          setLoad(share ? { status: 'ready', share } : { status: 'error', message: 'This code does not exist or sharing was stopped.' })
+          setLoad(share ? { status: 'ready', share } : { status: 'error', message: 'social.sharePreview.missing' })
         }
       })
       .catch(() => {
         if (!cancelled) {
-          setLoad({ status: 'error', message: 'Could not load this routine. Check your connection and try again.' })
+          setLoad({ status: 'error', message: 'social.sharePreview.loadFailed' })
         }
       })
     return () => {
@@ -59,7 +61,7 @@ export function SharePreviewPage() {
 
   if (load.status === 'loading') {
     return (
-      <div className="center" role="status" aria-label="Loading shared routine">
+      <div className="center" role="status" aria-label={t('social.sharePreview.loading')}>
         <div className="spinner" />
       </div>
     )
@@ -69,13 +71,13 @@ export function SharePreviewPage() {
     return (
       <div className="page page--narrow">
         <div className="empty">
-          <p>{load.message}</p>
+          <p>{t(load.message)}</p>
           <div className="row row--wrap">
             <Link to="/app/import" className="btn btn--primary">
-              Try another code
+              {t('social.sharePreview.tryAnother')}
             </Link>
             <Link to="/workouts" className="btn">
-              Browse workouts
+              {t('social.sharePreview.browse')}
             </Link>
           </div>
         </div>
@@ -90,14 +92,14 @@ export function SharePreviewPage() {
   const add = () => {
     const body = withFreshIds({ ...share.routine, items: share.routine.items.filter((item) => getExercise(item.exerciseId)) })
     const routine = createRoutine(body, { kind: 'share', code: share.code })
-    notify(`Added ${routine.name} to your routines`)
+    notify(t('social.sharePreview.added', { name: routine.name }))
     navigate('/app')
   }
 
   return (
     <article className="page page--narrow">
       <header className="page__header">
-        <p className="eyebrow">Shared routine · {formatCode(share.code)}</p>
+        <p className="eyebrow">{t('social.sharePreview.eyebrow', { code: formatCode(share.code) })}</p>
         <h1 className="page__title">{share.routine.name}</h1>
         {share.routine.description ? <p className="page__lead">{share.routine.description}</p> : null}
       </header>
@@ -105,10 +107,7 @@ export function SharePreviewPage() {
       <RoutineStats body={share.routine} />
 
       {missing > 0 ? (
-        <p className="notice">
-          {missing} exercise{missing === 1 ? ' is' : 's are'} not available in this version of HomeTrainer and will be
-          skipped.
-        </p>
+        <p className="notice">{t('social.sharePreview.skipped', { count: missing })}</p>
       ) : null}
 
       <div className="row row--wrap">
@@ -116,12 +115,12 @@ export function SharePreviewPage() {
           <>
             <button type="button" className="btn btn--primary btn--lg" onClick={add}>
               <Icon name="plus" />
-              {existing ? 'Add another copy' : 'Add to my routines'}
+              {existing ? t('social.sharePreview.addAnother') : t('social.sharePreview.addToMine')}
             </button>
             {existing ? (
               <Link to={`/app/play/routine/${existing.id}`} className="btn btn--lg">
                 <Icon name="play" />
-                Play my copy
+                {t('social.sharePreview.playCopy')}
               </Link>
             ) : null}
           </>
@@ -133,7 +132,7 @@ export function SharePreviewPage() {
               void signIn()
             }}
           >
-            Sign in to add this routine
+            {t('social.sharePreview.signInToAdd')}
           </button>
         )}
       </div>
@@ -141,7 +140,7 @@ export function SharePreviewPage() {
       <RoutineMuscles body={share.routine} />
 
       <section className="section">
-        <h2 className="section__title">The moves</h2>
+        <h2 className="section__title">{t('social.sharePreview.moves')}</h2>
         <RoutineList body={share.routine} />
       </section>
     </article>

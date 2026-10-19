@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { variationsOf } from '@/exercises'
-import { EQUIPMENT_LABEL, LEVEL_LABEL } from '@/exercises/labels'
-import { FAMILY_LABEL } from '@/exercises/families'
+import { useContent, useT } from '@/i18n'
 import type { ExerciseInfo } from '@/exercises/types'
 import { ExerciseFigure } from './ExerciseFigure'
 import { variantLabel } from './VariationPicker'
@@ -9,12 +8,15 @@ import './variations.css'
 
 export function Variations({ exercise }: { exercise: ExerciseInfo }) {
   const variations = variationsOf(exercise)
+  const t = useT()
+  const content = useContent()
+  const { labels } = content
   if (variations.length < 2 || !exercise.family) {
     return null
   }
   return (
     <section className="section">
-      <h2 className="section__title">{FAMILY_LABEL[exercise.family] ?? 'More'} variations</h2>
+      <h2 className="section__title">{t('app.components.variations.title', { family: labels.family[exercise.family] ?? t('app.components.variations.more') })}</h2>
       <ul className="variations">
         {variations.map((option) => (
           <li key={option.id}>
@@ -27,9 +29,9 @@ export function Variations({ exercise }: { exercise: ExerciseInfo }) {
                 <ExerciseFigure exerciseId={option.id} lazy playing={false} label="" />
               </span>
               <span className="variation__text">
-                <strong>{variantLabel(option)}</strong>
+                <strong>{variantLabel(option, content)}</strong>
                 <span className="faint">
-                  {LEVEL_LABEL[option.level]} · {EQUIPMENT_LABEL[option.equipment]}
+                  {labels.level[option.level]} · {labels.equipment[option.equipment]}
                 </span>
               </span>
             </Link>

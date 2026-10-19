@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { SITE, absoluteUrl } from '@/app/site'
 import { Icon } from '@/app/Icons'
 import { useToast } from '@/app/Toast'
+import { useT } from '@/i18n'
 import './support.css'
 
 export function SupportCard() {
+  const t = useT()
   if (!SITE.supportUrl) {
     return null
   }
@@ -14,11 +16,11 @@ export function SupportCard() {
         ☕
       </span>
       <div className="stack stack--tight">
-        <strong>Enjoying {SITE.name}?</strong>
-        <span className="muted">It stays free thanks to ads and supporters like you.</span>
+        <strong>{t('app.components.support.enjoying', { name: SITE.name })}</strong>
+        <span className="muted">{t('app.components.support.body')}</span>
       </div>
       <a className="btn btn--small" href={SITE.supportUrl} target="_blank" rel="noreferrer">
-        Buy me a coffee
+        {t('app.components.support.coffee')}
       </a>
     </aside>
   )
@@ -26,17 +28,18 @@ export function SupportCard() {
 
 export function ShareResultButton({ title, minutes, className = 'btn btn--lg' }: { title: string; minutes: number; className?: string }) {
   const { notify } = useToast()
+  const t = useT()
   const [busy, setBusy] = useState(false)
   const share = async () => {
     const url = absoluteUrl('/')
-    const text = `I just finished "${title}" (${minutes} min) on ${SITE.name}, the free 7-minute workout app.`
+    const text = t('app.components.support.shareText', { title, minutes, name: SITE.name })
     setBusy(true)
     try {
       if (typeof navigator.share === 'function') {
         await navigator.share({ title: SITE.name, text, url })
       } else {
         await navigator.clipboard.writeText(`${text} ${url}`)
-        notify('Copied to clipboard')
+        notify(t('app.components.support.copied'))
       }
     } catch {
       return
@@ -47,7 +50,7 @@ export function ShareResultButton({ title, minutes, className = 'btn btn--lg' }:
   return (
     <button type="button" className={className} disabled={busy} onClick={() => void share()}>
       <Icon name="share" />
-      Share
+      {t('common.share')}
     </button>
   )
 }

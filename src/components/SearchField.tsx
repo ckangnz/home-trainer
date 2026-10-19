@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Icon } from '@/app/Icons'
+import { useT } from '@/i18n'
 import './search-field.css'
 
 interface SearchFieldProps {
@@ -11,6 +12,7 @@ interface SearchFieldProps {
 
 export function SearchField({ value, onChange, label, placeholder }: SearchFieldProps) {
   const input = useRef<HTMLInputElement>(null)
+  const t = useT()
   return (
     <div className="search" role="search">
       <Icon name="search" className="icon search__icon" />
@@ -34,7 +36,7 @@ export function SearchField({ value, onChange, label, placeholder }: SearchField
         <button
           type="button"
           className="search__clear"
-          aria-label="Clear search"
+          aria-label={t('app.components.search.clear')}
           onClick={() => {
             onChange('')
             input.current?.focus()

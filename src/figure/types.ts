@@ -68,6 +68,8 @@ export interface PoseSpec {
   armR?: LimbSpec
   legL?: LimbSpec
   legR?: LimbSpec
+  gripL?: number
+  gripR?: number
   anchor?: Anchor
   scale?: Partial<Record<SegmentId, number>>
 }
@@ -87,7 +89,7 @@ export type Prop =
   | { kind: 'mat'; x0: number; x1: number }
   | { kind: 'bench'; x0: number; x1: number }
   | { kind: 'box'; x0: number; x1: number; height: number }
-  | { kind: 'dumbbell'; hand: Grip }
+  | { kind: 'dumbbell'; hand: Grip; hold?: 'handle' | 'end' }
   | { kind: 'kettlebell'; hand: Grip; hang?: 'down' | 'arm' }
   | { kind: 'barbell'; plate?: number }
   | { kind: 'band'; from: Vec2 | JointId; hand: Grip }
@@ -131,21 +133,31 @@ export interface Skeleton {
     neck: number
     limbs: Record<LimbId, readonly [number, number, number]>
   }
+  grip: Record<LimbSide, number>
 }
 
 export type Tone =
   | 'skin'
   | 'skinFar'
   | 'skinShade'
+  | 'skinLight'
+  | 'lip'
+  | 'blush'
   | 'top'
+  | 'topLight'
   | 'topFar'
   | 'bottom'
   | 'bottomFar'
+  | 'bottomLight'
+  | 'trim'
   | 'shoe'
   | 'shoeFar'
   | 'sole'
+  | 'shoeAccent'
   | 'hair'
   | 'hairShade'
+  | 'hairLight'
+  | 'hairFade'
   | 'eye'
   | 'accent'
   | 'prop'

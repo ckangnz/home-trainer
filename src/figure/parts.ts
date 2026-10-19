@@ -1,7 +1,8 @@
 import { add, angleOf, dir, length, lerpAngle, lerpVec, scale, sub, type Vec2 } from './math'
 import { RIG, mirrorSign } from './rig'
 import { DEFAULT_LOOK, TRAINERS, type Look, type TrainerBuild } from './look'
-import { ellipseOutline, limbOutline, localShape, localStroke, localToWorld, smoothClosed, smoothOpen, type LimbShape, type Outline } from './shapes'
+import { ellipseOutline, limbOutline, smoothClosed, smoothOpen, type LimbShape, type Outline } from './shapes'
+import { headParts, shape } from './head'
 import { STILL, type Secondary } from './secondary'
 import type { Grip, JointId, LimbSide, Part, Prop, Skeleton, Tone } from './types'
 
@@ -13,7 +14,7 @@ const ROLLER = { r: 0.075, length: 0.9 }
 
 const BALL_R = 0.035
 
-const DUMBBELL = { head: 0.06, hub: 0.022, handle: 0.075, offset: 0.1, headHalf: 0.048, headWidth: 0.05, bar: 0.026 }
+const DUMBBELL = { head: 0.062, rim: 0.066, face: 0.052, hub: 0.022, handle: 0.075, offset: 0.1, half: 0.024, bar: 0.026, edge: 0.006, line: 0.002, cup: 0.03 }
 
 const KETTLEBELL = { drop: 0.13, rx: 0.08, ry: 0.074, handle: 0.045, handleWidth: 0.02 }
 
@@ -23,12 +24,12 @@ const BAND_WIDTH = 0.012
 
 const STRAP_WIDTH = 0.016
 
-const LINE = 0.006
+const STRIPE_WIDTH = 0.011
 
-type Local = readonly Vec2[]
+const SWOOSH_WIDTH = 0.012
 
-function shape(id: string, outline: Outline, tone: Tone | null, outlineTone?: Tone, width = LINE): Part {
-  return { kind: 'path', id, d: outline.d, points: outline.points, tone, outline: outlineTone, outlineWidth: outlineTone ? width : undefined }
+export function buildFor(look: Look): TrainerBuild {
+  return TRAINERS[look.trainer] ?? TRAINERS[DEFAULT_LOOK.trainer]
 }
 
 function inflate(limb: LimbShape, amount: number): LimbShape {
@@ -47,25 +48,53 @@ function oriented(limb: LimbShape, skeleton: Skeleton, side: LimbSide): LimbShap
   return { ...limb, left: limb.right, right: limb.left }
 }
 
+interface Bone {
+  at: (t: number, offset: number) => Vec2
+  radius: (t: number) => number
+}
+
+function bone(a: Vec2, b: Vec2, limb: LimbShape): Bone {
+  const span = sub(b, a)
+  const full = length(span) || 1e-6
+  const u = scale(span, 1 / full)
+  const n: Vec2 = [-u[1], u[0]]
+  const radius = (t: number) => limb.r0 + (limb.r1 - limb.r0) * t
+  return {
+    radius,
+    at: (t, offset) => add(add(a, scale(u, full * t)), scale(n, offset * radius(t))),
+  }
+}
+
+const SHEEN_STEPS = [0, 0.25, 0.5, 0.75, 1]
+
+function sheen(a: Vec2, b: Vec2, limb: LimbShape, from: number, to: number, offset: number, width: number): Outline {
+  const frame = bone(a, b, limb)
+  const at = (s: number, side: number) => frame.at(from + (to - from) * s, offset + side * Math.sin(Math.PI * s) * width)
+  const points = [...SHEEN_STEPS.map((s) => at(s, 1)), ...SHEEN_STEPS.slice(1, -1).reverse().map((s) => at(s, -1))]
+  return { d: smoothClosed(points), points }
+}
+
 function armParts(skeleton: Skeleton, side: LimbSide, far: boolean, build: TrainerBuild, grip: Part[] = []): Part[] {
   const p = skeleton.points
   const skin: Tone = far ? 'skinFar' : 'skin'
+  const sign = mirrorSign(skeleton.view, side)
+  const shoulder = p[`shoulder${side}`]
+  const elbow = p[`elbow${side}`]
+  const wrist = p[`wrist${side}`]
   const upper = oriented(build.upperArm, skeleton, side)
-  const parts: Part[] = [shape(`upperArm${side}`, limbOutline(p[`shoulder${side}`], p[`elbow${side}`], upper), skin)]
-  if (build.sleeve !== null) {
-    parts.push(
-      shape(
-        `sleeve${side}`,
-        limbOutline(p[`shoulder${side}`], p[`elbow${side}`], inflate(upper, 0.006), build.sleeve, true),
-        far ? 'topFar' : 'top',
-      ),
-    )
+  const forearm = oriented(build.forearm, skeleton, side)
+  const parts: Part[] = [shape(`upperArm${side}`, limbOutline(shoulder, elbow, upper), skin)]
+  if (!far) {
+    parts.push(shape(`upperArmSheen${side}`, sheen(shoulder, elbow, upper, 0.1, 0.66, 0.4 * sign, 0.3), 'skinLight'))
   }
-  parts.push(
-    shape(`forearm${side}`, limbOutline(p[`elbow${side}`], p[`wrist${side}`], oriented(build.forearm, skeleton, side)), skin),
-    ...grip,
-    shape(`hand${side}`, limbOutline(p[`wrist${side}`], p[`hand${side}`], build.hand), skin),
-  )
+  if (build.sleeve !== null) {
+    parts.push(shape(`sleeve${side}`, limbOutline(shoulder, elbow, inflate(upper, 0.006), build.sleeve, true), far ? 'topFar' : 'top'))
+  }
+  parts.push(shape(`forearm${side}`, limbOutline(elbow, wrist, forearm), skin))
+  if (!far) {
+    parts.push(shape(`forearmSheen${side}`, sheen(elbow, wrist, forearm, 0.08, 0.5, 0.36 * sign, 0.26), 'skinLight'))
+  }
+  parts.push(...grip, shape(`hand${side}`, limbOutline(wrist, p[`hand${side}`], build.hand), skin))
   return parts
 }
 
@@ -78,7 +107,7 @@ function footFrame(skeleton: Skeleton, side: LimbSide): { forward: Vec2; up: Vec
   return { forward, up }
 }
 
-function shoeOutline(skeleton: Skeleton, side: LimbSide): { shoe: Outline; sole: Outline } {
+function shoeOutline(skeleton: Skeleton, side: LimbSide): { shoe: Outline; sole: Outline; swoosh: Outline } {
   const p = skeleton.points
   const ankle = p[`ankle${side}`]
   const toe = p[`toe${side}`]
@@ -87,36 +116,80 @@ function shoeOutline(skeleton: Skeleton, side: LimbSide): { shoe: Outline; sole:
   const r = RIG.soleRadius
   const at = (base: Vec2, along: number, rise: number): Vec2 => add(add(base, scale(forward, along)), scale(up, rise))
   const shoe = [
-    at(ankle, -0.042, 0.012),
+    at(ankle, -0.04, 0.014),
     at(heel, -0.022, 0.004),
     at(heel, -0.006, -r * 0.95),
     at(lerpVec(heel, toe, 0.5), 0, -r),
     at(toe, 0, -r * 0.92),
-    at(toe, r * 0.95, -r * 0.1),
-    at(toe, -0.006, r * 0.78),
-    at(lerpVec(ankle, toe, 0.55), 0, 0.016),
-    at(ankle, 0.034, 0.016),
+    at(toe, r * 0.92, -r * 0.12),
+    at(toe, -0.008, r * 0.7),
+    at(lerpVec(ankle, toe, 0.55), 0, 0.014),
+    at(ankle, 0.032, 0.016),
   ]
-  const sole = [at(heel, -0.016, -r * 0.55), at(heel, -0.004, -r * 0.97), at(toe, 0, -r * 0.94), at(toe, r * 0.9, -r * 0.42), at(toe, 0, -r * 0.5)]
-  return { shoe: { d: smoothClosed(shoe), points: shoe }, sole: { d: smoothClosed(sole), points: sole } }
+  const sole = [at(heel, -0.016, -r * 0.55), at(heel, -0.004, -r * 0.97), at(toe, 0, -r * 0.94), at(toe, r * 0.88, -r * 0.42), at(toe, 0, -r * 0.5)]
+  const swoosh = [at(heel, 0.004, r * 0.55), at(lerpVec(heel, toe, 0.36), 0, -r * 0.18), at(lerpVec(heel, toe, 0.66), 0, r * 0.1), at(lerpVec(heel, toe, 0.86), 0, r * 0.42)]
+  return {
+    shoe: { d: smoothClosed(shoe), points: shoe },
+    sole: { d: smoothClosed(sole), points: sole },
+    swoosh: { d: smoothOpen(swoosh), points: swoosh },
+  }
+}
+
+function stripeLine(thigh: Bone, shin: Bone | null, thighTo: number, shinTo: number, offset: number): Outline {
+  const points = [thigh.at(0.06, offset), thigh.at(thighTo * 0.5, offset), thigh.at(thighTo, offset)]
+  if (shin) {
+    points.push(shin.at(shinTo * 0.5, offset), shin.at(shinTo, offset))
+  }
+  return { d: smoothOpen(points), points }
 }
 
 function legParts(skeleton: Skeleton, side: LimbSide, far: boolean, build: TrainerBuild): Part[] {
   const p = skeleton.points
-  const thigh = oriented(build.thigh, skeleton, side)
-  const shin = oriented(build.shin, skeleton, side)
-  const legging = build.shorts === null
+  const hip = p[`hip${side}`]
+  const knee = p[`knee${side}`]
+  const ankle = p[`ankle${side}`]
+  const sign = mirrorSign(skeleton.view, side)
+  const thighShape = oriented(build.thigh, skeleton, side)
+  const shinShape = oriented(build.shin, skeleton, side)
+  const { kind, length: cover, stripe } = build.bottom
   const skin: Tone = far ? 'skinFar' : 'skin'
   const bottom: Tone = far ? 'bottomFar' : 'bottom'
-  const parts: Part[] = [
-    shape(`shin${side}`, limbOutline(p[`knee${side}`], p[`ankle${side}`], shin), legging ? bottom : skin),
-    shape(`thigh${side}`, limbOutline(p[`hip${side}`], p[`knee${side}`], thigh), legging ? bottom : skin),
-  ]
-  if (build.shorts !== null) {
-    parts.push(shape(`shorts${side}`, limbOutline(p[`hip${side}`], p[`knee${side}`], inflate(thigh, 0.007), build.shorts, true), bottom))
+  const loose = kind === 'joggers' ? 0.01 : 0
+  const thigh = inflate(thighShape, loose)
+  const shin = inflate(shinShape, loose * 0.8)
+  const shinCovered = kind === 'joggers' || (kind === 'leggings' && cover >= 1)
+  const thighCovered = kind !== 'shorts'
+  const parts: Part[] = [shape(`shin${side}`, limbOutline(knee, ankle, shin), shinCovered ? bottom : skin)]
+  if (!far) {
+    parts.push(shape(`calfSheen${side}`, sheen(knee, ankle, shin, 0.1, 0.56, -0.42 * sign, 0.28), shinCovered ? 'bottomLight' : 'skinLight'))
   }
-  const { shoe, sole } = shoeOutline(skeleton, side)
+  if (kind === 'leggings' && cover < 1) {
+    parts.push(shape(`capri${side}`, limbOutline(knee, ankle, inflate(shin, 0.003), cover, true), bottom))
+  }
+  if (kind === 'joggers') {
+    parts.push(shape(`cuff${side}`, limbOutline(lerpVec(knee, ankle, 0.88), ankle, { r0: shin.r1 + 0.006, r1: shin.r1 + 0.002 }), far ? 'bottomFar' : 'trim'))
+  }
+  parts.push(shape(`thigh${side}`, limbOutline(hip, knee, thigh), thighCovered ? bottom : skin))
+  if (!far) {
+    parts.push(shape(`thighSheen${side}`, sheen(hip, knee, thigh, 0.14, 0.78, 0.4 * sign, 0.26), thighCovered ? 'bottomLight' : 'skinLight'))
+  }
+  if (kind === 'shorts') {
+    const fit = build.gender === 'female' ? 0.004 : 0.012
+    parts.push(shape(`shorts${side}`, limbOutline(hip, knee, inflate(thigh, fit), cover, true), bottom))
+  }
+  if (stripe && !far) {
+    const offset = skeleton.view === 'side' ? 0 : 0.7 * sign
+    const thighBone = bone(hip, knee, thigh)
+    const shinBone = kind === 'shorts' ? null : bone(knee, ankle, shin)
+    const thighTo = kind === 'shorts' ? cover * 0.97 : 1
+    const shinTo = kind === 'joggers' ? 0.86 : Math.min(cover, 1) * 0.97
+    parts.push(shape(`stripe${side}`, stripeLine(thighBone, shinBone, thighTo, shinTo, offset), null, 'trim', STRIPE_WIDTH))
+  }
+  const { shoe, sole, swoosh } = shoeOutline(skeleton, side)
   parts.push(shape(`shoe${side}`, shoe, far ? 'shoeFar' : 'shoe', 'shoeFar'), shape(`sole${side}`, sole, 'sole'))
+  if (!far) {
+    parts.push(shape(`swoosh${side}`, swoosh, null, 'shoeAccent', SWOOSH_WIDTH))
+  }
   return parts
 }
 
@@ -167,10 +240,13 @@ function chestSwell(t: number): number {
   return Math.sin(x * Math.PI)
 }
 
+function stationsFor(skeleton: Skeleton, build: TrainerBuild): readonly (readonly number[])[] {
+  return skeleton.view === 'side' ? build.torsoSide : build.torsoFront.map(([t, w]) => [t, w, w])
+}
+
 function torsoRegion(skeleton: Skeleton, build: TrainerBuild, from: number, to: number, breath = 0): Outline {
   const frame = spineFrame(skeleton)
-  const side = skeleton.view === 'side'
-  const stations: readonly (readonly number[])[] = side ? build.torsoSide : build.torsoFront.map(([t, w]) => [t, w, w])
+  const stations = stationsFor(skeleton, build)
   const ts = [from, ...stations.map((station) => station[0]).filter((t) => t > from && t < to), to]
   const front: Vec2[] = []
   const back: Vec2[] = []
@@ -186,198 +262,62 @@ function torsoRegion(skeleton: Skeleton, build: TrainerBuild, from: number, to: 
   return { d: smoothClosed(points), points }
 }
 
+function torsoPoint(skeleton: Skeleton, build: TrainerBuild, t: number, offset: number): Vec2 {
+  const frame = spineFrame(skeleton)
+  const [ahead, behind] = widthsAt(stationsFor(skeleton, build), t)
+  const width = offset >= 0 ? ahead : behind
+  return add(frame.at(t), scale(dir(frame.angle(t) - 90), offset * width))
+}
+
+function torsoSheen(skeleton: Skeleton, build: TrainerBuild, from: number, to: number, offset: number, width: number): Outline {
+  const at = (s: number, side: number) => torsoPoint(skeleton, build, from + (to - from) * s, offset + side * Math.sin(Math.PI * s) * width)
+  const points = [...SHEEN_STEPS.map((s) => at(s, 1)), ...SHEEN_STEPS.slice(1, -1).reverse().map((s) => at(s, -1))]
+  return { d: smoothClosed(points), points }
+}
+
 const SEAM = 0.004
+
+const BAND = 0.035
 
 function torsoParts(skeleton: Skeleton, build: TrainerBuild, breath: number): Part[] {
   const side = skeleton.view === 'side'
   const start = side ? -0.2 : -0.13
-  const topTo = side || build.sleeve !== null ? build.topTo : 0.95
-  return [
+  const sleeveless = build.sleeve === null
+  const topTo = side || !sleeveless ? build.topTo : Math.min(build.topTo, 0.95)
+  const midriff = build.topFrom - build.beltT > 0.06
+  const parts: Part[] = [
     shape('torso', torsoRegion(skeleton, build, start, 1.03, breath), 'skin', 'skin', SEAM),
     shape('bottoms', torsoRegion(skeleton, build, start, build.beltT, breath), 'bottom', 'bottom', SEAM),
-    shape('top', torsoRegion(skeleton, build, build.topFrom, topTo, breath), 'top', 'top', SEAM),
   ]
-}
-
-const SIDE_FACE = {
-  nose: [0.086, -0.012] as Vec2,
-  eye: [0.052, 0.012] as Vec2,
-  brow: [
-    [0.036, 0.039],
-    [0.051, 0.045],
-    [0.067, 0.042],
-  ] as Local,
-  ear: [-0.008, -0.004] as Vec2,
-}
-
-const HAIR: Record<TrainerBuild['hair'], { side: Local; front: Local }> = {
-  ponytail: {
-    side: [
-      [0.074, 0.066],
-      [0.04, 0.104],
-      [-0.016, 0.121],
-      [-0.07, 0.1],
-      [-0.1, 0.046],
-      [-0.1, -0.02],
-      [-0.086, -0.06],
-      [-0.058, -0.05],
-      [-0.046, 0],
-      [-0.022, 0.044],
-      [0.018, 0.068],
-      [0.054, 0.074],
-    ],
-    front: [
-      [-0.093, 0.016],
-      [-0.095, 0.06],
-      [-0.07, 0.1],
-      [-0.025, 0.12],
-      [0.03, 0.119],
-      [0.075, 0.1],
-      [0.095, 0.06],
-      [0.093, 0.016],
-      [0.076, 0.048],
-      [0.04, 0.071],
-      [0.004, 0.079],
-      [-0.044, 0.072],
-      [-0.076, 0.046],
-    ],
-  },
-  short: {
-    side: [
-      [0.08, 0.058],
-      [0.052, 0.1],
-      [0, 0.124],
-      [-0.062, 0.113],
-      [-0.101, 0.06],
-      [-0.105, 0],
-      [-0.09, -0.04],
-      [-0.07, -0.022],
-      [-0.052, 0.028],
-      [0, 0.068],
-      [0.05, 0.07],
-    ],
-    front: [
-      [-0.095, 0.022],
-      [-0.097, 0.07],
-      [-0.06, 0.113],
-      [0, 0.124],
-      [0.06, 0.113],
-      [0.097, 0.07],
-      [0.095, 0.022],
-      [0.08, 0.058],
-      [0.04, 0.076],
-      [0, 0.08],
-      [-0.04, 0.076],
-      [-0.08, 0.058],
-    ],
-  },
-}
-
-const PONYTAIL: Local = [
-  [-0.07, 0.086],
-  [-0.116, 0.1],
-  [-0.166, 0.076],
-  [-0.2, 0.012],
-  [-0.206, -0.07],
-  [-0.182, -0.13],
-  [-0.157, -0.1],
-  [-0.152, -0.032],
-  [-0.127, 0.03],
-  [-0.092, 0.056],
-]
-
-const HAIR_FLOOR = 0.008
-
-function restingOnFloor(outline: Outline): Outline {
-  if (outline.points.every((point) => point[1] >= HAIR_FLOOR)) {
-    return outline
+  if (side) {
+    parts.push(shape('seatSheen', torsoSheen(skeleton, build, -0.12, 0.2, -0.5, 0.26), 'bottomLight'))
   }
-  const points = outline.points.map((point): Vec2 => (point[1] < HAIR_FLOOR ? [point[0], HAIR_FLOOR] : point))
-  return { d: smoothClosed(points), points }
-}
-
-const TIE: Vec2 = [-0.1, 0.074]
-
-const BLINK_CLOSE = 0.88
-
-function swung(outline: Outline, pivot: Vec2, degrees: number): Outline {
-  if (degrees === 0) {
-    return outline
-  }
-  const turn = dir(degrees)
-  const points = outline.points.map((point): Vec2 => {
-    const dx = point[0] - pivot[0]
-    const dy = point[1] - pivot[1]
-    return [pivot[0] + dx * turn[0] - dy * turn[1], pivot[1] + dx * turn[1] + dy * turn[0]]
-  })
-  return { d: smoothClosed(points), points }
-}
-
-function shifted(outline: Outline, offset: Vec2): Outline {
-  if (offset[0] === 0 && offset[1] === 0) {
-    return outline
-  }
-  const points = outline.points.map((point) => add(point, offset))
-  return { d: smoothClosed(points), points }
-}
-
-function headParts(skeleton: Skeleton, build: TrainerBuild, motion: Secondary): { behind: Part[]; front: Part[] } {
-  const p = skeleton.points
-  const phiHead = skeleton.phi.head
-  const rotation = phiHead - 90
-  const center = p.head
-  const neckTop = add(p.neck, scale(dir(phiHead), RIG.neck + 0.045))
-  const neck = shape('neck', limbOutline(p.neck, neckTop, { r0: build.neck * 1.12, r1: build.neck }), 'skin')
-  const head = shape('head', ellipseOutline(center, build.head.rx, build.head.ry, rotation, 14), 'skin')
-  const eyeOpen = 1 - BLINK_CLOSE * motion.blink
-  const hairLift = scale(dir(phiHead), motion.hair)
-  if (skeleton.view === 'side') {
-    const behind: Part[] = []
-    if (build.hair === 'ponytail') {
-      const tie = localToWorld(center, rotation, TIE)
-      behind.push(
-        shape('ponytail', restingOnFloor(swung(localShape(center, rotation, PONYTAIL), tie, motion.ponytail)), 'hair'),
-        shape('hairTie', ellipseOutline(tie, 0.018, 0.022, rotation + 20, 8), 'accent'),
-      )
-    }
-    return {
-      behind,
-      front: [
-        neck,
-        shape('nose', ellipseOutline(localToWorld(center, rotation, SIDE_FACE.nose), 0.017, 0.02, rotation, 8), 'skin'),
-        head,
-        shape('hair', restingOnFloor(shifted(localShape(center, rotation, HAIR[build.hair].side), hairLift)), 'hair'),
-        shape('ear', ellipseOutline(localToWorld(center, rotation, SIDE_FACE.ear), 0.016, 0.024, rotation, 8), 'skinShade'),
-        shape('eye', ellipseOutline(localToWorld(center, rotation, SIDE_FACE.eye), 0.0085, 0.0125 * eyeOpen, rotation, 8), 'eye'),
-        shape('brow', localStroke(center, rotation, SIDE_FACE.brow), null, 'hair', 0.008),
-      ],
+  if (midriff) {
+    parts.push(shape('waistband', torsoRegion(skeleton, build, build.beltT - BAND, build.beltT, breath), 'trim', 'trim', SEAM))
+    if (!side) {
+      const abs = [torsoPoint(skeleton, build, build.beltT + 0.03, 0), torsoPoint(skeleton, build, build.topFrom - 0.02, 0)]
+      parts.push(shape('abs', { d: smoothOpen(abs), points: abs }, null, 'skinShade', 0.004))
     }
   }
-  const spot = (local: Vec2) => localToWorld(center, rotation, local)
-  const behind: Part[] = [
-    shape('earL', ellipseOutline(spot([build.head.rx - 0.002, -0.006]), 0.014, 0.023, rotation, 8), 'skinShade'),
-    shape('earR', ellipseOutline(spot([-build.head.rx + 0.002, -0.006]), 0.014, 0.023, rotation, 8), 'skinShade'),
-  ]
-  if (build.hair === 'ponytail') {
-    behind.push(shape('ponytail', ellipseOutline(spot([0, 0.122]), 0.044, 0.032, rotation, 10), 'hair'))
+  parts.push(shape('top', torsoRegion(skeleton, build, build.topFrom, topTo, breath), 'top', 'top', SEAM))
+  const sheenFrom = Math.max(build.topFrom + 0.05, 0.64)
+  const sheenTo = Math.min(topTo - 0.04, 0.94)
+  parts.push(shape('topSheen', torsoSheen(skeleton, build, sheenFrom, sheenTo, side ? 0.55 : -0.55, 0.22), 'topLight'))
+  if (build.top === 'crop' || build.top === 'bra') {
+    parts.push(shape('underband', torsoRegion(skeleton, build, build.topFrom, build.topFrom + BAND, breath), 'trim', 'trim', SEAM))
   }
-  return {
-    behind: [neck, ...behind],
-    front: [
-      head,
-      shape('hair', shifted(localShape(center, rotation, HAIR[build.hair].front), hairLift), 'hair'),
-      shape('eyeL', ellipseOutline(spot([0.033, 0.008]), 0.0085, 0.012 * eyeOpen, rotation, 8), 'eye'),
-      shape('eyeR', ellipseOutline(spot([-0.033, 0.008]), 0.0085, 0.012 * eyeOpen, rotation, 8), 'eye'),
-      shape('browL', localStroke(center, rotation, [[0.02, 0.033], [0.034, 0.038], [0.048, 0.034]]), null, 'hair', 0.008),
-      shape('browR', localStroke(center, rotation, [[-0.02, 0.033], [-0.034, 0.038], [-0.048, 0.034]]), null, 'hair', 0.008),
-      shape('nose', localStroke(center, rotation, [[0.002, -0.004], [0.008, -0.022], [0, -0.028]]), null, 'skinShade', 0.006),
-      shape('mouth', localStroke(center, rotation, [[-0.02, -0.05], [0, -0.058], [0.02, -0.05]]), null, 'skinShade', 0.007),
-    ],
+  if (!side && sleeveless && build.strap > 0) {
+    for (const [tag, offset] of [['L', 0.5], ['R', -0.5]] as const) {
+      const from = torsoPoint(skeleton, build, topTo - 0.03, offset)
+      const to = torsoPoint(skeleton, build, 1.0 - build.strap * 0.7, offset * 1.25)
+      parts.push({ kind: 'seg', id: `strap${tag}`, a: from, b: to, width: build.strap, tone: 'top' })
+    }
   }
+  return parts
 }
 
 export function skeletonParts(skeleton: Skeleton, look: Look = DEFAULT_LOOK, props: readonly Prop[] = [], motion: Secondary = STILL): Part[] {
-  const build = TRAINERS[look.trainer]
+  const build = buildFor(look)
   const head = headParts(skeleton, build, motion)
   const held = heldSlots(skeleton, props)
   if (skeleton.view === 'side') {
@@ -404,6 +344,7 @@ export function skeletonParts(skeleton: Skeleton, look: Look = DEFAULT_LOOK, pro
     ...held.afterLegR,
     ...legParts(skeleton, 'L', false, build),
     ...held.afterLegL,
+    ...head.back,
     ...torsoParts(skeleton, build, motion.breath),
     ...held.mid,
     ...armParts(skeleton, 'R', false, build, held.gripR),
@@ -443,30 +384,88 @@ function circle(id: string, center: Vec2, r: number, tone: Tone): Part {
   return { kind: 'circle', id, center, r, tone }
 }
 
-function hexagon(center: Vec2, r: number, rotation: number): Vec2[] {
-  return Array.from({ length: 6 }, (_, index) => add(center, scale(dir(rotation + index * 60), r)))
+function hull(points: Vec2[]): Vec2[] {
+  const sorted = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1])
+  const cross = (o: Vec2, a: Vec2, b: Vec2) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+  const chain = (list: Vec2[]) => {
+    const out: Vec2[] = []
+    for (const point of list) {
+      while (out.length >= 2 && cross(out[out.length - 2], out[out.length - 1], point) <= 1e-12) {
+        out.pop()
+      }
+      out.push(point)
+    }
+    out.pop()
+    return out
+  }
+  const result = [...chain(sorted), ...chain([...sorted].reverse())]
+  return result.length > 0 ? result : [sorted[0]]
 }
 
-function dumbbellParts(skeleton: Skeleton, side: LimbSide, id: string): Part[] {
-  const grip = gripPoint(skeleton, side)
-  if (skeleton.view === 'side') {
-    return [
-      { kind: 'poly', id: `${id}-rim`, points: hexagon(grip, DUMBBELL.head, skeleton.phi[`hand${side}`] + 30), width: 0.016, tone: 'ironLight', closed: true },
-      { kind: 'poly', id: `${id}-head`, points: hexagon(grip, DUMBBELL.head - 0.012, skeleton.phi[`hand${side}`] + 30), width: 0.01, tone: 'iron', closed: true },
-      circle(`${id}-hub`, grip, DUMBBELL.hub, 'ironLight'),
-    ]
+export interface HandleView {
+  grip: Vec2
+  along: Vec2
+  across: Vec2
+  inPlane: number
+  facing: number
+}
+
+export function handleView(skeleton: Skeleton, side: LimbSide): HandleView {
+  const p = skeleton.points
+  const along = unit(sub(p[`hand${side}`], p[`wrist${side}`]), dir(skeleton.phi[`hand${side}`]))
+  const turn = skeleton.grip[side] * (Math.PI / 180)
+  return { grip: gripPoint(skeleton, side), along, across: [-along[1], along[0]], inPlane: Math.sin(turn), facing: Math.cos(turn) }
+}
+
+const HEX_STEPS = [30, 90, 150, 210, 270, 330]
+
+function disc(view: HandleView, center: Vec2, r: number): Vec2[] {
+  const squash = Math.abs(view.facing)
+  return HEX_STEPS.map((deg) => {
+    const angle = deg * (Math.PI / 180)
+    return add(add(center, scale(view.along, r * Math.cos(angle))), scale(view.across, r * Math.sin(angle) * squash))
+  })
+}
+
+function poly(id: string, points: Vec2[], width: number, tone: Tone): Part {
+  return { kind: 'poly', id, points, width, tone, closed: true }
+}
+
+function dumbbellParts(view: HandleView, id: string): { under: Part[]; over: Part[] } {
+  const toward = view.facing >= 0 ? 1 : -1
+  const shift = scale(view.across, toward * view.inPlane)
+  const at = (distance: number) => add(view.grip, scale(shift, distance))
+  const head = (center: number) => {
+    const inner = disc(view, at(center - DUMBBELL.half), DUMBBELL.head)
+    const outer = disc(view, at(center + DUMBBELL.half), DUMBBELL.head)
+    return hull([...inner, ...outer])
   }
-  const across: Vec2 = [1, 0]
-  const up: Vec2 = [0, 1]
-  const head = (sign: 1 | -1, suffix: string) => {
-    const center = add(grip, scale(across, sign * DUMBBELL.offset))
-    return seg(`${id}-${suffix}`, add(center, scale(up, -DUMBBELL.headHalf)), add(center, scale(up, DUMBBELL.headHalf)), DUMBBELL.headWidth, 'iron')
+  const face = at(DUMBBELL.offset + DUMBBELL.half)
+  const squash = Math.abs(view.facing)
+  return {
+    under: [
+      poly(`${id}-far`, head(-DUMBBELL.offset), DUMBBELL.edge, 'iron'),
+      seg(`${id}-bar`, at(-DUMBBELL.handle), at(DUMBBELL.handle), DUMBBELL.bar, 'ironLight'),
+    ],
+    over: [
+      poly(`${id}-near`, head(DUMBBELL.offset), DUMBBELL.edge, 'iron'),
+      poly(`${id}-rim`, disc(view, face, DUMBBELL.rim), DUMBBELL.line, 'ironLight'),
+      poly(`${id}-face`, disc(view, face, DUMBBELL.face), DUMBBELL.line, 'iron'),
+      shape(`${id}-hub`, ellipseOutline(face, DUMBBELL.hub, DUMBBELL.hub * squash, angleOf(view.along), 12), 'ironLight'),
+    ],
   }
-  return [
-    seg(`${id}-bar`, add(grip, scale(across, -DUMBBELL.handle)), add(grip, scale(across, DUMBBELL.handle)), DUMBBELL.bar, 'ironLight'),
-    head(-1, 'headA'),
-    head(1, 'headB'),
-  ]
+}
+
+function heldByEnd(skeleton: Skeleton, hands: LimbSide[]): HandleView {
+  const p = skeleton.points
+  const wrists = hands.map((side) => p[`wrist${side}`])
+  const palms = wrists.length === 2 ? lerpVec(wrists[0], wrists[1], 0.5) : wrists[0]
+  const toElbow = unit(
+    hands.map((side) => unit(sub(p[`elbow${side}`], p[`wrist${side}`]), [0, -1])).reduce((sum, v) => add(sum, v), [0, 0] as Vec2),
+    [0, -1],
+  )
+  const center = add(palms, scale(toElbow, DUMBBELL.offset - DUMBBELL.half - DUMBBELL.cup))
+  return { grip: center, along: [-toElbow[1], toElbow[0]], across: toElbow, inPlane: 1, facing: 0 }
 }
 
 function kettlebellParts(skeleton: Skeleton, hands: LimbSide[], hang: 'down' | 'arm', id: string): Part[] {
@@ -575,8 +574,15 @@ function heldSlots(skeleton: Skeleton, props: readonly Prop[]): Record<Slot, Par
     const id = `${prop.kind}${index}`
     switch (prop.kind) {
       case 'dumbbell':
+        if (prop.hold === 'end') {
+          const parts = dumbbellParts(heldByEnd(skeleton, handsOf(prop.hand)), id)
+          slots[side ? 'gripL' : 'overL'].push(...parts.under, ...parts.over)
+          return
+        }
         for (const hand of handsOf(prop.hand)) {
-          slots[side ? over(hand) : grip(hand)].push(...dumbbellParts(skeleton, hand, `${id}${hand}`))
+          const parts = dumbbellParts(handleView(skeleton, hand), `${id}${hand}`)
+          slots[grip(hand)].push(...parts.under)
+          slots[over(hand)].push(...parts.over)
         }
         return
       case 'kettlebell': {
