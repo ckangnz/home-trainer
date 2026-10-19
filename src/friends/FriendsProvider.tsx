@@ -6,10 +6,12 @@ import type { Routine } from '@/workouts/types'
 import { cleanName, userPhoto, type Friend, type FriendRequest, type OwnProfile, type PublicProfile } from './models'
 import { getLanguage } from '@/i18n/language'
 import { translator } from '@/i18n/translate'
+import type { EarnedAward } from '@/awards/types'
 
 export interface FriendActivity {
   routines: Routine[]
   completions: Completion[]
+  awards: EarnedAward[]
 }
 
 interface FriendsContextValue {
@@ -132,8 +134,14 @@ export function FriendsProvider({ children }: { children: ReactNode }) {
 
   const loadActivity = useCallback(async (friendUid: string) => {
     const repository = await loadFriendsRepository()
-    const [routines, completions] = await Promise.all([repository.fetchFriendRoutines(friendUid), repository.fetchFriendCompletions(friendUid)])
-    return { routines, completions }
+    const [routines, completions, awards] = await Promise.all([
+      repository.fetchFriendRoutines(friendUid),
+      repository.fetchFriendCompletions(friendUid),
+      import('@/data/awards')
+        .then((module) => module.fetchFriendAwards(friendUid))
+        .catch(() => [] as EarnedAward[]),
+    ])
+    return { routines, completions, awards }
   }, [])
 
   const value = useMemo<FriendsContextValue>(

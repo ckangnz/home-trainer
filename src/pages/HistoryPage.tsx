@@ -64,6 +64,11 @@ export function HistoryPage() {
         </div>
       </dl>
 
+      <Link to="/app/awards" className="btn btn--block history-awards">
+        <Icon name="trophy" />
+        {t('awards.viewAll')}
+      </Link>
+
       <AdUnit placement="page" className="page-ad" />
 
       {!ready ? (

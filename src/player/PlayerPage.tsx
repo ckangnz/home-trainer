@@ -30,9 +30,13 @@ import { Icon } from '@/app/Icons'
 import { activeDurationMs, currentStep, type WorkLogEntry, progressFraction, stepElapsed, stepLimitMs, stepRemaining } from './machine'
 import { usePlayer, type PlayerControls } from './usePlayer'
 import { useWakeLock } from './useWakeLock'
-import './player.css'
 import { ExerciseFigure } from '@/components/ExerciseFigure'
 import { useContent, useFormat, useLanguage, useT, type Localizer, type TFunction } from '@/i18n'
+import { Badge } from '@/awards/Badge'
+import { useAwards } from '@/awards/AwardsProvider'
+import { useAwardText } from '@/awards/text'
+import '@/awards/awards.css'
+import './player.css'
 
 interface Session {
   title: string
@@ -592,6 +596,34 @@ function PauseView({
   )
 }
 
+function NewBadges() {
+  const t = useT()
+  const text = useAwardText()
+  const { fresh, dismissFresh } = useAwards()
+  const [shown] = useState(() => fresh)
+  useEffect(() => dismissFresh, [dismissFresh])
+  const list = shown.length > 0 ? shown : fresh
+  if (list.length === 0) {
+    return null
+  }
+  return (
+    <section className="card done__awards" aria-live="polite">
+      <h2 className="section__title">{t('awards.newBadge', { count: list.length })}</h2>
+      <ul className="done__awards-list">
+        {list.slice(0, 4).map((award) => (
+          <li key={award.id}>
+            <Badge award={award} state="earned" size="lg" celebrate label={text(award).name} />
+            <span>{text(award).name}</span>
+          </li>
+        ))}
+      </ul>
+      <Link to="/app/awards" className="section__link">
+        {t('awards.viewAll')}
+      </Link>
+    </section>
+  )
+}
+
 function DoneView({
   session,
   summary,
@@ -685,6 +717,8 @@ function DoneView({
             <ShareResultButton title={text.title} minutes={Math.max(1, Math.round(durationMs / 60000))} className="btn done__tool" />
           </div>
         </div>
+
+        <NewBadges />
 
         {summary && summary.muscles.length > 0 ? (
           <section className="card done__muscles">

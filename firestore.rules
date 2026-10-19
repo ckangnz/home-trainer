@@ -58,6 +58,24 @@ service cloud.firestore {
         && request.resource.data.updatedAt is number;
     }
 
+    match /users/{userId}/private/progress {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasOnly(['totalWorkouts', 'lastCompletedAt', 'longestStreak', 'streakStart', 'streakEnd'])
+        && request.resource.data.totalWorkouts is int
+        && request.resource.data.longestStreak is int;
+    }
+
+    match /users/{userId}/awards/{awardId} {
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow create: if isOwner(userId)
+        && awardId.matches('^[a-z0-9-]{3,40}$')
+        && request.resource.data.keys().hasOnly(['earnedAt'])
+        && request.resource.data.earnedAt is string;
+      allow update: if false;
+      allow delete: if isOwner(userId);
+    }
+
     match /users/{userId}/friends/{friendId} {
       allow read: if isOwner(userId);
       allow create: if isSignedIn()

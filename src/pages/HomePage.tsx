@@ -122,6 +122,10 @@ export function HomePage() {
               <p className="streak__count tabular">{streak.current}</p>
               <p className="faint">{t('app.home.streakBest', { best: streak.longest })}</p>
             </div>
+            <Link to="/app/awards" className="btn btn--small streak__awards">
+              <Icon name="trophy" />
+              {t('awards.open')}
+            </Link>
           </div>
           <ol className="week" aria-label={t('app.home.lastSevenDays')}>
             {week.map((day) => (

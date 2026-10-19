@@ -16,6 +16,11 @@ import { useFormat, useLabels, useT } from '@/i18n'
 import { useFriends, type FriendActivity } from './FriendsProvider'
 import { PersonAvatar } from './Avatar'
 import { AdUnit } from '@/ads/AdUnit'
+import { Badge } from '@/awards/Badge'
+import { earnedAwards } from '@/awards/AwardsProvider'
+import { useAwardText } from '@/awards/text'
+import type { EarnedAward } from '@/awards/types'
+import '@/awards/awards.css'
 import '@/pages/history.css'
 import './friends.css'
 
@@ -139,6 +144,27 @@ export function FriendPage() {
   )
 }
 
+function FriendBadges({ awards }: { awards: EarnedAward[] }) {
+  const t = useT()
+  const text = useAwardText()
+  const list = earnedAwards(new Map(awards.map((award) => [award.id, award])))
+    .sort((a, b) => (a.earnedAt < b.earnedAt ? 1 : -1))
+    .slice(0, 16)
+  if (list.length === 0) {
+    return null
+  }
+  return (
+    <section className="stack stack--tight">
+      <h2 className="section__title">{t('awards.friendBadges')}</h2>
+      <div className="award-strip">
+        {list.map(({ award }) => (
+          <Badge key={award.id} award={award} state="earned" size="sm" label={text(award).name} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function FriendActivityView({ name, activity }: { name: string; activity: FriendActivity }) {
   const t = useT()
   const fmt = useFormat()
@@ -172,6 +198,8 @@ function FriendActivityView({ name, activity }: { name: string; activity: Friend
           <dd>{weekCalories}</dd>
         </div>
       </dl>
+
+      <FriendBadges awards={activity.awards} />
 
       {Object.keys(load).length > 0 ? (
         <section className="card friend-week">
