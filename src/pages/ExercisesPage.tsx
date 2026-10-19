@@ -1,22 +1,28 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { EXERCISES } from '@/exercises'
-import { CATEGORY_LABEL, CATEGORY_ORDER, GEAR_LABEL, GEAR_ORDER, MUSCLE_LABEL, gearGroup, type GearGroup } from '@/exercises/labels'
+import { CATEGORY_LABEL, CATEGORY_ORDER, GEAR_LABEL, GEAR_ORDER, gearGroup, type GearGroup } from '@/exercises/labels'
 import type { Category } from '@/exercises/types'
+import { matchesQuery } from '@/exercises/search'
 import { ExerciseCard } from '@/components/ExerciseCard'
+import { SearchField } from '@/components/SearchField'
 import { usePageMeta } from '@/app/meta'
-import { Icon } from '@/app/Icons'
+import { useHydrated } from '@/app/hydration'
 
 function isCategory(value: string | null): value is Category {
   return value !== null && (CATEGORY_ORDER as string[]).includes(value)
 }
+
+const EMPTY_PARAMS = new URLSearchParams()
 
 function isGear(value: string | null): value is GearGroup {
   return value !== null && (GEAR_ORDER as string[]).includes(value)
 }
 
 export function ExercisesPage() {
-  const [params, setParams] = useSearchParams()
+  const [urlParams, setParams] = useSearchParams()
+  const hydrated = useHydrated()
+  const params = hydrated ? urlParams : EMPTY_PARAMS
   const category = isCategory(params.get('category')) ? (params.get('category') as Category) : null
   const query = params.get('q') ?? ''
   const gear = isGear(params.get('gear')) ? (params.get('gear') as GearGroup) : null
@@ -37,15 +43,12 @@ export function ExercisesPage() {
       if (!needle) {
         return true
       }
-      const haystack = [exercise.name, exercise.summary, ...exercise.muscles.map((muscle) => MUSCLE_LABEL[muscle])]
-        .join(' ')
-        .toLowerCase()
-      return haystack.includes(needle)
+      return matchesQuery(exercise, needle)
     })
   }, [category, query, gear])
 
   const update = (next: { category?: Category | null; q?: string; gear?: GearGroup | null }) => {
-    const merged = new URLSearchParams(params)
+    const merged = new URLSearchParams(urlParams)
     if (next.gear !== undefined) {
       if (next.gear) {
         merged.set('gear', next.gear)
@@ -81,17 +84,7 @@ export function ExercisesPage() {
       </header>
 
       <div className="stack">
-        <label className="search">
-          <Icon name="search" />
-          <span className="visually-hidden">Search exercises</span>
-          <input
-            type="search"
-            className="ui-control"
-            placeholder="Search by name or muscle"
-            value={query}
-            onChange={(event) => update({ q: event.target.value })}
-          />
-        </label>
+        <SearchField label="Search exercises" placeholder="Search by name, muscle, or equipment" value={query} onChange={(q) => update({ q })} />
         <div className="chip-row chip-row--scroll" role="group" aria-label="Filter by category">
           <button type="button" className="chip" aria-pressed={category === null} onClick={() => update({ category: null })}>
             All

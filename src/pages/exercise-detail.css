@@ -73,24 +73,6 @@
   color: var(--color-text-muted);
 }
 
-.search {
-  position: relative;
-  display: block;
-}
-
-.search .icon {
-  position: absolute;
-  left: var(--space-3);
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-text-faint);
-}
-
-.search .ui-control {
-  padding-left: 2.5rem;
-  border-radius: var(--radius-pill);
-}
-
 @media (min-width: 860px) {
   .exercise-detail {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);

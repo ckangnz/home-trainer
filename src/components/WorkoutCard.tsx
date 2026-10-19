@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Figure } from '@/figure/Figure'
 import { getExercise } from '@/exercises'
 import { LEVEL_LABEL } from '@/exercises/labels'
 import { estimateDurationMs, formatDuration } from '@/workouts/steps'
 import type { CuratedWorkout } from '@/workouts/types'
 import './cards.css'
+import { ExerciseFigure } from './ExerciseFigure'
 
 export function WorkoutCard({ workout }: { workout: CuratedWorkout }) {
   const preview = workout.items.map((item) => getExercise(item.exerciseId)).find((exercise) => exercise !== undefined)
@@ -12,7 +12,7 @@ export function WorkoutCard({ workout }: { workout: CuratedWorkout }) {
   return (
     <Link to={`/workouts/${workout.id}`} className="workout-card">
       <div className="stage stage--wide">
-        {preview ? <Figure animation={preview.animation} label={`${preview.name} demonstration`} aspect={4 / 3} /> : null}
+        {preview ? <ExerciseFigure exerciseId={preview.id} lazy label={`${preview.name} demonstration`} aspect={4 / 3} /> : null}
         <span className="workout-card__duration badge">{duration}</span>
       </div>
       <div className="workout-card__body">

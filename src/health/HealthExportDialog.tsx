@@ -3,7 +3,8 @@ import { Dialog } from '@/components/Dialog'
 import { formatDuration } from '@/workouts/steps'
 import { useToast } from '@/app/Toast'
 import { Icon } from '@/app/Icons'
-import { SHORTCUT_NAME, appleWorkoutType, buildTcx, detectPlatform, exportFileName, shortcutUrl, type HealthWorkout } from './export'
+import { detectPlatform } from '@/app/platform'
+import { SHORTCUT_NAME, appleWorkoutType, buildTcx, exportFileName, shortcutUrl, type HealthWorkout } from './export'
 import './health.css'
 
 const TIME = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' })

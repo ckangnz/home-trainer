@@ -1,4 +1,4 @@
-import type { Equipment, Exercise, Muscle } from '@/exercises/types'
+import type { Equipment, ExerciseInfo, Muscle } from '@/exercises/types'
 import { DEFAULT_ROUTINE_DEFAULTS } from './routine'
 import type { RoutineBody } from './types'
 
@@ -14,18 +14,18 @@ export interface CooldownOptions {
   equipment?: 'none' | 'roller'
 }
 
-function isStretch(exercise: Exercise): boolean {
+function isStretch(exercise: ExerciseInfo): boolean {
   return STRETCH_CATEGORIES.has(exercise.category) || exercise.tags.includes('stretch')
 }
 
-function allowedGear(exercise: Exercise, equipment: CooldownOptions['equipment']): boolean {
+function allowedGear(exercise: ExerciseInfo, equipment: CooldownOptions['equipment']): boolean {
   if (NO_GEAR.includes(exercise.equipment)) {
     return true
   }
   return equipment === 'roller' && (exercise.equipment === 'foamRoller' || exercise.equipment === 'massageBall')
 }
 
-function score(exercise: Exercise, muscle: Muscle, equipment: CooldownOptions['equipment']): number {
+function score(exercise: ExerciseInfo, muscle: Muscle, equipment: CooldownOptions['equipment']): number {
   const index = exercise.muscles.indexOf(muscle)
   if (index < 0) {
     return -1
@@ -37,11 +37,11 @@ function score(exercise: Exercise, muscle: Muscle, equipment: CooldownOptions['e
   return primary + roller + gentle + holds
 }
 
-export function suggestCooldown(muscles: Muscle[], catalog: Exercise[], options: CooldownOptions = {}): Exercise[] {
+export function suggestCooldown(muscles: Muscle[], catalog: ExerciseInfo[], options: CooldownOptions = {}): ExerciseInfo[] {
   const count = options.count ?? 5
   const exclude = new Set(options.exclude ?? [])
   const pool = catalog.filter((exercise) => isStretch(exercise) && !exclude.has(exercise.id) && allowedGear(exercise, options.equipment))
-  const picked: Exercise[] = []
+  const picked: ExerciseInfo[] = []
   const targets = muscles.filter((muscle) => muscle !== 'fullBody')
   const queue = targets.length > 0 ? targets : (['hamstrings', 'hipFlexors', 'chest', 'lowerBack', 'quads'] as Muscle[])
   for (let pass = 0; pass < 2 && picked.length < count; pass += 1) {
@@ -74,11 +74,11 @@ export function suggestCooldown(muscles: Muscle[], catalog: Exercise[], options:
   return picked
 }
 
-export function cooldownId(exercises: Exercise[]): string {
+export function cooldownId(exercises: ExerciseInfo[]): string {
   return exercises.map((exercise) => exercise.id).join(COOLDOWN_SEPARATOR)
 }
 
-export function cooldownBody(exercises: Exercise[]): RoutineBody {
+export function cooldownBody(exercises: ExerciseInfo[]): RoutineBody {
   return {
     name: 'Cool-down stretch',
     description: 'Stretches picked for the muscles you just trained.',

@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { useData } from '@/data/DataProvider'
 import { getExercise } from '@/exercises'
-import { Figure } from '@/figure/Figure'
 import { lastDays, summarizeStreak } from '@/history/streaks'
 import { ShareDialog } from '@/sharing/ShareDialog'
 import { CURATED_WORKOUTS, getCuratedWorkout } from '@/workouts/curated'
@@ -15,6 +14,7 @@ import { useSettings } from '@/settings/settings'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import './home.css'
+import { ExerciseFigure } from '@/components/ExerciseFigure'
 
 function greeting(date: Date): string {
   const hour = date.getHours()
@@ -28,7 +28,7 @@ function RoutineCard({ routine, onShare, onDelete }: { routine: Routine; onShare
     <article className="routine-card card">
       <div className="routine-card__main">
         <div className="routine-card__thumb stage">
-          {preview ? <Figure animation={preview.animation} playing={false} label="" /> : null}
+          {preview ? <ExerciseFigure exerciseId={preview.id} lazy playing={false} label="" /> : null}
         </div>
         <div className="routine-card__body">
           <h3 className="routine-card__name">{routine.name}</h3>
@@ -139,7 +139,7 @@ export function HomePage() {
             </div>
             {cheer ? (
               <div className="quick-start__stage stage">
-                <Figure animation={cheer.animation} label={`${TRAINERS[settings.trainer].name} warming up`} />
+                <ExerciseFigure exerciseId={cheer.id} label={`${TRAINERS[settings.trainer].name} warming up`} />
               </div>
             ) : null}
           </Link>

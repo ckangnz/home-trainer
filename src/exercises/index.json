@@ -1,0 +1,5200 @@
+[
+ {
+  "id": "jumping-jacks",
+  "name": "Jumping jacks",
+  "category": "cardio",
+  "tags": [
+   "warmup",
+   "fullBody"
+  ],
+  "muscles": [
+   "fullBody",
+   "calves",
+   "shoulders",
+   "glutes",
+   "adductors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A rhythmic full-body jump that raises your heart rate and warms up your shoulders, hips and calves.",
+  "family": "jumping-jack",
+  "variant": "Classic",
+  "catalog": "cardio",
+  "cycleMs": 720
+ },
+ {
+  "id": "high-knees",
+  "name": "High knees",
+  "category": "cardio",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "quads",
+   "calves",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Fast running in place that drives each knee up to hip height to raise your heart rate and work your hip flexors and core.",
+  "catalog": "cardio",
+  "cycleMs": 640
+ },
+ {
+  "id": "butt-kicks",
+  "name": "Butt kicks",
+  "category": "cardio",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "hamstrings",
+   "calves",
+   "quads",
+   "glutes"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Quick running in place that flicks each heel up toward your glutes to warm the hamstrings and raise your heart rate.",
+  "catalog": "cardio",
+  "cycleMs": 680
+ },
+ {
+  "id": "mountain-climbers",
+  "name": "Mountain climbers",
+  "category": "cardio",
+  "tags": [
+   "core",
+   "fullBody"
+  ],
+  "muscles": [
+   "abs",
+   "shoulders",
+   "hipFlexors",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A fast plank-based drill that drives your knees toward your chest in turn, working your core and shoulders as your heart rate climbs.",
+  "family": "mountain-climber",
+  "variant": "Classic",
+  "catalog": "cardio",
+  "cycleMs": 640
+ },
+ {
+  "id": "burpees",
+  "name": "Burpees",
+  "category": "cardio",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "fullBody",
+   "quads",
+   "chest",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A demanding full-body sequence of squat, plank and jump that builds strength and conditioning in a single move.",
+  "family": "burpee",
+  "variant": "Classic",
+  "catalog": "cardio",
+  "cycleMs": 2840
+ },
+ {
+  "id": "squat-jumps",
+  "name": "Squat jumps",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "An explosive squat that launches into a vertical jump to build leg power and get your heart pumping.",
+  "family": "squat",
+  "variant": "Jump",
+  "catalog": "cardio",
+  "cycleMs": 1430
+ },
+ {
+  "id": "skaters",
+  "name": "Skater hops",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "quads",
+   "adductors",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Side-to-side bounds that land on one leg to build balance, lateral power and cardio fitness.",
+  "catalog": "cardio",
+  "cycleMs": 1200
+ },
+ {
+  "id": "star-jumps",
+  "name": "Star jumps",
+  "category": "cardio",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "fullBody",
+   "quads",
+   "glutes",
+   "calves",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "An explosive jump from a crouch into a wide X shape that builds power and lifts your heart rate fast.",
+  "family": "jumping-jack",
+  "variant": "Star",
+  "catalog": "cardio",
+  "cycleMs": 1800
+ },
+ {
+  "id": "jog-in-place",
+  "name": "Jog in place",
+  "category": "cardio",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "calves",
+   "quads",
+   "hamstrings",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "An easy, steady jog in place that gently raises your heart rate and loosens up your legs.",
+  "catalog": "cardio",
+  "cycleMs": 760
+ },
+ {
+  "id": "jumping-lunges",
+  "name": "Jumping lunges",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A plyometric lunge that switches legs in mid-air to build leg power, coordination and conditioning.",
+  "family": "lunge",
+  "variant": "Jump",
+  "catalog": "cardio",
+  "cycleMs": 1600
+ },
+ {
+  "id": "squat",
+  "name": "Squat",
+  "category": "lowerBody",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "adductors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "The foundational lower-body move that builds strength for everyday sitting, standing and lifting.",
+  "family": "squat",
+  "variant": "Bodyweight",
+  "catalog": "lower",
+  "cycleMs": 2370
+ },
+ {
+  "id": "sumo-squat",
+  "name": "Sumo squat",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "adductors",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A wide-stance squat with the toes turned out that puts extra focus on your inner thighs and glutes.",
+  "family": "squat",
+  "variant": "Sumo",
+  "catalog": "lower",
+  "cycleMs": 2370
+ },
+ {
+  "id": "lunge",
+  "name": "Forward lunge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A big step forward into a lunge that builds single-leg strength, balance and control.",
+  "family": "lunge",
+  "variant": "Forward",
+  "catalog": "lower",
+  "cycleMs": 5260
+ },
+ {
+  "id": "reverse-lunge",
+  "name": "Reverse lunge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "quads",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A backward-stepping lunge that is easier to balance than the forward version and strengthens the thighs and glutes.",
+  "family": "lunge",
+  "variant": "Reverse",
+  "catalog": "lower",
+  "cycleMs": 5260
+ },
+ {
+  "id": "side-lunge",
+  "name": "Side lunge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "adductors",
+   "glutes",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A lateral lunge that strengthens the legs and glutes through side-to-side movement and works the inner thighs.",
+  "family": "lunge",
+  "variant": "Side",
+  "catalog": "lower",
+  "cycleMs": 5320
+ },
+ {
+  "id": "wall-sit",
+  "name": "Wall sit",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A static hold with your back against a wall that builds endurance in your thighs and glutes.",
+  "family": "squat",
+  "variant": "Wall hold",
+  "catalog": "lower",
+  "cycleMs": 3600
+ },
+ {
+  "id": "glute-bridge",
+  "name": "Glute bridge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A floor exercise that strengthens your glutes and hamstrings by driving your hips up toward the ceiling.",
+  "family": "bridge",
+  "variant": "Bodyweight",
+  "catalog": "lower",
+  "cycleMs": 2400
+ },
+ {
+  "id": "single-leg-bridge",
+  "name": "Single-leg glute bridge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A one-legged bridge that makes each glute work on its own and challenges your hip stability.",
+  "family": "bridge",
+  "variant": "Single-leg",
+  "catalog": "lower",
+  "cycleMs": 2600
+ },
+ {
+  "id": "donkey-kicks",
+  "name": "Donkey kicks",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A kneeling exercise that drives one bent leg up behind you to isolate and strengthen the glutes.",
+  "catalog": "lower",
+  "cycleMs": 1800
+ },
+ {
+  "id": "calf-raises",
+  "name": "Calf raises",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 20
+  },
+  "summary": "A simple standing exercise that strengthens your calves and ankles by rising onto the balls of your feet.",
+  "family": "calf-raise",
+  "variant": "Bodyweight",
+  "catalog": "lower",
+  "cycleMs": 1700
+ },
+ {
+  "id": "step-ups",
+  "name": "Step-up onto chair",
+  "category": "lowerBody",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "chair",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A classic 7-minute workout move that builds leg strength and raises your heart rate by stepping onto a sturdy chair.",
+  "family": "step-up",
+  "variant": "Chair",
+  "catalog": "lower",
+  "cycleMs": 4840
+ },
+ {
+  "id": "side-lying-leg-raise",
+  "name": "Side-lying leg raise",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A floor exercise that strengthens the outer hips and glutes by lifting the top leg while lying on your side.",
+  "catalog": "lower",
+  "cycleMs": 2100
+ },
+ {
+  "id": "bulgarian-split-squat",
+  "name": "Bulgarian split squat",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors"
+  ],
+  "equipment": "chair",
+  "level": 3,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A split squat with your back foot raised on a chair that builds serious single-leg strength in the thighs and glutes.",
+  "family": "lunge",
+  "variant": "Bulgarian",
+  "catalog": "lower",
+  "cycleMs": 2550
+ },
+ {
+  "id": "push-up",
+  "name": "Push-up",
+  "category": "upperBody",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A classic bodyweight press that builds strength in your chest, shoulders and arms while your core holds a straight plank.",
+  "family": "push-up",
+  "variant": "Classic",
+  "catalog": "upper",
+  "cycleMs": 2250
+ },
+ {
+  "id": "knee-push-up",
+  "name": "Knee push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A push-up from the knees that trains the same chest, shoulder and arm muscles with less load while you build up to full push-ups.",
+  "family": "push-up",
+  "variant": "Knee",
+  "catalog": "upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "wall-push-up",
+  "name": "Wall push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A standing push-up against a wall that eases you into pressing strength for the chest, shoulders and arms.",
+  "family": "push-up",
+  "variant": "Wall",
+  "catalog": "upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "incline-push-up",
+  "name": "Incline push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A push-up with your hands raised on a sturdy chair, a step between wall and floor push-ups for the chest, shoulders and arms.",
+  "family": "push-up",
+  "variant": "Incline",
+  "catalog": "upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "triceps-dips",
+  "name": "Triceps dip on chair",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "triceps",
+   "shoulders",
+   "chest"
+  ],
+  "equipment": "chair",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A bodyweight dip off the edge of a chair that targets the triceps at the back of your arms, along with the shoulders and chest.",
+  "family": "dip",
+  "variant": "Chair dip",
+  "catalog": "upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "pike-push-up",
+  "name": "Pike push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A push-up from an inverted V position that shifts the work onto your shoulders and builds toward overhead pressing strength.",
+  "family": "push-up",
+  "variant": "Pike",
+  "catalog": "upper",
+  "cycleMs": 2250
+ },
+ {
+  "id": "push-up-rotation",
+  "name": "Push-up and rotation",
+  "category": "upperBody",
+  "tags": [
+   "fullBody",
+   "core"
+  ],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "triceps",
+   "obliques",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A push-up followed by a rotation into a side plank, combining upper-body pressing with core and shoulder stability.",
+  "family": "push-up",
+  "variant": "Rotation",
+  "catalog": "upper",
+  "cycleMs": 6640
+ },
+ {
+  "id": "plank-shoulder-taps",
+  "name": "Plank shoulder taps",
+  "category": "upperBody",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "shoulders",
+   "abs",
+   "obliques",
+   "triceps"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A high plank where you tap each shoulder in turn, challenging your core to keep your hips steady while one hand is lifted.",
+  "family": "plank",
+  "variant": "Shoulder taps",
+  "catalog": "upper",
+  "cycleMs": 2000
+ },
+ {
+  "id": "plank-up-downs",
+  "name": "Plank up-downs",
+  "category": "upperBody",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "triceps",
+   "shoulders",
+   "abs",
+   "chest"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Move between a forearm plank and a high plank one arm at a time to work your shoulders, arms and core together.",
+  "family": "plank",
+  "variant": "Up-downs",
+  "catalog": "upper",
+  "cycleMs": 5000
+ },
+ {
+  "id": "superman",
+  "name": "Superman",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "lowerBack",
+   "glutes",
+   "upperBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A face-down lift of the arms and legs that strengthens the muscles along the back of your body.",
+  "catalog": "upper",
+  "cycleMs": 3600
+ },
+ {
+  "id": "arm-circles",
+  "name": "Arm circles",
+  "category": "upperBody",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Big, controlled arm circles that warm up your shoulders and upper back before a workout.",
+  "catalog": "upper",
+  "cycleMs": 1400
+ },
+ {
+  "id": "crunch",
+  "name": "Abdominal crunch",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A short, controlled curl of your head and shoulders off the floor that strengthens the muscles at the front of your core.",
+  "family": "crunch",
+  "variant": "Classic",
+  "catalog": "core",
+  "cycleMs": 2050
+ },
+ {
+  "id": "sit-up",
+  "name": "Sit-up",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A full curl from lying flat to sitting upright that builds strength through your abs and hip flexors.",
+  "family": "crunch",
+  "variant": "Sit-up",
+  "catalog": "core",
+  "cycleMs": 3300
+ },
+ {
+  "id": "plank",
+  "name": "Forearm plank",
+  "category": "core",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "abs",
+   "obliques",
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A forearm hold that trains your whole core to keep your body in one long, straight line.",
+  "family": "plank",
+  "variant": "Forearm",
+  "catalog": "core",
+  "cycleMs": 3600
+ },
+ {
+  "id": "side-plank",
+  "name": "Side plank",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs",
+   "shoulders",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A side-lying hold on one forearm that strengthens your obliques and the muscles along the side of your hips.",
+  "family": "plank",
+  "variant": "Side",
+  "catalog": "core",
+  "cycleMs": 3200
+ },
+ {
+  "id": "bicycle-crunch",
+  "name": "Bicycle crunches",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A pedaling crunch that brings each elbow toward the opposite knee to work your obliques and abs.",
+  "family": "crunch",
+  "variant": "Bicycle",
+  "catalog": "core",
+  "cycleMs": 1460
+ },
+ {
+  "id": "leg-raises",
+  "name": "Leg raises",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A lying lift of both straight legs that builds strength in your lower abs and hip flexors.",
+  "catalog": "core",
+  "cycleMs": 3350
+ },
+ {
+  "id": "flutter-kicks",
+  "name": "Flutter kicks",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Small, quick alternating kicks with your legs held low that build endurance in your abs and hip flexors.",
+  "catalog": "core",
+  "cycleMs": 840
+ },
+ {
+  "id": "russian-twists",
+  "name": "Russian twists",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated twist that sweeps your hands from side to side while you balance in a V shape to work your obliques.",
+  "catalog": "core",
+  "cycleMs": 1800
+ },
+ {
+  "id": "dead-bug",
+  "name": "Dead bug",
+  "category": "core",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "abs",
+   "obliques"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A slow, controlled move that extends opposite limbs while you lie on your back to train core stability.",
+  "catalog": "core",
+  "cycleMs": 5700
+ },
+ {
+  "id": "bird-dog",
+  "name": "Bird dog",
+  "category": "core",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "lowerBack",
+   "glutes",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "An all-fours balance move that extends the opposite arm and leg to train your back, glutes and core together.",
+  "catalog": "core",
+  "cycleMs": 5800
+ },
+ {
+  "id": "reverse-crunch",
+  "name": "Reverse crunch",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A curl that lifts your hips off the floor and draws your knees toward your chest to work your abs.",
+  "family": "crunch",
+  "variant": "Reverse",
+  "catalog": "core",
+  "cycleMs": 2550
+ },
+ {
+  "id": "v-ups",
+  "name": "V-ups",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "An advanced move that lifts your straight legs and torso at the same time so your body folds into a V.",
+  "catalog": "core",
+  "cycleMs": 2450
+ },
+ {
+  "id": "hollow-hold",
+  "name": "Hollow body hold",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "obliques",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A gymnastics-style hold where you hover your shoulders and legs off the floor to build total core tension.",
+  "catalog": "core",
+  "cycleMs": 3600
+ },
+ {
+  "id": "standing-forward-fold",
+  "name": "Standing forward fold",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A relaxed standing fold that lengthens the backs of your legs and lets your spine hang and unwind.",
+  "catalog": "stretch",
+  "cycleMs": 4000
+ },
+ {
+  "id": "quad-stretch",
+  "name": "Standing quad stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A one-legged stretch for the front of the thigh, a classic after runs, rides or a long day of sitting.",
+  "catalog": "stretch",
+  "cycleMs": 3800
+ },
+ {
+  "id": "seated-hamstring-stretch",
+  "name": "Seated hamstring stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "calves",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated forward reach that lengthens the hamstrings and calves, with no balance needed.",
+  "catalog": "stretch",
+  "cycleMs": 4000
+ },
+ {
+  "id": "hip-flexor-stretch",
+  "name": "Kneeling hip flexor stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "quads"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A half-kneeling stretch that opens the front of the hip, a welcome reset after long hours of sitting.",
+  "catalog": "stretch",
+  "cycleMs": 4000
+ },
+ {
+  "id": "calf-stretch",
+  "name": "Wall calf stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A simple wall-supported stretch for the calves, great after walking, running or a day on your feet.",
+  "catalog": "stretch",
+  "cycleMs": 3900
+ },
+ {
+  "id": "cat-cow",
+  "name": "Cat-cow",
+  "category": "stretch",
+  "tags": [
+   "yoga",
+   "warmup"
+  ],
+  "muscles": [
+   "lowerBack",
+   "upperBack",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A flowing hands-and-knees movement that rounds and arches your back in time with your breath to warm up your spine.",
+  "catalog": "stretch",
+  "cycleMs": 4300
+ },
+ {
+  "id": "butterfly-stretch",
+  "name": "Butterfly stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "adductors",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A seated stretch for the inner thighs and hips, done with the soles of your feet pressed together.",
+  "catalog": "stretch",
+  "cycleMs": 3600
+ },
+ {
+  "id": "shoulder-stretch",
+  "name": "Cross-body shoulder stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A quick standing stretch for the back of the shoulder and upper back that you can do anywhere.",
+  "catalog": "stretch",
+  "cycleMs": 3900
+ },
+ {
+  "id": "triceps-stretch",
+  "name": "Overhead triceps stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A standing stretch for the back of the upper arm and shoulder, ideal after pushing or pressing work.",
+  "catalog": "stretch",
+  "cycleMs": 3900
+ },
+ {
+  "id": "side-bend",
+  "name": "Standing side bend",
+  "category": "stretch",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "obliques"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A standing stretch that bends you gently side to side to lengthen your waist and loosen up your torso.",
+  "catalog": "stretch",
+  "cycleMs": 6600
+ },
+ {
+  "id": "knee-to-chest",
+  "name": "Knee to chest",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "lowerBack",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A gentle lying stretch that hugs one knee toward your chest, targeting your glutes and lower back.",
+  "catalog": "stretch",
+  "cycleMs": 3900
+ },
+ {
+  "id": "downward-dog",
+  "name": "Downward dog",
+  "category": "yoga",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "calves",
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "An upside-down V shape that stretches your hamstrings and calves while building strength in your shoulders and arms.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "cobra",
+  "name": "Cobra pose",
+  "category": "yoga",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "lowerBack",
+   "upperBack",
+   "chest",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A gentle backbend from lying face down that opens your chest and strengthens the muscles along your spine.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "childs-pose",
+  "name": "Child's pose",
+  "category": "yoga",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "lowerBack",
+   "glutes",
+   "upperBack",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A restful kneeling fold that gently stretches your back, hips and shoulders and helps you slow your breathing.",
+  "catalog": "yoga",
+  "cycleMs": 4000
+ },
+ {
+  "id": "warrior-two",
+  "name": "Warrior II",
+  "category": "yoga",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A strong standing pose that builds leg strength and stamina while opening your hips and inner thighs.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "tree-pose",
+  "name": "Tree pose",
+  "category": "yoga",
+  "tags": [],
+  "muscles": [
+   "calves",
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A one-legged standing balance that improves steadiness and focus while strengthening your standing leg and core.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "chair-pose",
+  "name": "Chair pose",
+  "category": "yoga",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A standing squat hold that builds strength in your thighs, glutes and back while your arms reach overhead.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "triangle-pose",
+  "name": "Triangle pose",
+  "category": "yoga",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "obliques",
+   "adductors",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A wide-legged standing stretch that lengthens your hamstrings, hips and side body while building stable legs.",
+  "catalog": "yoga",
+  "cycleMs": 3600
+ },
+ {
+  "id": "march-in-place",
+  "name": "March in place",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "quads",
+   "glutes",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A low-impact way to raise your heart rate and warm up your legs by lifting your knees on the spot.",
+  "catalog": "warmup",
+  "cycleMs": 1160
+ },
+ {
+  "id": "torso-twists",
+  "name": "Standing torso twists",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A gentle standing rotation that loosens your spine and warms up your waist, back and shoulders.",
+  "catalog": "warmup",
+  "cycleMs": 2040
+ },
+ {
+  "id": "hip-circles",
+  "name": "Hip circles",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "glutes",
+   "lowerBack",
+   "obliques"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A simple mobility drill that loosens your hips and lower back by moving your pelvis in slow, smooth circles.",
+  "catalog": "warmup",
+  "cycleMs": 2720
+ },
+ {
+  "id": "leg-swings",
+  "name": "Leg swings",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "hipFlexors",
+   "hamstrings",
+   "glutes"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A dynamic warm-up that loosens your hips and hamstrings by swinging one leg forward and back like a pendulum.",
+  "catalog": "warmup",
+  "cycleMs": 1300
+ },
+ {
+  "id": "neck-tilts",
+  "name": "Neck side tilts",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "upperBack",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A gentle mobility exercise that eases tension in your neck and the tops of your shoulders.",
+  "catalog": "warmup",
+  "cycleMs": 6800
+ },
+ {
+  "id": "toe-touches",
+  "name": "Standing toe touches",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "lowerBack",
+   "glutes"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A dynamic forward fold that warms up your hamstrings and lower back as you reach for your toes and roll back up.",
+  "catalog": "warmup",
+  "cycleMs": 3400
+ },
+ {
+  "id": "windmills",
+  "name": "Windmills",
+  "category": "warmup",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "hamstrings",
+   "lowerBack",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A dynamic full-body warm-up that combines a hip hinge and a twist to loosen your hamstrings, back and shoulders.",
+  "catalog": "warmup",
+  "cycleMs": 3900
+ },
+ {
+  "id": "seal-jacks",
+  "name": "Seal jacks",
+  "category": "cardio",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "chest",
+   "calves",
+   "upperBack",
+   "adductors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A jumping jack variation that claps your arms together in front of you to open your chest and shoulders as your heart rate rises.",
+  "family": "jumping-jack",
+  "variant": "Seal",
+  "catalog": "conditioning",
+  "cycleMs": 740
+ },
+ {
+  "id": "squat-jacks",
+  "name": "Squat jacks",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A jumping jack performed from a squat that hops your feet wide and narrow to fire up your legs and lungs.",
+  "family": "jumping-jack",
+  "variant": "Squat",
+  "catalog": "conditioning",
+  "cycleMs": 1080
+ },
+ {
+  "id": "tuck-jumps",
+  "name": "Tuck jumps",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hipFlexors",
+   "calves",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "An explosive vertical jump that pulls both knees up toward your chest to build power and challenge your conditioning.",
+  "catalog": "conditioning",
+  "cycleMs": 1200
+ },
+ {
+  "id": "squat-thrusts",
+  "name": "Squat thrusts",
+  "category": "fullBody",
+  "tags": [
+   "cardio",
+   "core"
+  ],
+  "muscles": [
+   "fullBody",
+   "quads",
+   "shoulders",
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A burpee without the jump or push-up that drives your feet back to a plank and in again for full-body conditioning.",
+  "family": "burpee",
+  "variant": "No jump",
+  "catalog": "conditioning",
+  "cycleMs": 2090
+ },
+ {
+  "id": "fast-feet",
+  "name": "Fast feet",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "calves",
+   "quads",
+   "glutes",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "high",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Rapid, light steps on the balls of your feet in an athletic stance that sharpen footwork and lift your heart rate.",
+  "catalog": "conditioning",
+  "cycleMs": 480
+ },
+ {
+  "id": "jab-cross",
+  "name": "Shadow boxing jab-cross",
+  "category": "cardio",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "obliques",
+   "chest",
+   "triceps",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Quick straight punches from a boxing stance that raise your heart rate and work your shoulders, arms and core.",
+  "catalog": "conditioning",
+  "cycleMs": 1030
+ },
+ {
+  "id": "broad-jumps",
+  "name": "Broad jumps",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "quads",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A two-footed jump forward for distance that builds explosive hip and leg power, followed by an easy walk back.",
+  "catalog": "conditioning",
+  "cycleMs": 3460
+ },
+ {
+  "id": "lateral-shuffles",
+  "name": "Lateral shuffles",
+  "category": "cardio",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "abductors",
+   "glutes",
+   "quads",
+   "adductors",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Quick side-to-side shuffle steps in a low athletic stance that work your hips and legs and raise your heart rate.",
+  "catalog": "conditioning",
+  "cycleMs": 1440
+ },
+ {
+  "id": "curtsy-lunge",
+  "name": "Curtsy lunge",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "quads",
+   "abductors",
+   "adductors"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A lunge that steps one leg back and across behind the other to target the glutes and outer hips from a new angle.",
+  "family": "lunge",
+  "variant": "Curtsy",
+  "catalog": "conditioning",
+  "cycleMs": 2300
+ },
+ {
+  "id": "single-leg-deadlift",
+  "name": "Single-leg deadlift",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "glutes",
+   "lowerBack",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A one-legged hip hinge that strengthens the back of your legs and glutes while challenging your balance.",
+  "family": "deadlift",
+  "variant": "Single-leg",
+  "catalog": "conditioning",
+  "cycleMs": 2750
+ },
+ {
+  "id": "good-mornings",
+  "name": "Bodyweight good mornings",
+  "category": "lowerBody",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "hamstrings",
+   "glutes",
+   "lowerBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A standing hip hinge with your hands behind your head that strengthens your hamstrings, glutes and back.",
+  "family": "deadlift",
+  "variant": "Bodyweight hinge",
+  "catalog": "conditioning",
+  "cycleMs": 2600
+ },
+ {
+  "id": "diamond-push-up",
+  "name": "Diamond push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "triceps",
+   "chest",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A close-hand push-up with your fingers forming a diamond under your chest that puts extra work on your triceps.",
+  "family": "push-up",
+  "variant": "Diamond",
+  "catalog": "conditioning",
+  "cycleMs": 2350
+ },
+ {
+  "id": "decline-push-up",
+  "name": "Decline push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "triceps",
+   "abs"
+  ],
+  "equipment": "chair",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A push-up with your feet raised on a sturdy chair that shifts more load onto your upper chest and shoulders.",
+  "family": "push-up",
+  "variant": "Decline",
+  "catalog": "conditioning",
+  "cycleMs": 2250
+ },
+ {
+  "id": "bear-crawl",
+  "name": "Bear crawl",
+  "category": "fullBody",
+  "tags": [
+   "upperBody",
+   "core",
+   "cardio"
+  ],
+  "muscles": [
+   "shoulders",
+   "abs",
+   "quads",
+   "triceps",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A low crawl on your hands and toes with your knees hovering that builds shoulder strength, coordination and core control.",
+  "catalog": "conditioning",
+  "cycleMs": 1920
+ },
+ {
+  "id": "superman-pulls",
+  "name": "Superman pulls",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "lats",
+   "upperBack",
+   "lowerBack",
+   "traps"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A face-down pull of your elbows toward your ribs with your chest lifted that strengthens your upper back and lats.",
+  "catalog": "conditioning",
+  "cycleMs": 2300
+ },
+ {
+  "id": "heel-taps",
+  "name": "Heel taps",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A lying side-to-side reach toward each heel with your shoulders lifted that works your obliques and abs.",
+  "catalog": "conditioning",
+  "cycleMs": 1000
+ },
+ {
+  "id": "side-plank-dips",
+  "name": "Side plank hip dips",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "obliques",
+   "abs",
+   "abductors",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A side plank where you lower and lift your hips with control to strengthen your obliques and the sides of your hips.",
+  "family": "plank",
+  "variant": "Side hip dips",
+  "catalog": "conditioning",
+  "cycleMs": 1850
+ },
+ {
+  "id": "toe-reaches",
+  "name": "Toe reaches",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "obliques"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A crunch with your legs pointing at the ceiling where you reach your hands toward your toes to work your upper abs.",
+  "catalog": "conditioning",
+  "cycleMs": 1800
+ },
+ {
+  "id": "seated-knee-tucks",
+  "name": "Seated knee tucks",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "hipFlexors",
+   "obliques"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A seated crunch where you lean back and draw your knees in and out to strengthen your lower abs and hip flexors.",
+  "catalog": "conditioning",
+  "cycleMs": 2000
+ },
+ {
+  "id": "warrior-one",
+  "name": "Warrior I",
+  "category": "yoga",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hipFlexors",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A strong forward-facing lunge with your arms overhead that builds leg strength and opens the front of your back hip.",
+  "catalog": "conditioning",
+  "cycleMs": 3600
+ },
+ {
+  "id": "warrior-three",
+  "name": "Warrior III",
+  "category": "yoga",
+  "tags": [
+   "lowerBody",
+   "core"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A one-legged balance with your body and back leg level to the floor that strengthens your standing leg, glutes and back.",
+  "catalog": "conditioning",
+  "cycleMs": 3600
+ },
+ {
+  "id": "low-lunge",
+  "name": "Low lunge",
+  "category": "yoga",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "hipFlexors",
+   "quads",
+   "glutes",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A kneeling lunge with your arms reaching up that stretches the front of your back hip and thigh and opens your chest.",
+  "catalog": "conditioning",
+  "cycleMs": 3600
+ },
+ {
+  "id": "upward-dog",
+  "name": "Upward-facing dog",
+  "category": "yoga",
+  "tags": [
+   "stretch"
+  ],
+  "muscles": [
+   "lowerBack",
+   "chest",
+   "abs",
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A straight-arm backbend with your thighs lifted off the floor that opens your chest and strengthens your arms and back.",
+  "catalog": "conditioning",
+  "cycleMs": 3600
+ },
+ {
+  "id": "boat-pose",
+  "name": "Boat pose",
+  "category": "yoga",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "abs",
+   "hipFlexors",
+   "obliques",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A seated balance in a V shape with your legs lifted that builds core strength and balance.",
+  "catalog": "conditioning",
+  "cycleMs": 3600
+ },
+ {
+  "id": "dumbbell-biceps-curl",
+  "name": "Dumbbell biceps curl",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "The classic arm builder that curls a pair of dumbbells up to your shoulders to strengthen your biceps.",
+  "family": "curl",
+  "variant": "Dumbbells",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "hammer-curl",
+  "name": "Hammer curl",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "An alternating curl with your palms facing each other that builds your biceps and grip-strong forearms.",
+  "family": "curl",
+  "variant": "Hammer",
+  "catalog": "weights",
+  "cycleMs": 4840
+ },
+ {
+  "id": "dumbbell-shoulder-press",
+  "name": "Dumbbell shoulder press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "traps"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A standing overhead press with two dumbbells that builds strong, stable shoulders and arms.",
+  "family": "press",
+  "variant": "Dumbbells",
+  "catalog": "weights",
+  "cycleMs": 2570
+ },
+ {
+  "id": "lateral-raise",
+  "name": "Lateral raise",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "traps"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Raise light dumbbells out to your sides to shoulder height to sculpt and strengthen the sides of your shoulders.",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "front-raise",
+  "name": "Front raise",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "chest"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Lift a pair of dumbbells straight in front of you to shoulder height to strengthen the front of your shoulders.",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "bent-over-dumbbell-row",
+  "name": "Bent-over dumbbell row",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "upperBack",
+   "lats",
+   "biceps",
+   "lowerBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A hinged row that pulls two dumbbells up to your ribs to build a strong upper back and better posture.",
+  "family": "row",
+  "variant": "Dumbbells",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "dumbbell-romanian-deadlift",
+  "name": "Dumbbell Romanian deadlift",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "hamstrings",
+   "glutes",
+   "lowerBack",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A hip hinge that lowers dumbbells along your legs to strengthen your hamstrings, glutes and back.",
+  "family": "deadlift",
+  "variant": "Dumbbells",
+  "catalog": "weights",
+  "cycleMs": 2870
+ },
+ {
+  "id": "single-arm-dumbbell-row",
+  "name": "Single-arm dumbbell row",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "lats",
+   "upperBack",
+   "biceps"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A supported one-arm row with your knee and hand on a bench that builds a strong back and lats.",
+  "family": "row",
+  "variant": "Single-arm",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "dumbbell-bench-press",
+  "name": "Dumbbell bench press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Press two dumbbells up from your chest while lying on a bench to build a strong chest, shoulders and arms.",
+  "family": "push-up",
+  "variant": "Dumbbell press",
+  "catalog": "weights",
+  "cycleMs": 2570
+ },
+ {
+  "id": "dumbbell-pullover",
+  "name": "Dumbbell pullover",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "lats",
+   "chest",
+   "triceps"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Lying on a bench, sweep a dumbbell from over your chest to behind your head to work your lats and chest.",
+  "catalog": "weights",
+  "cycleMs": 3100
+ },
+ {
+  "id": "skull-crusher",
+  "name": "Skull crusher",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "triceps"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A lying triceps extension that bends at the elbows to lower the weights beside your head and press them back up.",
+  "family": "dip",
+  "variant": "Skull crusher",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "overhead-triceps-extension",
+  "name": "Overhead triceps extension",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Lower a dumbbell behind your head and press it back overhead to strengthen the backs of your arms.",
+  "family": "dip",
+  "variant": "Overhead extension",
+  "catalog": "weights",
+  "cycleMs": 2670
+ },
+ {
+  "id": "triceps-kickback",
+  "name": "Triceps kickback",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "triceps",
+   "upperBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A hinged arm extension that kicks two dumbbells back behind you to tone and strengthen your triceps.",
+  "family": "dip",
+  "variant": "Kickback",
+  "catalog": "weights",
+  "cycleMs": 2450
+ },
+ {
+  "id": "dumbbell-reverse-lunge",
+  "name": "Dumbbell reverse lunge",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Step back into a lunge while holding dumbbells at your sides to build strong, balanced legs and glutes.",
+  "family": "lunge",
+  "variant": "Dumbbell reverse",
+  "catalog": "weights",
+  "cycleMs": 5660
+ },
+ {
+  "id": "dumbbell-step-up",
+  "name": "Dumbbell step-up",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Step up onto a sturdy box or step with dumbbells in your hands to build powerful legs and glutes.",
+  "family": "step-up",
+  "variant": "Dumbbells",
+  "catalog": "weights",
+  "cycleMs": 3130
+ },
+ {
+  "id": "farmer-march",
+  "name": "Farmer march",
+  "category": "weights",
+  "tags": [
+   "fullBody",
+   "core"
+  ],
+  "muscles": [
+   "forearms",
+   "traps",
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "March in place while holding heavy dumbbells at your sides to build grip strength, posture and core control.",
+  "catalog": "weights",
+  "cycleMs": 1840
+ },
+ {
+  "id": "renegade-row",
+  "name": "Renegade row",
+  "category": "weights",
+  "tags": [
+   "upperBody",
+   "core"
+  ],
+  "muscles": [
+   "upperBack",
+   "lats",
+   "abs",
+   "shoulders"
+  ],
+  "equipment": "dumbbells",
+  "level": 3,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A plank on two dumbbells where you row one weight at a time to work your back, shoulders and core together.",
+  "family": "row",
+  "variant": "Renegade",
+  "catalog": "weights",
+  "cycleMs": 4000
+ },
+ {
+  "id": "dumbbell-thruster",
+  "name": "Dumbbell thruster",
+  "category": "weights",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "quads",
+   "shoulders",
+   "glutes",
+   "triceps"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A front squat that flows straight into an overhead press for a powerful full-body move that gets your heart rate up.",
+  "family": "squat",
+  "variant": "Thruster",
+  "catalog": "weights",
+  "cycleMs": 3170
+ },
+ {
+  "id": "barbell-back-squat",
+  "name": "Barbell back squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody",
+   "fullBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "The king of leg exercises, squatting with a barbell across your upper back to build strength from head to toe.",
+  "family": "squat",
+  "variant": "Barbell",
+  "catalog": "weights",
+  "cycleMs": 2670
+ },
+ {
+  "id": "barbell-front-squat",
+  "name": "Barbell front squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody",
+   "core"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "abs",
+   "upperBack"
+  ],
+  "equipment": "barbell",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A squat with the bar resting on the front of your shoulders that keeps you upright and hammers your quads and core.",
+  "family": "squat",
+  "variant": "Front squat",
+  "catalog": "weights",
+  "cycleMs": 2670
+ },
+ {
+  "id": "barbell-deadlift",
+  "name": "Barbell deadlift",
+  "category": "weights",
+  "tags": [
+   "fullBody",
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack",
+   "traps",
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 6
+  },
+  "summary": "Lift a loaded barbell from the floor to standing with a flat back to build total-body pulling strength.",
+  "family": "deadlift",
+  "variant": "Barbell",
+  "catalog": "weights",
+  "cycleMs": 3650
+ },
+ {
+  "id": "sumo-deadlift",
+  "name": "Sumo deadlift",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "adductors",
+   "quads",
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "barbell",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 6
+  },
+  "summary": "A wide-stance deadlift with your hands inside your knees that loads your glutes and inner thighs.",
+  "family": "deadlift",
+  "variant": "Sumo",
+  "catalog": "weights",
+  "cycleMs": 2950
+ },
+ {
+  "id": "barbell-overhead-press",
+  "name": "Barbell overhead press",
+  "category": "weights",
+  "tags": [
+   "upperBody",
+   "core"
+  ],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "traps",
+   "abs"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "Press a barbell from your shoulders to straight overhead to build strong shoulders, arms and a stable core.",
+  "family": "press",
+  "variant": "Barbell",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "barbell-row",
+  "name": "Barbell row",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "upperBack",
+   "lats",
+   "biceps",
+   "lowerBack"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A bent-over pull that rows a barbell to your stomach to build a thick, strong upper back.",
+  "family": "row",
+  "variant": "Barbell",
+  "catalog": "weights",
+  "cycleMs": 2600
+ },
+ {
+  "id": "barbell-bench-press",
+  "name": "Barbell bench press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "Lower a barbell to your chest and press it back up while lying on a bench to build upper-body pushing strength.",
+  "family": "push-up",
+  "variant": "Bench press",
+  "catalog": "weights",
+  "cycleMs": 2570
+ },
+ {
+  "id": "barbell-hip-thrust",
+  "name": "Barbell hip thrust",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "quads"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Drive your hips up with a barbell across them and your upper back on a bench for the ultimate glute builder.",
+  "family": "bridge",
+  "variant": "Barbell",
+  "catalog": "weights",
+  "cycleMs": 2620
+ },
+ {
+  "id": "kettlebell-swing",
+  "name": "Kettlebell swing",
+  "category": "weights",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack",
+   "shoulders",
+   "forearms"
+  ],
+  "equipment": "kettlebell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A powerful hip hinge that swings a kettlebell to chest height to build explosive glutes, hamstrings and grip.",
+  "family": "deadlift",
+  "variant": "Swing",
+  "catalog": "weights",
+  "cycleMs": 1580
+ },
+ {
+  "id": "kettlebell-goblet-squat",
+  "name": "Kettlebell goblet squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors",
+   "abs"
+  ],
+  "equipment": "kettlebell",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Hug a kettlebell at your chest and squat deep to build strong legs while keeping your torso upright.",
+  "family": "squat",
+  "variant": "Kettlebell goblet",
+  "catalog": "weights",
+  "cycleMs": 2670
+ },
+ {
+  "id": "band-pull-apart",
+  "name": "Band pull-apart",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "upperBack",
+   "shoulders",
+   "traps"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "Stretch a resistance band across your chest to strengthen your upper back and counter hours of sitting.",
+  "catalog": "weights",
+  "cycleMs": 2390
+ },
+ {
+  "id": "band-face-pull",
+  "name": "Band face pull",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack",
+   "traps"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "Pull a band anchored at head height toward your face to strengthen the backs of your shoulders and upper back.",
+  "family": "row",
+  "variant": "Band face pull",
+  "catalog": "weights",
+  "cycleMs": 2370
+ },
+ {
+  "id": "band-biceps-curl",
+  "name": "Band biceps curl",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "Stand on a resistance band and curl the handles up to your shoulders to build your biceps anywhere.",
+  "family": "curl",
+  "variant": "Band",
+  "catalog": "weights",
+  "cycleMs": 2570
+ },
+ {
+  "id": "neck-side-stretch",
+  "name": "Neck side stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "neck",
+   "traps"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A gentle held stretch for the side of the neck and upper traps, great for desk tension.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "upper-back-hug-stretch",
+  "name": "Upper back hug stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "upperBack",
+   "traps",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A standing self-hug that spreads your shoulder blades apart to stretch the upper back and traps.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "wall-chest-stretch",
+  "name": "Wall chest stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "biceps"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A one-arm stretch against a wall that opens the chest and the front of the shoulder after pushing work.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "chest-opener",
+  "name": "Clasped-hands chest opener",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "biceps"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A standing stretch with your hands clasped behind you that opens a tight chest and rounded shoulders.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "wall-slides",
+  "name": "Wall slides",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack",
+   "traps"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A posture drill that slides your arms up and down a wall to improve overhead shoulder mobility.",
+  "catalog": "mobility",
+  "cycleMs": 3200
+ },
+ {
+  "id": "wall-lat-stretch",
+  "name": "Wall lat stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "lats",
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "wall",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A hinged stretch with your hands on a wall that lengthens the lats and opens up your shoulders.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "wrist-flexor-stretch",
+  "name": "Wrist flexor stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "forearms"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A simple stretch for the inside of the forearm, handy after push-ups, planks or a long day of typing.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "wrist-circles",
+  "name": "Wrist circles",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "forearms"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A quick warm-up that rolls your wrists through their full range before planks, push-ups or desk work.",
+  "catalog": "mobility",
+  "cycleMs": 1600
+ },
+ {
+  "id": "thread-the-needle",
+  "name": "Thread the needle",
+  "category": "mobility",
+  "tags": [
+   "stretch",
+   "yoga"
+  ],
+  "muscles": [
+   "upperBack",
+   "traps",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A hands-and-knees rotation that opens the upper back, then threads one arm under to stretch the shoulder.",
+  "catalog": "mobility",
+  "cycleMs": 6100
+ },
+ {
+  "id": "quadruped-thoracic-rotation",
+  "name": "Thoracic rotation on all fours",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "upperBack",
+   "obliques",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A controlled upper-back rotation on hands and knees that frees up a stiff mid-back from sitting.",
+  "catalog": "mobility",
+  "cycleMs": 3200
+ },
+ {
+  "id": "downward-dog-pedal",
+  "name": "Downward dog pedal",
+  "category": "mobility",
+  "tags": [
+   "yoga",
+   "warmup"
+  ],
+  "muscles": [
+   "calves",
+   "hamstrings",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A downward dog where you bend one knee at a time to warm up and stretch each calf in turn.",
+  "catalog": "mobility",
+  "cycleMs": 1900
+ },
+ {
+  "id": "worlds-greatest-stretch",
+  "name": "World's greatest stretch",
+  "category": "mobility",
+  "tags": [
+   "warmup",
+   "stretch"
+  ],
+  "muscles": [
+   "hipFlexors",
+   "glutes",
+   "upperBack",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 5
+  },
+  "summary": "A lunge, elbow drop and upper-back twist in one flowing move that opens the hips, hamstrings and spine.",
+  "catalog": "mobility",
+  "cycleMs": 5100
+ },
+ {
+  "id": "lizard-pose",
+  "name": "Lizard pose",
+  "category": "stretch",
+  "tags": [
+   "yoga"
+  ],
+  "muscles": [
+   "hipFlexors",
+   "adductors",
+   "glutes"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A deep low lunge with both hands inside the front foot that opens the hips, groin and hip flexors.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "pigeon-pose",
+  "name": "Pigeon pose",
+  "category": "stretch",
+  "tags": [
+   "yoga"
+  ],
+  "muscles": [
+   "glutes",
+   "hipFlexors",
+   "abductors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A classic yoga hip opener that stretches the outer hip and glute of the front leg and the hip flexor of the back leg.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "figure-four-stretch",
+  "name": "Lying figure-four stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "glutes",
+   "abductors",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A lying stretch for the deep glute and outer hip that is gentler on the knees than pigeon pose.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "lying-quad-stretch",
+  "name": "Lying quad stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A face-down quad stretch that needs no balance, making it an easy cool-down after legs or a run.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "couch-stretch",
+  "name": "Couch stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "wall",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A deep kneeling stretch with your back foot up a wall that opens tight quads and hip flexors.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "standing-hamstring-stretch",
+  "name": "Standing hamstring stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A standing hinge over one straight leg that stretches the hamstring and calf with no mat needed.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "ankle-circles",
+  "name": "Ankle circles",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A simple drill that rolls your ankle through its full range to warm it up and ease stiffness.",
+  "catalog": "mobility",
+  "cycleMs": 1800
+ },
+ {
+  "id": "standing-it-band-stretch",
+  "name": "Standing outer hip stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "abductors",
+   "obliques",
+   "glutes"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 20
+  },
+  "summary": "A standing cross-legged side lean that stretches the outer hip and the side of your waist.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "seated-straddle-stretch",
+  "name": "Seated straddle stretch",
+  "category": "stretch",
+  "tags": [],
+  "muscles": [
+   "adductors",
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A wide-legged seated fold that lengthens the inner thighs and hamstrings.",
+  "catalog": "mobility",
+  "cycleMs": 3900
+ },
+ {
+  "id": "cossack-squat",
+  "name": "Cossack squat",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "adductors",
+   "glutes",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A deep side-to-side squat that opens the inner thighs and hips while building leg control.",
+  "family": "squat",
+  "variant": "Cossack",
+  "catalog": "mobility",
+  "cycleMs": 4900
+ },
+ {
+  "id": "inchworm",
+  "name": "Inchworm",
+  "category": "mobility",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "hamstrings",
+   "shoulders",
+   "abs",
+   "calves"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 6
+  },
+  "summary": "A walk-out from a forward fold to a plank and back that warms up the hamstrings, shoulders and core.",
+  "catalog": "mobility",
+  "cycleMs": 9730
+ },
+ {
+  "id": "foam-roller-calves",
+  "name": "Foam roller calves",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Roll your calves over a foam roller to ease tightness after runs, jumps, and long days on your feet.",
+  "catalog": "recovery",
+  "cycleMs": 3200
+ },
+ {
+  "id": "foam-roller-hamstrings",
+  "name": "Foam roller hamstrings",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "hamstrings",
+   "glutes"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Roll the backs of your thighs over a foam roller to loosen hamstrings that feel tight from sitting or running.",
+  "catalog": "recovery",
+  "cycleMs": 3400
+ },
+ {
+  "id": "foam-roller-quads",
+  "name": "Foam roller quads",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Lie face down with your thighs on a foam roller and roll the fronts of your legs to relieve tight quads.",
+  "catalog": "recovery",
+  "cycleMs": 3400
+ },
+ {
+  "id": "foam-roller-glutes",
+  "name": "Foam roller glutes",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "glutes",
+   "abductors"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "Sit on a foam roller in a figure-four to work deep into the glute and outer hip of the crossed leg.",
+  "catalog": "recovery",
+  "cycleMs": 3000
+ },
+ {
+  "id": "foam-roller-upper-back",
+  "name": "Foam roller upper back",
+  "category": "recovery",
+  "tags": [
+   "upperBody",
+   "mobility"
+  ],
+  "muscles": [
+   "upperBack",
+   "traps"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Roll your upper back over a foam roller to loosen stiff muscles between your shoulder blades.",
+  "catalog": "recovery",
+  "cycleMs": 3400
+ },
+ {
+  "id": "foam-roller-thoracic-extension",
+  "name": "Thoracic extension on roller",
+  "category": "recovery",
+  "tags": [
+   "upperBody",
+   "mobility"
+  ],
+  "muscles": [
+   "upperBack",
+   "chest",
+   "abs"
+  ],
+  "equipment": "foamRoller",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Arch your upper back over a foam roller to open a stiff, rounded spine after long hours at a desk.",
+  "catalog": "recovery",
+  "cycleMs": 4200
+ },
+ {
+  "id": "foam-roller-hip-flexors",
+  "name": "Foam roller hip flexors",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "hipFlexors",
+   "quads"
+  ],
+  "equipment": "foamRoller",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "Lie face down with the front of one hip on a foam roller to release hip flexors tightened by sitting.",
+  "catalog": "recovery",
+  "cycleMs": 3000
+ },
+ {
+  "id": "foam-roller-shins",
+  "name": "Foam roller shins",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "foamRoller",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "Kneel on all fours with your shins on a foam roller to soothe the muscles on the front of your lower legs.",
+  "catalog": "recovery",
+  "cycleMs": 3000
+ },
+ {
+  "id": "massage-ball-foot-roll",
+  "name": "Massage ball foot roll",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "massageBall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 45
+  },
+  "summary": "Roll the sole of your foot over a massage ball to ease tired arches and wake up your feet.",
+  "catalog": "recovery",
+  "cycleMs": 2600
+ },
+ {
+  "id": "massage-ball-glute-release",
+  "name": "Massage ball glute release",
+  "category": "recovery",
+  "tags": [
+   "lowerBody",
+   "mobility"
+  ],
+  "muscles": [
+   "glutes",
+   "abductors"
+  ],
+  "equipment": "massageBall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "Sit on a massage ball to target knots in your glutes that a foam roller cannot quite reach.",
+  "catalog": "recovery",
+  "cycleMs": 3000
+ },
+ {
+  "id": "massage-ball-upper-back-wall",
+  "name": "Wall ball upper back",
+  "category": "recovery",
+  "tags": [
+   "upperBody",
+   "mobility"
+  ],
+  "muscles": [
+   "upperBack",
+   "traps"
+  ],
+  "equipment": "massageBall",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 40
+  },
+  "summary": "Pin a massage ball between your upper back and a wall to release tight spots around the shoulder blade.",
+  "catalog": "recovery",
+  "cycleMs": 3000
+ },
+ {
+  "id": "strap-hamstring-stretch",
+  "name": "Strap hamstring stretch",
+  "category": "recovery",
+  "tags": [
+   "stretch",
+   "lowerBody"
+  ],
+  "muscles": [
+   "hamstrings",
+   "calves"
+  ],
+  "equipment": "strap",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Lie on your back and use a strap to ease one straight leg up for a relaxed, supported hamstring stretch.",
+  "catalog": "recovery",
+  "cycleMs": 3600
+ },
+ {
+  "id": "strap-quad-stretch",
+  "name": "Strap quad stretch",
+  "category": "recovery",
+  "tags": [
+   "stretch",
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "hipFlexors"
+  ],
+  "equipment": "strap",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Lie face down and use a strap to draw one heel toward your glute for a gentle front-of-thigh stretch.",
+  "catalog": "recovery",
+  "cycleMs": 3600
+ },
+ {
+  "id": "strap-calf-stretch",
+  "name": "Seated strap calf stretch",
+  "category": "recovery",
+  "tags": [
+   "stretch",
+   "lowerBody"
+  ],
+  "muscles": [
+   "calves",
+   "hamstrings"
+  ],
+  "equipment": "strap",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Sit tall and pull a strap looped around one foot to stretch your calf without needing a wall.",
+  "catalog": "recovery",
+  "cycleMs": 3600
+ },
+ {
+  "id": "band-pass-through",
+  "name": "Band pass-through",
+  "category": "recovery",
+  "tags": [
+   "mobility",
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "chest",
+   "upperBack"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Sweep a band from your hips over your head with straight arms to loosen tight shoulders and chest.",
+  "catalog": "recovery",
+  "cycleMs": 3600
+ },
+ {
+  "id": "banded-hip-flexor-stretch",
+  "name": "Banded hip flexor stretch",
+  "category": "recovery",
+  "tags": [
+   "stretch",
+   "lowerBody"
+  ],
+  "muscles": [
+   "hipFlexors",
+   "quads"
+  ],
+  "equipment": "band",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Half kneel with a band pulling the front of your back hip forward to deepen a classic hip flexor stretch.",
+  "catalog": "recovery",
+  "cycleMs": 4300
+ },
+ {
+  "id": "banded-lat-stretch",
+  "name": "Banded lat stretch",
+  "category": "recovery",
+  "tags": [
+   "stretch",
+   "upperBody"
+  ],
+  "muscles": [
+   "lats",
+   "shoulders"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Hold a band anchored in front of you and sink your hips back to stretch your lats and shoulders.",
+  "catalog": "recovery",
+  "cycleMs": 4300
+ },
+ {
+  "id": "dumbbell-squat",
+  "name": "Dumbbell squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A squat with a dumbbell hanging at each side that adds load to the classic move for stronger legs and glutes.",
+  "family": "squat",
+  "variant": "Dumbbells",
+  "catalog": "variations-lower",
+  "cycleMs": 2670
+ },
+ {
+  "id": "dumbbell-goblet-squat",
+  "name": "Dumbbell goblet squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors",
+   "abs"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Hold one dumbbell upright at your chest and squat deep to build your legs while keeping your torso tall.",
+  "family": "squat",
+  "variant": "Dumbbell goblet",
+  "catalog": "variations-lower",
+  "cycleMs": 2670
+ },
+ {
+  "id": "kettlebell-sumo-squat",
+  "name": "Kettlebell sumo squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "adductors",
+   "quads",
+   "forearms"
+  ],
+  "equipment": "kettlebell",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A wide-stance squat with a kettlebell hanging between your legs that targets your glutes and inner thighs.",
+  "family": "squat",
+  "variant": "Kettlebell sumo",
+  "catalog": "variations-lower",
+  "cycleMs": 2570
+ },
+ {
+  "id": "squat-pulse",
+  "name": "Squat with pulse",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A squat with two small pulses at the bottom that keeps your thighs and glutes working for longer.",
+  "family": "squat",
+  "variant": "Pulse",
+  "catalog": "variations-lower",
+  "cycleMs": 3530
+ },
+ {
+  "id": "chair-squat",
+  "name": "Chair squat",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A beginner squat that lowers you to a chair behind you, so you learn the movement with a safe target.",
+  "family": "squat",
+  "variant": "Beginner",
+  "catalog": "variations-lower",
+  "cycleMs": 2650
+ },
+ {
+  "id": "split-squat",
+  "name": "Split squat",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A stationary lunge with your feet staggered that builds single-leg strength without any stepping.",
+  "family": "lunge",
+  "variant": "Split",
+  "catalog": "variations-lower",
+  "cycleMs": 2470
+ },
+ {
+  "id": "dumbbell-split-squat",
+  "name": "Dumbbell split squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A staggered-stance squat holding dumbbells at your sides that loads each leg for strength and balance.",
+  "family": "lunge",
+  "variant": "Dumbbell split",
+  "catalog": "variations-lower",
+  "cycleMs": 2670
+ },
+ {
+  "id": "dumbbell-bulgarian-split-squat",
+  "name": "Dumbbell Bulgarian split squat",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "adductors",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 3,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A rear-foot-elevated split squat with dumbbells at your sides for serious single-leg strength.",
+  "family": "lunge",
+  "variant": "Dumbbell Bulgarian",
+  "catalog": "variations-lower",
+  "cycleMs": 2750
+ },
+ {
+  "id": "goblet-reverse-lunge",
+  "name": "Goblet reverse lunge",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hamstrings",
+   "abs"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A reverse lunge holding one dumbbell at your chest that strengthens your legs and keeps your core braced.",
+  "family": "lunge",
+  "variant": "Goblet",
+  "catalog": "variations-lower",
+  "cycleMs": 5660
+ },
+ {
+  "id": "dumbbell-lateral-lunge",
+  "name": "Dumbbell lateral lunge",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "adductors",
+   "glutes",
+   "quads"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A side lunge holding a dumbbell at your chest that strengthens your legs and inner thighs side to side.",
+  "family": "lunge",
+  "variant": "Lateral",
+  "catalog": "variations-lower",
+  "cycleMs": 5640
+ },
+ {
+  "id": "reverse-lunge-knee-drive",
+  "name": "Reverse lunge with knee drive",
+  "category": "lowerBody",
+  "tags": [
+   "cardio"
+  ],
+  "muscles": [
+   "glutes",
+   "quads",
+   "hipFlexors",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A reverse lunge that finishes by driving the back knee up to hip height for balance and power.",
+  "family": "lunge",
+  "variant": "Knee drive",
+  "catalog": "variations-lower",
+  "cycleMs": 2830
+ },
+ {
+  "id": "step-back-burpee",
+  "name": "Step-back burpee",
+  "category": "fullBody",
+  "tags": [
+   "cardio"
+  ],
+  "muscles": [
+   "fullBody",
+   "quads",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A no-jump burpee that steps one foot at a time into a plank and back, for a joint-friendly full-body move.",
+  "family": "burpee",
+  "variant": "Beginner",
+  "catalog": "variations-lower",
+  "cycleMs": 4760
+ },
+ {
+  "id": "burpee-push-up",
+  "name": "Burpee with push-up",
+  "category": "cardio",
+  "tags": [
+   "fullBody",
+   "upperBody"
+  ],
+  "muscles": [
+   "fullBody",
+   "chest",
+   "quads",
+   "triceps",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "The full burpee with a chest-to-floor push-up added in the plank for maximum strength and conditioning.",
+  "family": "burpee",
+  "variant": "Push-up",
+  "catalog": "variations-lower",
+  "cycleMs": 3730
+ },
+ {
+  "id": "kettlebell-deadlift",
+  "name": "Kettlebell deadlift",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack",
+   "forearms"
+  ],
+  "equipment": "kettlebell",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Lift a kettlebell from between your feet to standing to learn the hip hinge and strengthen your back side.",
+  "family": "deadlift",
+  "variant": "Kettlebell",
+  "catalog": "variations-lower",
+  "cycleMs": 2600
+ },
+ {
+  "id": "dumbbell-single-leg-deadlift",
+  "name": "Dumbbell single-leg deadlift",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "hamstrings",
+   "glutes",
+   "lowerBack",
+   "abs"
+  ],
+  "equipment": "dumbbells",
+  "level": 3,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A one-legged Romanian deadlift with dumbbells that builds strong hamstrings and glutes and sharpens balance.",
+  "family": "deadlift",
+  "variant": "Single-leg dumbbells",
+  "catalog": "variations-lower",
+  "cycleMs": 2950
+ },
+ {
+  "id": "dumbbell-glute-bridge",
+  "name": "Dumbbell glute bridge",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "lowerBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A glute bridge with a dumbbell resting on your hips that adds load to build stronger glutes and hamstrings.",
+  "family": "bridge",
+  "variant": "Dumbbell",
+  "catalog": "variations-lower",
+  "cycleMs": 2400
+ },
+ {
+  "id": "glute-bridge-march",
+  "name": "Glute bridge march",
+  "category": "lowerBody",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "glutes",
+   "hamstrings",
+   "abs",
+   "hipFlexors"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "Hold a glute bridge and lift one knee at a time to challenge your glutes and core to keep your hips level.",
+  "family": "bridge",
+  "variant": "March",
+  "catalog": "variations-lower",
+  "cycleMs": 2600
+ },
+ {
+  "id": "dumbbell-calf-raise",
+  "name": "Dumbbell calf raise",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "calves",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 15
+  },
+  "summary": "A standing calf raise with a dumbbell in each hand that adds load to build stronger calves and ankles.",
+  "family": "calf-raise",
+  "variant": "Dumbbells",
+  "catalog": "variations-lower",
+  "cycleMs": 1900
+ },
+ {
+  "id": "single-leg-calf-raise",
+  "name": "Single-leg calf raise",
+  "category": "lowerBody",
+  "tags": [],
+  "muscles": [
+   "calves"
+  ],
+  "equipment": "wall",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A one-legged calf raise with a hand on the wall that doubles the load on each calf without any weights.",
+  "family": "calf-raise",
+  "variant": "Single-leg",
+  "catalog": "variations-lower",
+  "cycleMs": 1900
+ },
+ {
+  "id": "step-up-knee-drive",
+  "name": "Step-up with knee drive",
+  "category": "lowerBody",
+  "tags": [
+   "cardio"
+  ],
+  "muscles": [
+   "quads",
+   "glutes",
+   "hipFlexors",
+   "calves"
+  ],
+  "equipment": "box",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Step up onto a box and drive the trailing knee to hip height to build leg power, balance and coordination.",
+  "family": "step-up",
+  "variant": "Knee drive",
+  "catalog": "variations-lower",
+  "cycleMs": 3030
+ },
+ {
+  "id": "wave-push-up",
+  "name": "Wave push-up",
+  "category": "upperBody",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders",
+   "abs",
+   "lowerBack"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A rolling push-up that lowers you to the floor one section at a time and peels you back up, building pressing strength with control.",
+  "family": "push-up",
+  "variant": "Wave",
+  "catalog": "variations-upper",
+  "cycleMs": 4650
+ },
+ {
+  "id": "staggered-push-up",
+  "name": "Staggered push-up",
+  "category": "upperBody",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "chest",
+   "shoulders",
+   "triceps",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A push-up with one hand placed further forward than the other, loading each side of your chest and shoulders a little differently.",
+  "family": "push-up",
+  "variant": "Staggered",
+  "catalog": "variations-upper",
+  "cycleMs": 2250
+ },
+ {
+  "id": "spiderman-push-up",
+  "name": "Spiderman push-up",
+  "category": "upperBody",
+  "tags": [
+   "core",
+   "fullBody"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders",
+   "obliques",
+   "hipFlexors"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A push-up where you draw one knee out toward your elbow at the bottom, adding core and hip work to every rep.",
+  "family": "push-up",
+  "variant": "Spiderman",
+  "catalog": "variations-upper",
+  "cycleMs": 5880
+ },
+ {
+  "id": "dive-bomber-push-up",
+  "name": "Dive bomber push-up",
+  "category": "upperBody",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "chest",
+   "triceps",
+   "lowerBack",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A swooping push-up that dives from an inverted V down past your hands and up into a chest lift, working your shoulders and back.",
+  "family": "push-up",
+  "variant": "Dive bomber",
+  "catalog": "variations-upper",
+  "cycleMs": 4000
+ },
+ {
+  "id": "negative-push-up",
+  "name": "Negative push-up",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders",
+   "abs"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A push-up that lowers you slowly from a full plank and comes back up from the knees, building strength toward full push-ups.",
+  "family": "push-up",
+  "variant": "Negative",
+  "catalog": "variations-upper",
+  "cycleMs": 5400
+ },
+ {
+  "id": "forearm-plank-leg-lift",
+  "name": "Plank leg lift",
+  "category": "core",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "abs",
+   "glutes",
+   "shoulders",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A forearm plank where you lift one straight leg at a time, challenging your core to stay steady while working your glutes.",
+  "family": "plank",
+  "variant": "Leg lift",
+  "catalog": "variations-upper",
+  "cycleMs": 3700
+ },
+ {
+  "id": "plank-arm-reach",
+  "name": "Plank arm reach",
+  "category": "core",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "abs",
+   "shoulders",
+   "obliques",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A high plank where you reach one arm straight out in front at a time, training your core to resist rotating.",
+  "family": "plank",
+  "variant": "Arm reach",
+  "catalog": "variations-upper",
+  "cycleMs": 3600
+ },
+ {
+  "id": "knee-plank",
+  "name": "Knee plank",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "shoulders",
+   "lowerBack"
+  ],
+  "equipment": "mat",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A forearm plank held from the knees, a gentler way to build the core strength you need for a full plank.",
+  "family": "plank",
+  "variant": "Knee",
+  "catalog": "variations-upper",
+  "cycleMs": 3600
+ },
+ {
+  "id": "plank-to-pike",
+  "name": "Plank to pike",
+  "category": "core",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "abs",
+   "shoulders",
+   "hipFlexors",
+   "hamstrings"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "Move from a high plank into an upside-down V and back, working your abs and shoulders while stretching the backs of your legs.",
+  "family": "plank",
+  "variant": "Pike",
+  "catalog": "variations-upper",
+  "cycleMs": 2350
+ },
+ {
+  "id": "slow-mountain-climbers",
+  "name": "Slow mountain climbers",
+  "category": "core",
+  "tags": [
+   "cardio"
+  ],
+  "muscles": [
+   "abs",
+   "hipFlexors",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A controlled version of mountain climbers that draws one knee to your chest at a time, building core strength without the jumping.",
+  "family": "mountain-climber",
+  "variant": "Slow",
+  "catalog": "variations-upper",
+  "cycleMs": 3400
+ },
+ {
+  "id": "incline-mountain-climbers",
+  "name": "Incline mountain climbers",
+  "category": "cardio",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "abs",
+   "hipFlexors",
+   "shoulders",
+   "quads"
+  ],
+  "equipment": "chair",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Mountain climbers with your hands raised on a sturdy chair, an easier angle that keeps your heart rate up while your core works.",
+  "family": "mountain-climber",
+  "variant": "Incline",
+  "catalog": "variations-upper",
+  "cycleMs": 1000
+ },
+ {
+  "id": "weighted-crunch",
+  "name": "Weighted crunch",
+  "category": "weights",
+  "tags": [
+   "core"
+  ],
+  "muscles": [
+   "abs",
+   "obliques"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A crunch with a dumbbell held against your chest, adding load so your abs work harder in fewer reps.",
+  "family": "crunch",
+  "variant": "Dumbbell",
+  "catalog": "variations-upper",
+  "cycleMs": 2050
+ },
+ {
+  "id": "long-arm-crunch",
+  "name": "Long-arm crunch",
+  "category": "core",
+  "tags": [],
+  "muscles": [
+   "abs",
+   "shoulders"
+  ],
+  "equipment": "mat",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A crunch with your arms stretched overhead, which makes your abs lift a longer lever on every rep.",
+  "family": "crunch",
+  "variant": "Long arm",
+  "catalog": "variations-upper",
+  "cycleMs": 2050
+ },
+ {
+  "id": "dumbbell-floor-press",
+  "name": "Dumbbell floor press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "chest",
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A chest press lying on the floor, where the floor limits how low your elbows go and keeps your shoulders comfortable.",
+  "family": "push-up",
+  "variant": "Floor press",
+  "catalog": "variations-upper",
+  "cycleMs": 2620
+ },
+ {
+  "id": "arnold-press",
+  "name": "Arnold press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "upperBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A shoulder press that starts with your palms facing you and rotates out as you press, working all sides of your shoulders.",
+  "family": "press",
+  "variant": "Arnold",
+  "catalog": "variations-upper",
+  "cycleMs": 3400
+ },
+ {
+  "id": "alternating-dumbbell-press",
+  "name": "Alternating shoulder press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "abs"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A standing shoulder press that lifts one dumbbell at a time, so your core works to keep you steady.",
+  "family": "press",
+  "variant": "Alternating",
+  "catalog": "variations-upper",
+  "cycleMs": 3840
+ },
+ {
+  "id": "concentration-curl",
+  "name": "Concentration curl",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "biceps",
+   "forearms"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "perSide",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A seated curl with your elbow braced against your inner thigh, isolating your biceps so you cannot swing the weight.",
+  "family": "curl",
+  "variant": "Concentration",
+  "catalog": "variations-upper",
+  "cycleMs": 2650
+ },
+ {
+  "id": "curl-and-press",
+  "name": "Curl and press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "biceps",
+   "shoulders",
+   "triceps"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A biceps curl that flows straight into an overhead press, working your arms and shoulders in one move.",
+  "family": "curl",
+  "variant": "Press",
+  "catalog": "variations-upper",
+  "cycleMs": 4000
+ },
+ {
+  "id": "seated-band-row",
+  "name": "Seated band row",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "upperBack",
+   "lats",
+   "biceps"
+  ],
+  "equipment": "band",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A seated row with a band looped around your feet that strengthens your upper back and helps your posture.",
+  "family": "row",
+  "variant": "Seated band",
+  "catalog": "variations-upper",
+  "cycleMs": 2450
+ },
+ {
+  "id": "alternating-dumbbell-row",
+  "name": "Alternating dumbbell row",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "upperBack",
+   "lats",
+   "biceps",
+   "lowerBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A bent-over row that pulls one dumbbell at a time, so your core works to keep your back still.",
+  "family": "row",
+  "variant": "Alternating",
+  "catalog": "variations-upper",
+  "cycleMs": 3900
+ },
+ {
+  "id": "straight-leg-chair-dip",
+  "name": "Straight-leg chair dip",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "triceps",
+   "shoulders",
+   "chest"
+  ],
+  "equipment": "chair",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A chair dip with your legs straight and heels on the floor, which puts more of your weight on your triceps.",
+  "family": "dip",
+  "variant": "Straight legs",
+  "catalog": "variations-upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "floor-triceps-dip",
+  "name": "Floor triceps dip",
+  "category": "upperBody",
+  "tags": [],
+  "muscles": [
+   "triceps",
+   "shoulders"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 12
+  },
+  "summary": "A dip done from the floor with your hands behind you, a beginner-friendly way to work the backs of your arms.",
+  "family": "dip",
+  "variant": "Floor",
+  "catalog": "variations-upper",
+  "cycleMs": 2150
+ },
+ {
+  "id": "step-jacks",
+  "name": "Step jacks",
+  "category": "cardio",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "calves",
+   "abductors",
+   "quads"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "alternating",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A no-jump jumping jack where you step one foot out as your arms rise, keeping your heart rate up without the impact.",
+  "family": "jumping-jack",
+  "variant": "Step",
+  "catalog": "variations-upper",
+  "cycleMs": 2360
+ },
+ {
+  "id": "cross-jacks",
+  "name": "Cross jacks",
+  "category": "cardio",
+  "tags": [
+   "fullBody"
+  ],
+  "muscles": [
+   "calves",
+   "adductors",
+   "abductors",
+   "shoulders",
+   "chest"
+  ],
+  "equipment": "none",
+  "level": 2,
+  "impact": "high",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "A jumping jack where your arms and legs cross in front of you on each landing, working your inner and outer thighs.",
+  "family": "jumping-jack",
+  "variant": "Cross",
+  "catalog": "variations-upper",
+  "cycleMs": 740
+ }
+]

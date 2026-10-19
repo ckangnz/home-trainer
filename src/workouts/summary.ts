@@ -1,4 +1,4 @@
-import type { Category, Exercise, Muscle } from '@/exercises/types'
+import type { Category, ExerciseInfo, Muscle } from '@/exercises/types'
 
 export const CATEGORY_MET: Record<Category, number> = {
   cardio: 8,
@@ -17,11 +17,11 @@ export const CATEGORY_MET: Record<Category, number> = {
 export const REST_MET = 2
 
 export interface WorkedExercise {
-  exercise: Exercise
+  exercise: ExerciseInfo
   ms: number
 }
 
-export function metFor(exercise: Exercise): number {
+export function metFor(exercise: ExerciseInfo): number {
   const base = CATEGORY_MET[exercise.category]
   return exercise.impact === 'high' ? Math.max(base, 8) : base
 }

@@ -6,6 +6,7 @@ import { AppRoutes } from './app/routes'
 import { MetaCollector, fullTitle, type PageMeta } from './app/meta'
 import { BASE_PATH, SITE } from './app/site'
 import { EXERCISES } from './exercises'
+import { loadAllExercises, trackCatalogs } from './exercises/content'
 import { CURATED_WORKOUTS } from './workouts/curated'
 
 export const PRERENDER_ROUTES: string[] = [
@@ -18,9 +19,13 @@ export const PRERENDER_ROUTES: string[] = [
   '/terms',
 ]
 
-export function render(url: string): { html: string; meta: PageMeta } {
+export function prepare(): Promise<void> {
+  return loadAllExercises()
+}
+
+export function render(url: string): { html: string; meta: PageMeta; catalogs: string[] } {
   const meta: PageMeta = { title: fullTitle(SITE.name), description: SITE.description }
-  const html = renderToString(
+  const { result: html, catalogs } = trackCatalogs(() => renderToString(
     <StrictMode>
       <MetaCollector sink={meta}>
         <AppProviders>
@@ -30,6 +35,6 @@ export function render(url: string): { html: string; meta: PageMeta } {
         </AppProviders>
       </MetaCollector>
     </StrictMode>,
-  )
-  return { html, meta }
+  ))
+  return { html, meta, catalogs }
 }

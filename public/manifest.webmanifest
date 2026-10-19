@@ -3,7 +3,7 @@
   "short_name": "HomeTrainer",
   "description": "Free 7-minute workouts with animated guides, a voice coach, and routines you can share.",
   "id": "./app",
-  "start_url": "./app",
+  "start_url": "./app/",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

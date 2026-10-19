@@ -6,7 +6,7 @@ import { propParts, shadowFor, skeletonParts } from '../src/figure/parts'
 import { SecondaryMotion, STILL, type Secondary } from '../src/figure/secondary'
 import { paletteFor, sceneToSvg } from '../src/figure/svg'
 import type { Look } from '../src/figure/look'
-import { EXERCISES } from '../src/exercises'
+import { collectExercises, playableAnimation } from '../src/exercises/registry'
 import { BASE_POSES } from '../src/exercises/kit'
 import type { Exercise } from '../src/exercises/types'
 
@@ -35,7 +35,10 @@ const source = process.env.BASES
     ? Object.values((await import(resolve(external))) as Record<string, Exercise[]>).flat()
     : only
       ? Object.values(await catalogs[`../src/exercises/catalog/${only}.ts`]()).flat()
-      : EXERCISES
+      : collectExercises(import.meta.glob<Record<string, unknown>>('../src/exercises/catalog/*.ts', { eager: true })).map(({ exercise }) => ({
+          ...exercise,
+          animation: playableAnimation(exercise),
+        }))
 
 const look: Look = {
   trainer: process.env.LOOK === 'male' ? 'male' : 'female',

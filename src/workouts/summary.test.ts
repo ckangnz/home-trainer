@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { EXERCISES, getExercise } from '@/exercises'
-import type { Exercise } from '@/exercises/types'
+import type { ExerciseInfo } from '@/exercises/types'
 import { cooldownBody, cooldownId, suggestCooldown } from './cooldown'
 import { estimateCalories, primaryCategory, workedMuscles } from './summary'
 import { normalizeBody } from './routine'
 
-const squat = getExercise('squat') as Exercise
-const pushUp = getExercise('push-up') as Exercise
-const jacks = getExercise('jumping-jacks') as Exercise
+const squat = getExercise('squat') as ExerciseInfo
+const pushUp = getExercise('push-up') as ExerciseInfo
+const jacks = getExercise('jumping-jacks') as ExerciseInfo
 
 describe('workout summary', () => {
   it('estimates calories from MET, time, and body weight', () => {

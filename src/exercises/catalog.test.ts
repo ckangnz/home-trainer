@@ -6,13 +6,19 @@ import { LIMBS } from '@/figure/rig'
 import { isReach } from '@/figure/solve'
 import type { JointId, LimbId, Prop, Skeleton } from '@/figure/types'
 import type { Equipment, Exercise } from './types'
+import { collectExercises, exerciseInfo, playableAnimation } from './registry'
 import { EXERCISES } from '.'
 
-const catalogs = import.meta.glob<Record<string, Exercise[]>>('./catalog/*.ts')
+const modules = import.meta.glob<Record<string, unknown>>('./catalog/*.ts', { eager: true })
 const only = process.env.CATALOG
-const SELECTED: Exercise[] = only
-  ? Object.values(await catalogs[`./catalog/${only}.ts`]()).flat()
-  : EXERCISES
+const COLLECTED = collectExercises(only ? { [`./catalog/${only}.ts`]: modules[`./catalog/${only}.ts`] } : modules)
+const SELECTED: Exercise[] = COLLECTED.map(({ exercise }) => ({ ...exercise, animation: playableAnimation(exercise) }))
+
+describe.skipIf(Boolean(only))('exercise index', () => {
+  it('matches the catalogs (run `npm run exercises:index` after editing a catalog)', () => {
+    expect(EXERCISES).toEqual(COLLECTED.map(({ exercise, catalog }) => exerciseInfo(exercise, catalog)))
+  })
+})
 
 const SAMPLES = 48
 

@@ -69,4 +69,11 @@ export interface Exercise {
   summary: string
   steps: string[]
   tips: string[]
+  family?: string
+  variant?: string
+}
+
+export type ExerciseInfo = Omit<Exercise, 'animation' | 'steps' | 'tips'> & {
+  catalog: string
+  cycleMs: number
 }

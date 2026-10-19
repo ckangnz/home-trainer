@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { MAP_MUSCLES, muscleLevel, muscleLoad, topMuscles, weightedItems } from './muscles'
-import type { Exercise } from './types'
+import type { ExerciseInfo } from './types'
 
 describe('muscleLoad', () => {
   it('weights the first muscle as primary and later muscles as secondary', () => {
@@ -20,8 +20,8 @@ describe('muscleLoad', () => {
   })
 
   it('accepts weighted exercise entries such as work seconds', () => {
-    const squat = { muscles: ['quads', 'glutes'] } as Pick<Exercise, 'muscles'>
-    const curl = { muscles: ['biceps'] } as Pick<Exercise, 'muscles'>
+    const squat = { muscles: ['quads', 'glutes'] } as Pick<ExerciseInfo, 'muscles'>
+    const curl = { muscles: ['biceps'] } as Pick<ExerciseInfo, 'muscles'>
     expect(muscleLoad([{ exercise: squat, weight: 60 }, { exercise: curl, weight: 30 }])).toEqual({ quads: 1, glutes: 0.5, biceps: 0.5 })
   })
 
@@ -66,7 +66,7 @@ describe('weightedItems', () => {
   const exercises = new Map([
     ['squat', { id: 'squat', muscles: ['quads', 'glutes'] }],
     ['plank', { id: 'plank', muscles: ['abs'] }],
-  ]) as unknown as Map<string, Exercise>
+  ]) as unknown as Map<string, ExerciseInfo>
   const lookup = (id: string) => exercises.get(id)
 
   it('maps routine items to weighted exercises by sets and skips unknown ids', () => {

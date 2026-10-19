@@ -78,6 +78,16 @@
   text-decoration: none;
 }
 
+.avatar__initial {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-accent), #ffb056);
+  color: var(--color-accent-contrast);
+  font-weight: 800;
+}
+
 .avatar img {
   width: 100%;
   height: 100%;

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Figure } from '@/figure/Figure'
 import { getExercise } from '@/exercises'
 import { formatSeconds, formatTarget } from '@/exercises/labels'
 import { effectiveTarget, normalizeDefaults } from '@/workouts/routine'
 import { estimateDurationMs, formatDuration } from '@/workouts/steps'
 import type { RoutineBody } from '@/workouts/types'
 import './routine-list.css'
+import { ExerciseFigure } from './ExerciseFigure'
 
 export function RoutineStats({ body }: { body: RoutineBody }) {
   const defaults = normalizeDefaults(body.defaults)
@@ -51,7 +51,7 @@ export function RoutineList({ body, linkExercises = true }: { body: RoutineBody;
         const content = (
           <>
             <span className="routine-list__thumb stage">
-              <Figure animation={exercise.animation} playing={false} label="" />
+              <ExerciseFigure exerciseId={exercise.id} lazy playing={false} label="" />
             </span>
             <span className="routine-list__text">
               <span className="routine-list__name">{exercise.name}</span>

@@ -110,3 +110,14 @@
     display: none;
   }
 }
+
+.figure--pending {
+  background: radial-gradient(closest-side, rgba(36, 48, 82, 0.08), transparent 70%) center 70% / 46% 18% no-repeat;
+  animation: figure-pending 1.4s ease-in-out infinite;
+}
+
+@keyframes figure-pending {
+  50% {
+    opacity: 0.55;
+  }
+}

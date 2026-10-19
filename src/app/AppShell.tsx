@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { useFriends } from '@/friends/FriendsProvider'
+import { cleanPhoto } from '@/friends/models'
 import { InstallPrompt } from '@/pwa/InstallPrompt'
 import { BrandMark, Icon, type IconName } from './Icons'
 import { SITE } from './site'
@@ -31,10 +33,16 @@ const GUEST_NAV: NavItem[] = [...PUBLIC_NAV, { to: '/app/settings', label: 'Sett
 
 function Avatar() {
   const { user } = useAuth()
-  const initial = (user?.displayName ?? user?.email ?? '?').trim().charAt(0).toUpperCase()
+  const [broken, setBroken] = useState(false)
+  const name = (user?.displayName ?? user?.email ?? '?').trim()
+  const photo = cleanPhoto(user?.photoURL)
   return (
-    <Link to="/app/settings" className="avatar" aria-label="Account and settings">
-      {user?.photoURL ? <img src={user.photoURL} alt="" referrerPolicy="no-referrer" /> : initial}
+    <Link to="/app/settings" className="avatar" aria-label="Account and settings" title={name}>
+      {photo && !broken ? (
+        <img src={photo} alt="" referrerPolicy="no-referrer" onError={() => setBroken(true)} />
+      ) : (
+        <span className="avatar__initial">{name.charAt(0).toUpperCase()}</span>
+      )}
     </Link>
   )
 }

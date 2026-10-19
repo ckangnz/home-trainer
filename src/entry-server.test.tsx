@@ -1,7 +1,9 @@
-import { describe, expect, it } from 'vitest'
-import { PRERENDER_ROUTES, render } from './entry-server'
+import { beforeAll, describe, expect, it } from 'vitest'
+import { PRERENDER_ROUTES, prepare, render } from './entry-server'
 
 describe('prerendering', () => {
+  beforeAll(() => prepare())
+
   it('lists every public route once', () => {
     expect(new Set(PRERENDER_ROUTES).size).toBe(PRERENDER_ROUTES.length)
     expect(PRERENDER_ROUTES).toContain('/')
@@ -18,10 +20,20 @@ describe('prerendering', () => {
   })
 
   it('renders exercise instructions into the page for crawlers', () => {
-    const { html, meta } = render('/exercises/squat')
+    const { html, meta, catalogs } = render('/exercises/squat')
     expect(html).toContain('How to do it')
-    expect(html).toContain('<svg')
+    expect(html).toContain('Stand with your feet')
+    expect(html).toContain('class="figure"')
     expect(meta.title).toContain('Squat')
+    expect(catalogs).toEqual(['lower'])
+  })
+
+  it('keeps list pages light by deferring thumbnail figures', () => {
+    const { html, catalogs } = render('/exercises')
+    expect(html).toContain('figure--pending')
+    expect(html).not.toContain('class="figure"')
+    expect(catalogs).toEqual([])
+    expect(html.length).toBeLessThan(400_000)
   })
 
   it('keeps signed-in pages out of the static output', () => {

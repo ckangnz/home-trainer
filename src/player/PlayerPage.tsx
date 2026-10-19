@@ -2,9 +2,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { EXERCISES, getExercise } from '@/exercises'
 import { MUSCLE_LABEL } from '@/exercises/labels'
+import { getFullExercise, useExercisesLoaded } from '@/exercises/content'
 import { muscleLoad } from '@/exercises/muscles'
-import type { Exercise } from '@/exercises/types'
-import { Figure } from '@/figure/Figure'
+import type { ExerciseInfo } from '@/exercises/types'
 import { useData } from '@/data/DataProvider'
 import { useAuth } from '@/auth/AuthProvider'
 import type { CompletionSource } from '@/data/models'
@@ -31,6 +31,7 @@ import { activeDurationMs, currentStep, type WorkLogEntry, progressFraction, ste
 import { usePlayer, type PlayerControls } from './usePlayer'
 import { useWakeLock } from './useWakeLock'
 import './player.css'
+import { ExerciseFigure } from '@/components/ExerciseFigure'
 
 interface Session {
   title: string
@@ -67,7 +68,7 @@ function useSession(kind: string, id: string): Resolution {
       .split(COOLDOWN_SEPARATOR)
       .slice(0, 12)
       .map((entry) => getExercise(entry))
-      .filter((exercise): exercise is Exercise => exercise !== undefined)
+      .filter((exercise): exercise is ExerciseInfo => exercise !== undefined)
     if (exercises.length === 0) {
       return { status: 'missing' }
     }
@@ -113,7 +114,20 @@ export function PlayerPage() {
       </div>
     )
   }
-  return <PlayerSession key={`${kind}/${id}`} session={resolution.session} />
+  return <LoadedSession key={`${kind}/${id}`} session={resolution.session} />
+}
+
+function LoadedSession({ session }: { session: Session }) {
+  const ids = useMemo(() => session.body.items.map((item) => item.exerciseId), [session])
+  const ready = useExercisesLoaded(ids)
+  if (!ready) {
+    return (
+      <div className="player player--center" role="status" aria-label="Loading workout">
+        <div className="spinner" />
+      </div>
+    )
+  }
+  return <PlayerSession session={session} />
 }
 
 const PAUSE_TITLE: Record<PauseStep['reason'], string> = {
@@ -154,11 +168,11 @@ function summarize(title: string, log: WorkLogEntry[], activeMs: number, weightK
   }
 }
 
-function exerciseOf(step: WorkStep | undefined): Exercise | undefined {
+function exerciseOf(step: WorkStep | undefined): ExerciseInfo | undefined {
   return step ? getExercise(step.exerciseId) : undefined
 }
 
-function targetLabel(step: WorkStep, exercise: Exercise | undefined): string {
+function targetLabel(step: WorkStep, exercise: ExerciseInfo | undefined): string {
   const base = step.target.kind === 'reps' ? `${step.target.reps} reps` : formatClock(step.target.ms)
   return exercise?.sided === 'perSide' && step.side ? `${base} · ${step.side} side` : base
 }
@@ -173,7 +187,7 @@ function PlayerSession({ session }: { session: Session }) {
   const coachContext = useMemo(
     () => ({
       nameOf: (exerciseId: string) => getExercise(exerciseId)?.name ?? 'the next exercise',
-      tipOf: (exerciseId: string) => getExercise(exerciseId)?.tips[0],
+      tipOf: (exerciseId: string) => getFullExercise(exerciseId)?.tips[0],
       trainer: settings.trainer,
       trainerName: TRAINERS[settings.trainer].name,
     }),
@@ -351,7 +365,7 @@ function ReadyView({ session, onStart }: { session: Session; onStart: () => void
         {first ? (
           <div className="trainer-hello">
             <div className="trainer-hello__stage stage">
-              <Figure animation={first.animation} label={`${trainer.name} demonstrating ${first.name}`} />
+              <ExerciseFigure exerciseId={first.id} label={`${trainer.name} demonstrating ${first.name}`} />
             </div>
             <p className="trainer-hello__bubble">
               Hi, I&apos;m {trainer.name}! Ready when you are. We&apos;ll start with {first.name.toLowerCase()}.
@@ -388,8 +402,8 @@ function WorkView({ player, step }: { player: PlayerControls; step: WorkStep }) 
     <div className="work">
       <div className="work__stage stage">
         {exercise ? (
-          <Figure
-            animation={exercise.animation}
+          <ExerciseFigure
+            exerciseId={exercise.id}
             mirrored={step.side === 'right'}
             playing={running}
             restartKey={`${state.runId}-${state.index}`}
@@ -496,8 +510,8 @@ function PauseView({
         {exercise && nextWork ? (
           <section className="up-next card" aria-label="Up next">
             <div className="up-next__media stage">
-              <Figure
-                animation={exercise.animation}
+              <ExerciseFigure
+                exerciseId={exercise.id}
                 mirrored={nextWork.side === 'right'}
                 playing={state.status === 'running'}
                 label={`${exercise.name} demonstration`}
@@ -509,7 +523,7 @@ function PauseView({
               <p className="muted">{targetLabel(nextWork, exercise)}</p>
               {!switching ? (
                 <ol className="up-next__steps">
-                  {exercise.steps.slice(0, 3).map((line) => (
+                  {(getFullExercise(exercise.id)?.steps ?? []).slice(0, 3).map((line) => (
                     <li key={line}>{line}</li>
                   ))}
                 </ol>
@@ -570,7 +584,7 @@ function DoneView({
       <div className="done">
         {cheer ? (
           <div className="done__stage stage">
-            <Figure animation={cheer.animation} fps={60} label={`${TRAINERS[settings.trainer].name} celebrating`} />
+            <ExerciseFigure exerciseId={cheer.id} fps={60} label={`${TRAINERS[settings.trainer].name} celebrating`} />
           </div>
         ) : null}
         <h1 className="page__title">{isCooldown ? 'All stretched out!' : 'Workout complete!'}</h1>
@@ -652,7 +666,7 @@ function DoneView({
               {stretches.map((exercise) => (
                 <li key={exercise.id} className="done__stretch">
                   <span className="done__stretch-thumb stage">
-                    <Figure animation={exercise.animation} playing={false} label="" />
+                    <ExerciseFigure exerciseId={exercise.id} lazy playing={false} label="" />
                   </span>
                   <span className="stack stack--tight">
                     <strong>{exercise.name}</strong>

@@ -1,5 +1,5 @@
 import { MUSCLE_LABEL } from './labels'
-import type { Exercise, Muscle } from './types'
+import type { ExerciseInfo, Muscle } from './types'
 
 export type MuscleLoad = Partial<Record<Muscle, number>>
 
@@ -8,7 +8,7 @@ export type MuscleLevel = 0 | 1 | 2 | 3
 export type MapMuscle = Exclude<Muscle, 'fullBody'>
 
 export interface WeightedExercise {
-  exercise: Pick<Exercise, 'muscles'>
+  exercise: Pick<ExerciseInfo, 'muscles'>
   weight: number
 }
 
@@ -116,9 +116,9 @@ export function topMuscles(load: MuscleLoad, n = MAP_MUSCLES.length): MuscleShar
 
 export function weightedItems<Item extends { exerciseId: string; sets?: number }>(
   items: readonly Item[],
-  lookup: (id: string) => Exercise | undefined,
-  weightOf: (item: Item, exercise: Exercise) => number = (item) => item.sets ?? 1,
-): { exercise: Exercise; weight: number }[] {
+  lookup: (id: string) => ExerciseInfo | undefined,
+  weightOf: (item: Item, exercise: ExerciseInfo) => number = (item) => item.sets ?? 1,
+): { exercise: ExerciseInfo; weight: number }[] {
   return items.flatMap((item) => {
     const exercise = lookup(item.exerciseId)
     return exercise ? [{ exercise, weight: weightOf(item, exercise) }] : []

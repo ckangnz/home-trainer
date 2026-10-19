@@ -3,14 +3,14 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
 import { getExercise } from '@/exercises'
 import { formatSeconds, formatTarget } from '@/exercises/labels'
-import type { Exercise, Target } from '@/exercises/types'
-import { Figure } from '@/figure/Figure'
+import type { ExerciseInfo, Target } from '@/exercises/types'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { blankRoutine, DEFAULT_ROUTINE_DEFAULTS, effectiveTarget, LIMITS, moveItem, newId, withFreshIds } from '@/workouts/routine'
 import { estimateDurationMs, formatDuration } from '@/workouts/steps'
 import type { RoutineBody, RoutineDefaults, RoutineItem, RoutineSource } from '@/workouts/types'
 import { ExercisePicker } from '@/components/ExercisePicker'
 import { ExerciseInfoDialog } from '@/components/ExerciseInfoDialog'
+import { VariationPicker } from '@/components/VariationPicker'
 import { clearDraft, draftKey, loadDraft, saveDraft } from '@/workouts/drafts'
 import { Field, TextField } from '@/components/ui'
 import { Stepper } from '@/components/Stepper'
@@ -18,6 +18,7 @@ import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import './editor.css'
+import { ExerciseFigure } from '@/components/ExerciseFigure'
 
 type TargetMode = 'default' | 'time' | 'reps'
 
@@ -25,7 +26,7 @@ function targetMode(item: RoutineItem): TargetMode {
   return item.target ? item.target.kind : 'default'
 }
 
-function defaultRepsFor(exercise: Exercise): number {
+function defaultRepsFor(exercise: ExerciseInfo): number {
   return exercise.defaultTarget.kind === 'reps' ? exercise.defaultTarget.reps : 12
 }
 
@@ -50,7 +51,7 @@ function ItemEditor({
   onChange: (item: RoutineItem) => void
   onMove: (to: number) => void
   onRemove: () => void
-  onInfo: (exercise: Exercise) => void
+  onInfo: (exercise: ExerciseInfo) => void
 }) {
   const exercise = getExercise(item.exerciseId)
   if (!exercise) {
@@ -90,7 +91,7 @@ function ItemEditor({
       <div className="editor-item__row">
         <span className="editor-item__index tabular">{index + 1}</span>
         <span className="editor-item__thumb stage">
-          <Figure animation={exercise.animation} playing={expanded} label="" />
+          <ExerciseFigure exerciseId={exercise.id} lazy playing={expanded} label="" />
         </span>
         <button type="button" className="editor-item__title" onClick={onToggle} aria-expanded={expanded}>
           <span className="editor-item__name">{exercise.name}</span>
@@ -113,11 +114,12 @@ function ItemEditor({
       </div>
       {expanded ? (
         <div className="editor-item__panel">
+          <VariationPicker exercise={exercise} onPick={(next) => onChange({ ...item, exerciseId: next.id })} />
           <div className="stack">
             <span className="ui-field__label">Target</span>
             <div className="segmented" role="group" aria-label="Target type">
               <button type="button" aria-pressed={mode === 'default'} onClick={() => setTarget(undefined)}>
-                Default ({formatSeconds(defaults.workSec)})
+                Default · {formatSeconds(defaults.workSec)}
               </button>
               <button
                 type="button"
@@ -185,17 +187,39 @@ function ItemEditor({
             />
           ) : null}
           {index < count - 1 ? (
-            <Stepper
-              label="Rest after"
-              hint={item.restAfterSec === undefined ? 'Using the routine default' : undefined}
-              value={item.restAfterSec ?? defaults.restSec}
-              min={0}
-              max={LIMITS.restSec[1]}
-              step={5}
-              format={formatSeconds}
-              onChange={(restAfterSec) => onChange({ ...item, restAfterSec })}
-            />
-          ) : null}
+            <div className="stack stack--tight">
+              <Stepper
+                label="Rest after this exercise"
+                hint={
+                  item.restAfterSec === undefined
+                    ? 'Routine default'
+                    : `Custom · default ${formatSeconds(defaults.restSec)}`
+                }
+                value={item.restAfterSec ?? defaults.restSec}
+                min={0}
+                max={LIMITS.restSec[1]}
+                step={5}
+                format={formatSeconds}
+                onChange={(restAfterSec) => onChange({ ...item, restAfterSec })}
+              />
+              {item.restAfterSec !== undefined ? (
+                <button
+                  type="button"
+                  className="btn btn--ghost btn--small editor-item__reset"
+                  onClick={() => {
+                    const next: RoutineItem = { ...item }
+                    delete next.restAfterSec
+                    onChange(next)
+                  }}
+                >
+                  <Icon name="repeat" />
+                  Use the routine default
+                </button>
+              ) : null}
+            </div>
+          ) : (
+            <p className="faint">Last exercise: the workout ends after this one{defaults.rounds > 1 ? ' or the next round begins' : ''}.</p>
+          )}
           <div className="row row--between">
             <button type="button" className="btn btn--small btn--ghost" onClick={() => onInfo(exercise)}>
               <Icon name="info" />
@@ -237,7 +261,7 @@ export function RoutineEditorPage() {
   const [seed] = useState(() => (isNew ? seedFrom(params.get('from')) : null))
   const [draft, setDraft] = useState<RoutineBody | null>(() => restored ?? seed?.body ?? null)
   const [dirty, setDirty] = useState(restored !== null)
-  const [info, setInfo] = useState<Exercise | null>(null)
+  const [info, setInfo] = useState<ExerciseInfo | null>(null)
   const [expanded, setExpanded] = useState<string | null>(null)
   const [picking, setPicking] = useState(false)
   usePageMeta(isNew ? 'New routine' : 'Edit routine')
@@ -368,10 +392,10 @@ export function RoutineEditorPage() {
 
       <section className="card stack">
         <h2 className="section__title">Timing</h2>
-        <p className="faint">These apply to every exercise unless you change it below.</p>
+        <p className="faint">These apply to every exercise. Open an exercise below to give it its own time, reps, sets, or rest.</p>
         <Stepper
           label="Work time"
-          hint="For exercises without their own target"
+          hint="How long each exercise lasts"
           value={defaults.workSec}
           min={LIMITS.workSec[0]}
           max={LIMITS.workSec[1]}
@@ -381,6 +405,7 @@ export function RoutineEditorPage() {
         />
         <Stepper
           label="Rest between exercises"
+          hint="Break after each exercise"
           value={defaults.restSec}
           min={0}
           max={LIMITS.restSec[1]}
@@ -391,6 +416,7 @@ export function RoutineEditorPage() {
         <Stepper label="Rounds" value={defaults.rounds} min={1} max={LIMITS.rounds[1]} step={1} onChange={(rounds) => setDefaults({ rounds })} />
         <Stepper
           label="Rest between rounds"
+          hint={defaults.rounds === 1 ? 'Add rounds to repeat the whole list' : 'Longer break before repeating the list'}
           value={defaults.roundRestSec}
           min={0}
           max={LIMITS.roundRestSec[1]}

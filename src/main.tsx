@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { registerSW } from 'virtual:pwa-register'
 import { App } from './app/App'
+import { loadCatalog } from './exercises/content'
 import './styles/tokens.css'
 import './styles/base.css'
 
@@ -16,8 +17,17 @@ const app = (
   </StrictMode>
 )
 
+declare global {
+  interface Window {
+    __HT_CATALOGS__?: string[]
+  }
+}
+
 if (container.firstElementChild) {
-  hydrateRoot(container, app)
+  const catalogs = window.__HT_CATALOGS__ ?? []
+  Promise.all(catalogs.map(loadCatalog))
+    .catch(() => undefined)
+    .finally(() => hydrateRoot(container, app))
 } else {
   createRoot(container).render(app)
 }

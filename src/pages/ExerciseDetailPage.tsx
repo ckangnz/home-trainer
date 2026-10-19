@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { Figure } from '@/figure/Figure'
 import { EXERCISES, getExercise } from '@/exercises'
 import { CATEGORY_LABEL, EQUIPMENT_LABEL, LEVEL_LABEL, MUSCLE_LABEL, formatTarget } from '@/exercises/labels'
 import { ExerciseCard } from '@/components/ExerciseCard'
 import { MuscleMap } from '@/components/MuscleMap'
+import { Variations } from '@/components/Variations'
 import { muscleLoad } from '@/exercises/muscles'
+import { useFullExercise } from '@/exercises/content'
 import { AddToRoutineDialog } from '@/components/AddToRoutineDialog'
 import { AdUnit } from '@/ads/AdUnit'
 import { useAuth } from '@/auth/AuthProvider'
@@ -13,6 +14,7 @@ import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import { NotFoundPage } from './NotFoundPage'
 import './exercise-detail.css'
+import { ExerciseFigure } from '@/components/ExerciseFigure'
 
 const SIDED_NOTE = {
   symmetric: null,
@@ -23,6 +25,7 @@ const SIDED_NOTE = {
 export function ExerciseDetailPage() {
   const { id = '' } = useParams()
   const exercise = getExercise(id)
+  const details = useFullExercise(exercise?.id)
   const navigate = useNavigate()
   const { status, signIn } = useAuth()
   const [mirrored, setMirrored] = useState(false)
@@ -62,7 +65,7 @@ export function ExerciseDetailPage() {
       <div className="exercise-detail">
         <div className="exercise-detail__media">
           <div className="stage">
-            <Figure animation={exercise.animation} mirrored={mirrored} label={`${exercise.name} demonstration`} />
+            <ExerciseFigure exerciseId={exercise.id} mirrored={mirrored} label={`${exercise.name} demonstration`} />
           </div>
           {exercise.sided === 'perSide' ? (
             <button type="button" className="btn btn--small" onClick={() => setMirrored((value) => !value)}>
@@ -102,7 +105,7 @@ export function ExerciseDetailPage() {
           <section className="stack">
             <h2 className="section__title">How to do it</h2>
             <ol className="steps">
-              {exercise.steps.map((step) => (
+              {(details?.steps ?? []).map((step) => (
                 <li key={step}>{step}</li>
               ))}
             </ol>
@@ -112,7 +115,7 @@ export function ExerciseDetailPage() {
           <section className="stack">
             <h2 className="section__title">Form tips</h2>
             <ul className="tips">
-              {exercise.tips.map((tip) => (
+              {(details?.tips ?? []).map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}
             </ul>
@@ -131,6 +134,8 @@ export function ExerciseDetailPage() {
           </section>
         </div>
       </div>
+
+      <Variations exercise={exercise} />
 
       <AdUnit placement="content" />
 

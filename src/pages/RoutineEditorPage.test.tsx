@@ -142,4 +142,20 @@ describe('routine editor', () => {
     expect(saved[0].items[11]).toMatchObject({ exerciseId: 'side-plank', target: { kind: 'time', seconds: 15 } })
     expect(saved[0].items[0].id).not.toBe('classic-7-minute-1')
   })
+
+  it('swaps an exercise for a weighted variation and keeps its settings', async () => {
+    await renderEditor()
+    fireEvent.click(screen.getAllByRole('button', { name: /Add exercises/ })[0])
+    const picker = await screen.findByRole('dialog', { name: 'Add exercises' })
+    fireEvent.click(within(picker).getByRole('button', { name: /^Squat\s*Legs/ }))
+    fireEvent.click(within(picker).getByRole('button', { name: /Done/ }))
+    fireEvent.click(screen.getByRole('button', { name: /^Squat/ }))
+    fireEvent.click(screen.getByRole('button', { name: 'Reps', pressed: false }))
+    fireEvent.click(within(screen.getByRole('group', { name: 'Squat variations' })).getByRole('button', { name: 'Kettlebell goblet' }))
+    expect(screen.getByRole('button', { name: /^Kettlebell goblet squat/ })).toBeInTheDocument()
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Save' }))
+    })
+    expect(saved[0].items[0]).toMatchObject({ exerciseId: 'kettlebell-goblet-squat', target: { kind: 'reps' } })
+  })
 })

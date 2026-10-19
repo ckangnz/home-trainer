@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import type { Exercise, Sided } from '@/exercises/types'
+import type { ExerciseInfo, Sided } from '@/exercises/types'
 import { LIMITS, moveItem, normalizeBody, normalizeDefaults, normalizeTarget, withFreshIds } from './routine'
 import { estimateDurationMs, expandRoutine, formatClock, formatDuration } from './steps'
 import type { PauseStep, RoutineBody, WorkStep } from './types'
 
-function exercise(id: string, sided: Sided = 'symmetric', cycleMs = 2000): Exercise {
+function exercise(id: string, sided: Sided = 'symmetric', cycleMs = 2000): ExerciseInfo {
   return {
     id,
     name: id,
@@ -16,16 +16,9 @@ function exercise(id: string, sided: Sided = 'symmetric', cycleMs = 2000): Exerc
     impact: 'low',
     sided,
     defaultTarget: { kind: 'time', seconds: 30 },
-    animation: {
-      view: 'side',
-      keyframes: [
-        { pose: {}, ms: cycleMs / 2 },
-        { pose: { torso: 10 }, ms: cycleMs / 2 },
-      ],
-    },
     summary: 'A test exercise.',
-    steps: ['One.', 'Two.', 'Three.'],
-    tips: ['Tip.'],
+    catalog: 'test',
+    cycleMs,
   }
 }
 

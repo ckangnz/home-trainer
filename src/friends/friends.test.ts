@@ -20,6 +20,7 @@ describe('friend models', () => {
     expect(cleanName('  ')).toBe('HomeTrainer user')
     expect(cleanName('Coach Kim')).toBe('Coach Kim')
     expect(cleanPhoto('http://insecure.example/a.png')).toBeUndefined()
+    expect(cleanPhoto('https://lh3.googleusercontent.com/a/default-user=s96-c')).toBeUndefined()
     expect(cleanPhoto('https://lh3.googleusercontent.com/a')).toBe('https://lh3.googleusercontent.com/a')
   })
 

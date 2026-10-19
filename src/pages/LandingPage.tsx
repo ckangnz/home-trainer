@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Figure } from '@/figure/Figure'
 import { EXERCISES, getExercise } from '@/exercises'
 import { CATEGORY_LABEL, CATEGORY_ORDER } from '@/exercises/labels'
 import { CURATED_WORKOUTS } from '@/workouts/curated'
@@ -8,6 +7,7 @@ import { usePageMeta } from '@/app/meta'
 import { SITE } from '@/app/site'
 import { Icon, type IconName } from '@/app/Icons'
 import './landing.css'
+import { ExerciseFigure } from '@/components/ExerciseFigure'
 
 const FEATURES: { icon: IconName; title: string; body: string }[] = [
   {
@@ -86,7 +86,7 @@ export function LandingPage() {
         </div>
         {hero ? (
           <div className="hero__stage stage">
-            <Figure animation={hero.animation} label={`${hero.name} demonstration`} />
+            <ExerciseFigure exerciseId={hero.id} label={`${hero.name} demonstration`} />
           </div>
         ) : null}
       </section>

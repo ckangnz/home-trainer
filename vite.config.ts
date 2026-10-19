@@ -40,6 +40,7 @@ function siteFiles(env: Record<string, string>, base: string): Plugin {
       if (index && index.type === 'asset') {
         this.emitFile({ type: 'asset', fileName: 'app-shell.html', source: index.source })
         this.emitFile({ type: 'asset', fileName: '404.html', source: index.source })
+        this.emitFile({ type: 'asset', fileName: 'app/index.html', source: index.source })
       }
       if (adsense && base === '/') {
         this.emitFile({

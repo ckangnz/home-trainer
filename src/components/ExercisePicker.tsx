@@ -1,15 +1,17 @@
 import { useMemo, useState } from 'react'
 import { EXERCISES } from '@/exercises'
-import { CATEGORY_LABEL, CATEGORY_ORDER, LEVEL_LABEL, MUSCLE_LABEL } from '@/exercises/labels'
-import type { Category, Exercise } from '@/exercises/types'
-import { Figure } from '@/figure/Figure'
+import { CATEGORY_LABEL, CATEGORY_ORDER, LEVEL_LABEL } from '@/exercises/labels'
+import type { Category, ExerciseInfo } from '@/exercises/types'
+import { matchesQuery } from '@/exercises/search'
 import { Icon } from '@/app/Icons'
 import { Dialog } from './Dialog'
+import { SearchField } from './SearchField'
+import { ExerciseFigure } from './ExerciseFigure'
 
 interface ExercisePickerProps {
   open: boolean
   onClose: () => void
-  onPick: (exercise: Exercise) => void
+  onPick: (exercise: ExerciseInfo) => void
 }
 
 export function ExercisePicker({ open, onClose, onPick }: ExercisePickerProps) {
@@ -26,7 +28,7 @@ export function ExercisePicker({ open, onClose, onPick }: ExercisePickerProps) {
       if (!needle) {
         return true
       }
-      return [exercise.name, ...exercise.muscles.map((muscle) => MUSCLE_LABEL[muscle])].join(' ').toLowerCase().includes(needle)
+      return matchesQuery(exercise, needle)
     })
   }, [query, category])
 
@@ -37,17 +39,7 @@ export function ExercisePicker({ open, onClose, onPick }: ExercisePickerProps) {
 
   return (
     <Dialog open={open} title="Add exercises" onClose={close}>
-      <label className="search">
-        <Icon name="search" />
-        <span className="visually-hidden">Search exercises</span>
-        <input
-          type="search"
-          className="ui-control"
-          placeholder="Search by name or muscle"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </label>
+      <SearchField label="Search exercises" placeholder="Search by name, muscle, or equipment" value={query} onChange={setQuery} />
       <div className="chip-row chip-row--scroll" role="group" aria-label="Filter by category">
         <button type="button" className="chip" aria-pressed={category === null} onClick={() => setCategory(null)}>
           All
@@ -76,7 +68,7 @@ export function ExercisePicker({ open, onClose, onPick }: ExercisePickerProps) {
               }}
             >
               <span className="picker-item__thumb stage">
-                <Figure animation={exercise.animation} playing={false} label="" />
+                <ExerciseFigure exerciseId={exercise.id} lazy playing={false} label="" />
               </span>
               <span className="picker-item__text">
                 <span className="picker-item__name">{exercise.name}</span>

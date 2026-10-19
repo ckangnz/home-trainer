@@ -37,7 +37,10 @@ export function cleanName(name: string | null | undefined): string {
 }
 
 export function cleanPhoto(photo: string | null | undefined): string | undefined {
-  return photo && photo.startsWith('https://') && photo.length <= 500 ? photo : undefined
+  if (!photo || !photo.startsWith('https://') || photo.length > 500 || /default-user/.test(photo)) {
+    return undefined
+  }
+  return photo
 }
 
 function parsePerson(uid: unknown, name: unknown, photo: unknown): PublicProfile | null {

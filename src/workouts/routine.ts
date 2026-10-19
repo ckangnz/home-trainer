@@ -1,4 +1,4 @@
-import type { Exercise, Target } from '@/exercises/types'
+import type { ExerciseInfo, Target } from '@/exercises/types'
 import type { RoutineBody, RoutineDefaults, RoutineItem } from './types'
 
 export const ROUTINE_SCHEMA_VERSION = 2
@@ -104,7 +104,7 @@ export function newId(): string {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
 }
 
-export function itemFor(exercise: Exercise): RoutineItem {
+export function itemFor(exercise: ExerciseInfo): RoutineItem {
   return { id: newId(), exerciseId: exercise.id }
 }
 

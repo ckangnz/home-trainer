@@ -1,0 +1,122 @@
+.install-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px 0 11px;
+  border: 1px solid rgba(255, 134, 80, 0.45);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, rgba(255, 106, 43, 0.22), rgba(255, 106, 43, 0.1));
+  color: var(--color-accent-strong);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-base) var(--ease-spring);
+  animation: install-in var(--duration-slow) var(--ease-spring) both;
+}
+
+.install-button .icon {
+  width: 17px;
+  height: 17px;
+}
+
+.install-button:hover {
+  border-color: var(--color-accent);
+  background: linear-gradient(180deg, rgba(255, 106, 43, 0.32), rgba(255, 106, 43, 0.16));
+}
+
+.install-button:active {
+  transform: scale(0.94);
+}
+
+.install-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@keyframes install-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.install-guide__hero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.install-guide__hero img {
+  flex: none;
+  border-radius: 16px;
+  box-shadow: var(--shadow-2);
+}
+
+.install-guide__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: install;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.install-guide__steps li {
+  counter-increment: install;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.install-guide__steps li::before {
+  content: counter(install);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+  font-weight: 800;
+  font-size: var(--text-sm);
+}
+
+.install-guide__glyph {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: 0 2px;
+  border-radius: 6px;
+  background: var(--color-surface-3);
+  color: var(--color-text);
+  vertical-align: middle;
+  font-weight: 800;
+}
+
+.install-guide__glyph .icon {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 380px) {
+  .install-button__label {
+    display: none;
+  }
+
+  .install-button {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+}

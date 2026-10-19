@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { buildTcx, detectPlatform, exportFileName, healthPayload, shortcutUrl, type HealthWorkout } from './export'
+import { detectPlatform } from '@/app/platform'
+import { buildTcx, exportFileName, healthPayload, shortcutUrl, type HealthWorkout } from './export'
 
 const workout: HealthWorkout = {
   title: 'Leg day & core',

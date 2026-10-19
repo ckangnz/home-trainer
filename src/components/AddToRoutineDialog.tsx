@@ -2,12 +2,12 @@ import { useNavigate } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
 import { useToast } from '@/app/Toast'
 import { blankRoutine, newId } from '@/workouts/routine'
-import type { Exercise } from '@/exercises/types'
+import type { ExerciseInfo } from '@/exercises/types'
 import { Dialog } from './Dialog'
 import { Icon } from '@/app/Icons'
 
 interface AddToRoutineDialogProps {
-  exercise: Exercise
+  exercise: ExerciseInfo
   open: boolean
   onClose: () => void
 }

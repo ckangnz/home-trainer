@@ -9,7 +9,7 @@ const env = { ...loadEnv('production', root, 'VITE_'), ...process.env }
 const siteUrl = (env.VITE_SITE_URL ?? '').replace(/\/$/, '')
 const basePath = (env.VITE_BASE_PATH ?? '/').replace(/\/$/, '')
 
-const { render, PRERENDER_ROUTES } = await import(pathToFileURL(join(root, 'dist-ssr', 'entry-server.js')).href)
+const { render, prepare, PRERENDER_ROUTES } = await import(pathToFileURL(join(root, 'dist-ssr', 'entry-server.js')).href)
 const template = readFileSync(join(dist, 'app-shell.html'), 'utf8')
 
 function escapeHtml(value) {
@@ -39,10 +39,12 @@ function headTags(route, meta) {
   return tags.join('\n    ')
 }
 
+await prepare()
+
 for (const route of PRERENDER_ROUTES) {
-  const { html, meta } = render(route)
+  const { html, meta, catalogs } = render(route)
   const page = template
-    .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+    .replace('<div id="root"></div>', `<div id="root">${html}</div><script>window.__HT_CATALOGS__=${JSON.stringify(catalogs)}</script>`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(meta.description)}" />\n    ${headTags(route, meta)}`)
   const file = outputFile(route)

@@ -1,27 +1,29 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import type { Exercise } from '@/exercises/types'
+import type { ExerciseInfo } from '@/exercises/types'
 import { EQUIPMENT_LABEL, LEVEL_LABEL, MUSCLE_LABEL } from '@/exercises/labels'
-import { Figure } from '@/figure/Figure'
 import { Icon } from '@/app/Icons'
 import { muscleLoad } from '@/exercises/muscles'
+import { useFullExercise } from '@/exercises/content'
 import { Dialog } from './Dialog'
 import { MuscleMap } from './MuscleMap'
 import '@/pages/exercise-detail.css'
+import { ExerciseFigure } from './ExerciseFigure'
 
 interface ExerciseInfoDialogProps {
-  exercise: Exercise | null
+  exercise: ExerciseInfo | null
   onClose: () => void
 }
 
 export function ExerciseInfoDialog({ exercise, onClose }: ExerciseInfoDialogProps) {
   const [mirrored, setMirrored] = useState(false)
+  const details = useFullExercise(exercise?.id)
   return (
     <Dialog open={exercise !== null} title={exercise?.name ?? 'Exercise'} onClose={onClose}>
       {exercise ? (
         <div className="exercise-info stack">
           <div className="exercise-info__stage stage">
-            <Figure animation={exercise.animation} mirrored={mirrored} label={`${exercise.name} demonstration`} />
+            <ExerciseFigure exerciseId={exercise.id} mirrored={mirrored} label={`${exercise.name} demonstration`} />
           </div>
           {exercise.sided === 'perSide' ? (
             <button type="button" className="btn btn--small" onClick={() => setMirrored((value) => !value)}>
@@ -43,7 +45,7 @@ export function ExerciseInfoDialog({ exercise, onClose }: ExerciseInfoDialogProp
           <section className="stack stack--tight">
             <h3 className="section__title">How to do it</h3>
             <ol className="steps">
-              {exercise.steps.map((step) => (
+              {(details?.steps ?? []).map((step) => (
                 <li key={step}>{step}</li>
               ))}
             </ol>
@@ -51,7 +53,7 @@ export function ExerciseInfoDialog({ exercise, onClose }: ExerciseInfoDialogProp
           <section className="stack stack--tight">
             <h3 className="section__title">Form tips</h3>
             <ul className="tips">
-              {exercise.tips.map((tip) => (
+              {(details?.tips ?? []).map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}
             </ul>

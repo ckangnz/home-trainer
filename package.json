@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build": "vite-node scripts/exercise-index.ts && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "test": "vitest",
     "lint": "tsc -b --noEmit",
-    "figures": "vite-node scripts/figure-sheet.ts figure-sheets"
+    "figures": "vite-node scripts/figure-sheet.ts figure-sheets",
+    "exercises:index": "vite-node scripts/exercise-index.ts"
   },
   "dependencies": {
     "firebase": "^11.3.0",

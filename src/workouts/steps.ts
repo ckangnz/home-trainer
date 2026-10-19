@@ -1,9 +1,8 @@
-import type { Exercise } from '@/exercises/types'
-import { prepareAnimation } from '@/figure/animate'
+import type { ExerciseInfo } from '@/exercises/types'
 import { effectiveTarget, normalizeDefaults } from './routine'
 import type { PauseReason, PlaybackStep, RoutineBody, Side, WorkStep } from './types'
 
-export type ExerciseLookup = (id: string) => Exercise | undefined
+export type ExerciseLookup = (id: string) => ExerciseInfo | undefined
 
 const SIDES: Side[] = ['left', 'right']
 
@@ -22,7 +21,7 @@ export function expandRoutine(body: RoutineBody, lookup: ExerciseLookup): Playba
   pause('getReady', defaults.getReadySec)
   for (let round = 1; round <= defaults.rounds; round += 1) {
     items.forEach((item, index) => {
-      const exercise = lookup(item.exerciseId) as Exercise
+      const exercise = lookup(item.exerciseId) as ExerciseInfo
       const target = effectiveTarget(item, defaults)
       const sets = Math.max(1, item.sets ?? 1)
       const sides: (Side | undefined)[] = exercise.sided === 'perSide' ? SIDES : [undefined]
@@ -73,8 +72,8 @@ export function expandRoutine(body: RoutineBody, lookup: ExerciseLookup): Playba
 const MIN_REP_MS = 1500
 const MAX_REP_MS = 5000
 
-export function estimatedRepMs(exercise: Exercise): number {
-  const cycle = prepareAnimation(exercise.animation).cycleMs
+export function estimatedRepMs(exercise: ExerciseInfo): number {
+  const cycle = exercise.cycleMs
   const perRep = exercise.sided === 'alternating' ? cycle / 2 : cycle
   return Math.min(MAX_REP_MS, Math.max(MIN_REP_MS, perRep || 3000))
 }

@@ -1,30 +1,28 @@
-import type { Category, Exercise } from './types'
-import { CARDIO } from './catalog/cardio'
-import { LOWER_BODY } from './catalog/lower'
-import { UPPER_BODY } from './catalog/upper'
-import { CORE } from './catalog/core'
-import { STRETCH } from './catalog/stretch'
-import { YOGA } from './catalog/yoga'
-import { WARM_UP } from './catalog/warmup'
-import { MOBILITY } from './catalog/mobility'
-import { CONDITIONING } from './catalog/conditioning'
-import { WEIGHTS } from './catalog/weights'
-import { RECOVERY } from './catalog/recovery'
+import type { Category, ExerciseInfo } from './types'
+import index from './index.json'
 
-const CATALOG: Exercise[] = [...CARDIO, ...LOWER_BODY, ...UPPER_BODY, ...CORE, ...STRETCH, ...YOGA, ...WARM_UP, ...CONDITIONING, ...WEIGHTS, ...MOBILITY, ...RECOVERY]
-
-export const EXERCISES: Exercise[] = CATALOG.map((exercise) =>
-  exercise.impact === 'high' && exercise.animation.feel === undefined
-    ? { ...exercise, animation: { ...exercise.animation, feel: 'bouncy' } }
-    : exercise,
-)
+export const EXERCISES: ExerciseInfo[] = index as ExerciseInfo[]
 
 const byId = new Map(EXERCISES.map((exercise) => [exercise.id, exercise]))
 
-export function getExercise(id: string): Exercise | undefined {
+export function getExercise(id: string): ExerciseInfo | undefined {
   return byId.get(id)
 }
 
-export function exercisesIn(category: Category): Exercise[] {
+export function exercisesIn(category: Category): ExerciseInfo[] {
   return EXERCISES.filter((exercise) => exercise.category === category || exercise.tags.includes(category))
+}
+
+const byFamily = new Map<string, ExerciseInfo[]>()
+for (const exercise of EXERCISES) {
+  if (exercise.family) {
+    byFamily.set(exercise.family, [...(byFamily.get(exercise.family) ?? []), exercise])
+  }
+}
+for (const members of byFamily.values()) {
+  members.sort((a, b) => a.level - b.level || Number(a.equipment !== 'none') - Number(b.equipment !== 'none') || a.name.localeCompare(b.name))
+}
+
+export function variationsOf(exercise: Pick<ExerciseInfo, 'family'>): ExerciseInfo[] {
+  return exercise.family ? (byFamily.get(exercise.family) ?? []) : []
 }

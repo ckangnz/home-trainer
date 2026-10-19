@@ -1,9 +1,9 @@
 import { getExercise } from '@/exercises'
-import { Figure } from '@/figure/Figure'
 import { TRAINERS, type SkinTone, type TrainerId } from '@/figure/look'
 import { paletteFor } from '@/figure/svg'
 import { updateSettings, useSettings } from '@/settings/settings'
 import './trainer-picker.css'
+import { ExerciseFigure } from './ExerciseFigure'
 
 const SKINS: { id: SkinTone; label: string }[] = [
   { id: 'light', label: 'Light' },
@@ -32,7 +32,7 @@ export function TrainerPicker() {
             onClick={() => updateSettings({ trainer: id })}
           >
             <span className="trainer-option__stage stage">
-              {preview ? <Figure animation={preview.animation} look={{ trainer: id, skin: settings.skin }} playing={false} label="" /> : null}
+              {preview ? <ExerciseFigure exerciseId={preview.id} look={{ trainer: id, skin: settings.skin }} playing={false} label="" /> : null}
             </span>
             <span className="trainer-option__name">{TRAINERS[id].name}</span>
             <span className="faint">{TAGLINES[id]}</span>

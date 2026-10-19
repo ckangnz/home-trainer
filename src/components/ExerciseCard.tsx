@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import { Figure } from '@/figure/Figure'
 import { CATEGORY_LABEL, LEVEL_LABEL } from '@/exercises/labels'
-import type { Exercise } from '@/exercises/types'
+import type { ExerciseInfo } from '@/exercises/types'
 import './cards.css'
+import { ExerciseFigure } from './ExerciseFigure'
 
-export function ExerciseCard({ exercise, to }: { exercise: Exercise; to?: string }) {
+export function ExerciseCard({ exercise, to }: { exercise: ExerciseInfo; to?: string }) {
   return (
     <Link to={to ?? `/exercises/${exercise.id}`} className="exercise-card">
       <div className="stage">
-        <Figure animation={exercise.animation} label={`${exercise.name} demonstration`} />
+        <ExerciseFigure exerciseId={exercise.id} lazy label={`${exercise.name} demonstration`} />
       </div>
       <div className="exercise-card__body">
         <h3 className="exercise-card__name">{exercise.name}</h3>

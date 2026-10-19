@@ -1,4 +1,4 @@
-import type { Category, Equipment, Exercise, Muscle, Sided, Target } from './types'
+import type { Category, Equipment, ExerciseInfo, Muscle, Sided, Target } from './types'
 
 export const CATEGORY_ORDER: Category[] = ['cardio', 'fullBody', 'upperBody', 'lowerBody', 'core', 'weights', 'stretch', 'mobility', 'recovery', 'yoga', 'warmup']
 
@@ -107,6 +107,6 @@ export function formatSeconds(seconds: number): string {
   return `${seconds} sec`
 }
 
-export function exerciseMeta(exercise: Exercise): string {
+export function exerciseMeta(exercise: ExerciseInfo): string {
   return [CATEGORY_LABEL[exercise.category], LEVEL_LABEL[exercise.level], EQUIPMENT_LABEL[exercise.equipment]].join(' · ')
 }

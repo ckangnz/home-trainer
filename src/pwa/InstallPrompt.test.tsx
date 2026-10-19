@@ -37,4 +37,11 @@ describe('InstallPrompt', () => {
 
     expect(await screen.findByRole('button', { name: 'Install app' })).toBeInTheDocument()
   })
+  it('shows add-to-home-screen steps on iPhone where browsers have no install prompt', async () => {
+    const agent = vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) CriOS/130.0')
+    render(<InstallPrompt />)
+    fireEvent.click(await screen.findByRole('button', { name: 'Install app' }))
+    expect(await screen.findByText('Add to Home Screen')).toBeInTheDocument()
+    agent.mockRestore()
+  })
 })
