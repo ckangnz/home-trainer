@@ -9,7 +9,7 @@ import { useAuth } from '@/auth/AuthProvider'
 import type { CompletionSource } from '@/data/models'
 import { summarizeStreak } from '@/history/streaks'
 import { AdUnit } from '@/ads/AdUnit'
-import { shouldRequestPauseAd, shouldRequestSummaryAd } from '@/ads/policy'
+import { shouldRequestPauseAd } from '@/ads/policy'
 import { updateSettings, useSettings } from '@/settings/settings'
 import { TRAINERS } from '@/figure/look'
 import { getCuratedWorkout } from '@/workouts/curated'
@@ -256,14 +256,12 @@ function PlayerSession({ session }: { session: Session }) {
   }, [player])
 
   useEffect(() => {
-    if (state.status === 'ready') {
+    if (state.status === 'ready' || state.status === 'finished') {
       return
     }
     const time = performance.now()
     const context = { enteredBy: state.enteredBy, lastRequestAt: lastAdAt.current, now: time }
-    const allowed =
-      state.status === 'finished' ? shouldRequestSummaryAd(context) : shouldRequestPauseAd(currentStep(state), context)
-    if (allowed) {
+    if (shouldRequestPauseAd(currentStep(state), context)) {
       lastAdAt.current = time
       setAdKey(stepKey)
     }
@@ -368,8 +366,6 @@ function PlayerSession({ session }: { session: Session }) {
           exercises={state.completedWork}
           total={totalWork}
           streak={summarizeStreak(completions, new Date()).current}
-          showAd={adKey === stepKey}
-          adKey={adKey}
           onAgain={start}
         />
       ) : step?.kind === 'work' ? (
@@ -603,8 +599,6 @@ function DoneView({
   exercises,
   total,
   streak,
-  showAd,
-  adKey,
   onAgain,
 }: {
   session: Session
@@ -613,8 +607,6 @@ function DoneView({
   exercises: number
   total: number
   streak: number
-  showAd: boolean
-  adKey: string | null
   onAgain: () => void
 }) {
   const settings = useSettings()
@@ -748,7 +740,6 @@ function DoneView({
         ) : null}
 
         <SupportCard />
-        {showAd ? <AdUnit key={adKey ?? 'done'} placement="rest" className="done__ad" /> : null}
         {summary ? <HealthExportDialog workout={summary.health} open={exporting} onClose={() => setExporting(false)} /> : null}
       </div>
     </div>

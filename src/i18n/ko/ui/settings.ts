@@ -57,7 +57,7 @@ export const settings = {
   },
   about: {
     title: '정보',
-    body: 'HomeTrainer는 일부 휴식 화면에 표시되는 광고로 운영되는 무료 앱이에요. 운동 안내는 일반 정보이며 의학적 조언이 아니에요.',
+    body: 'HomeTrainer는 일부 휴식 화면과 기록·친구 페이지에 표시되는 광고로 운영되는 무료 앱이에요. 운동 안내는 일반 정보이며 의학적 조언이 아니에요.',
     privacy: '개인정보처리방침',
     terms: '이용약관',
   },

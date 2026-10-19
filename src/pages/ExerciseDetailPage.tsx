@@ -7,7 +7,6 @@ import { Variations } from '@/components/Variations'
 import { muscleLoad } from '@/exercises/muscles'
 import { useFullExercise } from '@/exercises/content'
 import { AddToRoutineDialog } from '@/components/AddToRoutineDialog'
-import { AdUnit } from '@/ads/AdUnit'
 import { useAuth } from '@/auth/AuthProvider'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
@@ -142,8 +141,6 @@ export function ExerciseDetailPage() {
       </div>
 
       <Variations exercise={exercise} />
-
-      <AdUnit placement="content" />
 
       {related.length > 0 ? (
         <section className="section">

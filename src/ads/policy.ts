@@ -4,8 +4,7 @@ import type { EntryTrigger } from '@/player/machine'
 export type RestAdTrigger = 'user-action' | 'every-rest'
 
 // AdSense forbids refreshing ad units "without the user requesting a refresh". Requesting a new rest
-// ad only when the user's own tap led to the screen keeps the player compliant. The one-off workout
-// summary is a results page rather than a periodic refresh, so it only needs the spacing rule.
+// ad only when the user's own tap led to the screen keeps the player compliant.
 // Switching this to 'every-rest' also loads ads on countdown-started rests; confirm with AdSense first.
 export const REST_AD_TRIGGER: RestAdTrigger = 'user-action'
 
@@ -33,8 +32,4 @@ export function shouldRequestPauseAd(step: PlaybackStep | undefined, context: Ad
     return false
   }
   return triggerAllows(context.enteredBy, context.trigger ?? REST_AD_TRIGGER) && spacedOut(context.lastRequestAt, context.now)
-}
-
-export function shouldRequestSummaryAd(context: Pick<AdContext, 'lastRequestAt' | 'now'>): boolean {
-  return spacedOut(context.lastRequestAt, context.now)
 }

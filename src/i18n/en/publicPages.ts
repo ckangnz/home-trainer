@@ -40,7 +40,7 @@ export const publicPages = {
     faq: {
       free: {
         q: 'Is HomeTrainer really free?',
-        a: 'Yes. Every workout, exercise, and feature is free. A small ad appears on some rest screens, never while you are exercising.',
+        a: 'Yes. Every workout, exercise, and feature is free. Small ads appear on some rest screens and on the History and friend pages, never while you are exercising.',
       },
       install: {
         q: 'Do I need to install anything?',

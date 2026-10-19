@@ -276,10 +276,6 @@
   color: var(--color-accent-strong);
 }
 
-.done__ad {
-  margin-top: var(--space-9);
-}
-
 .done__stats {
   width: 100%;
   grid-template-columns: repeat(4, minmax(0, 1fr));

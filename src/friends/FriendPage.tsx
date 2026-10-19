@@ -15,6 +15,7 @@ import { Icon } from '@/app/Icons'
 import { useFormat, useLabels, useT } from '@/i18n'
 import { useFriends, type FriendActivity } from './FriendsProvider'
 import { PersonAvatar } from './Avatar'
+import { AdUnit } from '@/ads/AdUnit'
 import '@/pages/history.css'
 import './friends.css'
 
@@ -178,6 +179,8 @@ function FriendActivityView({ name, activity }: { name: string; activity: Friend
           <MuscleMap load={load} size="md" label={t('social.friend.musclesLabel', { name })} legend />
         </section>
       ) : null}
+
+      <AdUnit placement="page" className="page-ad" />
 
       {days.length === 0 ? (
         <div className="empty">

@@ -6,6 +6,14 @@
   margin-inline: auto;
 }
 
+.ad-unit--page {
+  max-width: 728px;
+}
+
+.page-ad {
+  margin-block: var(--space-2);
+}
+
 .ad-unit__label {
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
@@ -22,4 +30,21 @@
   border-radius: var(--radius-md);
   color: var(--color-text-faint);
   font-size: var(--text-sm);
+}
+
+.ad-unit:has(ins.adsbygoogle[data-ad-status='unfilled']),
+.ad-unit:has(ins.adsbygoogle[data-adsbygoogle-status='failed']) {
+  display: none;
+}
+
+.ad-unit:has(ins.adsbygoogle:not([data-ad-status='filled'])) .ad-unit--page {
+  max-width: 728px;
+}
+
+.page-ad {
+  margin-block: var(--space-2);
+}
+
+.ad-unit__label {
+  visibility: hidden;
 }

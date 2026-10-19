@@ -4,10 +4,17 @@ import './ads.css'
 
 const CLIENT = import.meta.env.VITE_ADSENSE_CLIENT?.trim() ?? ''
 
+const REST_SLOT = import.meta.env.VITE_ADSENSE_SLOT_REST?.trim() ?? ''
+
 export const AD_SLOTS = {
-  rest: import.meta.env.VITE_ADSENSE_SLOT_REST?.trim() ?? '',
-  content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() ?? '',
+  rest: REST_SLOT,
+  page: import.meta.env.VITE_ADSENSE_SLOT_PAGE?.trim() || REST_SLOT,
 } as const
+
+const AD_FORMAT: Record<keyof typeof AD_SLOTS, string> = {
+  rest: 'auto',
+  page: 'horizontal',
+}
 
 export type AdPlacement = keyof typeof AD_SLOTS
 
@@ -82,7 +89,7 @@ export function AdUnit({ placement, className }: AdUnitProps) {
   }
 
   return (
-    <aside className={`ad-unit ${className ?? ''}`} aria-label={t('player.ads.label')}>
+    <aside className={`ad-unit ad-unit--${placement} ${className ?? ''}`} aria-label={t('player.ads.label')}>
       <span className="ad-unit__label">{t('player.ads.label')}</span>
       <ins
         ref={insRef}
@@ -90,7 +97,7 @@ export function AdUnit({ placement, className }: AdUnitProps) {
         style={{ display: 'block' }}
         data-ad-client={CLIENT}
         data-ad-slot={slot}
-        data-ad-format="auto"
+        data-ad-format={AD_FORMAT[placement]}
         data-full-width-responsive="true"
         {...(import.meta.env.DEV ? { 'data-adtest': 'on' } : {})}
       />

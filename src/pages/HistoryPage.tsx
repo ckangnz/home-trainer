@@ -7,6 +7,7 @@ import type { Completion } from '@/data/models'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import { useContent, useFormat, useT, type Localizer } from '@/i18n'
+import { AdUnit } from '@/ads/AdUnit'
 import './history.css'
 
 const DAY_FORMAT: Intl.DateTimeFormatOptions = { weekday: 'long', month: 'short', day: 'numeric' }
@@ -58,6 +59,8 @@ export function HistoryPage() {
           <dd>{fmt.duration(totalMs)}</dd>
         </div>
       </dl>
+
+      <AdUnit placement="page" className="page-ad" />
 
       {!ready ? (
         <div className="center" role="status" aria-label={t('app.history.loading')}>
