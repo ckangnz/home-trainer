@@ -16,6 +16,9 @@ import { useFormat, useLabels, useT } from '@/i18n'
 import { useFriends, type FriendActivity } from './FriendsProvider'
 import { PersonAvatar } from './Avatar'
 import { AdUnit } from '@/ads/AdUnit'
+import { HistoryDetails } from '@/pages/HistoryDetails'
+import { getCuratedWorkout } from '@/workouts/curated'
+import type { Completion } from '@/data/models'
 import { Badge } from '@/awards/Badge'
 import { earnedAwards } from '@/awards/AwardsProvider'
 import { useAwardText } from '@/awards/text'
@@ -177,6 +180,13 @@ function FriendActivityView({ name, activity }: { name: string; activity: Friend
   const weekCalories = recent.reduce((sum, entry) => sum + (entry.calories ?? 0), 0)
   const load = muscleLoad(recent.filter((entry) => entry.muscles?.length).map((entry) => ({ muscles: entry.muscles ?? [], weight: entry.durationMs })))
   const days = groupByDay(completions)
+  const [openId, setOpenId] = useState<string | null>(null)
+  const itemsOf = (completion: Completion): string[] => {
+    const { kind, id } = completion.source
+    const items =
+      kind === 'curated' ? getCuratedWorkout(id)?.items : kind === 'routine' ? activity.routines.find((routine) => routine.id === id)?.items : undefined
+    return items ? items.map((item) => item.exerciseId) : kind === 'exercise' ? [id] : []
+  }
 
   return (
     <>
@@ -222,24 +232,35 @@ function FriendActivityView({ name, activity }: { name: string; activity: Friend
               <ul className="list">
                 {day.entries.map((entry) => (
                   <li key={entry.id} className="card friend-entry">
-                    <strong>{entry.title}</strong>
-                    <div className="friend-entry__meta faint">
-                      <span>
-                        {fmt.date(entry.startedAt, TIME_OPTIONS)} – {fmt.date(entry.completedAt, TIME_OPTIONS)}
-                      </span>
-                      <span>{fmt.duration(entry.durationMs)}</span>
-                      <span>{t('social.friend.moves', { done: entry.exercises, total: entry.totalExercises })}</span>
-                      {entry.calories !== undefined ? <span>{t('units.calories', { n: entry.calories })}</span> : null}
-                    </div>
-                    {entry.muscles?.length ? (
-                      <div className="chip-row">
-                        {entry.muscles.slice(0, 5).map((muscle) => (
-                          <span key={muscle} className="chip chip--static">
-                            {labels.muscle[muscle]}
+                    <button
+                      type="button"
+                      className="friend-entry__summary"
+                      aria-expanded={openId === entry.id}
+                      onClick={() => setOpenId(openId === entry.id ? null : entry.id)}
+                    >
+                      <span className="stack stack--tight">
+                        <strong>{entry.title}</strong>
+                        <span className="friend-entry__meta faint">
+                          <span>
+                            {fmt.date(entry.startedAt, TIME_OPTIONS)} – {fmt.date(entry.completedAt, TIME_OPTIONS)}
                           </span>
-                        ))}
-                      </div>
-                    ) : null}
+                          <span>{fmt.duration(entry.durationMs)}</span>
+                          <span>{t('social.friend.moves', { done: entry.exercises, total: entry.totalExercises })}</span>
+                          {entry.calories !== undefined ? <span>{t('units.calories', { n: entry.calories })}</span> : null}
+                        </span>
+                        {entry.muscles?.length ? (
+                          <span className="chip-row">
+                            {entry.muscles.slice(0, 5).map((muscle) => (
+                              <span key={muscle} className="chip chip--static">
+                                {labels.muscle[muscle]}
+                              </span>
+                            ))}
+                          </span>
+                        ) : null}
+                      </span>
+                      <Icon name={openId === entry.id ? 'up' : 'down'} />
+                    </button>
+                    {openId === entry.id ? <HistoryDetails entry={entry} itemsOf={itemsOf} ownWorkouts={false} /> : null}
                   </li>
                 ))}
               </ul>

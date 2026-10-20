@@ -12,13 +12,13 @@ import { Icon } from '@/app/Icons'
 
 const TIME_FORMAT: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: '2-digit' }
 
-function replayPath(entry: Completion, exerciseIds: readonly string[]): string | null {
+function replayPath(entry: Completion, exerciseIds: readonly string[], ownWorkouts: boolean): string | null {
   const { kind, id } = entry.source
   if (kind === 'curated') {
     return `/app/play/workout/${id}`
   }
   if (kind === 'routine') {
-    return `/app/play/routine/${id}`
+    return ownWorkouts ? `/app/play/routine/${id}` : null
   }
   if (kind === 'exercise') {
     return `/app/play/exercise/${id}`
@@ -26,7 +26,7 @@ function replayPath(entry: Completion, exerciseIds: readonly string[]): string |
   return exerciseIds.length > 0 ? `/app/play/cooldown/${exerciseIds.join('~')}` : null
 }
 
-export function HistoryDetails({ entry, itemsOf }: { entry: Completion; itemsOf: SourceItems }) {
+export function HistoryDetails({ entry, itemsOf, ownWorkouts = true }: { entry: Completion; itemsOf: SourceItems; ownWorkouts?: boolean }) {
   const t = useT()
   const fmt = useFormat()
   const content = useContent()
@@ -44,7 +44,7 @@ export function HistoryDetails({ entry, itemsOf }: { entry: Completion; itemsOf:
     }))
   }, [entry, exerciseIds])
   const muscles = entry.muscles?.length ? entry.muscles : []
-  const replay = replayPath(entry, exerciseIds)
+  const replay = replayPath(entry, exerciseIds, ownWorkouts)
 
   return (
     <div className="history-details">

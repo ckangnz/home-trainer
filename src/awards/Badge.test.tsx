@@ -62,12 +62,12 @@ describe('Badge', () => {
     const { container, rerender } = render(<Badge award={streak} label="streak" />)
     const badge = screen.getByRole('img')
     expect(badge).toHaveAttribute('data-state', 'earned')
-    expect(container.querySelector('.badge__lock')).toBeNull()
-    expect(container.querySelector('.badge__shine')).not.toBeNull()
+    expect(container.querySelector('.award-badge__lock')).toBeNull()
+    expect(container.querySelector('.award-badge__shine')).not.toBeNull()
     rerender(<Badge award={streak} state="locked" label="streak" />)
     expect(badge).toHaveAttribute('data-state', 'locked')
-    expect(container.querySelector('.badge__lock')).not.toBeNull()
-    expect(container.querySelector('.badge__shine')).toBeNull()
+    expect(container.querySelector('.award-badge__lock')).not.toBeNull()
+    expect(container.querySelector('.award-badge__shine')).toBeNull()
   })
 
   it('uses unique gradient ids per instance', () => {
@@ -97,27 +97,27 @@ describe('Badge', () => {
 
   it('shows value, month and year text', () => {
     const { container, unmount } = render(<Badge award={streak} />)
-    expect(container.querySelector('.badge__value')).toHaveTextContent('7')
+    expect(container.querySelector('.award-badge__value')).toHaveTextContent('7')
     unmount()
     const month = render(<Badge award={{ id: 'm', kind: 'month', tier: 'silver', icon: 'calendar', month: 3, year: 2026 }} />)
-    expect(month.container.querySelector('.badge__month')).toHaveTextContent('3')
-    expect(month.container.querySelector('.badge__value')).toHaveTextContent('2026')
+    expect(month.container.querySelector('.award-badge__month')).toHaveTextContent('3')
+    expect(month.container.querySelector('.award-badge__value')).toHaveTextContent('2026')
     month.unmount()
     const holiday = render(<Badge award={{ id: 'h', kind: 'holiday', tier: 'gold', icon: 'chuseok', holiday: 'chuseok', year: 2027 }} />)
-    expect(holiday.container.querySelector('.badge__value')).toHaveTextContent('2027')
+    expect(holiday.container.querySelector('.award-badge__value')).toHaveTextContent('2027')
   })
 
   it('omits the plate when there is nothing to show', () => {
     const { container } = render(<Badge award={{ id: 'x', kind: 'fun', tier: 'gold', icon: 'earlyBird' }} />)
-    expect(container.querySelector('.badge__plate')).toBeNull()
+    expect(container.querySelector('.award-badge__plate')).toBeNull()
   })
 
   it('renders celebration effects only when celebrating', () => {
     const { container, rerender } = render(<Badge award={streak} size="xl" />)
-    expect(container.querySelector('.badge__fx')).toBeNull()
+    expect(container.querySelector('.award-badge__fx')).toBeNull()
     rerender(<Badge award={streak} size="xl" celebrate />)
-    expect(container.querySelector('.badge--celebrate')).not.toBeNull()
-    expect(container.querySelectorAll('.badge__particle').length).toBeGreaterThan(0)
+    expect(container.querySelector('.award-badge--celebrate')).not.toBeNull()
+    expect(container.querySelectorAll('.award-badge__particle').length).toBeGreaterThan(0)
   })
 
   it('renders on the server', () => {

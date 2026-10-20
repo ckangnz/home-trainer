@@ -1,4 +1,4 @@
-.badge {
+.award-badge {
   --badge-size: 64px;
   position: relative;
   display: inline-block;
@@ -9,23 +9,23 @@
   vertical-align: middle;
 }
 
-.badge--sm {
+.award-badge--sm {
   --badge-size: 40px;
 }
 
-.badge--md {
+.award-badge--md {
   --badge-size: 64px;
 }
 
-.badge--lg {
+.award-badge--lg {
   --badge-size: 120px;
 }
 
-.badge--xl {
+.award-badge--xl {
   --badge-size: 220px;
 }
 
-.badge__svg {
+.award-badge__svg {
   position: relative;
   display: block;
   width: 100%;
@@ -33,56 +33,56 @@
   overflow: visible;
 }
 
-.badge[data-state='earned'] .badge__svg {
+.award-badge[data-state='earned'] .award-badge__svg {
   filter: drop-shadow(0 calc(var(--badge-size) * 0.04) calc(var(--badge-size) * 0.08) rgba(0, 0, 0, 0.35));
 }
 
-.badge[data-state='locked'] .badge__svg {
+.award-badge[data-state='locked'] .award-badge__svg {
   opacity: 0.88;
 }
 
-.badge__art {
+.award-badge__art {
   transform-box: view-box;
   transform-origin: 60px 60px;
 }
 
-.badge__shine {
+.award-badge__shine {
   transform-box: view-box;
   opacity: 0;
 }
 
-.badge[data-state='earned'][data-size='lg'] .badge__shine,
-.badge[data-state='earned'][data-size='xl'] .badge__shine {
-  animation: badge-idle-shine 7s var(--ease-out, ease-out) 1.2s infinite;
+.award-badge[data-state='earned'][data-size='lg'] .award-badge__shine,
+.award-badge[data-state='earned'][data-size='xl'] .award-badge__shine {
+  animation: award-badge-idle-shine 7s var(--ease-out, ease-out) 1.2s infinite;
 }
 
-.badge--celebrate .badge__art {
-  animation: badge-pop 900ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
+.award-badge--celebrate .award-badge__art {
+  animation: award-badge-pop 900ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
 }
 
-.badge--celebrate[data-state='earned'] .badge__shine {
+.award-badge--celebrate[data-state='earned'] .award-badge__shine {
   animation:
-    badge-shine 1100ms var(--ease-out, ease-out) 650ms both,
-    badge-idle-shine 7s var(--ease-out, ease-out) 3s infinite;
+    award-badge-shine 1100ms var(--ease-out, ease-out) 650ms both,
+    award-badge-idle-shine 7s var(--ease-out, ease-out) 3s infinite;
 }
 
-.badge__fx {
+.award-badge__fx {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.badge__glow {
+.award-badge__glow {
   position: absolute;
   inset: -18%;
   border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--badge-glow) 55%, transparent) 0%, transparent 68%);
   animation:
-    badge-glow-in 900ms var(--ease-out, ease-out) both,
-    badge-glow-pulse 3.2s ease-in-out 900ms infinite;
+    award-badge-glow-in 900ms var(--ease-out, ease-out) both,
+    award-badge-glow-pulse 3.2s ease-in-out 900ms infinite;
 }
 
-.badge__particle {
+.award-badge__particle {
   --angle: calc(var(--i) * 30deg);
   position: absolute;
   top: 50%;
@@ -94,14 +94,14 @@
   background: var(--badge-glow);
   box-shadow: 0 0 8px var(--badge-glow);
   opacity: 0;
-  animation: badge-particle 1400ms var(--ease-out, ease-out) calc(380ms + var(--i) * 25ms) both;
+  animation: award-badge-particle 1400ms var(--ease-out, ease-out) calc(380ms + var(--i) * 25ms) both;
 }
 
-.badge__particle:nth-child(odd) {
+.award-badge__particle:nth-child(odd) {
   background: #ffffff;
 }
 
-@keyframes badge-pop {
+@keyframes award-badge-pop {
   0% {
     opacity: 0;
     transform: scale(0.3) rotate(-28deg);
@@ -118,7 +118,7 @@
   }
 }
 
-@keyframes badge-shine {
+@keyframes award-badge-shine {
   0% {
     opacity: 1;
     transform: translateX(0);
@@ -129,7 +129,7 @@
   }
 }
 
-@keyframes badge-idle-shine {
+@keyframes award-badge-idle-shine {
   0% {
     opacity: 0.55;
     transform: translateX(0);
@@ -144,7 +144,7 @@
   }
 }
 
-@keyframes badge-glow-in {
+@keyframes award-badge-glow-in {
   0% {
     opacity: 0;
     transform: scale(0.4);
@@ -155,7 +155,7 @@
   }
 }
 
-@keyframes badge-glow-pulse {
+@keyframes award-badge-glow-pulse {
   0%,
   100% {
     opacity: 1;
@@ -165,7 +165,7 @@
   }
 }
 
-@keyframes badge-particle {
+@keyframes award-badge-particle {
   0% {
     opacity: 0;
     transform: rotate(var(--angle)) translateY(0) scale(0.4);
@@ -180,22 +180,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .badge__art,
-  .badge__shine,
-  .badge__glow,
-  .badge__particle,
-  .badge--celebrate .badge__art,
-  .badge--celebrate[data-state='earned'] .badge__shine,
-  .badge[data-state='earned'][data-size='lg'] .badge__shine,
-  .badge[data-state='earned'][data-size='xl'] .badge__shine {
+  .award-badge__art,
+  .award-badge__shine,
+  .award-badge__glow,
+  .award-badge__particle,
+  .award-badge--celebrate .award-badge__art,
+  .award-badge--celebrate[data-state='earned'] .award-badge__shine,
+  .award-badge[data-state='earned'][data-size='lg'] .award-badge__shine,
+  .award-badge[data-state='earned'][data-size='xl'] .award-badge__shine {
     animation: none;
   }
 
-  .badge__particle {
+  .award-badge__particle {
     display: none;
   }
 
-  .badge__glow {
+  .award-badge__glow {
     opacity: 0.8;
   }
 }

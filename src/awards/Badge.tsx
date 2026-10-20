@@ -561,7 +561,7 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
   const plateLeft = 60 - plateWidth / 2
   const plateRight = 60 + plateWidth / 2
   const style = { '--badge-glow': metal.glow } as CSSProperties
-  const classes = ['badge', `badge--${size}`, celebrate ? 'badge--celebrate' : '', className ?? ''].filter(Boolean).join(' ')
+  const classes = ['award-badge', `award-badge--${size}`, celebrate ? 'award-badge--celebrate' : '', className ?? ''].filter(Boolean).join(' ')
 
   return (
     <span
@@ -577,14 +577,14 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
       style={style}
     >
       {celebrate && (
-        <span className="badge__fx" aria-hidden="true">
-          <span className="badge__glow" />
+        <span className="award-badge__fx" aria-hidden="true">
+          <span className="award-badge__glow" />
           {Array.from({ length: 12 }, (_, index) => (
-            <span key={index} className="badge__particle" style={{ '--i': index } as CSSProperties} />
+            <span key={index} className="award-badge__particle" style={{ '--i': index } as CSSProperties} />
           ))}
         </span>
       )}
-      <svg className="badge__svg" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <svg className="award-badge__svg" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id={ids.rim} x1="0.1" y1="0" x2="0.9" y2="1">
             {metal.rim.map((color, index) => (
@@ -631,7 +631,7 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
             <path d={face.d} transform={face.transform} />
           </clipPath>
         </defs>
-        <g className="badge__art">
+        <g className="award-badge__art">
           <BehindDecor award={award} ids={ids} metal={metal} locked={locked} />
           <path d={outer.d} transform={`translate(0 2.5) ${outer.transform ?? ''}`.trim()} fill="#000" opacity="0.4" />
           <path d={outer.d} transform={outer.transform} fill={`url(#${ids.rim})`} />
@@ -662,7 +662,7 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
               fill={locked ? 'none' : `url(#${ids.glyph})`}
               stroke={locked ? LOCKED_LINE : metal.deep}
               strokeWidth={locked ? 1.4 : 0.8}
-              className="badge__month"
+              className="award-badge__month"
             >
               {award.month}
             </text>
@@ -673,7 +673,7 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
           )}
           <FrontDecor award={award} ids={ids} metal={metal} locked={locked} />
           {plate && (
-            <g className="badge__plate">
+            <g className="award-badge__plate">
               <path
                 d={`M${r2(plateLeft + 4)} 91H${r2(plateLeft - 9)}L${r2(plateLeft - 4)} 100.5L${r2(plateLeft - 9)} 110H${r2(plateLeft + 4)}ZM${r2(plateRight - 4)} 91H${r2(plateRight + 9)}L${r2(plateRight + 4)} 100.5L${r2(plateRight + 9)} 110H${r2(plateRight - 4)}Z`}
                 fill={metal.dark}
@@ -692,7 +692,7 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
                 fontWeight="800"
                 fontSize={plateFont}
                 fill={metal.text}
-                className="badge__value"
+                className="award-badge__value"
               >
                 {plate}
               </text>
@@ -701,12 +701,12 @@ export function Badge({ award, state = 'earned', size = 'md', celebrate = false,
           {!locked && (
             <g clipPath={`url(#${ids.clipRim})`}>
               <g transform="rotate(22 60 60)">
-                <rect className="badge__shine" x="-70" y="-40" width="30" height="200" fill={`url(#${ids.shine})`} />
+                <rect className="award-badge__shine" x="-70" y="-40" width="30" height="200" fill={`url(#${ids.shine})`} />
               </g>
             </g>
           )}
           {locked && (
-            <g className="badge__lock">
+            <g className="award-badge__lock">
               <path d={circle(97, 24, 11.5)} fill="#0e1424" stroke="#5c6579" strokeWidth="1.5" />
               <path d="M93.4 24V21.2A3.6 3.6 0 0 1 100.6 21.2V24" fill="none" stroke="#c3cad9" strokeWidth="1.9" strokeLinecap="round" />
               <path d={roundRect(91.2, 23.2, 11.6, 8.6, 1.8)} fill="#c3cad9" />

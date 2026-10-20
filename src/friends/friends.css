@@ -160,3 +160,23 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.friend-entry__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.friend-entry__summary .icon {
+  flex: none;
+  color: var(--color-text-faint);
+}
