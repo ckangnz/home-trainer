@@ -12,7 +12,7 @@ vi.mock('@/auth/AuthProvider', () => ({
     user: { uid: 'user-1', displayName: 'Test User', email: 'test@example.com', photoURL: null },
     error: null,
     profileVersion: 0,
-    refreshProfile: async () => {},
+    refreshProfile: async () => 'unchanged' as const,
     signIn: async () => {},
     signOut: async () => {},
     clearError: () => {},

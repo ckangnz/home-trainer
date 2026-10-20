@@ -45,6 +45,11 @@ export const settings = {
     testPhrase: 'Push-ups, 30 seconds. You have got this!',
   },
   account: {
+    photo: {
+      updated: 'Updated your photo from Google.',
+      unchanged: 'Your photo already matches your Google account.',
+      missing: 'Google says this account has no profile photo. Add one at myaccount.google.com, then tap Refresh again.',
+    },
     title: 'Account',
     signedInAs: 'Signed in as {name}.',
     googleAccount: 'your Google account',

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
+import { useToast } from '@/app/Toast'
 import { userPhoto } from '@/friends/models'
 import { availableVoices, coach } from '@/player/coach'
 import { LANGUAGE_PREFERENCES, WEIGHT_RANGE, updateSettings, useSettings, type LanguagePreference } from '@/settings/settings'
@@ -53,6 +54,7 @@ export function SettingsPage() {
   const { user, signOut, status, refreshProfile, profileVersion, error } = useAuth()
   const photo = userPhoto(user)
   const [refreshing, setRefreshing] = useState(false)
+  const { notify } = useToast()
   const settings = useSettings()
   const voices = useVoices()
 
@@ -159,7 +161,13 @@ export function SettingsPage() {
             disabled={refreshing}
             onClick={() => {
               setRefreshing(true)
-              void refreshProfile().finally(() => setRefreshing(false))
+              void refreshProfile()
+                .then((result) => {
+                  if (result !== 'failed') {
+                    notify(t(`settings.account.photo.${result}`))
+                  }
+                })
+                .finally(() => setRefreshing(false))
             }}
           >
             {refreshing ? t('settings.account.refreshing') : t('settings.account.refreshPhoto')}

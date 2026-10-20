@@ -15,7 +15,7 @@ interface AuthContextValue {
   error: string | null
   signIn: () => Promise<boolean>
   signOut: () => Promise<void>
-  refreshProfile: () => Promise<boolean>
+  refreshProfile: () => Promise<'updated' | 'unchanged' | 'missing' | 'failed'>
   clearError: () => void
   profileVersion: number
 }
@@ -97,12 +97,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setError(null)
     try {
       const auth = moduleRef.current ?? (await loadAuth())
-      await auth.refreshGoogleProfile()
+      const result = await auth.refreshGoogleProfile()
       setProfileVersion((version) => version + 1)
-      return true
+      return result
     } catch (cause) {
       setError(describeAuthError(cause))
-      return false
+      return 'failed' as const
     }
   }, [])
 

@@ -48,6 +48,11 @@ export const settings = {
     testPhrase: '푸시업 30초. 할 수 있어요!',
   },
   account: {
+    photo: {
+      updated: 'Google 사진으로 업데이트했어요.',
+      unchanged: '이미 Google 계정 사진과 같아요.',
+      missing: 'Google에 이 계정의 프로필 사진이 없어요. myaccount.google.com에서 사진을 추가한 뒤 다시 새로고침해 주세요.',
+    },
     title: '계정',
     signedInAs: '{name} 계정으로 로그인했어요.',
     googleAccount: 'Google',

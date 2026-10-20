@@ -40,14 +40,21 @@ export function subscribeToAuth(onChange: (user: User | null) => void, onError?:
   return onAuthStateChanged(services.auth, onChange, onError)
 }
 
-async function syncGooglePhoto(credential: UserCredential | null): Promise<void> {
+export type PhotoSync = 'updated' | 'unchanged' | 'missing'
+
+async function syncGooglePhoto(credential: UserCredential | null): Promise<PhotoSync> {
   if (credential === null) {
-    return
+    return 'unchanged'
   }
   const picture = getAdditionalUserInfo(credential)?.profile?.picture
-  if (typeof picture === 'string' && picture.startsWith('https://') && picture !== credential.user.photoURL) {
-    await updateProfile(credential.user, { photoURL: picture })
+  if (typeof picture !== 'string' || !picture.startsWith('https://') || /default-user/.test(picture)) {
+    return 'missing'
   }
+  if (picture === credential.user.photoURL) {
+    return 'unchanged'
+  }
+  await updateProfile(credential.user, { photoURL: picture })
+  return 'updated'
 }
 
 export async function signInWithGoogle(): Promise<void> {
@@ -73,13 +80,13 @@ export async function completeRedirectSignIn(): Promise<void> {
   }
 }
 
-export async function refreshGoogleProfile(): Promise<void> {
+export async function refreshGoogleProfile(): Promise<PhotoSync> {
   const services = getFirebase()
   const user = services?.auth.currentUser
   if (!services || !user) {
     throw new FirebaseNotConfiguredError()
   }
-  await syncGooglePhoto(await reauthenticateWithPopup(user, googleProvider))
+  return syncGooglePhoto(await reauthenticateWithPopup(user, googleProvider))
 }
 
 export async function signOutCurrentUser(): Promise<void> {
