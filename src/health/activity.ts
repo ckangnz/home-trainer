@@ -7,7 +7,6 @@ export type HealthActivity =
   | 'coreTraining'
   | 'flexibility'
   | 'yoga'
-  | 'cooldown'
   | 'recovery'
 
 export const APPLE_ACTIVITY: Record<HealthActivity, string> = {
@@ -17,7 +16,6 @@ export const APPLE_ACTIVITY: Record<HealthActivity, string> = {
   coreTraining: 'Core Training',
   flexibility: 'Flexibility',
   yoga: 'Yoga',
-  cooldown: 'Cooldown',
   recovery: 'Preparation and Recovery',
 }
 
@@ -28,7 +26,6 @@ export const HEALTH_CONNECT_ACTIVITY: Record<HealthActivity, string> = {
   coreTraining: 'CALISTHENICS',
   flexibility: 'STRETCHING',
   yoga: 'YOGA',
-  cooldown: 'STRETCHING',
   recovery: 'STRETCHING',
 }
 
@@ -55,7 +52,7 @@ const GROUP: Record<Category, Group> = {
 
 export function activityFor(parts: readonly ActivityPart[], cooldown = false): HealthActivity {
   if (cooldown) {
-    return 'cooldown'
+    return 'flexibility'
   }
   const totals: Record<Group, number> = { stretch: 0, yoga: 0, recovery: 0, cardio: 0, weights: 0, core: 0, strength: 0 }
   for (const part of parts) {

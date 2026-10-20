@@ -14,7 +14,7 @@ function partsFor(exerciseIds: readonly string[]): ActivityPart[] {
 
 export function completionActivity(completion: Completion, itemsOf?: SourceItems): HealthActivity {
   if (completion.source.kind === 'cooldown') {
-    return 'cooldown'
+    return 'flexibility'
   }
   const recorded = completion.exerciseIds ?? []
   const ids = recorded.length > 0 ? recorded : (itemsOf?.(completion) ?? [])

@@ -6,11 +6,11 @@ import { completionActivity } from './fromCompletion'
 const part = (category: Parameters<typeof activityFor>[0][number]['category'], ms = 30000) => ({ category, ms })
 
 describe('health activity type', () => {
-  it('records stretch, yoga, and foam rolling sessions as non-strength activities', () => {
+  it('records stretch, yoga, foam rolling, and cool-down sessions as non-strength activities', () => {
     expect(activityFor([part('stretch'), part('mobility'), part('stretch')])).toBe('flexibility')
     expect(activityFor([part('yoga'), part('yoga'), part('stretch')])).toBe('yoga')
     expect(activityFor([part('recovery'), part('recovery'), part('stretch')])).toBe('recovery')
-    expect(activityFor([part('stretch')], true)).toBe('cooldown')
+    expect(activityFor([part('cardio')], true)).toBe('flexibility')
   })
 
   it('weights the decision by time', () => {
@@ -26,7 +26,7 @@ describe('health activity type', () => {
     const base = { id: 'c', ownerId: 'u', schemaVersion: 2, title: 'T', startedAt: '', completedAt: '', durationMs: 1, exercises: 1, totalExercises: 1 }
     const stretchOnly = { ...base, source: { kind: 'curated', id: 'full-body-stretch' } } as Completion
     expect(completionActivity(stretchOnly, () => ['neck-side-stretch', 'pigeon-pose', 'childs-pose'])).toBe('flexibility')
-    expect(completionActivity({ ...base, source: { kind: 'cooldown', id: 'stretch' } } as Completion)).toBe('cooldown')
+    expect(completionActivity({ ...base, source: { kind: 'cooldown', id: 'stretch' } } as Completion)).toBe('flexibility')
     expect(completionActivity({ ...stretchOnly, exerciseIds: ['burpees', 'jumping-jacks'] }, () => ['childs-pose'])).toBe('hiit')
   })
 })
