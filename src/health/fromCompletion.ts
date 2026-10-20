@@ -1,33 +1,34 @@
 import { getExercise } from '@/exercises'
-import type { Category } from '@/exercises/types'
 import type { Completion } from '@/data/models'
+import { activityFor, type ActivityPart, type HealthActivity } from './activity'
 import type { HealthWorkout } from './export'
 
-export function workoutCategory(exerciseIds: readonly string[] | undefined): Category | null {
-  const counts = new Map<Category, number>()
-  for (const id of exerciseIds ?? []) {
+export type SourceItems = (completion: Completion) => readonly string[]
+
+function partsFor(exerciseIds: readonly string[]): ActivityPart[] {
+  return exerciseIds.flatMap((id) => {
     const exercise = getExercise(id)
-    if (exercise) {
-      counts.set(exercise.category, (counts.get(exercise.category) ?? 0) + 1)
-    }
-  }
-  let best: Category | null = null
-  for (const [category, count] of counts) {
-    if (best === null || count > (counts.get(best) ?? 0)) {
-      best = category
-    }
-  }
-  return best
+    return exercise ? [{ category: exercise.category, ms: 1 }] : []
+  })
 }
 
-export function healthWorkoutFrom(completion: Completion, title: string): HealthWorkout {
+export function completionActivity(completion: Completion, itemsOf?: SourceItems): HealthActivity {
+  if (completion.source.kind === 'cooldown') {
+    return 'cooldown'
+  }
+  const recorded = completion.exerciseIds ?? []
+  const ids = recorded.length > 0 ? recorded : (itemsOf?.(completion) ?? [])
+  return activityFor(partsFor(ids))
+}
+
+export function healthWorkoutFrom(completion: Completion, title: string, itemsOf?: SourceItems): HealthWorkout {
   return {
     title,
     startedAt: completion.startedAt,
     endedAt: completion.completedAt,
     activeMs: completion.durationMs,
     calories: completion.calories ?? 0,
-    category: workoutCategory(completion.exerciseIds),
+    activity: completionActivity(completion, itemsOf),
     exercises: completion.exercises,
   }
 }

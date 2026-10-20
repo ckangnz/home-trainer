@@ -11,6 +11,7 @@ import { AdUnit } from '@/ads/AdUnit'
 import { ShareResultButton } from '@/components/Support'
 import { HealthExportDialog } from '@/health/HealthExportDialog'
 import { healthWorkoutFrom } from '@/health/fromCompletion'
+import { getCuratedWorkout } from '@/workouts/curated'
 import './history.css'
 
 const DAY_FORMAT: Intl.DateTimeFormatOptions = { weekday: 'long', month: 'short', day: 'numeric' }
@@ -32,7 +33,12 @@ export function HistoryPage() {
   const fmt = useFormat()
   const content = useContent()
   usePageMeta(t('app.history.title'))
-  const { completions, removeCompletion, ready } = useData()
+  const { completions, removeCompletion, ready, getRoutine } = useData()
+  const itemsOf = (completion: Completion): string[] => {
+    const { kind, id } = completion.source
+    const items = kind === 'curated' ? getCuratedWorkout(id)?.items : kind === 'routine' ? getRoutine(id)?.items : undefined
+    return items ? items.map((item) => item.exerciseId) : kind === 'exercise' ? [id] : []
+  }
   const [exporting, setExporting] = useState<{ entry: Completion; title: string } | null>(null)
   const today = useMemo(() => new Date(), [])
   const streak = summarizeStreak(completions, today)
@@ -127,7 +133,7 @@ export function HistoryPage() {
         </div>
       )}
       {exporting ? (
-        <HealthExportDialog workout={healthWorkoutFrom(exporting.entry, exporting.title)} open onClose={() => setExporting(null)} />
+        <HealthExportDialog workout={healthWorkoutFrom(exporting.entry, exporting.title, itemsOf)} open onClose={() => setExporting(null)} />
       ) : null}
     </div>
   )

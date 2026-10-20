@@ -35,6 +35,7 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
     startLocal: <code>startLocal</code>,
     durationMinutes: <code>durationMinutes</code>,
     activeCalories: <code>activeCalories</code>,
+    type: <code>type</code>,
   }
 
   const shareFile = async () => {
@@ -60,7 +61,7 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
         <Icon name="heart" />
         {t('social.health.appleHealth')}
       </h3>
-      <p className="faint">{t('social.health.appleExplain', { type: appleWorkoutType(workout.category) })}</p>
+      <p className="faint">{t('social.health.appleExplain', { type: appleWorkoutType(workout.activity) })}</p>
       <a className="btn btn--primary" href={shortcutUrl(workout)}>
         <Icon name="heart" />
         {t('social.health.sendToApple')}

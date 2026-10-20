@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { EXERCISES, getExercise } from '@/exercises'
 import type { ExerciseInfo } from '@/exercises/types'
 import { cooldownBody, cooldownId, suggestCooldown } from './cooldown'
-import { estimateCalories, primaryCategory, workedMuscles } from './summary'
+import { estimateCalories, workedMuscles } from './summary'
 import { normalizeBody } from './routine'
 
 const squat = getExercise('squat') as ExerciseInfo
@@ -24,7 +24,6 @@ describe('workout summary', () => {
     ])
     expect(muscles[0]).toBe(squat.muscles[0])
     expect(muscles).toContain(pushUp.muscles[0])
-    expect(primaryCategory([{ exercise: squat, ms: 60_000 }, { exercise: pushUp, ms: 30_000 }])).toBe(squat.category)
   })
 })
 

@@ -1,4 +1,4 @@
-import type { Category } from '@/exercises/types'
+import { APPLE_ACTIVITY, HEALTH_CONNECT_ACTIVITY, type HealthActivity } from './activity'
 
 export interface HealthWorkout {
   title: string
@@ -6,7 +6,7 @@ export interface HealthWorkout {
   endedAt: string
   activeMs: number
   calories: number
-  category: Category | null
+  activity: HealthActivity
   exercises: number
 }
 
@@ -16,40 +16,12 @@ const INSTALL_URL = import.meta.env.VITE_HEALTH_SHORTCUT_URL?.trim() ?? ''
 
 export const SHORTCUT_INSTALL_URL = /^https:\/\/www\.icloud\.com\/shortcuts\/[0-9a-f]+/i.test(INSTALL_URL) ? INSTALL_URL : ''
 
-const APPLE_TYPE: Record<Category, string> = {
-  cardio: 'High Intensity Interval Training',
-  fullBody: 'Functional Strength Training',
-  upperBody: 'Functional Strength Training',
-  lowerBody: 'Functional Strength Training',
-  core: 'Core Training',
-  weights: 'Traditional Strength Training',
-  stretch: 'Flexibility',
-  mobility: 'Flexibility',
-  recovery: 'Preparation and Recovery',
-  yoga: 'Yoga',
-  warmup: 'Preparation and Recovery',
+export function appleWorkoutType(activity: HealthActivity): string {
+  return APPLE_ACTIVITY[activity]
 }
 
-const HEALTH_CONNECT_TYPE: Record<Category, string> = {
-  cardio: 'HIGH_INTENSITY_INTERVAL_TRAINING',
-  fullBody: 'CALISTHENICS',
-  upperBody: 'CALISTHENICS',
-  lowerBody: 'CALISTHENICS',
-  core: 'CALISTHENICS',
-  weights: 'STRENGTH_TRAINING',
-  stretch: 'STRETCHING',
-  mobility: 'STRETCHING',
-  recovery: 'STRETCHING',
-  yoga: 'YOGA',
-  warmup: 'CALISTHENICS',
-}
-
-export function appleWorkoutType(category: Category | null): string {
-  return category ? APPLE_TYPE[category] : 'Functional Strength Training'
-}
-
-export function healthConnectType(category: Category | null): string {
-  return category ? HEALTH_CONNECT_TYPE[category] : 'CALISTHENICS'
+export function healthConnectType(activity: HealthActivity): string {
+  return HEALTH_CONNECT_ACTIVITY[activity]
 }
 
 function localStamp(iso: string): string {
@@ -61,8 +33,8 @@ function localStamp(iso: string): string {
 export function healthPayload(workout: HealthWorkout): Record<string, string | number> {
   return {
     name: workout.title,
-    type: appleWorkoutType(workout.category),
-    healthConnectType: healthConnectType(workout.category),
+    type: appleWorkoutType(workout.activity),
+    healthConnectType: healthConnectType(workout.activity),
     start: workout.startedAt,
     end: workout.endedAt,
     startLocal: localStamp(workout.startedAt),
@@ -99,7 +71,7 @@ export function buildTcx(workout: HealthWorkout): string {
     '        <Intensity>Active</Intensity>',
     '        <TriggerMethod>Manual</TriggerMethod>',
     '      </Lap>',
-    `      <Notes>${escapeXml(`${workout.title} · ${appleWorkoutType(workout.category)} · ${workout.exercises} exercises · HomeTrainer`)}</Notes>`,
+    `      <Notes>${escapeXml(`${workout.title} · ${appleWorkoutType(workout.activity)} · ${workout.exercises} exercises · HomeTrainer`)}</Notes>`,
     '    </Activity>',
     '  </Activities>',
     '</TrainingCenterDatabase>',

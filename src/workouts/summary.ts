@@ -33,20 +33,6 @@ export function estimateCalories(worked: WorkedExercise[], activeMs: number, wei
   return Math.round(metHours * weightKg)
 }
 
-export function primaryCategory(worked: WorkedExercise[]): Category | null {
-  const totals = new Map<Category, number>()
-  for (const entry of worked) {
-    totals.set(entry.exercise.category, (totals.get(entry.exercise.category) ?? 0) + entry.ms)
-  }
-  let best: Category | null = null
-  for (const [category, ms] of totals) {
-    if (best === null || ms > (totals.get(best) ?? 0)) {
-      best = category
-    }
-  }
-  return best
-}
-
 export function workedMuscles(worked: WorkedExercise[], limit = 8): Muscle[] {
   const scores = new Map<Muscle, number>()
   for (const entry of worked) {

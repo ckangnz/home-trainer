@@ -8,7 +8,7 @@ const workout: HealthWorkout = {
   endedAt: '2026-10-19T07:21:30.000Z',
   activeMs: 20 * 60_000,
   calories: 143,
-  category: 'weights',
+  activity: 'traditionalStrength',
   exercises: 9,
 }
 

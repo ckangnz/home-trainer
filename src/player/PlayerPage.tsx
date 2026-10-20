@@ -17,7 +17,8 @@ import { DEFAULT_ROUTINE_DEFAULTS } from '@/workouts/routine'
 import { expandRoutine, formatClock, workStepCount } from '@/workouts/steps'
 import type { PauseStep, PlaybackStep, RoutineBody, WorkStep } from '@/workouts/types'
 import { COOLDOWN_SEPARATOR, cooldownBody, cooldownId, suggestCooldown } from '@/workouts/cooldown'
-import { estimateCalories, primaryCategory, workedMuscles, type WorkedExercise } from '@/workouts/summary'
+import { estimateCalories, workedMuscles, type WorkedExercise } from '@/workouts/summary'
+import { activityFor } from '@/health/activity'
 import type { HealthWorkout } from '@/health/export'
 import { HealthExportDialog } from '@/health/HealthExportDialog'
 import { MuscleMap } from '@/components/MuscleMap'
@@ -185,7 +186,15 @@ interface SessionSummary {
   health: HealthWorkout
 }
 
-function summarize(title: string, log: WorkLogEntry[], activeMs: number, weightKg: number, startedAt: number, endedAt: number): SessionSummary {
+function summarize(
+  title: string,
+  log: WorkLogEntry[],
+  activeMs: number,
+  weightKg: number,
+  startedAt: number,
+  endedAt: number,
+  cooldown: boolean,
+): SessionSummary {
   const worked = log
     .map((entry) => ({ exercise: getExercise(entry.exerciseId), ms: entry.ms }))
     .filter((entry): entry is WorkedExercise => entry.exercise !== undefined)
@@ -201,7 +210,10 @@ function summarize(title: string, log: WorkLogEntry[], activeMs: number, weightK
       endedAt: new Date(endedAt).toISOString(),
       activeMs,
       calories,
-      category: primaryCategory(worked),
+      activity: activityFor(
+        worked.map((entry) => ({ category: entry.exercise.category, ms: entry.ms })),
+        cooldown,
+      ),
       exercises: worked.length,
     },
   }
@@ -278,7 +290,7 @@ function PlayerSession({ session }: { session: Session }) {
       return null
     }
     const endedAt = wallStart.current + (state.finishedAt - state.startedAt)
-    return summarize(text.title, state.workLog, Math.round(activeDurationMs(state, state.finishedAt)), settings.weightKg, wallStart.current, endedAt)
+    return summarize(text.title, state.workLog, Math.round(activeDurationMs(state, state.finishedAt)), settings.weightKg, wallStart.current, endedAt, frozen.source.kind === 'cooldown')
   }, [finished, state, text.title, settings.weightKg])
 
   useEffect(() => {
