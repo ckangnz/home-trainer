@@ -12,6 +12,7 @@ import { ShareResultButton } from '@/components/Support'
 import { HealthExportDialog } from '@/health/HealthExportDialog'
 import { healthWorkoutFrom } from '@/health/fromCompletion'
 import { getCuratedWorkout } from '@/workouts/curated'
+import { HistoryDetails } from './HistoryDetails'
 import './history.css'
 
 const DAY_FORMAT: Intl.DateTimeFormatOptions = { weekday: 'long', month: 'short', day: 'numeric' }
@@ -40,6 +41,7 @@ export function HistoryPage() {
     return items ? items.map((item) => item.exerciseId) : kind === 'exercise' ? [id] : []
   }
   const [exporting, setExporting] = useState<{ entry: Completion; title: string } | null>(null)
+  const [openId, setOpenId] = useState<string | null>(null)
   const today = useMemo(() => new Date(), [])
   const streak = summarizeStreak(completions, today)
   const totalMs = completions.reduce((sum, completion) => sum + completion.durationMs, 0)
@@ -98,13 +100,23 @@ export function HistoryPage() {
                   const title = entryTitle(entry, content)
                   return (
                     <li key={entry.id} className="history-entry card">
-                      <div className="stack stack--tight">
-                        <strong>{title}</strong>
-                        <span className="faint">
-                          {fmt.date(entry.completedAt, TIME_FORMAT)} · {fmt.duration(entry.durationMs)} ·{' '}
-                          {t('app.history.moves', { done: entry.exercises, total: entry.totalExercises })}
+                      <button
+                        type="button"
+                        className="history-entry__summary"
+                        aria-expanded={openId === entry.id}
+                        aria-label={`${title} · ${openId === entry.id ? t('app.history.hideDetails') : t('app.history.details')}`}
+                        onClick={() => setOpenId(openId === entry.id ? null : entry.id)}
+                      >
+                        <span className="stack stack--tight">
+                          <strong>{title}</strong>
+                          <span className="faint">
+                            {fmt.date(entry.completedAt, TIME_FORMAT)} · {fmt.duration(entry.durationMs)} ·{' '}
+                            {t('app.history.moves', { done: entry.exercises, total: entry.totalExercises })}
+                            {entry.calories !== undefined ? ` · ${entry.calories} kcal` : ''}
+                          </span>
                         </span>
-                      </div>
+                        <Icon name={openId === entry.id ? 'up' : 'down'} />
+                      </button>
                       <div className="history-entry__actions">
                         <button type="button" className="btn btn--small" onClick={() => setExporting({ entry, title })}>
                           <Icon name="heart" />
@@ -124,6 +136,7 @@ export function HistoryPage() {
                           <Icon name="trash" />
                         </button>
                       </div>
+                      {openId === entry.id ? <HistoryDetails entry={entry} itemsOf={itemsOf} /> : null}
                     </li>
                   )
                 })}

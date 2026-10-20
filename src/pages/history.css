@@ -43,6 +43,116 @@
   padding: var(--space-3) var(--space-4);
 }
 
+.history-entry__summary {
+  flex: 1 1 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-entry__summary .icon {
+  flex: none;
+  color: var(--color-text-faint);
+}
+
+.history-details {
+  flex-basis: 100%;
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  animation: item-enter var(--duration-base) var(--ease-out) both;
+}
+
+.history-details__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.history-details__stats div {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.history-details__wide {
+  grid-column: 1 / -1;
+}
+
+.history-details__stats dt {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.history-details__stats dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
+.history-details__muscles {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.history-details__muscles .muscle-map {
+  flex: none;
+  width: 120px;
+  margin: 0;
+}
+
+.history-details__heading {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.history-details__moves {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-2);
+}
+
+.history-details__move {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  color: inherit;
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.history-details__move:hover {
+  background: var(--color-surface-2);
+}
+
+.history-details__thumb {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+.history-details__again {
+  justify-self: start;
+}
+
 .history-entry__actions {
   display: flex;
   align-items: center;

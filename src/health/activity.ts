@@ -79,7 +79,7 @@ export function activityFor(parts: readonly ActivityPart[], cooldown = false): H
   if (share('core') >= 0.6) {
     return 'coreTraining'
   }
-  if (share('cardio') >= 0.3) {
+  if (share('cardio') >= 0.15 && gentle < 0.2 && share('weights') < 0.2) {
     return 'hiit'
   }
   return 'functionalStrength'

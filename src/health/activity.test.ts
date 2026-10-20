@@ -20,6 +20,8 @@ describe('health activity type', () => {
     expect(activityFor([part('lowerBody'), part('upperBody'), part('stretch')])).toBe('functionalStrength')
     expect(activityFor([part('cardio'), part('lowerBody'), part('upperBody')])).toBe('hiit')
     expect(activityFor([])).toBe('functionalStrength')
+    expect(activityFor([part('cardio'), part('cardio'), ...Array.from({ length: 10 }, () => part('upperBody'))])).toBe('hiit')
+    expect(activityFor([part('cardio'), ...Array.from({ length: 3 }, () => part('stretch')), ...Array.from({ length: 6 }, () => part('lowerBody'))])).toBe('functionalStrength')
   })
 
   it('falls back to the workout source for older history entries', () => {
