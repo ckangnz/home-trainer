@@ -72,12 +72,21 @@ describe('workout player', () => {
     await advance(120_000)
     expect(screen.getByRole('button', { name: 'Done' })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: /Pause/ }))
+    fireEvent.click(screen.getAllByRole('button', { name: /Pause/ })[0])
     expect(screen.getByRole('dialog', { name: 'Paused' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Resume' }))
 
     fireEvent.click(screen.getByRole('button', { name: 'Done' }))
     await advance(200)
     expect(screen.getByRole('heading', { name: 'Workout complete!' })).toBeInTheDocument()
+  })
+
+  it('pauses from the rest screen and the top bar', async () => {
+    renderAt('/app/play/workout/classic-7-minute')
+    fireEvent.click(await screen.findByRole('button', { name: /^Start$/ }))
+    const rest = screen.getAllByRole('button', { name: /Pause/ })
+    expect(rest.length).toBe(2)
+    fireEvent.click(rest[1])
+    expect(screen.getByRole('dialog', { name: 'Paused' })).toBeInTheDocument()
   })
 })

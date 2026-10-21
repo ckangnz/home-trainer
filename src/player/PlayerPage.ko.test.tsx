@@ -75,7 +75,7 @@ describe('workout player in Korean', () => {
     expect(await screen.findByRole('heading', { name })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '시작' }))
     await advance(5_500)
-    fireEvent.click(screen.getByRole('button', { name: '일시정지' }))
+    fireEvent.click(screen.getAllByRole('button', { name: '일시정지' })[0])
     expect(screen.getByRole('dialog', { name: '일시정지' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '계속' }))
     const done = screen.queryByRole('button', { name: '완료' })
