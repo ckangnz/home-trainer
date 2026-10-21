@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { SITE, absoluteUrl } from '@/app/site'
 import { Icon } from '@/app/Icons'
 import { useToast } from '@/app/Toast'
@@ -57,19 +57,63 @@ export function ShareResultButton({ title, minutes, className = 'btn btn--lg' }:
 
 const CONFETTI_COLORS = ['#ff6a2b', '#38bdf8', '#34d399', '#fbbf24', '#f472b6']
 
+const BURST_PIECES = 64
+
+const RAIN_PIECES = 36
+
+const SHAPES = ['rect', 'round', 'ribbon'] as const
+
+function seeded(index: number, salt: number): number {
+  const value = Math.sin(index * 12.9898 + salt * 78.233) * 43758.5453
+  return value - Math.floor(value)
+}
+
 export function Confetti() {
   return (
     <div className="confetti" aria-hidden="true">
-      {Array.from({ length: 28 }, (_, index) => (
+      {Array.from({ length: BURST_PIECES }, (_, index) => {
+        const angle = -Math.PI / 2 + (seeded(index, 1) - 0.5) * Math.PI * 1.5
+        const power = 28 + seeded(index, 2) * 34
+        return (
+          <span
+            key={`burst-${index}`}
+            className={`confetti__piece confetti__piece--${SHAPES[index % SHAPES.length]} confetti__burst`}
+            style={
+              {
+                background: CONFETTI_COLORS[index % CONFETTI_COLORS.length],
+                '--dx': `${Math.cos(angle) * power}vw`,
+                '--dy': `${Math.sin(angle) * power * 0.9}vh`,
+                '--spin': `${360 + seeded(index, 3) * 720}deg`,
+                animationDelay: `${seeded(index, 4) * 0.12}s`,
+                animationDuration: `${1.9 + seeded(index, 5) * 1.1}s`,
+              } as CSSProperties
+            }
+          />
+        )
+      })}
+      {Array.from({ length: RAIN_PIECES }, (_, index) => (
         <span
-          key={index}
-          style={{
-            left: `${(index * 37) % 100}%`,
-            background: CONFETTI_COLORS[index % CONFETTI_COLORS.length],
-            animationDelay: `${(index % 7) * 0.12}s`,
-            animationDuration: `${2.2 + (index % 5) * 0.35}s`,
-          }}
-        />
+          key={`rain-${index}`}
+          className="confetti__rain"
+          style={
+            {
+              left: `${seeded(index, 6) * 100}%`,
+              animationDelay: `${1.1 + seeded(index, 7) * 5}s`,
+              animationDuration: `${5 + seeded(index, 8) * 4}s`,
+            } as CSSProperties
+          }
+        >
+          <span
+            className={`confetti__piece confetti__piece--${SHAPES[(index + 1) % SHAPES.length]} confetti__sway`}
+            style={
+              {
+                background: CONFETTI_COLORS[(index + 2) % CONFETTI_COLORS.length],
+                animationDuration: `${1.4 + seeded(index, 9) * 1.4}s`,
+                animationDelay: `${-seeded(index, 10) * 2}s`,
+              } as CSSProperties
+            }
+          />
+        </span>
       ))}
     </div>
   )

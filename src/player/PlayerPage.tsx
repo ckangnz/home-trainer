@@ -360,6 +360,11 @@ function PlayerSession({ session }: { session: Session }) {
         <div className="player__progress" aria-label={t('player.progress')}>
           <div className="player__progress-bar" style={{ transform: `scaleX(${progressFraction(state)})` }} />
         </div>
+        {state.status === 'running' ? (
+          <button type="button" className="btn btn--ghost btn--icon" aria-label={t('player.pause')} onClick={player.pause}>
+            <Icon name="pause" />
+          </button>
+        ) : null}
         <button
           type="button"
           className="btn btn--ghost btn--icon"
@@ -572,6 +577,10 @@ function PauseView({
           <button type="button" className="btn" onClick={() => player.extend(10000)}>
             <Icon name="plus" />
             {fmt.seconds(10)}
+          </button>
+          <button type="button" className="btn" onClick={state.status === 'running' ? player.pause : player.resume}>
+            <Icon name={state.status === 'running' ? 'pause' : 'play'} />
+            {state.status === 'running' ? t('player.pause') : t('player.resume')}
           </button>
           <button type="button" className="btn btn--primary" onClick={player.next}>
             {t('player.rest.skip')}

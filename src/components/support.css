@@ -16,32 +16,104 @@
 }
 
 .confetti {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: 3;
   overflow: hidden;
   pointer-events: none;
 }
 
-.confetti span {
+.confetti__piece {
   position: absolute;
-  top: -12px;
+  display: block;
   width: 9px;
   height: 14px;
   border-radius: 2px;
-  opacity: 0.9;
-  animation-name: confetti-fall;
-  animation-timing-function: cubic-bezier(0.3, 0.6, 0.5, 1);
-  animation-iteration-count: 1;
+  will-change: transform, opacity;
+}
+
+.confetti__piece--round {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.confetti__piece--ribbon {
+  width: 5px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+.confetti__burst {
+  left: 50%;
+  top: 28%;
+  opacity: 0;
+  animation-name: confetti-burst;
+  animation-timing-function: cubic-bezier(0.15, 0.7, 0.35, 1);
   animation-fill-mode: forwards;
 }
 
-@keyframes confetti-fall {
+.confetti__rain {
+  position: absolute;
+  top: -24px;
+  animation-name: confetti-rain;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  opacity: 0;
+}
+
+.confetti__sway {
+  position: relative;
+  animation-name: confetti-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes confetti-burst {
   0% {
-    transform: translateY(0) rotate(0deg);
     opacity: 1;
+    transform: translate(-50%, 0) scale(0.4) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--dx)), var(--dy)) scale(1) rotate(calc(var(--spin) * 0.4));
   }
   100% {
-    transform: translateY(105dvh) rotate(540deg);
     opacity: 0;
+    transform: translate(calc(-50% + var(--dx) * 1.25), calc(var(--dy) + 80vh)) scale(0.9) rotate(var(--spin));
+  }
+}
+
+@keyframes confetti-rain {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  8% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100dvh + 48px));
+  }
+}
+
+@keyframes confetti-sway {
+  from {
+    transform: translateX(-14px) rotate(-35deg) rotateY(0deg);
+  }
+  to {
+    transform: translateX(14px) rotate(35deg) rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti {
+    display: none;
   }
 }
