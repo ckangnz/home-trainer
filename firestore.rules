@@ -54,16 +54,28 @@ service cloud.firestore {
       allow create, update: if isOwner(userId)
         && request.resource.data.keys().hasOnly(['settings', 'updatedAt'])
         && request.resource.data.settings is map
-        && request.resource.data.settings.keys().hasOnly(['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'language'])
+        && request.resource.data.settings.keys().hasOnly(['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'heightCm', 'language'])
         && request.resource.data.updatedAt is number;
     }
 
     match /users/{userId}/private/progress {
       allow read, delete: if isOwner(userId);
       allow create, update: if isOwner(userId)
-        && request.resource.data.keys().hasOnly(['totalWorkouts', 'lastCompletedAt', 'longestStreak', 'streakStart', 'streakEnd'])
+        && request.resource.data.keys().hasOnly(['totalWorkouts', 'totalMs', 'lastCompletedAt', 'longestStreak', 'streakStart', 'streakEnd'])
         && request.resource.data.totalWorkouts is int
         && request.resource.data.longestStreak is int;
+    }
+
+    match /users/{userId}/weights/{day} {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.keys().hasOnly(['date', 'kg', 'updatedAt'])
+        && request.resource.data.date == day
+        && request.resource.data.kg is number
+        && request.resource.data.kg >= 20
+        && request.resource.data.kg <= 400
+        && request.resource.data.updatedAt is string;
     }
 
     match /users/{userId}/awards/{awardId} {

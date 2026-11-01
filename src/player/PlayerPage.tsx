@@ -7,7 +7,6 @@ import type { ExerciseInfo } from '@/exercises/types'
 import { useData } from '@/data/DataProvider'
 import { useAuth } from '@/auth/AuthProvider'
 import type { CompletionSource } from '@/data/models'
-import { summarizeStreak } from '@/history/streaks'
 import { AdUnit } from '@/ads/AdUnit'
 import { shouldRequestPauseAd } from '@/ads/policy'
 import { updateSettings, useSettings } from '@/settings/settings'
@@ -234,7 +233,8 @@ function targetLabel(step: WorkStep, exercise: ExerciseInfo | undefined, t: TFun
 function PlayerSession({ session }: { session: Session }) {
   const [frozen] = useState(session)
   const navigate = useNavigate()
-  const { addCompletion, completions } = useData()
+  const { addCompletion } = useData()
+  const { evaluation: awardsEvaluation } = useAwards()
   const settings = useSettings()
   const t = useT()
   const text = useSessionText(frozen)
@@ -386,7 +386,7 @@ function PlayerSession({ session }: { session: Session }) {
           durationMs={activeDurationMs(state, now)}
           exercises={state.completedWork}
           total={totalWork}
-          streak={summarizeStreak(completions, new Date()).current}
+          streak={awardsEvaluation.currentStreak}
           onAgain={start}
         />
       ) : step?.kind === 'work' ? (

@@ -9,6 +9,7 @@ import { monthProgress } from './evaluate'
 import { earnedAwards, useAwards } from './AwardsProvider'
 import { useAwardText } from './text'
 import type { AwardDef, AwardProgress } from './types'
+import { BackButton } from '@/components/BackButton'
 import './awards.css'
 
 interface Tile {
@@ -112,6 +113,7 @@ export function AwardsPage() {
 
   return (
     <div className="page awards-page">
+      <BackButton fallback="/app" />
       <header className="page__header">
         <h1 className="page__title">{t('awards.title')}</h1>
         <p className="page__lead">{t('awards.lead')}</p>

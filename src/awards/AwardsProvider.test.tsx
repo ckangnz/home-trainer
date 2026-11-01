@@ -49,7 +49,7 @@ vi.mock('@/data/awards', () => ({
     return () => {}
   },
   subscribeProgress: (_uid: string, onChange: (progress: StoredProgress) => void) => {
-    onChange({ totalWorkouts: 0, lastCompletedAt: null, longestStreak: 0, streakStart: null, streakEnd: null })
+    onChange({ totalWorkouts: 0, totalMs: 0, lastCompletedAt: null, longestStreak: 0, streakStart: null, streakEnd: null })
     return () => {}
   },
   saveAwards: async (_uid: string, awards: EarnedAward[], progress: StoredProgress) => {

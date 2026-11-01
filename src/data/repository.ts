@@ -3,11 +3,13 @@ import {
   deleteDoc,
   doc,
   getDoc,
+  getDocs,
   limit,
   onSnapshot,
   orderBy,
   query,
   setDoc,
+  where,
   type Firestore,
   type Unsubscribe,
 } from 'firebase/firestore'
@@ -25,8 +27,8 @@ import {
   type Completion,
   type SharedRoutine,
 } from './models'
+import { PAGE_SIZE, RECENT_LIMIT } from './limits'
 
-const HISTORY_LIMIT = 200
 const SHARE_ATTEMPTS = 4
 
 function database(): Firestore {
@@ -73,7 +75,7 @@ export function subscribeCompletions(
   onError: (error: unknown) => void,
 ): Unsubscribe {
   return onSnapshot(
-    query(collection(database(), 'users', uid, 'completions'), orderBy('completedAt', 'desc'), limit(HISTORY_LIMIT)),
+    query(collection(database(), 'users', uid, 'completions'), orderBy('completedAt', 'desc'), limit(RECENT_LIMIT)),
     (snapshot) => {
       onChange(
         snapshot.docs
@@ -83,6 +85,30 @@ export function subscribeCompletions(
     },
     onError,
   )
+}
+
+function parseAll(uid: string, docs: { id: string; data: () => unknown }[]): Completion[] {
+  return docs.map((entry) => parseCompletion(entry.id, uid, entry.data())).filter((completion): completion is Completion => completion !== null)
+}
+
+export async function fetchCompletionsBefore(uid: string, beforeIso: string, size = PAGE_SIZE): Promise<Completion[]> {
+  const snapshot = await getDocs(
+    query(collection(database(), 'users', uid, 'completions'), orderBy('completedAt', 'desc'), where('completedAt', '<', beforeIso), limit(size)),
+  )
+  return parseAll(uid, snapshot.docs)
+}
+
+export async function fetchCompletionsBetween(uid: string, startIso: string, endIso: string): Promise<Completion[]> {
+  const snapshot = await getDocs(
+    query(
+      collection(database(), 'users', uid, 'completions'),
+      where('completedAt', '>=', startIso),
+      where('completedAt', '<', endIso),
+      orderBy('completedAt', 'desc'),
+      limit(500),
+    ),
+  )
+  return parseAll(uid, snapshot.docs)
 }
 
 export function recordCompletion(completion: Completion): Promise<void> {

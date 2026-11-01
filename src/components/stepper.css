@@ -1,0 +1,25 @@
+.stepper-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+.stepper-field[aria-disabled='true'] {
+  opacity: 0.5;
+}
+
+.stepper-field__text {
+  display: grid;
+  min-width: 0;
+}
+
+.stepper-field__label {
+  font-weight: 600;
+}
+
+.stepper-field__hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}

@@ -17,17 +17,19 @@ import type { AwardDef, AwardProgress } from './types'
 
 export interface StoredProgress {
   totalWorkouts: number
+  totalMs: number
   lastCompletedAt: string | null
   longestStreak: number
   streakStart: string | null
   streakEnd: string | null
 }
 
-export const EMPTY_PROGRESS: StoredProgress = { totalWorkouts: 0, lastCompletedAt: null, longestStreak: 0, streakStart: null, streakEnd: null }
+export const EMPTY_PROGRESS: StoredProgress = { totalWorkouts: 0, totalMs: 0, lastCompletedAt: null, longestStreak: 0, streakStart: null, streakEnd: null }
 
 export interface Completed {
   completedAt: string
   startedAt?: string
+  durationMs?: number
 }
 
 export interface Evaluation {
@@ -82,7 +84,9 @@ export function evaluateAwards(completions: Completed[], stored: StoredProgress,
   const keys = sorted.map((entry) => toDateKey(dayOf(entry.completedAt)))
   const keySet = new Set(keys)
   const fresh = stored.lastCompletedAt ? sorted.filter((entry) => entry.completedAt > (stored.lastCompletedAt as string)) : sorted
-  const totalWorkouts = Math.max(stored.totalWorkouts + fresh.length, sorted.length)
+  const totalWorkouts = Math.max((stored.totalWorkouts || 0) + fresh.length, sorted.length)
+  const sumMs = (entries: Completed[]) => entries.reduce((sum, entry) => sum + Math.max(0, Math.round(entry.durationMs ?? 0)), 0)
+  const totalMs = Math.max((stored.totalMs || 0) + sumMs(fresh), sumMs(sorted))
   const lastCompletedAt = sorted.at(-1)?.completedAt ?? stored.lastCompletedAt
 
   const merged = runs(keys)
@@ -100,7 +104,7 @@ export function evaluateAwards(completions: Completed[], stored: StoredProgress,
   const today = toDateKey(now)
   const yesterday = toDateKey(addDays(now, -1))
   const currentStreak = latest && (latest.end === today || latest.end === yesterday) ? latest.length : 0
-  const longestStreak = Math.max(stored.longestStreak, ...merged.map((run) => run.length), 0)
+  const longestStreak = Math.max(stored.longestStreak || 0, ...merged.map((run) => run.length), 0)
 
   const earned: AwardDef[] = []
   for (const days of STREAK_DAYS) {
@@ -152,6 +156,7 @@ export function evaluateAwards(completions: Completed[], stored: StoredProgress,
   return {
     progress: {
       totalWorkouts,
+      totalMs,
       lastCompletedAt,
       longestStreak,
       streakStart: latest?.start ?? stored.streakStart,

@@ -25,9 +25,15 @@ export const settings = {
     },
   },
   calories: {
+    weightFromLog: '{kg} kg, from your latest weight log entry',
+    openBody: 'Weight log',
+    height: 'Height',
+    heightHint: 'Used to work out BMI. Syncs with your account.',
+    addHeight: 'Add height',
+    cm: '{n} cm',
     title: 'Calories',
     weight: 'Body weight',
-    weightHint: 'Used to estimate calories burned. Stays on this device.',
+    weightHint: 'Used to estimate calories burned.',
   },
   coach: {
     title: 'Coach',

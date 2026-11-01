@@ -1,7 +1,13 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
-import { groupByDay, summarizeStreak } from '@/history/streaks'
+import { groupByDay } from '@/history/streaks'
+import { useAwards } from '@/awards/AwardsProvider'
+import { useAuth } from '@/auth/AuthProvider'
+import { loadRepository } from '@/data/lazy'
+import { PAGE_SIZE, RECENT_LIMIT } from '@/data/limits'
+import { MonthCalendar } from '@/history/MonthCalendar'
+import { useToast } from '@/app/Toast'
 import { getExercise } from '@/exercises'
 import type { Completion } from '@/data/models'
 import { usePageMeta } from '@/app/meta'
@@ -35,6 +41,8 @@ export function HistoryPage() {
   const content = useContent()
   usePageMeta(t('app.history.title'))
   const { completions, removeCompletion, ready, getRoutine } = useData()
+  const { user } = useAuth()
+  const { notify } = useToast()
   const itemsOf = (completion: Completion): string[] => {
     const { kind, id } = completion.source
     const items = kind === 'curated' ? getCuratedWorkout(id)?.items : kind === 'routine' ? getRoutine(id)?.items : undefined
@@ -42,10 +50,36 @@ export function HistoryPage() {
   }
   const [exporting, setExporting] = useState<{ entry: Completion; title: string } | null>(null)
   const [openId, setOpenId] = useState<string | null>(null)
-  const today = useMemo(() => new Date(), [])
-  const streak = summarizeStreak(completions, today)
-  const totalMs = completions.reduce((sum, completion) => sum + completion.durationMs, 0)
-  const days = groupByDay(completions)
+  const { evaluation } = useAwards()
+  const streak = { current: evaluation.currentStreak, longest: evaluation.progress.longestStreak }
+  const totalMs = evaluation.progress.totalMs
+  const [older, setOlder] = useState<Completion[]>([])
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [exhausted, setExhausted] = useState(false)
+  const shown = useMemo(() => {
+    const byId = new Map([...completions, ...older].map((entry) => [entry.id, entry]))
+    return [...byId.values()].sort((a, b) => (a.completedAt < b.completedAt ? 1 : -1))
+  }, [completions, older])
+  const days = groupByDay(shown)
+  const canLoadMore = !exhausted && completions.length >= RECENT_LIMIT
+  const loadMore = async () => {
+    const oldest = shown.at(-1)
+    if (!user || !oldest) {
+      return
+    }
+    setLoadingMore(true)
+    try {
+      const page = await (await loadRepository()).fetchCompletionsBefore(user.uid, oldest.completedAt, PAGE_SIZE)
+      setOlder((current) => [...current, ...page])
+      if (page.length < PAGE_SIZE) {
+        setExhausted(true)
+      }
+    } catch {
+      notify(t('app.history.loadMoreFailed'))
+    } finally {
+      setLoadingMore(false)
+    }
+  }
 
   return (
     <div className="page page--narrow">
@@ -64,7 +98,7 @@ export function HistoryPage() {
         </div>
         <div className="card">
           <dt>{t('app.history.workouts')}</dt>
-          <dd>{completions.length}</dd>
+          <dd>{evaluation.progress.totalWorkouts}</dd>
         </div>
         <div className="card">
           <dt>{t('app.history.totalTime')}</dt>
@@ -76,6 +110,13 @@ export function HistoryPage() {
         <Icon name="trophy" />
         {t('awards.viewAll')}
       </Link>
+
+      <Link to="/app/body" className="btn btn--block">
+        <Icon name="scale" />
+        {t('body.open')}
+      </Link>
+
+      <MonthCalendar ownerUid={user?.uid ?? null} live={completions} />
 
       <AdUnit placement="page" className="page-ad" />
 
@@ -143,6 +184,11 @@ export function HistoryPage() {
               </ul>
             </section>
           ))}
+          {canLoadMore ? (
+            <button type="button" className="btn btn--block" disabled={loadingMore} onClick={() => void loadMore()}>
+              {loadingMore ? t('app.history.loadingMore') : t('app.history.loadMore')}
+            </button>
+          ) : null}
         </div>
       )}
       {exporting ? (

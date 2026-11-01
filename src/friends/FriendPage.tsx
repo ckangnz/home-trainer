@@ -17,6 +17,7 @@ import { useFriends, type FriendActivity } from './FriendsProvider'
 import { PersonAvatar } from './Avatar'
 import { AdUnit } from '@/ads/AdUnit'
 import { HistoryDetails } from '@/pages/HistoryDetails'
+import { MonthCalendar } from '@/history/MonthCalendar'
 import { getCuratedWorkout } from '@/workouts/curated'
 import type { Completion } from '@/data/models'
 import { Badge } from '@/awards/Badge'
@@ -135,7 +136,7 @@ export function FriendPage() {
           {t('social.friend.activityFailed', { name: friend.displayName })}
         </p>
       ) : tab === 'activity' ? (
-        <FriendActivityView name={friend.displayName} activity={load.activity} />
+        <FriendActivityView uid={friend.uid} name={friend.displayName} activity={load.activity} />
       ) : (
         <FriendRoutines ownerUid={friend.uid} ownerName={friend.displayName} routines={load.activity.routines} />
       )}
@@ -168,7 +169,7 @@ function FriendBadges({ awards }: { awards: EarnedAward[] }) {
   )
 }
 
-function FriendActivityView({ name, activity }: { name: string; activity: FriendActivity }) {
+function FriendActivityView({ uid, name, activity }: { uid: string; name: string; activity: FriendActivity }) {
   const t = useT()
   const fmt = useFormat()
   const labels = useLabels()
@@ -210,6 +211,8 @@ function FriendActivityView({ name, activity }: { name: string; activity: Friend
       </dl>
 
       <FriendBadges awards={activity.awards} />
+
+      <MonthCalendar ownerUid={uid} live={activity.completions} title={name} />
 
       {Object.keys(load).length > 0 ? (
         <section className="card friend-week">

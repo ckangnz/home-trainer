@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { Icon } from '@/app/Icons'
 import { useT } from '@/i18n'
+import './stepper.css'
 
 interface StepperProps {
   label: string

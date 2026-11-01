@@ -46,7 +46,7 @@ describe('awards', () => {
   })
 
   it('carries long streaks and totals past the history window', () => {
-    const stored = { totalWorkouts: 340, lastCompletedAt: new Date('2026-06-10T12:30:00').toISOString(), longestStreak: 300, streakStart: '2025-08-15', streakEnd: '2026-06-10' }
+    const stored = { totalWorkouts: 340, totalMs: 0, lastCompletedAt: new Date('2026-06-10T12:30:00').toISOString(), longestStreak: 300, streakStart: '2025-08-15', streakEnd: '2026-06-10' }
     const recent = days('2026-01-01', 164)
     const result = evaluateAwards(recent, stored, new Date('2026-06-13T20:00:00'))
     expect(result.currentStreak).toBe(303)

@@ -28,9 +28,15 @@ export const settings = {
     },
   },
   calories: {
+    weightFromLog: '최근 체중 기록 기준 {kg}kg',
+    openBody: '체중 기록',
+    height: '키',
+    heightHint: 'BMI 계산에 사용돼요. 계정과 동기화돼요.',
+    addHeight: '키 입력',
+    cm: '{n}cm',
     title: '칼로리',
     weight: '체중',
-    weightHint: '소모 칼로리를 계산할 때 써요. 이 기기에만 저장돼요.',
+    weightHint: '소모 칼로리를 계산할 때 써요.',
   },
   coach: {
     title: '코치',

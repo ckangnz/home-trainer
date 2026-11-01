@@ -28,6 +28,7 @@ function parseProgress(value: unknown): StoredProgress {
   const count = (entry: unknown) => (typeof entry === 'number' && Number.isFinite(entry) && entry >= 0 ? Math.floor(entry) : 0)
   return {
     totalWorkouts: count(data.totalWorkouts),
+    totalMs: count(data.totalMs),
     lastCompletedAt: text(data.lastCompletedAt),
     longestStreak: count(data.longestStreak),
     streakStart: text(data.streakStart),

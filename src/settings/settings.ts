@@ -12,6 +12,7 @@ export interface Settings {
   trainer: TrainerId
   skin: SkinTone
   weightKg: number
+  heightCm: number | null
   language: LanguagePreference
 }
 
@@ -24,10 +25,13 @@ export const DEFAULT_SETTINGS: Settings = {
   trainer: 'female',
   skin: 'medium',
   weightKg: 70,
+  heightCm: null,
   language: 'auto',
 }
 
 export const WEIGHT_RANGE: readonly [number, number] = [30, 250]
+
+export const HEIGHT_RANGE: readonly [number, number] = [120, 230]
 
 const SKIN_TONES: SkinTone[] = ['light', 'medium', 'deep']
 export const LANGUAGE_PREFERENCES: LanguagePreference[] = ['auto', 'en', 'ko']
@@ -37,7 +41,7 @@ const KEY = 'hometrainer.settings.v1'
 const listeners = new Set<() => void>()
 let cached: Settings | null = null
 
-export const SYNCED_KEYS = ['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'language'] as const
+export const SYNCED_KEYS = ['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'heightCm', 'language'] as const
 
 export type SyncedSettings = Pick<Settings, (typeof SYNCED_KEYS)[number]>
 
@@ -56,6 +60,10 @@ export function normalizeSettings(stored: Partial<Record<keyof Settings, unknown
       typeof stored.weightKg === 'number' && stored.weightKg >= WEIGHT_RANGE[0] && stored.weightKg <= WEIGHT_RANGE[1]
         ? stored.weightKg
         : DEFAULT_SETTINGS.weightKg,
+    heightCm:
+      typeof stored.heightCm === 'number' && stored.heightCm >= HEIGHT_RANGE[0] && stored.heightCm <= HEIGHT_RANGE[1]
+        ? Math.round(stored.heightCm)
+        : null,
     language: LANGUAGE_PREFERENCES.includes(stored.language as LanguagePreference)
       ? (stored.language as LanguagePreference)
       : DEFAULT_SETTINGS.language,

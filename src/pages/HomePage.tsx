@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { useData } from '@/data/DataProvider'
 import { getExercise } from '@/exercises'
-import { lastDays, summarizeStreak } from '@/history/streaks'
+import { lastDays } from '@/history/streaks'
+import { useAwards } from '@/awards/AwardsProvider'
 import { ShareDialog } from '@/sharing/ShareDialog'
 import { CURATED_WORKOUTS, getCuratedWorkout } from '@/workouts/curated'
 import { estimateDurationMs } from '@/workouts/steps'
@@ -92,7 +93,8 @@ export function HomePage() {
   const navigate = useNavigate()
   const [sharing, setSharing] = useState<Routine | null>(null)
   const today = useMemo(() => new Date(), [])
-  const streak = summarizeStreak(completions, today)
+  const { evaluation } = useAwards()
+  const streak = { current: evaluation.currentStreak, longest: evaluation.progress.longestStreak }
   const week = lastDays(completions, today)
   const firstName = user?.displayName?.split(' ')[0]
   const classic = getCuratedWorkout('classic-7-minute')

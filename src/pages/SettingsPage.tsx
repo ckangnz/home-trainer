@@ -4,7 +4,7 @@ import { useAuth } from '@/auth/AuthProvider'
 import { useToast } from '@/app/Toast'
 import { userPhoto } from '@/friends/models'
 import { availableVoices, coach } from '@/player/coach'
-import { LANGUAGE_PREFERENCES, WEIGHT_RANGE, updateSettings, useSettings, type LanguagePreference } from '@/settings/settings'
+import { HEIGHT_RANGE, LANGUAGE_PREFERENCES, WEIGHT_RANGE, updateSettings, useSettings, type LanguagePreference } from '@/settings/settings'
 import type { MessageKey } from '@/i18n/en'
 import { useT } from '@/i18n/translate'
 import { SelectField } from '@/components/ui'
@@ -87,16 +87,50 @@ export function SettingsPage() {
 
       <section className="card stack">
         <h2 className="section__title">{t('settings.calories.title')}</h2>
-        <Stepper
-          label={t('settings.calories.weight')}
-          hint={t('settings.calories.weightHint')}
-          value={settings.weightKg}
-          min={WEIGHT_RANGE[0]}
-          max={WEIGHT_RANGE[1]}
-          step={1}
-          format={(value) => t('units.kg', { n: value })}
-          onChange={(weightKg) => updateSettings({ weightKg })}
-        />
+        {status === 'signed-in' ? (
+          <div className="row row--between settings-weight">
+            <span className="stack stack--tight">
+              <strong>{t('settings.calories.weight')}</strong>
+              <span className="faint">{t('settings.calories.weightFromLog', { kg: settings.weightKg })}</span>
+            </span>
+            <Link to="/app/body" className="btn btn--small">
+              {t('settings.calories.openBody')}
+            </Link>
+          </div>
+        ) : (
+          <Stepper
+            label={t('settings.calories.weight')}
+            hint={t('settings.calories.weightHint')}
+            value={settings.weightKg}
+            min={WEIGHT_RANGE[0]}
+            max={WEIGHT_RANGE[1]}
+            step={1}
+            format={(value) => t('units.kg', { n: value })}
+            onChange={(weightKg) => updateSettings({ weightKg })}
+          />
+        )}
+        {settings.heightCm === null ? (
+          <div className="row row--between">
+            <span className="stack stack--tight">
+              <strong>{t('settings.calories.height')}</strong>
+              <span className="faint">{t('settings.calories.heightHint')}</span>
+            </span>
+            <button type="button" className="btn btn--small" onClick={() => updateSettings({ heightCm: 170 })}>
+              {t('settings.calories.addHeight')}
+            </button>
+          </div>
+        ) : (
+          <Stepper
+            label={t('settings.calories.height')}
+            hint={t('settings.calories.heightHint')}
+            value={settings.heightCm}
+            min={HEIGHT_RANGE[0]}
+            max={HEIGHT_RANGE[1]}
+            step={1}
+            format={(value) => t('settings.calories.cm', { n: value })}
+            onChange={(heightCm) => updateSettings({ heightCm })}
+          />
+        )}
       </section>
 
       <section className="card stack">
