@@ -14,6 +14,7 @@ import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import { useFormat, useLabels, useT } from '@/i18n'
 import { useFriends, type FriendActivity } from './FriendsProvider'
+import { FriendFood } from '@/food/FriendFood'
 import { PersonAvatar } from './Avatar'
 import { AdUnit } from '@/ads/AdUnit'
 import { HistoryDetails } from '@/pages/HistoryDetails'
@@ -34,7 +35,7 @@ const WEEK_MS = 7 * 24 * 60 * 60 * 1000
 
 type Load = { status: 'loading' } | { status: 'error' } | { status: 'ready'; activity: FriendActivity }
 
-type Tab = 'activity' | 'routines'
+type Tab = 'activity' | 'routines' | 'food'
 
 export function FriendPage() {
   const { uid = '' } = useParams()
@@ -125,9 +126,14 @@ export function FriendPage() {
           {t('social.friend.theirWorkouts')}
           {load.status === 'ready' ? ` (${load.activity.routines.length})` : ''}
         </button>
+        <button type="button" role="tab" aria-selected={tab === 'food'} aria-pressed={tab === 'food'} onClick={() => setTab('food')}>
+          {t('food.friend.title')}
+        </button>
       </div>
 
-      {load.status === 'loading' ? (
+      {tab === 'food' ? (
+        <FriendFood uid={friend.uid} name={friend.displayName} />
+      ) : load.status === 'loading' ? (
         <div className="center" role="status" aria-label={t('social.friend.loadingActivity')}>
           <div className="spinner" />
         </div>

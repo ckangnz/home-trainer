@@ -3,6 +3,7 @@ import type { UiMessages } from '../en'
 import { app } from './ui/app'
 import { awards } from './ui/awards'
 import { body } from './ui/body'
+import { food } from './ui/food'
 import { common } from './ui/common'
 import { player } from './ui/player'
 import { publicPages } from './ui/publicPages'
@@ -11,4 +12,4 @@ import { shell } from './ui/shell'
 import { social } from './ui/social'
 import { units } from './ui/units'
 
-export const UI_KO: Catalog<UiMessages> = { common, units, shell, settings, publicPages, app, social, player, awards, body }
+export const UI_KO: Catalog<UiMessages> = { common, units, shell, settings, publicPages, app, social, player, awards, body, food }

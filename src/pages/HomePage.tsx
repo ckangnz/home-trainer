@@ -17,6 +17,7 @@ import { Icon } from '@/app/Icons'
 import { useContent, useFormat, useLanguage, useT, type TFunction } from '@/i18n'
 import './home.css'
 import { ExerciseFigure } from '@/components/ExerciseFigure'
+import { FoodToday } from '@/food/FoodToday'
 
 function greeting(t: TFunction, date: Date): string {
   const hour = date.getHours()
@@ -157,6 +158,8 @@ export function HomePage() {
           </Link>
         ) : null}
       </section>
+
+      <FoodToday />
 
       <section className="section">
         <div className="section__head">

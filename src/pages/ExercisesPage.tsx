@@ -9,6 +9,7 @@ import { SearchField } from '@/components/SearchField'
 import { usePageMeta } from '@/app/meta'
 import { useHydrated } from '@/app/hydration'
 import { useContent, useT } from '@/i18n'
+import { LibrarySwitch } from '@/components/LibrarySwitch'
 
 function isCategory(value: string | null): value is Category {
   return value !== null && (CATEGORY_ORDER as string[]).includes(value)
@@ -79,6 +80,7 @@ export function ExercisesPage() {
 
   return (
     <div className="page">
+      <LibrarySwitch />
       <header className="page__header">
         <h1 className="page__title">{t('publicPages.exercises.title')}</h1>
         <p className="page__lead">{t('publicPages.exercises.lead', { count: EXERCISES.length })}</p>

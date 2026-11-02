@@ -5,6 +5,7 @@ import { DataProvider } from '@/data/DataProvider'
 import { FriendsProvider } from '@/friends/FriendsProvider'
 import { AwardsProvider } from '@/awards/AwardsProvider'
 import { BodyProvider } from '@/body/BodyProvider'
+import { FoodProvider } from '@/food/FoodProvider'
 import { LanguageSync } from '@/i18n/language'
 import { SettingsSync } from '@/settings/SettingsSync'
 import { ToastProvider } from './Toast'
@@ -18,11 +19,13 @@ export function AppProviders({ children }: { children: ReactNode }) {
         <FriendsProvider>
           <AwardsProvider>
             <BodyProvider>
-              <ToastProvider>
-                <LanguageSync />
-                <SettingsSync />
-                {children}
-              </ToastProvider>
+              <FoodProvider>
+                <ToastProvider>
+                  <LanguageSync />
+                  <SettingsSync />
+                  {children}
+                </ToastProvider>
+              </FoodProvider>
             </BodyProvider>
           </AwardsProvider>
         </FriendsProvider>

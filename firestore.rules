@@ -78,6 +78,61 @@ service cloud.firestore {
         && request.resource.data.updatedAt is string;
     }
 
+    function sharesFood(userId) {
+      let prefs = /databases/$(database)/documents/users/$(userId)/food/prefs;
+      return isFriendOf(userId) && exists(prefs) && get(prefs).data.shareWithFriends == true;
+    }
+
+    match /users/{userId}/food/prefs {
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasOnly(['activePlanId', 'shareWithFriends', 'updatedAt'])
+        && (request.resource.data.activePlanId == null || request.resource.data.activePlanId is string)
+        && request.resource.data.shareWithFriends is bool
+        && request.resource.data.updatedAt is string;
+    }
+
+    match /users/{userId}/mealPlans/{planId} {
+      allow read: if isOwner(userId) || isFriendOf(userId);
+      allow delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 60
+        && request.resource.data.meals is map
+        && request.resource.data.meals.keys().hasOnly(['breakfast', 'lunch', 'dinner', 'snacks'])
+        && request.resource.data.updatedAt is string;
+    }
+
+    match /users/{userId}/foodLogs/{day} {
+      allow read: if isOwner(userId) || sharesFood(userId);
+      allow delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.keys().hasOnly(['date', 'entries', 'cheat', 'updatedAt'])
+        && (!('cheat' in request.resource.data) || request.resource.data.cheat is bool)
+        && request.resource.data.date == day
+        && request.resource.data.entries is list
+        && request.resource.data.entries.size() <= 40
+        && request.resource.data.updatedAt is string;
+    }
+
+    match /users/{userId}/customFoods/{foodId} {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && request.resource.data.keys().hasOnly(['name', 'serving', 'kcal', 'protein', 'createdAt'])
+        && validName(request.resource.data.name)
+        && request.resource.data.serving is string
+        && request.resource.data.serving.size() <= 60
+        && request.resource.data.kcal is number
+        && request.resource.data.kcal >= 0
+        && request.resource.data.kcal < 10000
+        && request.resource.data.protein is number
+        && request.resource.data.protein >= 0
+        && request.resource.data.createdAt is string;
+    }
+
     match /users/{userId}/awards/{awardId} {
       allow read: if isOwner(userId) || isFriendOf(userId);
       allow create: if isOwner(userId)

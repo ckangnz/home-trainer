@@ -20,6 +20,7 @@ import { useHydrated } from '@/app/hydration'
 import { Icon } from '@/app/Icons'
 import { useContent, useT, workoutSearchText } from '@/i18n'
 import './workouts.css'
+import { LibrarySwitch } from '@/components/LibrarySwitch'
 
 const LEVELS = [1, 2, 3] as const
 
@@ -77,6 +78,7 @@ export function WorkoutsPage() {
 
   return (
     <div className="page workouts-page">
+      <LibrarySwitch />
       <header className="page__header">
         <h1 className="page__title">{t('publicPages.workouts.title')}</h1>
         <p className="page__lead">{t('publicPages.workouts.lead', { count: CURATED_WORKOUTS.length })}</p>

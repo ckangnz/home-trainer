@@ -1,0 +1,29 @@
+.library-switch {
+  justify-self: start;
+  align-self: flex-start;
+  width: max-content;
+  margin-bottom: var(--space-4);
+}
+
+.library-switch a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.library-switch a.active {
+  background: var(--color-surface-3);
+  color: var(--color-text);
+}
+
+@media (min-width: 860px) {
+  .library-switch {
+    display: none;
+  }
+}

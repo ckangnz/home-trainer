@@ -21,6 +21,8 @@ const RoutineEditorPage = lazyPage(() => import('@/pages/RoutineEditorPage'), 'R
 const HistoryPage = lazyPage(() => import('@/pages/HistoryPage'), 'HistoryPage')
 const AwardsPage = lazyPage(() => import('@/awards/AwardsPage'), 'AwardsPage')
 const BodyPage = lazyPage(() => import('@/body/BodyPage'), 'BodyPage')
+const FoodPage = lazyPage(() => import('@/food/FoodPage'), 'FoodPage')
+const MealPlanEditorPage = lazyPage(() => import('@/food/MealPlanEditorPage'), 'MealPlanEditorPage')
 const SettingsPage = lazyPage(() => import('@/pages/SettingsPage'), 'SettingsPage')
 const ImportPage = lazyPage(() => import('@/sharing/ImportPage'), 'ImportPage')
 const FriendsPage = lazyPage(() => import('@/friends/FriendsPage'), 'FriendsPage')
@@ -101,6 +103,9 @@ export function AppRoutes() {
           <Route path="history" element={<HistoryPage />} />
           <Route path="awards" element={<AwardsPage />} />
           <Route path="body" element={<BodyPage />} />
+          <Route path="food" element={<FoodPage />} />
+          <Route path="food/plans/new" element={<MealPlanEditorPage />} />
+          <Route path="food/plans/:id" element={<MealPlanEditorPage />} />
           <Route path="import" element={<ImportPage />} />
           <Route path="friends" element={<FriendsPage />} />
           <Route path="friends/add/:code" element={<FriendAddPage />} />
