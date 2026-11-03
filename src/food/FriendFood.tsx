@@ -5,9 +5,8 @@ import { useToast } from '@/app/Toast'
 import { useFormat, useT } from '@/i18n'
 import { daysAgo, LIVE_DAYS, loadFood, useFood } from './FoodProvider'
 import { FoodCalendar } from './FoodCalendar'
-import { MealStatus } from './MealCard'
+import { FoodDayDialog, FoodDayLog } from './FoodDayLog'
 import { summarize } from './log'
-import { dayScore, intakeOf, mealScore } from './models'
 import { MEAL_SLOTS, type FoodLog, type FoodPrefs, type MealPlan } from './types'
 import './food.css'
 
@@ -22,6 +21,7 @@ export function FriendFood({ uid, name }: { uid: string; name: string }) {
   const navigate = useNavigate()
   const { importPlan } = useFood()
   const [load, setLoad] = useState<Load>({ status: 'loading' })
+  const [viewing, setViewing] = useState<{ day: string; log: FoodLog | undefined } | null>(null)
   const liveFrom = useMemo(() => daysAgo(LIVE_DAYS), [])
 
   useEffect(() => {
@@ -105,40 +105,17 @@ export function FriendFood({ uid, name }: { uid: string; name: string }) {
               <p className="muted">{t('food.friend.nothing')}</p>
             )}
           </section>
-          {loggedDays.map((day) => {
-            const entries = logMap.get(day)?.entries ?? []
-            const log = logMap.get(day)
-            const score = dayScore(log)
-            const intake = intakeOf(entries)
-            return (
-              <section key={day} className="card food-log-day">
-                <header className="food-log-day__head">
-                  <h3>{fmt.date(`${day}T12:00:00`, { weekday: 'long', month: 'short', day: 'numeric' })}</h3>
-                  <span className="faint">
-                    {[log?.cheat ? t('food.cheat.toggle') : t('food.day.score', { onPlan: score.onPlan, total: score.total }), intake.kcal > 0 ? t('food.intake.kcal', { n: fmt.number(intake.kcal) }) : null]
-                      .filter(Boolean)
-                      .join(' · ')}
-                  </span>
-                </header>
-                <ul className="food-log-day__meals">
-                  {MEAL_SLOTS.filter((meal) => meal !== 'snacks' || entries.some((entry) => entry.meal === meal)).map((meal) => {
-                    const items = entries.filter((entry) => entry.meal === meal && entry.status !== 'skipped')
-                    return (
-                      <li key={meal}>
-                        <span className="food-log-day__meal">{t(`food.meals.${meal}`)}</span>
-                        <MealStatus score={mealScore(entries, meal)} />
-                        <span className="food-log-day__items">
-                          {items.map((entry) => [entry.name, entry.portion].filter(Boolean).join(' · ')).join(', ')}
-                          {items.some((entry) => entry.note) ? <span className="faint"> — {items.map((entry) => entry.note).filter(Boolean).join(', ')}</span> : null}
-                        </span>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </section>
-            )
-          })}
-          <FoodCalendar ownerUid={uid} logs={logMap} liveFrom={liveFrom} />
+          {loggedDays.map((day) => (
+            <FoodDayLog key={day} day={day} log={logMap.get(day)} />
+          ))}
+          <FoodCalendar
+            ownerUid={uid}
+            logs={logMap}
+            liveFrom={liveFrom}
+            selected={viewing?.day}
+            onSelect={(picked, log) => setViewing({ day: picked, log })}
+          />
+          <FoodDayDialog viewing={viewing} onClose={() => setViewing(null)} />
         </>
       )}
 

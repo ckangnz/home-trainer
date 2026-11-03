@@ -143,6 +143,12 @@ export const food = {
     cheat: 'Cheat day',
     dayLabel: '{date}: {status}',
     onPlanDays: { one: '{count} day fully on plan', other: '{count} days fully on plan' },
+    hint: 'Tap a day to see what you ate.',
+  },
+  history: {
+    dayTitle: 'What you ate on {date}',
+    nothing: 'Nothing logged this day.',
+    edit: 'Edit this day',
   },
   plan: {
     section: 'Meal plan',

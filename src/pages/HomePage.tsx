@@ -98,7 +98,7 @@ export function HomePage() {
   const streak = { current: evaluation.currentStreak, longest: evaluation.progress.longestStreak }
   const week = lastDays(completions, today)
   const firstName = user?.displayName?.split(' ')[0]
-  const classic = getCuratedWorkout('classic-7-minute')
+  const classic = ready && routines.length === 0 ? getCuratedWorkout('classic-7-minute') : undefined
   const settings = useSettings()
   const cheer = getExercise('jumping-jacks')
 
@@ -156,10 +156,12 @@ export function HomePage() {
               </div>
             ) : null}
           </Link>
-        ) : null}
+        ) : (
+          <FoodToday />
+        )}
       </section>
 
-      <FoodToday />
+      {classic ? <FoodToday /> : null}
 
       <section className="section">
         <div className="section__head">

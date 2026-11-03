@@ -187,6 +187,32 @@ describe('FoodPage', () => {
     expect(store.savedLogs.at(-1)).toMatchObject({ cheat: true, entries: [{ name: 'Grandma stew', kcal: 450, protein: 25 }] })
   })
 
+  it('shows what was eaten on a day picked from the calendar', async () => {
+    const now = new Date()
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+    store.plans = [plan]
+    store.logs = [
+      {
+        date: today,
+        entries: [
+          { id: 'e1', meal: 'breakfast', status: 'planned', optionId: 'oats', name: 'Oats', portion: '1 cup', kcal: 300 },
+          { id: 'e2', meal: 'lunch', status: 'swapped', name: 'Bibimbap', kcal: 600, protein: 20, note: 'Half bowl rice' },
+        ],
+        updatedAt: '',
+      },
+    ]
+    renderAt('/app/food')
+    expect(await screen.findByText('Tap a day to see what you ate.')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('gridcell', { selected: false, name: /Partly on plan/ }))
+    const card = screen.getByRole('dialog', { name: /^What you ate on/ })
+    expect(within(card).getByText('Oats · 1 cup')).toBeInTheDocument()
+    expect(within(card).getByText('Bibimbap')).toBeInTheDocument()
+    expect(within(card).getByText('600 kcal · 20 g protein')).toBeInTheDocument()
+    expect(within(card).getByText('Half bowl rice')).toBeInTheDocument()
+    fireEvent.click(within(card).getByRole('button', { name: 'Edit this day' }))
+    expect(screen.queryByRole('dialog', { name: /^What you ate on/ })).not.toBeInTheDocument()
+  })
+
   it('turns on sharing with friends', async () => {
     store.plans = [plan]
     renderAt('/app/food')

@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react'
+import { useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import { usePageMeta } from '@/app/meta'
@@ -8,10 +8,11 @@ import { toDateKey } from '@/history/streaks'
 import { useFormat, useT } from '@/i18n'
 import { daysAgo, useFood } from './FoodProvider'
 import { FoodCalendar } from './FoodCalendar'
+import { FoodDayDialog } from './FoodDayLog'
 import { MealCard } from './MealCard'
 import { addOther, clockTime, removeEntry, summarize, togglePlanned, toggleSkipped, updateEntry } from './log'
 import { dayScore, intakeOf } from './models'
-import { MEAL_SLOTS, type FoodLogEntry } from './types'
+import { MEAL_SLOTS, type FoodLog, type FoodLogEntry } from './types'
 import './food.css'
 
 function shiftDay(key: string, delta: number): string {
@@ -28,6 +29,9 @@ export function FoodPage() {
   const { ready, plans, prefs, activePlan, logs, liveFrom, saveLog, setActivePlan, setShareWithFriends } = useFood()
   const today = useMemo(() => toDateKey(new Date()), [])
   const [day, setDay] = useState(today)
+  const [viewing, setViewing] = useState<{ day: string; log: FoodLog | undefined } | null>(null)
+  const editorRef = useRef<HTMLDivElement>(null)
+  const viewedLog = viewing ? (logs.get(viewing.day) ?? viewing.log) : undefined
   const entries = logs.get(day)?.entries ?? []
   const cheat = logs.get(day)?.cheat === true
   const score = dayScore(logs.get(day))
@@ -77,7 +81,7 @@ export function FoodPage() {
         </section>
       ) : (
         <>
-          <div className="food-day">
+          <div className="food-day" ref={editorRef}>
             <button type="button" className="btn btn--ghost btn--icon" aria-label={t('food.day.previous')} disabled={day <= liveFrom} onClick={() => setDay(shiftDay(day, -1))}>
               <Icon name="back" />
             </button>
@@ -159,7 +163,33 @@ export function FoodPage() {
             )}
           </section>
 
-          <FoodCalendar ownerUid={user?.uid ?? null} logs={logs} liveFrom={liveFrom} selected={day} onSelect={setDay} />
+          <FoodCalendar
+            ownerUid={user?.uid ?? null}
+            logs={logs}
+            liveFrom={liveFrom}
+            selected={viewing?.day}
+            onSelect={(picked, log) => setViewing({ day: picked, log })}
+          />
+          <FoodDayDialog
+            viewing={viewing ? { day: viewing.day, log: viewedLog } : null}
+            onClose={() => setViewing(null)}
+            action={
+              viewing && viewing.day >= liveFrom ? (
+                <button
+                  type="button"
+                  className="btn btn--small"
+                  onClick={() => {
+                    setDay(viewing.day)
+                    setViewing(null)
+                    editorRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
+                  }}
+                >
+                  <Icon name="edit" />
+                  {t('food.history.edit')}
+                </button>
+              ) : null
+            }
+          />
 
           <section className="section">
             <div className="section__head">

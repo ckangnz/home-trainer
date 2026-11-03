@@ -146,6 +146,12 @@ export const food = {
     cheat: '치팅데이',
     dayLabel: '{date}: {status}',
     onPlanDays: '완벽히 지킨 날 {count}일',
+    hint: '날짜를 누르면 먹은 음식을 볼 수 있어요.',
+  },
+  history: {
+    dayTitle: '{date}에 먹은 음식',
+    nothing: '이날은 기록이 없어요.',
+    edit: '이날 수정하기',
   },
   plan: {
     section: '식단 계획',

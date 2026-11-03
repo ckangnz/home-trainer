@@ -12,7 +12,7 @@ interface FoodCalendarProps {
   logs: Map<string, FoodLog>
   liveFrom: string
   selected?: string
-  onSelect?: (day: string) => void
+  onSelect?: (day: string, log: FoodLog | undefined) => void
 }
 
 const STATUS_KEY: Record<Exclude<DayStatus, 'none'>, 'food.calendar.allOnPlan' | 'food.calendar.someOnPlan' | 'food.calendar.offPlan' | 'food.calendar.cheat'> = {
@@ -107,9 +107,9 @@ export function FoodCalendar({ ownerUid, logs, liveFrom, selected, onSelect }: F
             status: cell.status === 'none' ? t('food.status.missing') : t(STATUS_KEY[cell.status]),
           })
           const className = `month-calendar__day food-cal-day is-${cell.status}${cell.key === todayKey ? ' is-today' : ''}${cell.key === selected ? ' is-selected' : ''}${cell.key > todayKey ? ' is-future' : ''}`
-          const selectable = onSelect && cell.key <= todayKey && cell.key >= liveFrom
+          const selectable = onSelect && cell.key <= todayKey
           return selectable ? (
-            <button key={cell.key} type="button" role="gridcell" className={className} aria-label={label} aria-selected={cell.key === selected} onClick={() => onSelect(cell.key)}>
+            <button key={cell.key} type="button" role="gridcell" className={className} aria-label={label} aria-selected={cell.key === selected} onClick={() => onSelect(cell.key, logFor(cell.key))}>
               <span className="month-calendar__number">{cell.day}</span>
             </button>
           ) : (
@@ -139,6 +139,7 @@ export function FoodCalendar({ ownerUid, logs, liveFrom, selected, onSelect }: F
         <span className="faint">{t('food.calendar.onPlanDays', { count: perfect })}</span>
         {loading ? <span className="spinner spinner--small" role="status" aria-label={t('food.loading')} /> : null}
       </footer>
+      {onSelect && !selected ? <p className="faint food-calendar__hint">{t('food.calendar.hint')}</p> : null}
     </section>
   )
 }
