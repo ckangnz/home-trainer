@@ -15,14 +15,12 @@ interface NavItem {
   label: MessageKey
   icon: IconName
   end?: boolean
-  desktopOnly?: boolean
   also?: string[]
 }
 
 const SIGNED_IN_NAV: NavItem[] = [
   { to: '/app', label: 'shell.nav.home', icon: 'home', end: true },
   { to: '/workouts', label: 'shell.nav.workouts', icon: 'bolt', also: ['/exercises'] },
-  { to: '/exercises', label: 'shell.nav.exercises', icon: 'grid', desktopOnly: true },
   { to: '/app/food', label: 'shell.nav.food', icon: 'food' },
   { to: '/app/history', label: 'shell.nav.progress', icon: 'chart', also: ['/app/body', '/app/awards'] },
   { to: '/app/friends', label: 'shell.nav.friends', icon: 'users' },
@@ -30,8 +28,7 @@ const SIGNED_IN_NAV: NavItem[] = [
 
 const PUBLIC_NAV: NavItem[] = [
   { to: '/', label: 'shell.nav.home', icon: 'home', end: true },
-  { to: '/workouts', label: 'shell.nav.workouts', icon: 'bolt' },
-  { to: '/exercises', label: 'shell.nav.exercises', icon: 'grid' },
+  { to: '/workouts', label: 'shell.nav.workouts', icon: 'bolt', also: ['/exercises'] },
 ]
 
 const GUEST_NAV: NavItem[] = [...PUBLIC_NAV, { to: '/app/settings', label: 'shell.nav.settings', icon: 'settings' }]
@@ -61,9 +58,8 @@ export function AppShell() {
   const nav = signedIn ? SIGNED_IN_NAV : status === 'unconfigured' ? GUEST_NAV : PUBLIC_NAV
   const { incoming } = useFriends()
   const { pathname } = useLocation()
-  const tabs = nav.filter((item) => !item.desktopOnly)
-  const tabActive = (item: NavItem, isActive: boolean) =>
-    isActive || (item.also ?? []).some((path) => pathname === path || pathname.startsWith(`${path}/`)) ? 'tabbar__link active' : 'tabbar__link'
+  const linkClass = (base: string, item: NavItem, isActive: boolean) =>
+    isActive || (item.also ?? []).some((path) => pathname === path || pathname.startsWith(`${path}/`)) ? `${base} active` : base
   const badge = (item: NavItem) =>
     item.to === '/app/friends' && incoming.length > 0 ? (
       <span className="nav-badge" aria-label={t('shell.friendRequests', { count: incoming.length })}>
@@ -80,7 +76,7 @@ export function AppShell() {
         </Link>
         <nav className="shell__nav" aria-label={t('shell.nav.primary')}>
           {nav.map((item) => (
-            <NavLink key={item.to} to={item.to} end={item.end} className="shell__link">
+            <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => linkClass('shell__link', item, isActive)}>
               {t(item.label)}
               {badge(item)}
             </NavLink>
@@ -123,8 +119,8 @@ export function AppShell() {
       </footer>
 
       <nav className="tabbar" aria-label={t('shell.nav.primary')}>
-        {tabs.map((item) => (
-          <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => tabActive(item, isActive)}>
+        {nav.map((item) => (
+          <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => linkClass('tabbar__link', item, isActive)}>
             <Icon name={item.icon} />
             <span>{t(item.label)}</span>
             {badge(item)}

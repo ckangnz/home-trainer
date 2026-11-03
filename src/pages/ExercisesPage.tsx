@@ -80,9 +80,11 @@ export function ExercisesPage() {
 
   return (
     <div className="page">
-      <LibrarySwitch />
       <header className="page__header">
-        <h1 className="page__title">{t('publicPages.exercises.title')}</h1>
+        <div className="library-head">
+          <h1 className="page__title">{t('publicPages.exercises.title')}</h1>
+          <LibrarySwitch />
+        </div>
         <p className="page__lead">{t('publicPages.exercises.lead', { count: EXERCISES.length })}</p>
       </header>
 

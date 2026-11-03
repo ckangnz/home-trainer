@@ -6,6 +6,7 @@ export const body = {
   title: '몸무게 기록',
   lead: '몸무게를 기록하고 변화 추이를 운동 횟수와 함께 확인해 보세요.',
   open: '몸무게 기록',
+  openEmpty: '몸무게를 기록해 보세요',
   loading: '몸무게 기록을 불러오는 중',
   summary: {
     current: '현재 몸무게',

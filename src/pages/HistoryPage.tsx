@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
 import { groupByDay } from '@/history/streaks'
-import { useAwards } from '@/awards/AwardsProvider'
+import { earnedAwards, useAwards } from '@/awards/AwardsProvider'
+import { useBody } from '@/body/BodyProvider'
 import { useAuth } from '@/auth/AuthProvider'
 import { loadRepository } from '@/data/lazy'
 import { PAGE_SIZE, RECENT_LIMIT } from '@/data/limits'
@@ -50,7 +51,9 @@ export function HistoryPage() {
   }
   const [exporting, setExporting] = useState<{ entry: Completion; title: string } | null>(null)
   const [openId, setOpenId] = useState<string | null>(null)
-  const { evaluation } = useAwards()
+  const { evaluation, earned } = useAwards()
+  const { latest } = useBody()
+  const awardCount = earnedAwards(earned).length
   const streak = { current: evaluation.currentStreak, longest: evaluation.progress.longestStreak }
   const totalMs = evaluation.progress.totalMs
   const [older, setOlder] = useState<Completion[]>([])
@@ -106,15 +109,30 @@ export function HistoryPage() {
         </div>
       </dl>
 
-      <Link to="/app/awards" className="btn btn--block history-awards">
-        <Icon name="trophy" />
-        {t('awards.viewAll')}
-      </Link>
-
-      <Link to="/app/body" className="btn btn--block">
-        <Icon name="scale" />
-        {t('body.open')}
-      </Link>
+      <div className="history-links">
+        <Link to="/app/awards" className="card history-link">
+          <span className="history-link__icon">
+            <Icon name="trophy" />
+          </span>
+          <span className="history-link__text">
+            <strong>{t('awards.open')}</strong>
+            <span className="faint">{t('awards.earnedCount', { count: awardCount })}</span>
+          </span>
+          <Icon name="forward" />
+        </Link>
+        <Link to="/app/body" className="card history-link">
+          <span className="history-link__icon">
+            <Icon name="scale" />
+          </span>
+          <span className="history-link__text">
+            <strong>{latest ? t('units.kg', { n: fmt.number(latest.kg, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) }) : t('body.open')}</strong>
+            <span className="faint">
+              {latest ? `${t('body.open')} · ${t('body.summary.currentOn', { date: fmt.date(`${latest.date}T12:00:00`, { month: 'short', day: 'numeric' }) })}` : t('body.openEmpty')}
+            </span>
+          </span>
+          <Icon name="forward" />
+        </Link>
+      </div>
 
       <MonthCalendar ownerUid={user?.uid ?? null} live={completions} />
 

@@ -78,9 +78,11 @@ export function WorkoutsPage() {
 
   return (
     <div className="page workouts-page">
-      <LibrarySwitch />
       <header className="page__header">
-        <h1 className="page__title">{t('publicPages.workouts.title')}</h1>
+        <div className="library-head">
+          <h1 className="page__title">{t('publicPages.workouts.title')}</h1>
+          <LibrarySwitch />
+        </div>
         <p className="page__lead">{t('publicPages.workouts.lead', { count: CURATED_WORKOUTS.length })}</p>
         <div>
           <Link to="/app/routines/new" className="btn">
@@ -97,33 +99,35 @@ export function WorkoutsPage() {
           value={filters.query}
           onChange={(query) => update({ query })}
         />
-        <div className="chip-row chip-row--scroll" role="group" aria-label={t('publicPages.workouts.goal')}>
-          <button type="button" className="chip" aria-pressed={filters.goal === null} onClick={() => update({ goal: null })}>
-            {t('publicPages.workouts.allGoals')}
-          </button>
-          {GOAL_ORDER.map((goal) => (
-            <button
-              key={goal}
-              type="button"
-              className="chip"
-              aria-pressed={filters.goal === goal}
-              onClick={() => update({ goal: filters.goal === goal ? null : goal })}
-            >
-              {labels.goal[goal]}
+        <div className="workout-filters__bar">
+          <div className="chip-row chip-row--scroll" role="group" aria-label={t('publicPages.workouts.goal')}>
+            <button type="button" className="chip" aria-pressed={filters.goal === null} onClick={() => update({ goal: null })}>
+              {t('publicPages.workouts.allGoals')}
             </button>
-          ))}
-        </div>
-        <div className="row row--between">
-          <button type="button" className="btn btn--small" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
-            <Icon name="grid" />
-            {t('publicPages.workouts.filters')}
-            {extra > 0 ? ` · ${extra}` : ''}
-          </button>
-          {active ? (
-            <button type="button" className="btn btn--ghost btn--small" onClick={() => setParams(new URLSearchParams(), { replace: true })}>
-              {t('publicPages.workouts.clearAll')}
+            {GOAL_ORDER.map((goal) => (
+              <button
+                key={goal}
+                type="button"
+                className="chip"
+                aria-pressed={filters.goal === goal}
+                onClick={() => update({ goal: filters.goal === goal ? null : goal })}
+              >
+                {labels.goal[goal]}
+              </button>
+            ))}
+          </div>
+          <div className="workout-filters__actions">
+            <button type="button" className="btn btn--small" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
+              <Icon name="grid" />
+              {t('publicPages.workouts.filters')}
+              {extra > 0 ? ` · ${extra}` : ''}
             </button>
-          ) : null}
+            {active ? (
+              <button type="button" className="btn btn--ghost btn--small" onClick={() => setParams(new URLSearchParams(), { replace: true })}>
+                {t('publicPages.workouts.clearAll')}
+              </button>
+            ) : null}
+          </div>
         </div>
         {open ? (
           <div className="card stack workout-filters__panel">

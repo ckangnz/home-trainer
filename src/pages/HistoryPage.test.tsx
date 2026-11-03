@@ -78,4 +78,16 @@ describe('history details', () => {
     expect(within(oldCard).getByText('Jumping jacks')).toBeInTheDocument()
     expect(within(oldCard).getByText('High Intensity Interval Training')).toBeInTheDocument()
   })
+
+  it('links to awards and body with a summary of each', async () => {
+    render(
+      <AppProviders>
+        <MemoryRouter>
+          <HistoryPage />
+        </MemoryRouter>
+      </AppProviders>,
+    )
+    expect(await screen.findByRole('link', { name: /Awards.*badges? earned/ })).toHaveAttribute('href', '/app/awards')
+    expect(screen.getByRole('link', { name: /Body & weight/ })).toHaveAttribute('href', '/app/body')
+  })
 })

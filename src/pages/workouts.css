@@ -1,3 +1,21 @@
+.workout-filters__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.workout-filters__bar > .chip-row {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.workout-filters__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .workout-filters__panel {
   gap: var(--space-4);
   animation: item-enter var(--duration-base) var(--ease-out) both;

@@ -1,8 +1,14 @@
+.library-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
 .library-switch {
-  justify-self: start;
-  align-self: flex-start;
+  flex-shrink: 0;
   width: max-content;
-  margin-bottom: var(--space-4);
 }
 
 .library-switch a {
@@ -20,10 +26,4 @@
 .library-switch a.active {
   background: var(--color-surface-3);
   color: var(--color-text);
-}
-
-@media (min-width: 860px) {
-  .library-switch {
-    display: none;
-  }
 }

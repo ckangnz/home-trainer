@@ -3,6 +3,7 @@ export const body = {
   title: 'Body & weight',
   lead: 'Log your weight, watch the trend, and see it next to how often you work out.',
   open: 'Body & weight',
+  openEmpty: 'Log your weight',
   loading: 'Loading your weight history',
   summary: {
     current: 'Current weight',
