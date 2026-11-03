@@ -1,6 +1,6 @@
 export type ServingUnit = 'g' | 'ml' | 'cup' | 'tbsp' | 'piece' | 'slice' | 'bowl' | 'plate' | 'serving' | 'scoop' | 'can' | 'bar' | 'handful' | 'bottle'
 
-export type FoodCategory = 'grains' | 'protein' | 'dairy' | 'fruit' | 'veg' | 'fats' | 'korean' | 'meals' | 'snacks' | 'drinks'
+export type FoodCategory = 'grains' | 'protein' | 'dairy' | 'fruit' | 'veg' | 'fats' | 'korean' | 'japanese' | 'chinese' | 'seasian' | 'indian' | 'italian' | 'mexican' | 'fastfood' | 'meals' | 'snacks' | 'drinks'
 
 export interface FoodItem {
   id: string

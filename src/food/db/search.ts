@@ -1,12 +1,19 @@
 import type { CustomFood } from '../types'
 import type { FoodCategory, FoodItem } from './types'
 
-export const FOOD_CATEGORIES: FoodCategory[] = ['korean', 'meals', 'protein', 'grains', 'dairy', 'fruit', 'veg', 'fats', 'snacks', 'drinks']
+export const FOOD_CATEGORIES: FoodCategory[] = ['korean', 'japanese', 'chinese', 'seasian', 'indian', 'italian', 'mexican', 'fastfood', 'meals', 'protein', 'grains', 'dairy', 'fruit', 'veg', 'fats', 'snacks', 'drinks']
 
 export const CATEGORY_ICONS: Record<FoodCategory | 'mine', string> = {
   mine: '⭐',
   korean: '🍲',
-  meals: '🍽️',
+  japanese: '🍣',
+  chinese: '🥡',
+  seasian: '🍜',
+  indian: '🍛',
+  italian: '🍝',
+  mexican: '🌮',
+  fastfood: '🍔',
+  meals: '🥗',
   protein: '🍗',
   grains: '🍚',
   dairy: '🥛',

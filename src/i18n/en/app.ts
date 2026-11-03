@@ -59,7 +59,7 @@ export const app = {
     fromPlan: 'from the workout plan',
     doAgain: 'Do it again',
     saveToHealth: 'Health',
-    title: 'History',
+    title: 'Progress',
     currentStreak: 'Current streak',
     bestStreak: 'Best streak',
     workouts: 'Workouts',
