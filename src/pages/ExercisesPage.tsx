@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { AdUnit } from '@/ads/AdUnit'
 import { useSearchParams } from 'react-router-dom'
 import { EXERCISES } from '@/exercises'
 import { CATEGORY_ORDER, GEAR_ORDER, gearGroup, type GearGroup } from '@/exercises/labels'
@@ -143,6 +144,8 @@ export function ExercisesPage() {
           </button>
         </div>
       )}
+
+      <AdUnit placement="page" className="page-ad" />
     </div>
   )
 }

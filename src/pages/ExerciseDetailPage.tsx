@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AdUnit } from '@/ads/AdUnit'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { EXERCISES, getExercise } from '@/exercises'
 import { ExerciseCard } from '@/components/ExerciseCard'
@@ -117,6 +118,8 @@ export function ExerciseDetailPage() {
             {sidedNote ? <p className="faint">{t(sidedNote)}</p> : null}
           </section>
 
+          <AdUnit placement="page" className="page-ad" />
+
           <section className="stack">
             <h2 className="section__title">{t('publicPages.exerciseDetail.formTips')}</h2>
             <ul className="tips">
@@ -152,6 +155,8 @@ export function ExerciseDetailPage() {
           </div>
         </section>
       ) : null}
+
+      <AdUnit placement="page" className="page-ad" />
 
       {signedIn ? <AddToRoutineDialog exercise={exercise} open={adding} onClose={() => setAdding(false)} /> : null}
     </article>

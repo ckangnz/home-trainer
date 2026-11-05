@@ -1,4 +1,5 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { AdUnit } from '@/ads/AdUnit'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { RoutineList, RoutineStats } from '@/components/RoutineList'
 import { RoutineMuscles } from '@/components/RoutineMuscles'
@@ -85,6 +86,8 @@ export function WorkoutDetailPage() {
       </section>
 
       <RoutineMuscles body={workout} />
+
+      <AdUnit placement="page" className="page-ad" />
 
       <section className="section">
         <h2 className="section__title">{t('publicPages.workoutDetail.moves')}</h2>

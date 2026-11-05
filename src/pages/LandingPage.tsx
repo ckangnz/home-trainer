@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { AdUnit } from '@/ads/AdUnit'
 import { EXERCISES, getExercise } from '@/exercises'
 import { CATEGORY_ORDER } from '@/exercises/labels'
 import { useContent, useT } from '@/i18n'
@@ -98,6 +99,8 @@ export function LandingPage() {
           </details>
         ))}
       </section>
+
+      <AdUnit placement="page" className="page-ad" />
     </div>
   )
 }

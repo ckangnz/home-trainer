@@ -65,7 +65,7 @@ export const settings = {
   },
   about: {
     title: 'About',
-    body: 'HomeTrainer is free and supported by ads shown on some rest screens and on the History and friend pages. Exercise guidance is general information, not medical advice.',
+    body: 'HomeTrainer is free and supported by ads shown on some rest screens and below the content of some pages. Exercise guidance is general information, not medical advice.',
     privacy: 'Privacy policy',
     terms: 'Terms of use',
   },
