@@ -7,6 +7,7 @@ import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
 import { useContent, useFormat, useT } from '@/i18n'
 import { NotFoundPage } from './NotFoundPage'
+import './workouts.css'
 
 export function WorkoutDetailPage() {
   const { id = '' } = useParams()
@@ -52,7 +53,7 @@ export function WorkoutDetailPage() {
 
       <RoutineStats body={workout} />
 
-      <div className="row row--wrap">
+      <div className="detail-actions">
         <button
           type="button"
           className="btn btn--primary btn--lg"

@@ -566,13 +566,15 @@ function PauseView({
   const switching = step.reason === 'switch'
 
   return (
-    <div className="player__scroll">
+    <div className="player__scroll player__scroll--fill">
       <div className="pause">
         <p className="pause__title">{roundTitle(step, steps, state.index, t)}</p>
-        <TimerRing fraction={remaining / limit} tone="rest" size="lg" label={t('player.rest.secondsLeft', { n: Math.ceil(remaining / 1000) })}>
-          <span className="pause__count tabular">{Math.ceil(remaining / 1000)}</span>
-          <span className="faint">{t('player.rest.seconds')}</span>
-        </TimerRing>
+        <div className="pause__ring">
+          <TimerRing fraction={remaining / limit} tone="rest" size="lg" label={t('player.rest.secondsLeft', { n: Math.ceil(remaining / 1000) })}>
+            <span className="pause__count tabular">{Math.ceil(remaining / 1000)}</span>
+            <span className="faint">{t('player.rest.seconds')}</span>
+          </TimerRing>
+        </div>
         <div className="row row--wrap pause__controls">
           <button type="button" className="btn" onClick={() => player.extend(10000)}>
             <Icon name="plus" />

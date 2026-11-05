@@ -24,11 +24,63 @@ function publicUrl(route) {
   return `${siteUrl}${route === '/' ? '/' : `${route}/`}`
 }
 
+const SECTIONS = { '/workouts': 'Workouts', '/exercises': 'Exercise library' }
+
+function pageName(meta) {
+  return meta.title.replace(/ · HomeTrainer$/, '').replace(/: how to do it$/, '')
+}
+
+function structuredData(route, meta) {
+  if (!siteUrl) {
+    return []
+  }
+  if (route === '/') {
+    return [
+      { '@context': 'https://schema.org', '@type': 'WebSite', name: 'HomeTrainer', url: publicUrl('/') },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'HomeTrainer',
+        url: publicUrl('/'),
+        description: meta.description,
+        applicationCategory: 'HealthApplication',
+        operatingSystem: 'Any (web browser)',
+        browserRequirements: 'Requires JavaScript',
+        isAccessibleForFree: true,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        image: `${siteUrl}/icons/icon-512.png`,
+      },
+    ]
+  }
+  const section = Object.keys(SECTIONS).find((path) => route.startsWith(`${path}/`))
+  if (!section) {
+    return []
+  }
+  const crumbs = [
+    { name: 'HomeTrainer', route: '/' },
+    { name: SECTIONS[section], route: section },
+    { name: pageName(meta), route },
+  ]
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: crumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.name, item: publicUrl(crumb.route) })),
+    },
+  ]
+}
+
+function jsonLd(value) {
+  return `<script type="application/ld+json">${JSON.stringify(value).replace(/</g, '\\u003c')}</script>`
+}
+
 function headTags(route, meta) {
   const tags = [
     `<meta property="og:title" content="${escapeHtml(meta.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(meta.description)}" />`,
     '<meta property="og:type" content="website" />',
+    '<meta property="og:site_name" content="HomeTrainer" />',
+    '<meta property="og:locale" content="en_US" />',
     '<meta name="twitter:card" content="summary" />',
   ]
   if (siteUrl) {
@@ -36,6 +88,7 @@ function headTags(route, meta) {
     tags.push(`<meta property="og:url" content="${publicUrl(route)}" />`)
     tags.push(`<meta property="og:image" content="${siteUrl}/icons/icon-512.png" />`)
   }
+  tags.push(...structuredData(route, meta).map(jsonLd))
   return tags.join('\n    ')
 }
 

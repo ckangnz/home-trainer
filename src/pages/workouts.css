@@ -1,7 +1,13 @@
+.workout-filters {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
 .workout-filters__bar {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-width: 0;
 }
 
 .workout-filters__bar > .chip-row {
@@ -59,4 +65,27 @@
   padding: 0;
   font: inherit;
   cursor: pointer;
+}
+
+.detail-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+@media (max-width: 560px) {
+  .detail-actions > .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: var(--space-3);
+    font-size: var(--text-base);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .detail-actions > .btn {
+    gap: var(--space-1);
+    padding-inline: var(--space-2);
+    font-size: var(--text-sm);
+  }
 }

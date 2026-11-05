@@ -60,11 +60,28 @@
   min-width: 0;
 }
 
-.history-link__text .faint {
-  overflow: hidden;
-  font-size: var(--text-xs);
-  text-overflow: ellipsis;
+.history-link__text strong {
   white-space: nowrap;
+}
+
+.history-link__text .faint {
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 480px) {
+  .history-link {
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .history-link__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .history-link > .icon:last-child {
+    display: none;
+  }
 }
 
 .history-day {

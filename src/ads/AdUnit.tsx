@@ -98,7 +98,7 @@ export function AdUnit({ placement, className }: AdUnitProps) {
         data-ad-client={CLIENT}
         data-ad-slot={slot}
         data-ad-format={AD_FORMAT[placement]}
-        data-full-width-responsive="true"
+        data-full-width-responsive="false"
         {...(import.meta.env.DEV ? { 'data-adtest': 'on' } : {})}
       />
     </aside>

@@ -4,6 +4,7 @@ import { TextField } from '@/components/ui'
 import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
+import { AdUnit } from '@/ads/AdUnit'
 import { SITE, absoluteUrl } from '@/app/site'
 import { useT, type MessageKey } from '@/i18n'
 import { useFriends } from './FriendsProvider'
@@ -135,6 +136,8 @@ export function FriendsPage() {
           </div>
         )}
       </section>
+
+      <AdUnit placement="page" className="page-ad" />
 
       <form className="card stack" onSubmit={(event) => void find(event)}>
         <h2 className="section__title">{t('social.friends.add')}</h2>

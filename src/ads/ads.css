@@ -1,9 +1,12 @@
 .ad-unit {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-1);
   width: 100%;
+  min-width: 0;
   max-width: 480px;
   margin-inline: auto;
+  overflow: hidden;
 }
 
 .ad-unit--page {

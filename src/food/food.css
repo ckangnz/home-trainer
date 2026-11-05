@@ -277,7 +277,7 @@ button.meal-option:hover {
   position: relative;
   border: 0;
   font: inherit;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   background: transparent;
   color: var(--color-text-muted);
 }

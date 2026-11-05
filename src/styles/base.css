@@ -294,6 +294,7 @@ textarea {
   margin: 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-9);
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-7);
 }
 
