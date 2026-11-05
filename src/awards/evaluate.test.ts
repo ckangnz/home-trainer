@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { awardFromId, holidayDate } from './catalog'
+import { awardFromId, holidayDate, lunarDate } from './catalog'
 import { EMPTY_PROGRESS, evaluateAwards } from './evaluate'
 
 const at = (date: string, hour = 12) => ({ completedAt: new Date(`${date}T${String(hour).padStart(2, '0')}:30:00`).toISOString() })
@@ -35,7 +35,27 @@ describe('awards', () => {
   it('awards holidays by local date, including lunar holidays', () => {
     const result = evaluateAwards([at('2026-01-01'), at('2027-01-01'), at('2026-12-25'), at('2026-02-17'), at('2026-09-25')], EMPTY_PROGRESS, new Date('2027-01-02'))
     expect(ids(result)).toEqual(expect.arrayContaining(['new-year-2026', 'new-year-2027', 'christmas-2026', 'lunar-new-year-2026', 'chuseok-2026']))
-    expect(holidayDate('lunarNewYear', 2027)).toEqual([2, 6])
+    expect(holidayDate('lunarNewYear', 2027)).toEqual([2, 7])
+  })
+
+  it('finds Korean lunar holidays for any year and matches the built-in table', () => {
+    const table: Record<number, [[number, number], [number, number]]> = {
+      2026: [[2, 17], [9, 25]],
+      2027: [[2, 7], [9, 15]],
+      2028: [[1, 27], [10, 3]],
+      2029: [[2, 13], [9, 22]],
+      2030: [[2, 3], [9, 12]],
+      2031: [[1, 23], [10, 1]],
+      2032: [[2, 11], [9, 19]],
+    }
+    for (const [year, [seollal, chuseok]] of Object.entries(table)) {
+      expect(holidayDate('lunarNewYear', Number(year))).toEqual(seollal)
+      expect(holidayDate('chuseok', Number(year))).toEqual(chuseok)
+    }
+    expect(holidayDate('lunarNewYear', 2040)).toEqual([2, 12])
+    expect(holidayDate('chuseok', 2040)).toEqual([9, 21])
+    expect(lunarDate('lunarNewYear', 2027, null)).toEqual([2, 7])
+    expect(lunarDate('chuseok', 2040, null)).toBeNull()
   })
 
   it('awards early bird and night owl after five sessions', () => {

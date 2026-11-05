@@ -19,11 +19,18 @@ const FIXED_HOLIDAYS: Partial<Record<HolidayId, [number, number]>> = {
   newYearsEve: [12, 31],
 }
 
-const LUNAR_DATES: Record<'lunarNewYear' | 'chuseok', Record<number, [number, number]>> = {
+type LunarHoliday = 'lunarNewYear' | 'chuseok'
+
+const LUNAR_DAY: Record<LunarHoliday, { month: number; day: number; searchFrom: [number, number] }> = {
+  lunarNewYear: { month: 1, day: 1, searchFrom: [1, 15] },
+  chuseok: { month: 8, day: 15, searchFrom: [8, 25] },
+}
+
+const LUNAR_DATES: Record<LunarHoliday, Record<number, [number, number]>> = {
   lunarNewYear: {
     2026: [2, 17],
-    2027: [2, 6],
-    2028: [1, 26],
+    2027: [2, 7],
+    2028: [1, 27],
     2029: [2, 13],
     2030: [2, 3],
     2031: [1, 23],
@@ -61,9 +68,45 @@ function milestoneTier(count: number): AwardTier {
   return count >= 1000 ? 'diamond' : count >= 250 ? 'platinum' : count >= 50 ? 'gold' : count >= 10 ? 'silver' : 'bronze'
 }
 
+let koreanLunar: Intl.DateTimeFormat | null | undefined
+
+function koreanLunarFormat(): Intl.DateTimeFormat | null {
+  if (koreanLunar === undefined) {
+    try {
+      const format = new Intl.DateTimeFormat('en-u-ca-dangi', { timeZone: 'UTC', month: 'numeric', day: 'numeric' })
+      koreanLunar = format.resolvedOptions().calendar === 'dangi' ? format : null
+    } catch {
+      koreanLunar = null
+    }
+  }
+  return koreanLunar
+}
+
+const lunarCache = new Map<string, [number, number] | null>()
+
+export function lunarDate(holiday: LunarHoliday, year: number, format = koreanLunarFormat()): [number, number] | null {
+  if (!format) {
+    return LUNAR_DATES[holiday][year] ?? null
+  }
+  const key = `${holiday}:${year}`
+  if (!lunarCache.has(key)) {
+    const { month, day, searchFrom } = LUNAR_DAY[holiday]
+    let found: [number, number] | null = null
+    for (let offset = 0; offset < 50 && !found; offset += 1) {
+      const date = new Date(Date.UTC(year, searchFrom[0] - 1, searchFrom[1] + offset, 12))
+      const parts = Object.fromEntries(format.formatToParts(date).map((part) => [part.type, part.value]))
+      if (parts.month === String(month) && parts.day === String(day)) {
+        found = [date.getUTCMonth() + 1, date.getUTCDate()]
+      }
+    }
+    lunarCache.set(key, found ?? LUNAR_DATES[holiday][year] ?? null)
+  }
+  return lunarCache.get(key) ?? null
+}
+
 export function holidayDate(holiday: HolidayId, year: number): [number, number] | null {
   if (holiday === 'lunarNewYear' || holiday === 'chuseok') {
-    return LUNAR_DATES[holiday][year] ?? null
+    return lunarDate(holiday, year)
   }
   return FIXED_HOLIDAYS[holiday] ?? null
 }
