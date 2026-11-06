@@ -44,6 +44,7 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
     if (file && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
       try {
         await navigator.share({ files: [file], title: workout.title })
+        onClose()
         return
       } catch (error) {
         if (error instanceof DOMException && error.name === 'AbortError') {
@@ -53,6 +54,7 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
     }
     download(fileName, contents)
     notify(t('social.health.downloaded'))
+    onClose()
   }
 
   const apple = (
@@ -62,7 +64,7 @@ export function HealthExportDialog({ workout, open, onClose }: { workout: Health
         {t('social.health.appleHealth')}
       </h3>
       <p className="faint">{t('social.health.appleExplain', { type: appleWorkoutType(workout.activity) })}</p>
-      <a className="btn btn--primary" href={shortcutUrl(workout)}>
+      <a className="btn btn--primary" href={shortcutUrl(workout)} onClick={() => window.setTimeout(onClose, 0)}>
         <Icon name="heart" />
         {t('social.health.sendToApple')}
       </a>
