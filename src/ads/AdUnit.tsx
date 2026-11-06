@@ -12,7 +12,7 @@ export const AD_SLOTS = {
 } as const
 
 const AD_FORMAT: Record<keyof typeof AD_SLOTS, string> = {
-  rest: 'auto',
+  rest: 'horizontal',
   page: 'horizontal',
 }
 
