@@ -6,7 +6,7 @@ export type RestAdTrigger = 'user-action' | 'every-rest'
 // AdSense forbids refreshing ad units "without the user requesting a refresh". Requesting a new rest
 // ad only when the user's own tap led to the screen keeps the player compliant.
 // Switching this to 'every-rest' also loads ads on countdown-started rests; confirm with AdSense first.
-export const REST_AD_TRIGGER: RestAdTrigger = 'user-action'
+export const REST_AD_TRIGGER: RestAdTrigger = 'every-rest'
 
 export const AD_MIN_INTERVAL_MS = 30_000
 
