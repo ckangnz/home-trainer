@@ -160,6 +160,13 @@ const sumoFloor = pose(sumoTop, {
 const ohpRack = barOn(pose(STAND, { neck: -6 }), 'front', 0.04, 0.17)
 const ohpTop = pose(STAND, arms([178, 4]))
 
+const barbellThrusterRack = frontSquatUp
+const barbellThrusterSquat = frontSquatDown
+const barbellThrusterPress = ohpTop
+
+const barbellRdlTop = deadliftTop
+const barbellRdlBottom = pose(STAND, { root: [-0.2, 0.9], torso: 74, neck: -16 }, arms([74, 2]))
+
 const BB_ROW_HINGE: PoseSpec = { root: [-0.24, 0.88], torso: 68, neck: -16, legL: flat(0), legR: flat(0) }
 const barbellRowDown = pose(STAND, BB_ROW_HINGE, arms([68, 2]))
 const barbellRowUp = barOn(pose(STAND, BB_ROW_HINGE), 'front', 0.02, 0.15, 'waist')
@@ -713,6 +720,33 @@ export const WEIGHTS: Exercise[] = [
     ],
   },
   {
+    id: 'barbell-thruster',
+    name: 'Barbell thruster',
+    category: 'weights',
+    tags: ['fullBody', 'lowerBody'],
+    muscles: ['quads', 'shoulders', 'glutes', 'triceps', 'abs'],
+    equipment: 'barbell',
+    level: 3,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'reps', reps: 8 },
+    animation: anim('side', [key(barbellThrusterRack, 800, 120), key(barbellThrusterSquat, 1100, 100), key(barbellThrusterPress, 900, 150)], {
+      props: [BARBELL],
+      thumb: 2,
+    }),
+    summary: 'A barbell front squat that flows straight into an overhead press for a demanding full-body move that gets your heart rate up.',
+    steps: [
+      'Rest the bar on the front of your shoulders with your elbows high and your feet shoulder-width apart.',
+      'Squat down with your chest up and your elbows lifted.',
+      'Drive up out of the squat and use that momentum to press the bar overhead.',
+      'Lower the bar back to your shoulders as you begin the next squat.',
+    ],
+    tips: [
+      'Keep your elbows high so the bar stays on your shoulders.',
+      'Make it one smooth motion from the bottom of the squat to the press.',
+    ],
+  },
+  {
     id: 'barbell-front-squat',
     name: 'Barbell front squat',
     category: 'weights',
@@ -734,6 +768,30 @@ export const WEIGHTS: Exercise[] = [
     tips: [
       'Let the bar rest on your shoulders, with your fingertips only guiding it.',
       'If your elbows drop, the bar will roll forward.',
+    ],
+  },
+  {
+    id: 'barbell-romanian-deadlift',
+    name: 'Barbell Romanian deadlift',
+    category: 'weights',
+    tags: ['lowerBody'],
+    muscles: ['hamstrings', 'glutes', 'lowerBack', 'forearms'],
+    equipment: 'barbell',
+    level: 2,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'reps', reps: 8 },
+    animation: anim('side', [key(barbellRdlTop, 1200, 150), key(barbellRdlBottom, 1400, 120)], { props: [BARBELL], thumb: 1 }),
+    summary: 'A hip hinge that lowers a barbell down your legs to build strong hamstrings, glutes and back.',
+    steps: [
+      'Stand with your feet hip-width apart, holding the bar in front of your thighs with an overhand grip.',
+      'Soften your knees and push your hips back as the bar slides down your legs.',
+      'Lower until you feel a deep stretch in your hamstrings with your back flat.',
+      'Drive your hips forward to stand tall and squeeze your glutes.',
+    ],
+    tips: [
+      'Keep the bar close to your legs the whole way.',
+      'Stop lowering when your back starts to round, not when the bar touches the floor.',
     ],
   },
   {

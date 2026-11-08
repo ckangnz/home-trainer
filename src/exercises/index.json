@@ -2803,6 +2803,35 @@
   "cycleMs": 2670
  },
  {
+  "id": "barbell-thruster",
+  "name": "Barbell thruster",
+  "category": "weights",
+  "tags": [
+   "fullBody",
+   "lowerBody"
+  ],
+  "muscles": [
+   "quads",
+   "shoulders",
+   "glutes",
+   "triceps",
+   "abs"
+  ],
+  "equipment": "barbell",
+  "level": 3,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A barbell front squat that flows straight into an overhead press for a demanding full-body move that gets your heart rate up.",
+  "family": "squat",
+  "variant": "Barbell thruster",
+  "catalog": "weights",
+  "cycleMs": 3170
+ },
+ {
   "id": "barbell-front-squat",
   "name": "Barbell front squat",
   "category": "weights",
@@ -2829,6 +2858,33 @@
   "variant": "Front squat",
   "catalog": "weights",
   "cycleMs": 2670
+ },
+ {
+  "id": "barbell-romanian-deadlift",
+  "name": "Barbell Romanian deadlift",
+  "category": "weights",
+  "tags": [
+   "lowerBody"
+  ],
+  "muscles": [
+   "hamstrings",
+   "glutes",
+   "lowerBack",
+   "forearms"
+  ],
+  "equipment": "barbell",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 8
+  },
+  "summary": "A hip hinge that lowers a barbell down your legs to build strong hamstrings, glutes and back.",
+  "family": "deadlift",
+  "variant": "Barbell Romanian",
+  "catalog": "weights",
+  "cycleMs": 2870
  },
  {
   "id": "barbell-deadlift",
