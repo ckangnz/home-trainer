@@ -7,30 +7,24 @@ type ExerciseFigureProps = Omit<FigureProps, 'animation'> & {
   lazy?: boolean
 }
 
+const NEAR_MARGIN = '500px 0px'
+
 function useNearViewport(enabled: boolean) {
   const ref = useRef<HTMLSpanElement>(null)
   const [near, setNear] = useState(!enabled)
   useEffect(() => {
-    if (!enabled || near) {
+    if (!enabled) {
       return
     }
-    const node = ref.current
-    if (!node || typeof IntersectionObserver === 'undefined') {
+    const host = ref.current?.parentElement
+    if (!host || typeof IntersectionObserver === 'undefined') {
       setNear(true)
       return
     }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setNear(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: '300px 0px' },
-    )
-    observer.observe(node)
+    const observer = new IntersectionObserver((entries) => setNear(entries[entries.length - 1].isIntersecting), { rootMargin: NEAR_MARGIN })
+    observer.observe(host)
     return () => observer.disconnect()
-  }, [enabled, near])
+  }, [enabled])
   return { ref, near }
 }
 
