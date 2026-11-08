@@ -74,6 +74,8 @@ export const app = {
     removeName: '기록에서 {name} 삭제',
     confirmRemove: '이 운동을 기록에서 삭제할까요?',
     logWorkout: '운동 기록하기',
+    manual: '직접 기록',
+    edit: '수정',
     dayCalories: '{n} kcal',
   },
   log: {
@@ -100,6 +102,10 @@ export const app = {
     estimateNote: '체중 {weight}kg과 시작~종료 시간을 기준으로 계산해요.',
     longerThanWindow: '동작 시간의 합이 입력한 시간보다 길어 초과분은 계산하지 않아요.',
     save: '기록에 저장',
+    saveChanges: '변경 사항 저장',
+    editTitle: '운동 수정',
+    updated: '운동을 수정했어요',
+    notFound: '기록한 운동을 찾을 수 없어요.',
     saved: '운동을 기록했어요',
     errors: {
       noExercises: '동작을 하나 이상 추가하세요.',

@@ -179,7 +179,10 @@ export function HistoryPage() {
                         onClick={() => setOpenId(openId === entry.id ? null : entry.id)}
                       >
                         <span className="stack stack--tight">
-                          <strong>{title}</strong>
+                          <strong>
+                            {title}
+                            {entry.source.kind === 'manual' ? <span className="history-pill">{t('app.history.manual')}</span> : null}
+                          </strong>
                           <span className="faint">
                             {fmt.date(entry.completedAt, TIME_FORMAT)} · {fmt.duration(entry.durationMs)} ·{' '}
                             {t('app.history.moves', { done: entry.exercises, total: entry.totalExercises })}
@@ -189,6 +192,12 @@ export function HistoryPage() {
                         <Icon name={openId === entry.id ? 'up' : 'down'} />
                       </button>
                       <div className="history-entry__actions">
+                        {entry.source.kind === 'manual' ? (
+                          <Link to={`/app/history/log/${entry.id}`} state={{ entry }} className="btn btn--small">
+                            <Icon name="edit" />
+                            {t('app.history.edit')}
+                          </Link>
+                        ) : null}
                         <button type="button" className="btn btn--small" onClick={() => setExporting({ entry, title })}>
                           <Icon name="heart" />
                           {t('app.history.saveToHealth')}

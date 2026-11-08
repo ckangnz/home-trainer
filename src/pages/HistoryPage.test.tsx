@@ -34,6 +34,19 @@ vi.mock('@/data/repository', () => ({
         exerciseIds: ['standing-hamstring-stretch', 'pigeon-pose'],
       },
       {
+        id: 'logged',
+        ownerId: 'user-1',
+        schemaVersion: 2,
+        title: 'PT',
+        source: { kind: 'manual', id: 'manual' },
+        startedAt: iso(70),
+        completedAt: iso(50),
+        durationMs: 1200000,
+        exercises: 1,
+        totalExercises: 1,
+        exerciseIds: ['squat'],
+      },
+      {
         id: 'old',
         ownerId: 'user-1',
         schemaVersion: 2,
@@ -89,5 +102,21 @@ describe('history details', () => {
     )
     expect(await screen.findByRole('link', { name: /Awards.*badges? earned/ })).toHaveAttribute('href', '/app/awards')
     expect(screen.getByRole('link', { name: /Body & weight/ })).toHaveAttribute('href', '/app/body')
+  })
+
+  it('marks manually logged workouts and lets you edit only those', async () => {
+    render(
+      <AppProviders>
+        <MemoryRouter>
+          <HistoryPage />
+        </MemoryRouter>
+      </AppProviders>,
+    )
+    const logged = (await screen.findByRole('button', { name: /^PT/ })).closest('li') as HTMLElement
+    expect(within(logged).getByText('Manual')).toBeInTheDocument()
+    expect(within(logged).getByRole('link', { name: 'Edit' })).toHaveAttribute('href', '/app/history/log/logged')
+    const curated = (await screen.findByRole('button', { name: /^Stretch time/ })).closest('li') as HTMLElement
+    expect(within(curated).queryByText('Manual')).toBeNull()
+    expect(within(curated).queryByRole('link', { name: 'Edit' })).toBeNull()
   })
 })

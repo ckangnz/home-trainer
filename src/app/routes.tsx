@@ -103,6 +103,7 @@ export function AppRoutes() {
           <Route path="routines/:id" element={<RoutineEditorPage />} />
           <Route path="history" element={<HistoryPage />} />
           <Route path="history/log" element={<LogWorkoutPage />} />
+          <Route path="history/log/:id" element={<LogWorkoutPage />} />
           <Route path="awards" element={<AwardsPage />} />
           <Route path="body" element={<BodyPage />} />
           <Route path="food" element={<FoodPage />} />

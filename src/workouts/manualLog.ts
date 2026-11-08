@@ -1,4 +1,5 @@
 import type { Completion } from '@/data/models'
+import { getExercise } from '@/exercises'
 import type { ExerciseInfo } from '@/exercises/types'
 import { estimatedRepMs } from './steps'
 import { estimateCalories, workedMuscles, type WorkedExercise } from './summary'
@@ -30,6 +31,19 @@ export function newLogEntry(exercise: ExerciseInfo): LogEntry {
     sets: 1,
     value: defaultTarget.kind === 'reps' ? defaultTarget.reps : defaultTarget.seconds,
   }
+}
+
+export function entriesFromCompletion(completion: Completion): LogEntry[] {
+  if (completion.manualEntries) {
+    return completion.manualEntries.flatMap((saved) => {
+      const exercise = getExercise(saved.exerciseId)
+      return exercise ? [{ ...newLogEntry(exercise), amount: saved.amount, sets: saved.sets, value: saved.value }] : []
+    })
+  }
+  return (completion.exerciseIds ?? []).flatMap((id) => {
+    const exercise = getExercise(id)
+    return exercise ? [newLogEntry(exercise)] : []
+  })
 }
 
 export function switchAmount(entry: LogEntry, amount: LogAmount): LogEntry {
@@ -79,13 +93,14 @@ export function buildManualCompletion(input: {
   startedAt: Date
   endedAt: Date
   weightKg: number
+  id?: string
 }): Omit<Completion, 'ownerId' | 'schemaVersion'> {
   const { entries, startedAt, endedAt, weightKg } = input
   const activeMs = endedAt.getTime() - startedAt.getTime()
   const worked = workedFrom(entries)
   const exerciseIds = [...new Set(entries.map((entry) => entry.exercise.id))]
   return {
-    id: `manual-${startedAt.getTime()}`,
+    id: input.id ?? `manual-${startedAt.getTime()}`,
     title: input.title.trim(),
     source: { kind: 'manual', id: 'manual' },
     startedAt: startedAt.toISOString(),
@@ -96,5 +111,6 @@ export function buildManualCompletion(input: {
     calories: estimateCalories(worked, activeMs, weightKg),
     muscles: workedMuscles(worked),
     exerciseIds,
+    manualEntries: entries.map((entry) => ({ exerciseId: entry.exercise.id, amount: entry.amount, sets: entry.sets, value: entry.value })),
   }
 }

@@ -9,6 +9,13 @@ export const SHARE_SCHEMA_VERSION = 2
 
 export type CompletionSource = { kind: 'routine' | 'curated' | 'exercise' | 'cooldown' | 'manual'; id: string }
 
+export interface ManualEntry {
+  exerciseId: string
+  amount: 'reps' | 'time'
+  sets: number
+  value: number
+}
+
 export interface Completion {
   id: string
   ownerId: string
@@ -23,6 +30,7 @@ export interface Completion {
   calories?: number
   muscles?: Muscle[]
   exerciseIds?: string[]
+  manualEntries?: ManualEntry[]
 }
 
 export interface SharedRoutine {
@@ -160,7 +168,33 @@ export function parseCompletion(id: string, ownerId: string, value: unknown): Co
   if (isTextList(value.exerciseIds, 80, 60)) {
     completion.exerciseIds = value.exerciseIds
   }
+  const manualEntries = parseManualEntries(value.manualEntries)
+  if (manualEntries) {
+    completion.manualEntries = manualEntries
+  }
   return completion
+}
+
+function parseManualEntries(value: unknown): ManualEntry[] | null {
+  if (!Array.isArray(value) || value.length === 0 || value.length > 40) {
+    return null
+  }
+  const entries: ManualEntry[] = []
+  for (const raw of value) {
+    if (
+      !isObject(raw) ||
+      !isText(raw.exerciseId, 60) ||
+      (raw.amount !== 'reps' && raw.amount !== 'time') ||
+      typeof raw.sets !== 'number' ||
+      typeof raw.value !== 'number' ||
+      !Number.isFinite(raw.sets) ||
+      !Number.isFinite(raw.value)
+    ) {
+      return null
+    }
+    entries.push({ exerciseId: raw.exerciseId, amount: raw.amount, sets: raw.sets, value: raw.value })
+  }
+  return entries
 }
 
 function isTextList(value: unknown, maxItems: number, maxLength: number): value is string[] {

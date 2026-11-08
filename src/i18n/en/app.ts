@@ -71,6 +71,8 @@ export const app = {
     removeName: 'Remove {name} from history',
     confirmRemove: 'Remove this workout from your history?',
     logWorkout: 'Log a workout',
+    manual: 'Manual',
+    edit: 'Edit',
     dayCalories: '{n} kcal',
   },
   log: {
@@ -97,6 +99,10 @@ export const app = {
     estimateNote: 'Based on your {weight} kg body weight and the time between start and end.',
     longerThanWindow: 'Your exercises add up to more than the time window, so the extra time is not counted.',
     save: 'Save to history',
+    saveChanges: 'Save changes',
+    editTitle: 'Edit workout',
+    updated: 'Workout updated',
+    notFound: 'That logged workout could not be found.',
     saved: 'Workout logged',
     errors: {
       noExercises: 'Add at least one exercise.',
