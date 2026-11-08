@@ -2,7 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { useAuth } from '@/auth/AuthProvider'
 import { useData } from '@/data/DataProvider'
 import { awardFromId } from './catalog'
-import { EMPTY_PROGRESS, evaluateAwards, type Evaluation, type StoredProgress } from './evaluate'
+import { loadRepository } from '@/data/lazy'
+import { EMPTY_PROGRESS, evaluateAwards, type Evaluation, type ExactTotals, type StoredProgress } from './evaluate'
 import type { AwardDef, EarnedAward } from './types'
 
 type AwardsModule = typeof import('@/data/awards')
@@ -26,6 +27,7 @@ export function AwardsProvider({ children }: { children: ReactNode }) {
   const [earnedList, setEarnedList] = useState<EarnedAward[] | null>(null)
   const [stored, setStored] = useState<StoredProgress | null>(null)
   const [fresh, setFresh] = useState<AwardDef[]>([])
+  const [exact, setExact] = useState<ExactTotals | null>(null)
   const saving = useRef(new Set<string>())
   const savedProgress = useRef('')
 
@@ -65,7 +67,29 @@ export function AwardsProvider({ children }: { children: ReactNode }) {
   }, [uid])
 
   const earned = useMemo(() => new Map((earnedList ?? []).map((award) => [award.id, award])), [earnedList])
-  const evaluation = useMemo(() => evaluateAwards(completions, stored ?? EMPTY_PROGRESS, new Date()), [completions, stored])
+  const completionKey = completions.map((entry) => `${entry.id}:${entry.durationMs}`).join('|')
+  useEffect(() => {
+    if (uid === null || !dataReady) {
+      setExact(null)
+      return
+    }
+    let cancelled = false
+    const timer = setTimeout(() => {
+      loadRepository()
+        .then((repository) => repository.fetchCompletionTotals(uid))
+        .then((totals) => {
+          if (!cancelled) {
+            setExact(totals)
+          }
+        })
+        .catch(() => undefined)
+    }, 1500)
+    return () => {
+      cancelled = true
+      clearTimeout(timer)
+    }
+  }, [uid, dataReady, completionKey])
+  const evaluation = useMemo(() => evaluateAwards(completions, stored ?? EMPTY_PROGRESS, new Date(), exact), [completions, stored, exact])
   const ready = uid !== null && dataReady && earnedList !== null && stored !== null
 
   useEffect(() => {

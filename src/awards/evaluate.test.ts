@@ -84,3 +84,23 @@ describe('awards', () => {
     expect(awardFromId('month-2026-13')).toBeNull()
   })
 })
+
+describe('progress totals', () => {
+  const now = new Date('2026-11-08T12:00:00')
+  const stored = { ...EMPTY_PROGRESS, totalWorkouts: 76, totalMs: 40 * 3_600_000, lastCompletedAt: new Date('2026-11-07T12:30:00').toISOString() }
+
+  it('uses the exact server totals instead of the running tally', () => {
+    const entries = days('2026-11-01', 5).map((entry) => ({ ...entry, durationMs: 600_000 }))
+    const tally = evaluateAwards(entries, { ...stored, lastCompletedAt: null }, now)
+    expect(tally.progress.totalWorkouts).toBe(81)
+    const exact = evaluateAwards(entries, { ...stored, lastCompletedAt: null }, now, { count: 77, ms: 41 * 3_600_000 })
+    expect(exact.progress.totalWorkouts).toBe(77)
+    expect(exact.progress.totalMs).toBe(41 * 3_600_000)
+  })
+
+  it('never moves the last completion date backwards', () => {
+    const backdated = [{ completedAt: new Date('2026-10-20T10:00:00').toISOString(), durationMs: 1_800_000 }]
+    const result = evaluateAwards(backdated, stored, now)
+    expect(result.progress.lastCompletedAt).toBe(stored.lastCompletedAt)
+  })
+})

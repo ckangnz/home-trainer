@@ -79,15 +79,23 @@ function daysInMonth(year: number, month: number): number {
   return new Date(year, month, 0).getDate()
 }
 
-export function evaluateAwards(completions: Completed[], stored: StoredProgress, now: Date): Evaluation {
+export interface ExactTotals {
+  count: number
+  ms: number
+}
+
+export function evaluateAwards(completions: Completed[], stored: StoredProgress, now: Date, exact: ExactTotals | null = null): Evaluation {
   const sorted = [...completions].sort((a, b) => (a.completedAt < b.completedAt ? -1 : 1))
   const keys = sorted.map((entry) => toDateKey(dayOf(entry.completedAt)))
   const keySet = new Set(keys)
   const fresh = stored.lastCompletedAt ? sorted.filter((entry) => entry.completedAt > (stored.lastCompletedAt as string)) : sorted
-  const totalWorkouts = Math.max((stored.totalWorkouts || 0) + fresh.length, sorted.length)
+  const countedWorkouts = Math.max((stored.totalWorkouts || 0) + fresh.length, sorted.length)
+  const totalWorkouts = exact ? exact.count : countedWorkouts
   const sumMs = (entries: Completed[]) => entries.reduce((sum, entry) => sum + Math.max(0, Math.round(entry.durationMs ?? 0)), 0)
-  const totalMs = Math.max((stored.totalMs || 0) + sumMs(fresh), sumMs(sorted))
-  const lastCompletedAt = sorted.at(-1)?.completedAt ?? stored.lastCompletedAt
+  const countedMs = Math.max((stored.totalMs || 0) + sumMs(fresh), sumMs(sorted))
+  const totalMs = exact ? exact.ms : countedMs
+  const newest = sorted.at(-1)?.completedAt ?? null
+  const lastCompletedAt = newest && stored.lastCompletedAt ? (newest > stored.lastCompletedAt ? newest : stored.lastCompletedAt) : (newest ?? stored.lastCompletedAt)
 
   const merged = runs(keys)
   if (stored.streakStart && stored.streakEnd) {

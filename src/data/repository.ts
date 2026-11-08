@@ -1,5 +1,8 @@
 import {
   collection,
+  count,
+  getAggregateFromServer,
+  sum,
   deleteDoc,
   doc,
   getDoc,
@@ -109,6 +112,15 @@ export async function fetchCompletionsBetween(uid: string, startIso: string, end
     ),
   )
   return parseAll(uid, snapshot.docs)
+}
+
+export async function fetchCompletionTotals(uid: string): Promise<{ count: number; ms: number }> {
+  const snapshot = await getAggregateFromServer(collection(database(), 'users', uid, 'completions'), {
+    count: count(),
+    ms: sum('durationMs'),
+  })
+  const data = snapshot.data()
+  return { count: data.count, ms: Math.round(data.ms) }
 }
 
 export function recordCompletion(completion: Completion): Promise<void> {
