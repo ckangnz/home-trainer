@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { Icon } from '@/app/Icons'
+import { useToast } from '@/app/Toast'
 import { Dialog } from '@/components/Dialog'
 import { useFormat, useLanguage, useT, type Formatters, type TFunction } from '@/i18n'
-import { CATEGORY_ICONS, customToItem, FOOD_CATEGORIES, loadFoodList, scaled, searchFoods } from './db/search'
+import { CATEGORY_ICONS, customToItem, FOOD_CATEGORIES, loadFoodList, sameCustomFood, scaled, searchFoods } from './db/search'
 import type { FoodCategory, FoodItem } from './db/types'
 import { useFood } from './FoodProvider'
 import { FOOD_LIMITS } from './types'
@@ -73,6 +74,7 @@ type CustomDraft = { id?: string; name: string; serving: string; kcal: string; p
 export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: FoodPickerProps) {
   const t = useT()
   const fmt = useFormat()
+  const { notify } = useToast()
   const language = useLanguage()
   const { customFoods, addCustomFood, updateCustomFood, removeCustomFood } = useFood()
   const [foods, setFoods] = useState<FoodItem[] | null>(null)
@@ -83,6 +85,7 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
   const [note, setNote] = useState('')
   const [custom, setCustom] = useState<CustomDraft | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [saving, setSaving] = useState(false)
   const seeded = useRef(false)
 
   useEffect(() => {
@@ -159,14 +162,16 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
     }
   }
 
-  const deleteCustom = async () => {
-    if (!custom?.id || !window.confirm(t('food.picker.confirmDeleteCustom', { name: custom.name }))) {
+  const deleteCustomFood = async (id: string, name: string) => {
+    if (!window.confirm(t('food.picker.confirmDeleteCustom', { name }))) {
       return
     }
     try {
-      await removeCustomFood(custom.id)
+      await removeCustomFood(id)
       setCustom(null)
       setSelected(null)
+      setError(null)
+      notify(t('food.picker.customDeleted', { name }))
     } catch {
       setError(t('food.picker.customFailed'))
     }
@@ -188,17 +193,30 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
       return
     }
     const values = { name: custom.name.trim(), serving: custom.serving.trim(), kcal: Math.round(kcal), protein: Math.round(protein) }
+    const duplicate = customFoods.find((item) => item.id !== custom.id && sameCustomFood(item, values))
+    if (duplicate && custom.id) {
+      setError(t('food.picker.customDuplicate'))
+      return
+    }
+    setSaving(true)
     try {
       if (custom.id) {
         const updated = await updateCustomFood(custom.id, values)
         setSelected(customToItem(updated))
+        notify(t('food.picker.customUpdated'))
+      } else if (duplicate) {
+        choose(customToItem(duplicate))
+        notify(t('food.picker.customExists'))
       } else {
         choose(customToItem(await addCustomFood(values)))
+        notify(t('food.picker.customSaved'))
       }
       setCustom(null)
       setError(null)
     } catch {
       setError(t('food.picker.customFailed'))
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -242,12 +260,12 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
             </p>
           ) : null}
           <div className="food-picker__actions">
-            <button type="submit" className="btn btn--primary">
+            <button type="submit" className="btn btn--primary" disabled={saving}>
               <Icon name="check" />
               {custom.id ? t('food.picker.customUpdate') : t('food.picker.customSave')}
             </button>
             {custom.id ? (
-              <button type="button" className="btn btn--ghost btn--danger" onClick={() => void deleteCustom()}>
+              <button type="button" className="btn btn--ghost btn--danger" onClick={() => void deleteCustomFood(custom.id as string, custom.name)}>
                 <Icon name="trash" />
                 {t('food.picker.deleteCustom')}
               </button>
@@ -344,7 +362,7 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
           ) : (
             <ul className="food-picker__results">
               {results.map((food) => (
-                <li key={food.id}>
+                <li key={food.id} className="food-result-row">
                   <button type="button" className="food-result" onClick={() => choose(food)}>
                     <span className="food-result__icon" aria-hidden="true">
                       {CATEGORY_ICONS[food.custom ? 'mine' : food.category]}
@@ -363,6 +381,16 @@ export function FoodPicker({ open, title, withNote, editing, onClose, onPick }: 
                       <span className="faint">{t('food.intake.protein', { n: fmt.number(food.protein) })}</span>
                     </span>
                   </button>
+                  {food.custom ? (
+                    <button
+                      type="button"
+                      className="btn btn--icon btn--ghost btn--danger food-result__delete"
+                      aria-label={t('food.picker.deleteCustomNamed', { name: food.name })}
+                      onClick={() => void deleteCustomFood(food.id.replace(/^custom:/, ''), food.name)}
+                    >
+                      <Icon name="trash" />
+                    </button>
+                  ) : null}
                 </li>
               ))}
             </ul>

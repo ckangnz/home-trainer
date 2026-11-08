@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { useAuth } from '@/auth/AuthProvider'
 import { toDateKey } from '@/history/streaks'
 import { newId } from '@/workouts/routine'
+import { sameCustomFood } from './db/search'
 import { parsePlanBody } from './models'
 import type { CustomFood, FoodLog, FoodLogEntry, FoodPrefs, MealPlan, MealPlanBody } from './types'
 
@@ -187,12 +188,16 @@ export function FoodProvider({ children }: { children: ReactNode }) {
   const addCustomFood = useCallback(
     async (food: Omit<CustomFood, 'id' | 'createdAt'>) => {
       const owner = requireUid()
+      const duplicate = customFoods.find((item) => sameCustomFood(item, food))
+      if (duplicate) {
+        return duplicate
+      }
       const created: CustomFood = { ...food, id: newId(), createdAt: new Date().toISOString() }
       setCustomFoods((current) => [...current, created].sort((a, b) => a.name.localeCompare(b.name)))
       await (await loadFood()).saveCustomFood(owner, created)
       return created
     },
-    [requireUid],
+    [customFoods, requireUid],
   )
 
   const updateCustomFood = useCallback(

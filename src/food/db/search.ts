@@ -44,6 +44,11 @@ export function customToItem(food: CustomFood): FoodItem {
   return { id: `custom:${food.id}`, name: food.name, qty: 1, unit: 'serving', label: food.serving || undefined, kcal: food.kcal, protein: food.protein, category: 'meals', custom: true }
 }
 
+export function sameCustomFood(a: Omit<CustomFood, 'id' | 'createdAt'>, b: Omit<CustomFood, 'id' | 'createdAt'>): boolean {
+  const key = (food: Omit<CustomFood, 'id' | 'createdAt'>) => [normalize(food.name), normalize(food.serving), food.kcal, food.protein].join('|')
+  return key(a) === key(b)
+}
+
 export function searchFoods(foods: FoodItem[], query: string, category: FoodCategory | null = null, limit = 40): FoodItem[] {
   const needle = normalize(query)
   const pool = category ? foods.filter((food) => food.category === category && !food.custom) : foods

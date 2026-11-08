@@ -85,6 +85,11 @@ export const food = {
     customNameRequired: '음식 이름을 입력하세요.',
     customKcalRequired: '1회 제공량의 칼로리를 입력하세요.',
     customSaved: '내 음식에 저장했어요',
+    customUpdated: '음식을 수정했어요',
+    customExists: '이미 내 음식에 있어서 중복 저장하지 않았어요',
+    customDuplicate: '이름과 양이 똑같은 음식이 이미 있어요.',
+    customDeleted: '“{name}”을(를) 내 음식에서 삭제했어요',
+    deleteCustomNamed: '{name}을(를) 내 음식에서 삭제',
     customFailed: '음식을 저장하지 못했어요. 다시 시도해 주세요.',
   },
   cheat: {

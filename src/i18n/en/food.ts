@@ -82,6 +82,11 @@ export const food = {
     customNameRequired: 'Enter a food name.',
     customKcalRequired: 'Enter the calories per serving.',
     customSaved: 'Saved to your foods',
+    customUpdated: 'Food updated',
+    customExists: 'Already in your foods, so nothing was duplicated',
+    customDuplicate: 'You already have a food with these exact details.',
+    customDeleted: 'Removed “{name}” from My foods',
+    deleteCustomNamed: 'Delete {name} from My foods',
     customFailed: 'Couldn’t save your food. Try again.',
   },
   cheat: {

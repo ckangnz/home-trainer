@@ -12,6 +12,7 @@ const store = vi.hoisted(() => ({
   savedPlans: [] as MealPlan[],
   savedPrefs: [] as FoodPrefs[],
   savedCustom: [] as unknown[],
+  deletedCustom: [] as string[],
 }))
 
 vi.mock('@/auth/AuthProvider', () => ({
@@ -57,6 +58,9 @@ vi.mock('@/data/food', () => ({
   subscribeCustomFoods: (_uid: string, onChange: (foods: unknown[]) => void) => {
     onChange([])
     return () => {}
+  },
+  deleteCustomFood: async (_uid: string, id: string) => {
+    store.deletedCustom.push(id)
   },
   saveCustomFood: async (_uid: string, food: unknown) => {
     store.savedCustom.push(food)
@@ -105,6 +109,7 @@ beforeEach(() => {
   store.savedPlans = []
   store.savedPrefs = []
   store.savedCustom = []
+  store.deletedCustom = []
 })
 
 describe('FoodPage', () => {
@@ -185,6 +190,43 @@ describe('FoodPage', () => {
       fireEvent.click(within(picker).getByRole('button', { name: 'Add' }))
     })
     expect(store.savedLogs.at(-1)).toMatchObject({ cheat: true, entries: [{ name: 'Grandma stew', kcal: 450, protein: 25 }] })
+  })
+
+  it('does not save the same custom food twice and lets a saved one be removed from the list', async () => {
+    store.plans = [plan]
+    renderAt('/app/food')
+    const dinner = (await screen.findByRole('heading', { name: 'Dinner' })).closest('section') as HTMLElement
+    const openCustomForm = async () => {
+      fireEvent.click(within(dinner).getByRole('button', { name: 'Something else' }))
+      const picker = await screen.findByRole('dialog')
+      fireEvent.change(within(picker).getByRole('searchbox'), { target: { value: 'Grandma stew' } })
+      fireEvent.click(await within(picker).findByRole('button', { name: 'Add “Grandma stew” as a custom food' }))
+      fireEvent.change(within(picker).getByLabelText('kcal per serving'), { target: { value: '450' } })
+      fireEvent.change(within(picker).getByLabelText('Protein (g) per serving'), { target: { value: '25' } })
+      await act(async () => {
+        fireEvent.click(within(picker).getByRole('button', { name: 'Save and add' }))
+      })
+      return picker
+    }
+    const first = await openCustomForm()
+    fireEvent.click(within(first).getByRole('button', { name: 'Back to search' }))
+    const second = await (async () => {
+      fireEvent.click(within(first).getByRole('button', { name: 'Add “Grandma stew” as a custom food' }))
+      fireEvent.change(within(first).getByLabelText('kcal per serving'), { target: { value: '450' } })
+      fireEvent.change(within(first).getByLabelText('Protein (g) per serving'), { target: { value: '25' } })
+      await act(async () => {
+        fireEvent.click(within(first).getByRole('button', { name: 'Save and add' }))
+      })
+      return first
+    })()
+    expect(store.savedCustom).toHaveLength(1)
+    fireEvent.click(within(second).getByRole('button', { name: 'Back to search' }))
+
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    await act(async () => {
+      fireEvent.click(within(second).getByRole('button', { name: 'Delete Grandma stew from My foods' }))
+    })
+    expect(store.deletedCustom).toHaveLength(1)
   })
 
   it('shows what was eaten on a day picked from the calendar', async () => {

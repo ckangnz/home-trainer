@@ -685,6 +685,22 @@ button.month-calendar__day.food-cal-day {
   border-top: 1px solid var(--color-border);
 }
 
+.food-result-row {
+  display: flex;
+  align-items: center;
+}
+
+.food-result-row .food-result {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.food-result__delete {
+  flex: none;
+  margin-right: var(--space-2);
+}
+
 .food-result {
   display: flex;
   align-items: center;
