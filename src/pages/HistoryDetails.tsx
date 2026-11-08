@@ -23,6 +23,9 @@ function replayPath(entry: Completion, exerciseIds: readonly string[], ownWorkou
   if (kind === 'exercise') {
     return `/app/play/exercise/${id}`
   }
+  if (kind === 'manual') {
+    return null
+  }
   return exerciseIds.length > 0 ? `/app/play/cooldown/${exerciseIds.join('~')}` : null
 }
 

@@ -7,7 +7,7 @@ export const COMPLETION_SCHEMA_VERSION = 2
 
 export const SHARE_SCHEMA_VERSION = 2
 
-export type CompletionSource = { kind: 'routine' | 'curated' | 'exercise' | 'cooldown'; id: string }
+export type CompletionSource = { kind: 'routine' | 'curated' | 'exercise' | 'cooldown' | 'manual'; id: string }
 
 export interface Completion {
   id: string
@@ -129,7 +129,7 @@ export function parseCompletion(id: string, ownerId: string, value: unknown): Co
     return null
   }
   const source = value.source
-  if (!['routine', 'curated', 'exercise', 'cooldown'].includes(String(source.kind)) || !isText(source.id, 80)) {
+  if (!['routine', 'curated', 'exercise', 'cooldown', 'manual'].includes(String(source.kind)) || !isText(source.id, 80)) {
     return null
   }
   const numbers = [value.durationMs, value.exercises, value.totalExercises]

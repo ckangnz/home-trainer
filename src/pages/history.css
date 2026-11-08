@@ -89,6 +89,13 @@
   gap: var(--space-2);
 }
 
+.history-day__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
 .history-day__title {
   font-size: var(--text-sm);
   color: var(--color-text-muted);

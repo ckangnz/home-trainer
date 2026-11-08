@@ -36,6 +36,10 @@ function entryTitle(entry: Completion, content: Localizer): string {
   return entry.title
 }
 
+function dayCalories(entries: Completion[]): number {
+  return entries.reduce((sum, entry) => sum + (entry.calories ?? 0), 0)
+}
+
 export function HistoryPage() {
   const t = useT()
   const fmt = useFormat()
@@ -109,6 +113,11 @@ export function HistoryPage() {
         </div>
       </dl>
 
+      <Link to="/app/history/log" className="btn btn--block">
+        <Icon name="plus" />
+        {t('app.history.logWorkout')}
+      </Link>
+
       <div className="history-links">
         <Link to="/app/awards" className="card history-link">
           <span className="history-link__icon">
@@ -153,7 +162,10 @@ export function HistoryPage() {
         <div className="stack">
           {days.map((day) => (
             <section key={day.key} className="history-day">
-              <h2 className="history-day__title">{fmt.date(`${day.key}T12:00:00`, DAY_FORMAT)}</h2>
+              <div className="history-day__header">
+                <h2 className="history-day__title">{fmt.date(`${day.key}T12:00:00`, DAY_FORMAT)}</h2>
+                {dayCalories(day.entries) > 0 ? <span className="faint">{t('app.history.dayCalories', { n: dayCalories(day.entries) })}</span> : null}
+              </div>
               <ul className="list">
                 {day.entries.map((entry) => {
                   const title = entryTitle(entry, content)

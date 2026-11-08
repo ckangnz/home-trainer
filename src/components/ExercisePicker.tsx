@@ -8,6 +8,7 @@ import { useContent, useT } from '@/i18n'
 import { Dialog } from './Dialog'
 import { SearchField } from './SearchField'
 import { ExerciseFigure } from './ExerciseFigure'
+import './exercise-picker.css'
 
 interface ExercisePickerProps {
   open: boolean

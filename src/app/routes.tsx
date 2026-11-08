@@ -19,6 +19,7 @@ function lazyPage<T extends Record<string, ComponentType>>(load: () => Promise<T
 const HomePage = lazyPage(() => import('@/pages/HomePage'), 'HomePage')
 const RoutineEditorPage = lazyPage(() => import('@/pages/RoutineEditorPage'), 'RoutineEditorPage')
 const HistoryPage = lazyPage(() => import('@/pages/HistoryPage'), 'HistoryPage')
+const LogWorkoutPage = lazyPage(() => import('@/pages/LogWorkoutPage'), 'LogWorkoutPage')
 const AwardsPage = lazyPage(() => import('@/awards/AwardsPage'), 'AwardsPage')
 const BodyPage = lazyPage(() => import('@/body/BodyPage'), 'BodyPage')
 const FoodPage = lazyPage(() => import('@/food/FoodPage'), 'FoodPage')
@@ -101,6 +102,7 @@ export function AppRoutes() {
           <Route path="routines/new" element={<RoutineEditorPage />} />
           <Route path="routines/:id" element={<RoutineEditorPage />} />
           <Route path="history" element={<HistoryPage />} />
+          <Route path="history/log" element={<LogWorkoutPage />} />
           <Route path="awards" element={<AwardsPage />} />
           <Route path="body" element={<BodyPage />} />
           <Route path="food" element={<FoodPage />} />
