@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ReactNode } from 'react'
 
 const saved = vi.hoisted(() => [] as Record<string, unknown>[])
@@ -27,12 +27,13 @@ vi.mock('@/data/repository', () => ({
 const { AppProviders } = await import('@/app/App')
 const { LogWorkoutPage } = await import('./LogWorkoutPage')
 
-function renderPage() {
+function renderPage(entry?: Record<string, unknown>) {
   render(
     <AppProviders>
-      <MemoryRouter initialEntries={['/app/history/log']}>
+      <MemoryRouter initialEntries={[entry ? { pathname: `/app/history/log/${entry.id}`, state: { entry } } : '/app/history/log']}>
         <Routes>
           <Route path="/app/history/log" element={<LogWorkoutPage />} />
+          <Route path="/app/history/log/:id" element={<LogWorkoutPage />} />
           <Route path="/app/history" element={<p>History page</p>} />
         </Routes>
       </MemoryRouter>
@@ -41,6 +42,10 @@ function renderPage() {
 }
 
 describe('log a workout', () => {
+  beforeEach(() => {
+    saved.length = 0
+  })
+
   it('asks for at least one exercise before saving', () => {
     renderPage()
     fireEvent.click(screen.getByRole('button', { name: 'Save to history' }))
@@ -60,6 +65,24 @@ describe('log a workout', () => {
     fireEvent.click(screen.getAllByRole('button', { name: 'Move down' })[0])
     expect(order()).toEqual([names[1], names[0]])
     expect(screen.getAllByRole('button', { name: 'Move up' })[0]).toBeDisabled()
+  })
+
+  it('saves the times shown in the fields even when no change event fired', async () => {
+    renderPage()
+    ;(screen.getByLabelText('Date') as HTMLInputElement).value = '2026-01-05'
+    ;(screen.getByLabelText('Start') as HTMLInputElement).value = '11:40'
+    ;(screen.getByLabelText('End') as HTMLInputElement).value = '12:40'
+    fireEvent.click(screen.getByRole('button', { name: 'Add exercises' }))
+    fireEvent.click(screen.getAllByRole('button', { pressed: false }).find((button) => button.classList.contains('picker-item'))!)
+    fireEvent.click(screen.getByRole('button', { name: /^Add 1/ }))
+    expect((screen.getByLabelText('Start') as HTMLInputElement).value).toBe('11:40')
+    fireEvent.click(screen.getByRole('button', { name: 'Save to history' }))
+    await waitFor(() => expect(saved).toHaveLength(1))
+    expect(saved[0]).toMatchObject({
+      durationMs: 60 * 60_000,
+      startedAt: new Date('2026-01-05T11:40:00').toISOString(),
+      completedAt: new Date('2026-01-05T12:40:00').toISOString(),
+    })
   })
 
   it('rejects an end time before the start time', () => {
@@ -94,6 +117,39 @@ describe('log a workout', () => {
       completedAt: new Date('2026-01-05T09:45:00').toISOString(),
     })
     expect(saved[0].calories as number).toBeGreaterThan(0)
+    expect(await screen.findByText('History page')).toBeInTheDocument()
+  })
+
+  it('edits a logged workout in place', async () => {
+    renderPage({
+      id: 'manual-1',
+      ownerId: 'user-1',
+      schemaVersion: 2,
+      title: 'PT',
+      source: { kind: 'manual', id: 'manual' },
+      startedAt: new Date('2026-01-05T21:00:00').toISOString(),
+      completedAt: new Date('2026-01-05T21:30:00').toISOString(),
+      durationMs: 30 * 60_000,
+      exercises: 1,
+      totalExercises: 1,
+      exerciseIds: ['squat'],
+      manualEntries: [{ exerciseId: 'squat', amount: 'reps', sets: 3, value: 12 }],
+    })
+    expect(screen.getByRole('heading', { name: 'Edit workout' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Name')).toHaveValue('PT')
+    expect(screen.getByLabelText('Start')).toHaveValue('21:00')
+    expect(screen.getByText('3 sets')).toBeInTheDocument()
+    expect(screen.getByText('12 reps')).toBeInTheDocument()
+    fireEvent.change(screen.getByLabelText('Start'), { target: { value: '11:40' } })
+    fireEvent.change(screen.getByLabelText('End'), { target: { value: '12:40' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save changes' }))
+    await waitFor(() => expect(saved).toHaveLength(1))
+    expect(saved[0]).toMatchObject({
+      durationMs: 60 * 60_000,
+      startedAt: new Date('2026-01-05T11:40:00').toISOString(),
+      source: { kind: 'manual' },
+      manualEntries: [{ exerciseId: 'squat', amount: 'reps', sets: 3, value: 12 }],
+    })
     expect(await screen.findByText('History page')).toBeInTheDocument()
   })
 })

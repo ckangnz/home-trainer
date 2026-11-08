@@ -1,6 +1,7 @@
 import { useMemo, useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useData } from '@/data/DataProvider'
+import type { Completion } from '@/data/models'
 import { useToast } from '@/app/Toast'
 import { usePageMeta } from '@/app/meta'
 import { Icon } from '@/app/Icons'
@@ -15,6 +16,7 @@ import { useSettings } from '@/settings/settings'
 import {
   LOG_LIMITS,
   buildManualCompletion,
+  entriesFromCompletion,
   entryMs,
   estimateLog,
   newLogEntry,
@@ -32,6 +34,11 @@ function moveEntry(entries: LogEntry[], from: number, to: number): LogEntry[] {
   return next
 }
 
+function sync(set: (value: string) => void) {
+  const read = (event: { currentTarget: HTMLInputElement }) => set(event.currentTarget.value)
+  return { onChange: read, onInput: read, onBlur: read }
+}
+
 const AMOUNTS: LogAmount[] = ['reps', 'time']
 
 function timeOf(date: Date): string {
@@ -46,20 +53,44 @@ function defaultWindow(): { start: string; end: string } {
 }
 
 export function LogWorkoutPage() {
+  const { id } = useParams()
+  const location = useLocation()
+  const { completions, ready } = useData()
+  const t = useT()
+  if (!id) {
+    return <LogWorkoutForm />
+  }
+  const fromState = (location.state as { entry?: Completion } | null)?.entry
+  const existing = fromState?.id === id ? fromState : completions.find((entry) => entry.id === id)
+  if (!existing) {
+    return (
+      <div className="page page--narrow">
+        <BackButton fallback="/app/history" />
+        {ready ? <p className="empty">{t('app.log.notFound')}</p> : <div className="center" role="status" aria-label={t('common.loading')}><div className="spinner" /></div>}
+      </div>
+    )
+  }
+  return <LogWorkoutForm existing={existing} />
+}
+
+function LogWorkoutForm({ existing }: { existing?: Completion }) {
   const t = useT()
   const content = useContent()
-  usePageMeta(t('app.log.metaTitle'))
+  usePageMeta(existing ? t('app.log.editTitle') : t('app.log.metaTitle'))
   const navigate = useNavigate()
   const { addCompletion } = useData()
   const { notify } = useToast()
   const { weightKg } = useSettings()
-  const initial = useMemo(defaultWindow, [])
+  const initial = useMemo(
+    () => (existing ? { start: timeOf(new Date(existing.startedAt)), end: timeOf(new Date(existing.completedAt)) } : defaultWindow()),
+    [existing],
+  )
   const today = toDateKey(new Date())
-  const [title, setTitle] = useState('')
-  const [date, setDate] = useState(today)
+  const [title, setTitle] = useState(existing?.title ?? '')
+  const [date, setDate] = useState(existing ? toDateKey(new Date(existing.startedAt)) : today)
   const [start, setStart] = useState(initial.start)
   const [end, setEnd] = useState(initial.end)
-  const [entries, setEntries] = useState<LogEntry[]>([])
+  const [entries, setEntries] = useState<LogEntry[]>(() => (existing ? entriesFromCompletion(existing) : []))
   const [picking, setPicking] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -77,20 +108,23 @@ export function LogWorkoutPage() {
       setError(t('app.log.errors.noExercises'))
       return
     }
-    if (typeof window === 'string') {
-      setError(t(`app.log.errors.${window}`))
+    const form = new FormData(event.currentTarget as HTMLFormElement)
+    const submitted = parseWindow(String(form.get('date') ?? date), String(form.get('start') ?? start), String(form.get('end') ?? end), new Date())
+    if (typeof submitted === 'string') {
+      setError(t(`app.log.errors.${submitted}`))
       return
     }
     addCompletion(
       buildManualCompletion({
         title: title.trim() || t('app.log.defaultTitle'),
         entries,
-        startedAt: window.startedAt,
-        endedAt: window.endedAt,
+        startedAt: submitted.startedAt,
+        endedAt: submitted.endedAt,
         weightKg,
+        id: existing?.id,
       }),
     )
-    notify(t('app.log.saved'))
+    notify(t(existing ? 'app.log.updated' : 'app.log.saved'))
     navigate('/app/history', { replace: true })
   }
 
@@ -98,7 +132,7 @@ export function LogWorkoutPage() {
     <div className="page page--narrow">
       <BackButton fallback="/app/history" />
       <header className="page__header">
-        <h1 className="page__title">{t('app.log.title')}</h1>
+        <h1 className="page__title">{existing ? t('app.log.editTitle') : t('app.log.title')}</h1>
         <p className="page__lead">{t('app.log.lead')}</p>
       </header>
 
@@ -114,15 +148,15 @@ export function LogWorkoutPage() {
           <div className="log-when">
             <label className="ui-field">
               <span className="ui-field__label">{t('app.log.date')}</span>
-              <input type="date" className="ui-control" value={date} max={today} onChange={(event) => setDate(event.target.value)} />
+              <input type="date" name="date" className="ui-control" defaultValue={date} max={today} {...sync(setDate)} />
             </label>
             <label className="ui-field">
               <span className="ui-field__label">{t('app.log.start')}</span>
-              <input type="time" className="ui-control" value={start} onChange={(event) => setStart(event.target.value)} />
+              <input type="time" name="start" className="ui-control" defaultValue={start} {...sync(setStart)} />
             </label>
             <label className="ui-field">
               <span className="ui-field__label">{t('app.log.end')}</span>
-              <input type="time" className="ui-control" value={end} onChange={(event) => setEnd(event.target.value)} />
+              <input type="time" name="end" className="ui-control" defaultValue={end} {...sync(setEnd)} />
             </label>
           </div>
         </div>
@@ -245,7 +279,7 @@ export function LogWorkoutPage() {
           </p>
         ) : null}
         <button type="submit" className="btn btn--primary btn--block">
-          {t('app.log.save')}
+          {existing ? t('app.log.saveChanges') : t('app.log.save')}
         </button>
       </form>
 
