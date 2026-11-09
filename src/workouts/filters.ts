@@ -119,7 +119,7 @@ export function filtersFromParams(params: URLSearchParams): WorkoutFilters {
     goal: pick(params.get('goal'), GOAL_ORDER),
     area: pick(params.get('area'), AREA_ORDER),
     level: level === 1 || level === 2 || level === 3 ? level : null,
-    gear: pick(params.get('gear'), ['none', 'weights', 'band', 'recovery'] as const),
+    gear: pick(params.get('gear'), ['none', 'dumbbells', 'kettlebell', 'weights', 'band', 'recovery'] as const),
     duration: pick(params.get('time'), DURATION_ORDER),
   }
 }

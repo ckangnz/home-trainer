@@ -61,7 +61,9 @@ export const LABELS_KO = {
   } satisfies Record<1 | 2 | 3, string>,
   gear: {
     none: '도구 없음',
-    weights: '프리 웨이트',
+    dumbbells: '덤벨',
+    kettlebell: '케틀벨',
+    weights: '바벨 & 벤치',
     band: '밴드',
     recovery: '롤러 & 도구',
   } satisfies Record<GearGroup, string>,
@@ -79,6 +81,7 @@ export const LABELS_KO = {
     crunch: '크런치',
     row: '로우',
     press: '숄더 프레스',
+    'arm-circle': '팔 돌리기',
     curl: '바이셉스 컬',
     dip: '삼두',
     'jumping-jack': '점핑잭',

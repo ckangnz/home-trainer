@@ -845,6 +845,8 @@
    "seconds": 30
   },
   "summary": "Big, controlled arm circles that warm up your shoulders and upper back before a workout.",
+  "family": "arm-circle",
+  "variant": "Forward",
   "catalog": "upper",
   "cycleMs": 1400
  },
@@ -5052,6 +5054,32 @@
   "cycleMs": 3400
  },
  {
+  "id": "neutral-grip-dumbbell-press",
+  "name": "Neutral-grip dumbbell press",
+  "category": "weights",
+  "tags": [
+   "upperBody"
+  ],
+  "muscles": [
+   "shoulders",
+   "triceps",
+   "chest"
+  ],
+  "equipment": "dumbbells",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "reps",
+   "reps": 10
+  },
+  "summary": "A shoulder press with your palms facing each other, which works your front shoulders and triceps and is gentler on your joints.",
+  "family": "press",
+  "variant": "Neutral grip",
+  "catalog": "variations-upper",
+  "cycleMs": 2570
+ },
+ {
   "id": "alternating-dumbbell-press",
   "name": "Alternating shoulder press",
   "category": "weights",
@@ -5280,6 +5308,81 @@
   "variant": "Cross",
   "catalog": "variations-upper",
   "cycleMs": 740
+ },
+ {
+  "id": "reverse-arm-circles",
+  "name": "Reverse arm circles",
+  "category": "upperBody",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "none",
+  "level": 1,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Arm circles in the opposite direction, swinging backward first to open your chest and warm up the back of your shoulders.",
+  "family": "arm-circle",
+  "variant": "Reverse",
+  "catalog": "variations-upper",
+  "cycleMs": 1400
+ },
+ {
+  "id": "dumbbell-arm-circles",
+  "name": "Dumbbell arm circles",
+  "category": "upperBody",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Arm circles holding a light dumbbell in each hand, adding load so your shoulders work harder through every circle.",
+  "family": "arm-circle",
+  "variant": "Dumbbells",
+  "catalog": "variations-upper",
+  "cycleMs": 1400
+ },
+ {
+  "id": "reverse-dumbbell-arm-circles",
+  "name": "Reverse dumbbell arm circles",
+  "category": "upperBody",
+  "tags": [
+   "warmup"
+  ],
+  "muscles": [
+   "shoulders",
+   "upperBack"
+  ],
+  "equipment": "dumbbells",
+  "level": 2,
+  "impact": "low",
+  "sided": "symmetric",
+  "defaultTarget": {
+   "kind": "time",
+   "seconds": 30
+  },
+  "summary": "Weighted arm circles in the reverse direction, swinging backward first to challenge the back of your shoulders and upper back.",
+  "family": "arm-circle",
+  "variant": "Reverse dumbbells",
+  "catalog": "variations-upper",
+  "cycleMs": 1400
  },
  {
   "id": "chair-figure-four-stretch",

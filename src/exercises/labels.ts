@@ -55,13 +55,15 @@ export const EQUIPMENT_LABEL: Record<Equipment, string> = {
   box: 'Step or box',
 }
 
-export type GearGroup = 'none' | 'weights' | 'band' | 'recovery'
+export type GearGroup = 'none' | 'dumbbells' | 'kettlebell' | 'weights' | 'band' | 'recovery'
 
-export const GEAR_ORDER: GearGroup[] = ['none', 'weights', 'band', 'recovery']
+export const GEAR_ORDER: GearGroup[] = ['none', 'dumbbells', 'kettlebell', 'weights', 'band', 'recovery']
 
 export const GEAR_LABEL: Record<GearGroup, string> = {
   none: 'No equipment',
-  weights: 'Free weights',
+  dumbbells: 'Dumbbells',
+  kettlebell: 'Kettlebell',
+  weights: 'Barbell & bench',
   band: 'Bands',
   recovery: 'Roller & tools',
 }
@@ -71,8 +73,8 @@ const GEAR_OF: Record<Equipment, GearGroup> = {
   chair: 'none',
   wall: 'none',
   mat: 'none',
-  dumbbells: 'weights',
-  kettlebell: 'weights',
+  dumbbells: 'dumbbells',
+  kettlebell: 'kettlebell',
   barbell: 'weights',
   bench: 'weights',
   box: 'none',

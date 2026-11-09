@@ -175,6 +175,8 @@ const arnoldOpen = pose(STAND_FRONT, arms([82, 100]), grips(-90))
 const arnoldTop = pose(STAND_FRONT, arms([168, 10]), grips(-90))
 
 const pressRack = pose(STAND_FRONT, arms([82, 100]))
+const neutralRack = pose(pressRack, grips(0))
+const neutralTop = pose(STAND_FRONT, arms([168, 10]), grips(0))
 const pressLeftUp = pose(pressRack, { armL: [168, 10] })
 const pressRightUp = pose(pressRack, { armR: [168, 10] })
 
@@ -239,6 +241,23 @@ const crossClosed = pose(STAND_FRONT, {
   legR: [-9, 0, 0],
 })
 const crossAirOut = pose(STAND_FRONT, { root: [0, HIP + 0.06] }, arms([60, 20]), legs([8, 0, 0]))
+
+const ARM_CIRCLE_SWING = [180, 135, 90, 45, 0, -45, -90, -135]
+const ARM_CIRCLE_REACH = [1, 1, 1, 1, 1, 0.9, 0.75, 0.85]
+
+function armCircleKeys(reversed: boolean): Keyframe[] {
+  const frames = ARM_CIRCLE_SWING.map((shoulder, index): [number, number] => [shoulder, ARM_CIRCLE_REACH[index]])
+  return (reversed ? frames.reverse() : frames).map(([shoulder, reach]) =>
+    key(
+      pose(STAND_HOLD, arms([shoulder, 4, 0]), {
+        scale: { upperArmL: reach, forearmL: reach, upperArmR: reach, forearmR: reach },
+      }),
+      175,
+      0,
+      'linear',
+    ),
+  )
+}
 
 function sideKeys(build: (side: Side) => Keyframe[]): Keyframe[] {
   return [...build('L'), ...build('R')]
@@ -686,6 +705,35 @@ export const VARIATIONS_UPPER: Exercise[] = [
     variant: 'Arnold',
   },
   {
+    id: 'neutral-grip-dumbbell-press',
+    name: 'Neutral-grip dumbbell press',
+    category: 'weights',
+    tags: ['upperBody'],
+    muscles: ['shoulders', 'triceps', 'chest'],
+    equipment: 'dumbbells',
+    level: 1,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'reps', reps: 10 },
+    animation: anim('front', [key(neutralRack, 1300, 150), key(neutralTop, 1000, 120)], {
+      props: STAND_HOLD_PROPS,
+      thumb: 1,
+    }),
+    summary: 'A shoulder press with your palms facing each other, which works your front shoulders and triceps and is gentler on your joints.',
+    steps: [
+      'Stand with your feet hip-width apart and hold the dumbbells at shoulder height with your palms facing each other.',
+      'Brace your core and press the weights straight up until your arms are nearly straight.',
+      'Pause briefly with the dumbbells over your shoulders and your palms still facing each other.',
+      'Lower them with control back to shoulder height.',
+    ],
+    tips: [
+      'Keep your elbows slightly in front of your body rather than flared out to the sides.',
+      'Keep your ribs down and avoid arching your lower back.',
+    ],
+    family: 'press',
+    variant: 'Neutral grip',
+  },
+  {
     id: 'alternating-dumbbell-press',
     name: 'Alternating shoulder press',
     category: 'weights',
@@ -943,5 +991,83 @@ export const VARIATIONS_UPPER: Exercise[] = [
     ],
     family: 'jumping-jack',
     variant: 'Cross',
+  },
+  {
+    id: 'reverse-arm-circles',
+    name: 'Reverse arm circles',
+    category: 'upperBody',
+    tags: ['warmup'],
+    muscles: ['shoulders', 'upperBack'],
+    equipment: 'none',
+    level: 1,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'time', seconds: 30 },
+    animation: anim('side', armCircleKeys(true), { thumb: 1 }),
+    summary: 'Arm circles in the opposite direction, swinging backward first to open your chest and warm up the back of your shoulders.',
+    steps: [
+      'Stand tall with your feet hip-width apart and your arms by your sides.',
+      'Keeping your arms straight, swing them backward and up overhead.',
+      'Continue the circle forward and down past your hips.',
+      'Make smooth, full circles and keep your ribs down.',
+    ],
+    tips: [
+      'Keep your core braced so your lower back does not arch.',
+      'Start small and grow the circles as your shoulders loosen up.',
+    ],
+    family: 'arm-circle',
+    variant: 'Reverse',
+  },
+  {
+    id: 'dumbbell-arm-circles',
+    name: 'Dumbbell arm circles',
+    category: 'upperBody',
+    tags: ['warmup'],
+    muscles: ['shoulders', 'upperBack'],
+    equipment: 'dumbbells',
+    level: 2,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'time', seconds: 30 },
+    animation: anim('side', armCircleKeys(false), { props: STAND_HOLD_PROPS, thumb: 1 }),
+    summary: 'Arm circles holding a light dumbbell in each hand, adding load so your shoulders work harder through every circle.',
+    steps: [
+      'Stand tall with your feet hip-width apart, holding a light dumbbell in each hand by your sides.',
+      'Keeping your arms straight, swing them forward and up overhead.',
+      'Continue the circle back and down past your hips.',
+      'Make smooth, full circles and switch direction halfway if you like.',
+    ],
+    tips: [
+      'Choose very light weights so you can keep the circles smooth and large.',
+      'Keep your core braced and your wrists straight.',
+    ],
+    family: 'arm-circle',
+    variant: 'Dumbbells',
+  },
+  {
+    id: 'reverse-dumbbell-arm-circles',
+    name: 'Reverse dumbbell arm circles',
+    category: 'upperBody',
+    tags: ['warmup'],
+    muscles: ['shoulders', 'upperBack'],
+    equipment: 'dumbbells',
+    level: 2,
+    impact: 'low',
+    sided: 'symmetric',
+    defaultTarget: { kind: 'time', seconds: 30 },
+    animation: anim('side', armCircleKeys(true), { props: STAND_HOLD_PROPS, thumb: 1 }),
+    summary: 'Weighted arm circles in the reverse direction, swinging backward first to challenge the back of your shoulders and upper back.',
+    steps: [
+      'Stand tall with your feet hip-width apart, holding a light dumbbell in each hand by your sides.',
+      'Keeping your arms straight, swing them backward and up overhead.',
+      'Continue the circle forward and down past your hips.',
+      'Make smooth, full circles and keep your ribs down.',
+    ],
+    tips: [
+      'Choose very light weights so you can keep the circles smooth and large.',
+      'Do not let your shoulders shrug up toward your ears.',
+    ],
+    family: 'arm-circle',
+    variant: 'Reverse dumbbells',
   },
 ]
