@@ -9,7 +9,7 @@ on:
     branches: [voice-samples]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   samples:
@@ -61,3 +61,14 @@ jobs:
         with:
           name: tts-samples
           path: samples/*.wav
+
+      # Commit the WAVs back to this branch so they are downloadable
+      # without an Actions login. [skip ci] keeps this push from
+      # retriggering the workflow in a loop.
+      - name: Commit samples to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add samples/*.wav
+          git commit -m "Add generated MeloTTS voice samples [skip ci]" || echo "no changes"
+          git push
