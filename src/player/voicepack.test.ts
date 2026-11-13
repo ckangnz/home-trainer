@@ -71,8 +71,18 @@ describe('voice pack atom coverage', () => {
   it.each([
     ['female', 'en', names] as const,
     ['female', 'ko', namesKo] as const,
+    ['male', 'en', names] as const,
+    ['male', 'ko', namesKo] as const,
+    ['sofia', 'en', names] as const,
+    ['sofia', 'ko', namesKo] as const,
+    ['zara', 'en', names] as const,
+    ['zara', 'ko', namesKo] as const,
     ['marcus', 'en', names] as const,
     ['marcus', 'ko', namesKo] as const,
+    ['kai', 'en', names] as const,
+    ['kai', 'ko', namesKo] as const,
+    ['nina', 'en', names] as const,
+    ['nina', 'ko', namesKo] as const,
   ])('every atom spoken by %s/%s exists in the generation inventory', (trainer, language, nameOf) => {
     const bank = language === 'ko' ? BANKS_KO[trainer] : BANKS[trainer]
     const seg = segBankFor(trainer, language)
@@ -93,7 +103,9 @@ describe('voice pack atom coverage', () => {
   it('produces announcement atoms only for trainers with a segment bank', () => {
     const state = startPlayer(createPlayer(steps), 0)
     expect(announcementAtoms(state, { nameOf: names, trainer: 'female', language: 'en' })).not.toBeNull()
-    expect(announcementAtoms(state, { nameOf: names, trainer: 'kai', language: 'en' })).toBeNull()
+    // Every current trainer has a bank; an unknown id exercises the no-bank
+    // fallback path.
+    expect(announcementAtoms(state, { nameOf: names, trainer: 'unknown' as TrainerId, language: 'en' })).toBeNull()
   })
 
   it('hashes atoms stably and normalization-insensitively', () => {

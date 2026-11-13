@@ -9,8 +9,12 @@ import type { Language } from '@/i18n/types'
 // if any atom has no clip, the whole announcement falls back to the browser's
 // speechSynthesis voice (the pre-voice-pack behaviour).
 //
-// Prototype scope: segment banks exist for Maya and Marcus only (the two
-// auditioned characters). Other trainers return no bank and always fall back.
+// Segment banks exist for all seven trainers. Maya and Marcus are auditioned;
+// the other five are first drafts pending auditions. The Korean dialect
+// wording for Leo (Chungcheong), Sofia (Jeolla) and Kai (Gangwon) uses
+// restrained, well-known markers only and needs a native-speaker review
+// pass — style prompts steer intonation, but dialect vocabulary lives here
+// in the lines themselves.
 // Adding a trainer means writing their segment bank here, adding their voice
 // to voices.config.mjs, and running the generator.
 
@@ -114,9 +118,234 @@ const MARCUS_EN: SegBank = {
   fixedReady: 'Get ready.',
 }
 
+const LEO_KO: SegBank = {
+  intro: [
+    ['안녕하세요, 레오예요. 차분히 시작해 보겠습니다. 첫 운동은'],
+    ['레오입니다. 편안하게 호흡하고, 첫 운동은'],
+  ],
+  rest: [
+    ['잘하셨어요. 여유 있게 쉬었다가, 다음은'],
+    ['좋습니다. 천천히 숨 고르고, 다음 운동은'],
+    ['아주 좋아요. 무리하지 말고, 다음은'],
+  ],
+  lastUp: [
+    ['마지막 운동입니다:', '차분히 끝까지.'],
+    ['이제 마지막이에요,', '침착하게 마무리합시다.'],
+  ],
+  round: [
+    (done, total) => [`${done}라운드 끝났습니다.`, `이제 ${total - done}라운드 남았어요. 천천히 가요.`],
+    (done, total) => [`${done}라운드 완료.`, `좋은 페이스예요, ${total - done}라운드 더.`],
+  ],
+  fixedRest: '휴식하세요.',
+  fixedReady: '준비하세요.',
+}
+
+const LEO_EN: SegBank = {
+  intro: [
+    ["Hello, Leo here. Let's begin, nice and steady. First:"],
+    ["I'm Leo. Calm and focused. First exercise:"],
+  ],
+  rest: [
+    ['Well done. Take your time. Next:'],
+    ['Good work. Breathe easy. Coming up:'],
+    ['Excellent. No rush. Next exercise:'],
+  ],
+  lastUp: [
+    ['Final exercise:', 'Steady to the end.'],
+    ['Last one now:', 'Calm finish, full effort.'],
+  ],
+  round: [
+    (done, total) => [`Round ${done} complete.`, `${total - done} to go. Keep the pace easy.`],
+    (done, total) => [`That's round ${done}.`, `Nicely done, ${total - done} more. Steady does it.`],
+  ],
+  fixedRest: 'Rest.',
+  fixedReady: 'Ready when you are.',
+}
+
+const SOFIA_KO: SegBank = {
+  intro: [
+    ['안녕하세요, 소피아예요! 기분 좋게 시작해 볼까요? 첫 운동은'],
+    ['소피아예요. 같이 신나게 가 봐요. 첫 운동은'],
+  ],
+  rest: [
+    ['진짜 잘했다잉! 숨 돌리고, 다음은'],
+    ['아이고 좋아! 쉬었다가, 다음 운동은'],
+    ['수고했어요. 천천히 쉬고, 다음은'],
+  ],
+  lastUp: [
+    ['마지막 운동이여:', '힘내서 가 보자고!'],
+    ['이제 마지막이네,', '조금만 더 힘내!'],
+  ],
+  round: [
+    (done, total) => [`${done}라운드 끝났어!`, `이제 ${total - done}라운드만 더 가 보자고!`],
+    (done, total) => [`${done}라운드 했네.`, `잘하고 있어, ${total - done}라운드 남았어!`],
+  ],
+  fixedRest: '쉬었다 가요.',
+  fixedReady: '준비해 봐요.',
+}
+
+const SOFIA_EN: SegBank = {
+  intro: [
+    ["Hey, I'm Sofia! Let's ease into it. First up:"],
+    ['Sofia here. Good vibes only. First exercise:'],
+  ],
+  rest: [
+    ['Beautiful work! Catch your breath. Next up:'],
+    ['Love it! Quick breather. Next:'],
+    ['Well done, you. Easy now. Coming up:'],
+  ],
+  lastUp: [
+    ['Last one, nearly home:', 'Give it a red-hot go!'],
+    ['Final exercise coming up:', "You've got this, all the way!"],
+  ],
+  round: [
+    (done, total) => [`Round ${done} done!`, `Just ${total - done} to go. You beauty!`],
+    (done, total) => [`That's round ${done}.`, `Only ${total - done} left. Too easy!`],
+  ],
+  fixedRest: 'Rest up.',
+  fixedReady: 'Get ready.',
+}
+
+const ZARA_KO: SegBank = {
+  intro: [
+    ['자라야. 오늘 제대로 불태운다! 첫 운동은'],
+    ['자라 왔다! 에너지 풀파워로 간다. 첫 운동은'],
+  ],
+  rest: [
+    ['미쳤다! 잠깐 쉬고, 다음은'],
+    ['대박! 숨 고르고, 다음 운동은'],
+    ['그 기세야! 회복하고, 다음은'],
+  ],
+  lastUp: [
+    ['마지막 운동이야:', '전부 털어!'],
+    ['이제 진짜 마지막,', '한계까지 밀어붙여!'],
+  ],
+  round: [
+    (done, total) => [`${done}라운드 클리어!`, `${total - done}라운드 남았어, 멈추지 마!`],
+    (done, total) => [`${done}라운드 끝!`, `${total - done}라운드 더, 계속 달려!`],
+  ],
+  fixedRest: '휴식!',
+  fixedReady: '준비해!',
+}
+
+const ZARA_EN: SegBank = {
+  intro: [
+    ["It's Zara. We are going all out today. First up:"],
+    ['Zara in the house! Full send. First exercise:'],
+  ],
+  rest: [
+    ['Insane! Quick breather. Next up:'],
+    ['Beast mode! Catch your breath. Next:'],
+    ['That energy! Recover. Coming up:'],
+  ],
+  lastUp: [
+    ['Final exercise:', 'Empty the tank!'],
+    ['Last one:', 'Leave nothing!'],
+  ],
+  round: [
+    (done, total) => [`Round ${done} crushed!`, `${total - done} left. Do not stop!`],
+    (done, total) => [`That's round ${done}!`, `${total - done} more. Keep that fire!`],
+  ],
+  fixedRest: 'Rest!',
+  fixedReady: 'Get ready!',
+}
+
+const KAI_KO: SegBank = {
+  intro: [
+    ['안녕하세요, 카이입니다. 천천히, 몸의 소리를 들으면서 시작해 봅니다. 첫 운동은'],
+    ['카이예요. 마음 편하게, 호흡부터. 첫 운동은'],
+  ],
+  rest: [
+    ['잘했습니다. 느긋하게 숨 고르고, 다음은'],
+    ['좋아요. 서두르지 말고, 다음 운동은'],
+    ['아주 잘했어요. 물 한 모금 하고, 다음은'],
+  ],
+  lastUp: [
+    ['마지막 운동입니다:', '편안한 마음으로 끝까지.'],
+    ['이제 마지막이에요,', '호흡 잃지 말고 마무리해 봐요.'],
+  ],
+  round: [
+    (done, total) => [`${done}라운드 마쳤습니다.`, `${total - done}라운드 남았어요. 여유 있게 가요.`],
+    (done, total) => [`${done}라운드 끝.`, `몸 느끼면서, ${total - done}라운드 더.`],
+  ],
+  fixedRest: '쉬어 갑니다.',
+  fixedReady: '준비되면 시작해요.',
+}
+
+const KAI_EN: SegBank = {
+  intro: [
+    ["Hey, Kai here. No worries, we'll take it slow. First up:"],
+    ["I'm Kai. Settle in, breathe. First exercise:"],
+  ],
+  rest: [
+    ['Nice one. Take it easy. Next up:'],
+    ['Beautiful. Slow breaths. Next:'],
+    ['Good on you. No hurry. Coming up:'],
+  ],
+  lastUp: [
+    ['Last exercise:', 'Stay present to the end.'],
+    ['Final one now:', 'Nice and easy, all the way through.'],
+  ],
+  round: [
+    (done, total) => [`Round ${done} done.`, `${total - done} to go. All in good time.`],
+    (done, total) => [`That's round ${done}.`, `Easy does it, ${total - done} more.`],
+  ],
+  fixedRest: 'Take a rest.',
+  fixedReady: 'When you are ready.',
+}
+
+const NINA_KO: SegBank = {
+  intro: [
+    ['안녕하세요, 니나예요! 자세는 깔끔하게, 기분은 가볍게. 첫 운동은'],
+    ['니나입니다. 정확하게, 그리고 즐겁게! 첫 운동은'],
+  ],
+  rest: [
+    ['정확해요! 잠깐 쉬고, 다음은'],
+    ['깔끔했어요! 숨 고르고, 다음 운동은'],
+    ['완벽한 폼! 쉬었다가, 다음은'],
+  ],
+  lastUp: [
+    ['마지막 운동이에요:', '끝까지 자세 잡아요!'],
+    ['이제 마지막,', '폼 무너뜨리지 말고 피니시!'],
+  ],
+  round: [
+    (done, total) => [`${done}라운드 완료!`, `자세 그대로, ${total - done}라운드 남았어요.`],
+    (done, total) => [`${done}라운드 클리어.`, `정확하게, ${total - done}라운드 더!`],
+  ],
+  fixedRest: '휴식.',
+  fixedReady: '준비 자세.',
+}
+
+const NINA_EN: SegBank = {
+  intro: [
+    ["Hi, I'm Nina! Clean form, big smiles. First up:"],
+    ['Nina here. Precise, but make it fun. First exercise:'],
+  ],
+  rest: [
+    ['Spot on! Quick rest. Next up:'],
+    ['Lovely form! Catch your breath. Next:'],
+    ['Crisp work! Breather. Coming up:'],
+  ],
+  lastUp: [
+    ['Final exercise:', 'Keep that form sharp to the end!'],
+    ['Last one:', 'Finish with beautiful form!'],
+  ],
+  round: [
+    (done, total) => [`Round ${done} complete!`, `Form stays sharp, ${total - done} to go.`],
+    (done, total) => [`That's round ${done}.`, `Precision, please. ${total - done} more.`],
+  ],
+  fixedRest: 'Rest.',
+  fixedReady: 'Ready position.',
+}
+
 const SEG_BANKS: Partial<Record<TrainerId, Partial<Record<Language, SegBank>>>> = {
   female: { ko: MAYA_KO, en: MAYA_EN },
+  male: { ko: LEO_KO, en: LEO_EN },
+  sofia: { ko: SOFIA_KO, en: SOFIA_EN },
+  zara: { ko: ZARA_KO, en: ZARA_EN },
   marcus: { ko: MARCUS_KO, en: MARCUS_EN },
+  kai: { ko: KAI_KO, en: KAI_EN },
+  nina: { ko: NINA_KO, en: NINA_EN },
 }
 
 export function segBankFor(trainer: TrainerId, language: Language): SegBank | undefined {
