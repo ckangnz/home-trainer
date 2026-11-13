@@ -3,6 +3,7 @@ import { getSettings } from '@/settings/settings'
 import type { Cue } from './cues'
 import { getLanguage } from '@/i18n/language'
 import type { Language } from '@/i18n/types'
+import { silenceVoicePack, tryVoicePack } from './voicepack'
 
 type AudioContextConstructor = typeof AudioContext
 
@@ -164,8 +165,21 @@ export const coach = {
     for (const cue of cues) {
       if (cue.kind === 'say') {
         if (settings.voice) {
-          speak(cue.text, !spoken)
+          const interrupt = !spoken
           spoken = true
+          if (cue.atoms) {
+            // Prefer pre-generated trainer clips; fall back to speechSynthesis
+            // when the voice pack cannot cover every atom.
+            const { trainer } = getSettings()
+            const language = getLanguage()
+            void tryVoicePack(cue.atoms, trainer, language, interrupt).then((played) => {
+              if (!played) {
+                speak(cue.text, interrupt)
+              }
+            })
+          } else {
+            speak(cue.text, interrupt)
+          }
         }
       } else {
         if (settings.beeps) {
@@ -178,6 +192,7 @@ export const coach = {
     }
   },
   silence() {
+    silenceVoicePack()
     if (speechAvailable()) {
       window.speechSynthesis.cancel()
     }

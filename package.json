@@ -11,7 +11,8 @@
     "test": "vitest",
     "lint": "tsc -b --noEmit",
     "figures": "vite-node scripts/figure-sheet.ts figure-sheets",
-    "exercises:index": "vite-node scripts/exercise-index.ts"
+    "exercises:index": "vite-node scripts/exercise-index.ts",
+    "voices": "vite-node scripts/generate-voices.ts"
   },
   "dependencies": {
     "firebase": "^11.3.0",

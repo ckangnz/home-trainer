@@ -133,15 +133,15 @@ describe('coach cues', () => {
 
     const resting = tickPlayer(working, 35000)
     const rest = cuesBetween(working, resting, 34900, 35000, coach)
-    expect(rest).toEqual([{ kind: 'say', text: expect.stringContaining('Push-up') }])
+    expect(rest).toMatchObject([{ kind: 'say', text: expect.stringContaining('Push-up') }])
   })
 
   it('coaches during long exercises with a tip, halfway, ten seconds left, and a countdown', () => {
     const long: PlaybackStep[] = [{ ...(steps[1] as Extract<PlaybackStep, { kind: 'work' }>), target: { kind: 'time', ms: 60000 } }]
     const running = startPlayer(createPlayer(long), 0)
     expect(cuesBetween(running, running, 5000, 6500, coach)).toEqual([{ kind: 'say', text: 'Keep your chest lifted.' }])
-    expect(cuesBetween(running, running, 29000, 30500, coach)).toEqual([{ kind: 'say', text: expect.any(String) }])
-    expect(cuesBetween(running, running, 49000, 50500, coach)).toEqual([{ kind: 'say', text: expect.any(String) }])
+    expect(cuesBetween(running, running, 29000, 30500, coach)).toMatchObject([{ kind: 'say', text: expect.any(String) }])
+    expect(cuesBetween(running, running, 49000, 50500, coach)).toMatchObject([{ kind: 'say', text: expect.any(String) }])
     expect(cuesBetween(running, running, 56500, 58500, coach)).toEqual([
       { kind: 'beep', tone: 'count' },
       { kind: 'beep', tone: 'count' },

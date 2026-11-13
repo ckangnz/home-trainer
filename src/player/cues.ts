@@ -1,10 +1,11 @@
 import type { TrainerId } from '@/figure/look'
 import type { Language } from '@/i18n/types'
 import { BANKS_KO } from './cues.ko'
+import { segBankFor } from './cueSegments'
 import type { PlaybackStep, WorkStep } from '@/workouts/types'
 import { stepElapsed, stepLimitMs, type PlayerState } from './machine'
 
-export type Cue = { kind: 'say'; text: string } | { kind: 'beep'; tone: 'count' | 'go' | 'end' }
+export type Cue = { kind: 'say'; text: string; atoms?: string[] } | { kind: 'beep'; tone: 'count' | 'go' | 'end' }
 
 export type NameOf = (exerciseId: string) => string
 
@@ -28,7 +29,7 @@ export interface PhraseBank {
   finish: string[]
 }
 
-const BANKS: Record<TrainerId, PhraseBank> = {
+export const BANKS: Record<TrainerId, PhraseBank> = {
   female: {
     intro: (trainer, first) => [`Hi, I'm ${trainer}! Let's get moving. First up: ${first}.`, `Hey, ${trainer} here. Ready? First up: ${first}.`],
     go: ['Go!', "Let's go!", 'You got this!', 'Here we go!'],
@@ -172,6 +173,66 @@ function bankFor(context: CoachContext): PhraseBank {
   return banks[context.trainer ?? 'female'] ?? banks.female
 }
 
+// Voice-pack atoms mirroring workAnnouncement, one atom per clip.
+function workAtoms(step: WorkStep, context: CoachContext): string[] {
+  const language = context.language ?? 'en'
+  const atoms = [context.nameOf(step.exerciseId)]
+  if (step.side) {
+    atoms.push(language === 'ko' ? (step.side === 'left' ? '왼쪽' : '오른쪽') : `${step.side} side`)
+  }
+  atoms.push(targetPhrase(step, language))
+  if (step.sets > 1) {
+    atoms.push(language === 'ko' ? `${step.sets}세트 중 ${step.set}세트` : `set ${step.set} of ${step.sets}`)
+  }
+  return atoms
+}
+
+// Atom list matching entryAnnouncement for trainers with a segment bank
+// (see cueSegments.ts). Returns null when the trainer has no bank — the
+// announcement then stays on speechSynthesis.
+export function announcementAtoms(state: PlayerState, context: CoachContext): string[] | null {
+  const language = context.language ?? 'en'
+  const seg = segBankFor(context.trainer ?? 'female', language)
+  if (!seg) {
+    return null
+  }
+  const bank = bankFor(context)
+  const seed = state.index + state.runId
+  if (state.status === 'finished') {
+    return [pick(bank.finish, seed)]
+  }
+  const step = state.steps[state.index]
+  if (!step) {
+    return null
+  }
+  if (step.kind === 'work') {
+    return [...workAtoms(step, context), pick(bank.go, seed)]
+  }
+  const next = upNext(state.steps, state.index)
+  const nextName = next ? context.nameOf(next.exerciseId) : null
+  switch (step.reason) {
+    case 'getReady':
+      return nextName ? [...pick(seg.intro, seed), nextName] : [seg.fixedReady]
+    case 'switch':
+      return [pick(bank.switchSides, seed)]
+    case 'round': {
+      const finished = state.steps.slice(0, state.index).reverse().find((candidate) => candidate.kind === 'work')
+      const round = finished?.kind === 'work' ? finished.round : 1
+      const total = finished?.kind === 'work' ? finished.rounds : round + 1
+      return pick(seg.round, seed)(round, total)
+    }
+    default:
+      if (!nextName || !next) {
+        return [seg.fixedRest]
+      }
+      if (step.nextWork >= 0 && isFinalWork(state.steps, step.nextWork)) {
+        const [before, after] = pick(seg.lastUp, seed)
+        return [before, nextName, after]
+      }
+      return [...pick(seg.rest, seed), nextName]
+  }
+}
+
 export function entryAnnouncement(state: PlayerState, context: CoachContext): string | null {
   const bank = bankFor(context)
   const seed = state.index + state.runId
@@ -232,7 +293,8 @@ export function cuesBetween(previous: PlayerState, next: PlayerState, previousNo
     }
     const text = entryAnnouncement(next, context)
     if (text) {
-      cues.push({ kind: 'say', text })
+      const atoms = announcementAtoms(next, context)
+      cues.push(atoms ? { kind: 'say', text, atoms } : { kind: 'say', text })
     }
     return cues
   }
@@ -257,10 +319,12 @@ export function cuesBetween(previous: PlayerState, next: PlayerState, previousNo
   }
   if (step?.kind === 'work') {
     if (limit >= HALFWAY_MIN_MS && crossed(before, after, limit / 2)) {
-      cues.push({ kind: 'say', text: pick(bank.halfway, seed) })
+      const phrase = pick(bank.halfway, seed)
+      cues.push({ kind: 'say', text: phrase, atoms: [phrase] })
     }
     if (limit >= TEN_LEFT_MIN_MS && crossed(before, after, limit - 10000)) {
-      cues.push({ kind: 'say', text: pick(bank.tenLeft, seed) })
+      const phrase = pick(bank.tenLeft, seed)
+      cues.push({ kind: 'say', text: phrase, atoms: [phrase] })
     }
   }
   for (const second of COUNTDOWN_SECONDS) {
