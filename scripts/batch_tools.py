@@ -84,6 +84,11 @@ def en_number(n):
         return EN_DIGITS[n]
     if n < 100:
         return EN_TENS[n // 10] + ((" " + EN_DIGITS[n % 10]) if n % 10 else "")
+    if n < 1000:
+        out = EN_DIGITS[n // 100] + " hundred"
+        if n % 100:
+            out += " " + en_number(n % 100)
+        return out
     return str(n)
 
 
@@ -96,7 +101,74 @@ def ko_number(n):
         if ones:
             out += KO_DIGITS[ones]
         return out
+    if n < 1000:
+        out = ("" if n // 100 == 1 else KO_DIGITS[n // 100]) + "백"
+        if n % 100:
+            out += ko_number(n % 100)
+        return out
     return str(n)
+
+
+EN_WORD2NUM = {w: i for i, w in enumerate(EN_DIGITS)}
+EN_WORD2NUM.update({w: (i + 2) * 10 for i, w in enumerate(EN_TENS) if w})
+KO_WORD2NUM = {w: i for i, w in enumerate(KO_DIGITS) if w}
+KO_WORD2NUM.update({"공": 0})
+KO_NATIVE = {
+    "하나": 1, "한": 1, "둘": 2, "두": 2, "셋": 3, "세": 3, "넷": 4, "네": 4,
+    "다섯": 5, "여섯": 6, "일곱": 7, "여덟": 8, "아홉": 9, "열": 10,
+    "스물": 20, "스무": 20, "서른": 30, "마흔": 40, "쉰": 50,
+}
+
+
+def numbers_in(text, lang):
+    """Canonical integer values mentioned in text, from digits and number
+    words. Ambiguous renderings (e.g. ASR writing '105' as '10, 5') yield
+    different multisets on purpose: they must fail closed, not be reconciled."""
+    values = [int(d) for d in re.findall(r"\d+", text)]
+    if lang == "en":
+        words = re.findall(r"[a-z]+", text.lower().replace("-", " "))
+        total, current, consuming = 0, 0, False
+        for w in words + [""]:
+            if w in EN_WORD2NUM:
+                current += EN_WORD2NUM[w]
+                consuming = True
+            elif w == "hundred" and consuming:
+                current = max(current, 1) * 100
+            elif w == "and" and consuming:
+                continue
+            else:
+                if consuming:
+                    values.append(total + current)
+                    total, current, consuming = 0, 0, False
+    else:
+        s = re.sub(r"[^가-힣]", "", text)
+        # Longest-match scan over sino/native Korean number words.
+        pat = re.compile(
+            "([일이삼사오육칠팔구]?십[일이삼사오육칠팔구]?|[일이삼사오육칠팔구]?백[일이삼사오육칠팔구십백]*|"
+            + "|".join(sorted(KO_NATIVE, key=len, reverse=True)) + ")")
+        for m in pat.finditer(s):
+            tok = m.group(1)
+            if tok in KO_NATIVE:
+                values.append(KO_NATIVE[tok])
+            else:
+                total = 0
+                rest = tok
+                if "백" in rest:
+                    head, rest = rest.split("백", 1)
+                    total += (KO_WORD2NUM.get(head, 1) if head else 1) * 100
+                if "십" in rest:
+                    head, rest = rest.split("십", 1)
+                    total += (KO_WORD2NUM.get(head, 1) if head else 1) * 10
+                if rest:
+                    total += KO_WORD2NUM.get(rest, 0)
+                values.append(total)
+    return sorted(values)
+
+
+UNIT_WORDS = {
+    "en": ["second", "seconds", "sec", "secs", "minute", "minutes", "rep", "reps"],
+    "ko": ["초", "분", "회", "번", "세트"],
+}
 
 
 def normalize(text, lang, expand):
@@ -122,27 +194,65 @@ def cmd_asr(lang, expected_path, seg_dir):
         if not os.path.exists(seg):
             results.append({"atom": atom, "ok": False, "error": "missing segment"})
             continue
-        # Small models can be unstable on very short clips (digit/word
-        # confusion, repetition loops). Take the best of two decode passes
-        # and keep the final call conservative: still fail closed.
-        best_heard, best_ratio = "", 0.0
+        # A clip may be assigned to an atom only when EVERY check passes:
+        #  1. exact numeric multiset (coaching numbers must be right -
+        #     '105 seconds' heard as '10, 5 seconds' is a failure, not a
+        #     normalization difference),
+        #  2. every unit word of the atom present (seconds/reps/초/회...),
+        #  3. every content token of the atom present in the transcript
+        #     (exercise identity and command words),
+        #  4. overall fuzzy similarity >= 0.7 as a sanity floor.
+        # Anything less fails closed to review; audio is never assigned on a
+        # partial match. Two decode passes are only a hedge against known
+        # short-clip ASR instability (repetition loops, dropped digits); the
+        # accepting pass must clear all four checks on its own.
+        best = None
+        prompt = (
+            "Exercise timer cues: 105 seconds, 110 seconds, 12 reps, 30 seconds, halfway, switch sides."
+            if lang == "en" else
+            "운동 타이머 안내: 105초, 110초, 12회, 30초 남았어요, 절반 왔어요, 자세 바꿔요."
+        )
         for kwargs in (
-            dict(beam_size=5, condition_on_previous_text=False, vad_filter=True),
-            dict(beam_size=5, condition_on_previous_text=False, vad_filter=False),
+            dict(beam_size=5, condition_on_previous_text=False, vad_filter=True, initial_prompt=prompt),
+            dict(beam_size=5, condition_on_previous_text=False, vad_filter=False, initial_prompt=prompt),
         ):
             segments, _ = model.transcribe(seg, language=lang, **kwargs)
             heard = "".join(s.text for s in segments)
-            ratio = max(
-                difflib.SequenceMatcher(None, normalize(atom, lang, e), normalize(heard, lang, h)).ratio()
-                for e in (False, True) for h in (False, True)
-            )
-            if ratio > best_ratio:
-                best_heard, best_ratio = heard, ratio
-            if best_ratio >= 0.9:
+            verdict = check_atom(atom, heard, lang)
+            if best is None or (verdict["ok"] and not best["ok"]) or (
+                verdict["ok"] == best["ok"] and verdict["ratio"] > best["ratio"]
+            ):
+                best = {**verdict, "heard": heard}
+            if best["ok"] and best["ratio"] >= 0.9:
                 break
-        results.append({"atom": atom, "heard": best_heard, "ratio": round(best_ratio, 3),
-                        "ok": best_ratio >= 0.7})
+        results.append(best)
     print(json.dumps(results, ensure_ascii=False))
+
+
+def check_atom(atom, heard, lang):
+    reasons = []
+    if numbers_in(atom, lang) != numbers_in(heard, lang):
+        reasons.append(f"numbers {numbers_in(atom, lang)} != {numbers_in(heard, lang)}")
+    heard_variants = {normalize(heard, lang, e) for e in (False, True)}
+    squashed = re.sub(r"\s+", " ", atom.lower())
+    for unit in UNIT_WORDS[lang]:
+        if re.search(rf"(?<![a-z가-힣]){unit}(?![a-z가-힣])", squashed if lang == "en" else atom):
+            if not any(unit in h for h in heard_variants):
+                reasons.append(f"unit '{unit}' not heard")
+    for tok in re.findall(r"[\w가-힣]+", atom.lower()):
+        if tok.isdigit() or tok in UNIT_WORDS[lang]:
+            continue  # covered by the exact numeric/unit checks
+        if len(tok) < 2:
+            continue
+        if not any(tok in h for h in heard_variants):
+            reasons.append(f"token '{tok}' not heard")
+    ratio = max(
+        difflib.SequenceMatcher(None, normalize(atom, lang, e), normalize(heard, lang, h)).ratio()
+        for e in (False, True) for h in (False, True)
+    )
+    if ratio < 0.7:
+        reasons.append(f"similarity {ratio:.2f} < 0.7")
+    return {"atom": atom, "ratio": round(ratio, 3), "ok": not reasons, "reasons": reasons}
 
 
 if __name__ == "__main__":

@@ -330,13 +330,15 @@ async function generateBatched(
     }
     writeFileSync(join(segDir, 'expected.json'), JSON.stringify(group))
     const asr = runBatchTool(['asr', language, join(segDir, 'expected.json'), segDir])
-    const checks = JSON.parse(asr) as { atom: string; heard?: string; ratio?: number; ok: boolean }[]
+    const checks = JSON.parse(asr) as { atom: string; heard?: string; ratio?: number; ok: boolean; reasons?: string[] }[]
     const mapping: { atom: string; hash: string; file: string; heard?: string; ratio?: number }[] = []
+    const review: { atom: string; heard?: string; reasons?: string[] }[] = []
     let passed = 0
     for (let i = 0; i < group.length; i++) {
       const check = checks[i]
       if (!check?.ok) {
-        console.log(`[${trainer}/${language}] ASR review needed: "${group[i]}" (heard: "${check?.heard ?? ''}", ratio ${check?.ratio ?? 0})`)
+        review.push({ atom: group[i], heard: check?.heard, reasons: check?.reasons })
+        console.log(`[${trainer}/${language}] ASR review needed: "${group[i]}" (heard: "${check?.heard ?? ''}", ${(check?.reasons ?? []).join('; ')})`)
         continue
       }
       const hash = hashAtom(group[i])
@@ -347,7 +349,7 @@ async function generateBatched(
       passed++
       done++
     }
-    writeFileSync(join(batchDir, `${batchId}.map.json`), JSON.stringify({ batch: `${batchId}.wav`, style, voice, mapping }, null, 2))
+    writeFileSync(join(batchDir, `${batchId}.map.json`), JSON.stringify({ batch: `${batchId}.wav`, style, voice, mapping, review }, null, 2))
     writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
     console.log(`[${trainer}/${language}] ${batchId}: ${passed}/${group.length} atoms passed split+ASR (${done} total done)`)
     rmSync(segDir, { recursive: true, force: true })
