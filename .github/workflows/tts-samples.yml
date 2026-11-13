@@ -1,0 +1,54 @@
+# One-off open-source TTS sample generation for voice comparison.
+# Runs ONLY on pushes to the voice-samples branch. It does not build,
+# deploy, or modify the app; it just renders sample WAVs and uploads
+# them as a workflow artifact.
+name: TTS voice samples (MeloTTS)
+
+on:
+  push:
+    branches: [voice-samples]
+
+permissions:
+  contents: read
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install MeloTTS (CPU torch)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install git+https://github.com/myshell-ai/MeloTTS.git
+          python -m unidic download
+
+      - name: Generate samples
+        run: |
+          mkdir -p samples
+          python - <<'PY'
+          from melo.api import TTS
+
+          JOBS = [
+              ("EN", "EN-US", "en-us-maya", "Hi, I'm Maya! Let's get moving. First up: jumping jacks."),
+              ("EN", "EN-BR", "en-br-leo", "Steady now. Thirty seconds left. Keep that form nice and controlled."),
+              ("EN", "EN-AU", "en-au-sofia", "Great work! Take a breather. Next up: squats. Last round, keep going!"),
+              ("KR", "KR", "ko-maya", "안녕하세요, 마야예요! 시작해 볼까요? 첫 동작은 점핑잭이에요."),
+              ("KR", "KR", "ko-marcus", "좋아요, 잘하고 있어요. 30초 남았어요. 마지막이에요. 끝까지 힘내세요!"),
+          ]
+          for lang, speaker, name, text in JOBS:
+              model = TTS(language=lang, device="cpu")
+              speaker_id = model.hps.data.spk2id[speaker]
+              model.tts_to_file(text, speaker_id, f"samples/{name}.wav", speed=1.0)
+              print("wrote", name)
+          PY
+
+      - name: Upload samples
+        uses: actions/upload-artifact@v4
+        with:
+          name: tts-samples
+          path: samples/*.wav
