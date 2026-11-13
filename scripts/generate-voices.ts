@@ -14,8 +14,12 @@
 // used to improve its products. Only workout coaching lines from this repo
 // are sent — never user data.
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { spawnSync } from 'node:child_process'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 import { EXERCISES } from '../src/exercises/index'
 import { exerciseName } from '../src/i18n/content'
 import { loadKorean } from '../src/i18n/bundle'
@@ -44,6 +48,7 @@ interface Args {
   dryRun: boolean
   limit: number | null
   atomsFile: string | null
+  batchSize: number
 }
 
 function parseArgs(argv: string[]): Args {
@@ -53,6 +58,7 @@ function parseArgs(argv: string[]): Args {
   let dryRun = false
   let limit: number | null = null
   let atomsFile: string | null = null
+  let batchSize = 0
   for (const arg of argv) {
     if (arg.startsWith('--trainer=')) {
       const value = arg.slice('--trainer='.length)
@@ -74,6 +80,8 @@ function parseArgs(argv: string[]): Args {
       limit = Number(arg.slice('--limit='.length))
     } else if (arg.startsWith('--atoms-file=')) {
       atomsFile = arg.slice('--atoms-file='.length)
+    } else if (arg.startsWith('--batch-size=')) {
+      batchSize = Number(arg.slice('--batch-size='.length))
     } else if (arg === '--dry-run') {
       dryRun = true
     } else {
@@ -88,6 +96,7 @@ function parseArgs(argv: string[]): Args {
     dryRun,
     limit,
     atomsFile,
+    batchSize,
   }
 }
 
@@ -217,6 +226,10 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
     throw new Error('GEMINI_API_KEY is not set. Create a free key in Google AI Studio and export it first (see docs/voice-coach.md).')
   }
   const style = config.style[language]
+  if (args.batchSize >= 2) {
+    await generateBatched(trainer, language, args, apiKey!, missing, manifest, manifestPath, dir, config.voice, style)
+    return
+  }
   let done = 0
   for (const atom of missing) {
     if (args.limit !== null && done >= args.limit) {
@@ -253,6 +266,101 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
     await sleep(args.delayMs)
   }
   writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+}
+
+// Batch mode: many atoms in ONE request, joined with official <long pause>
+// tags, then split locally at the rendered silences (scripts/batch_tools.py)
+// and ASR-verified per segment. Fails CLOSED: a segment-count mismatch or an
+// ASR mismatch leaves the atom missing and logged for review — audio is never
+// silently assigned to the wrong atom. Batch originals and per-batch mapping
+// are kept under .batches/ (gitignored) so every clip stays auditable.
+async function generateBatched(
+  trainer: TrainerId,
+  language: Language,
+  args: Args,
+  apiKey: string,
+  missing: string[],
+  manifest: Manifest,
+  manifestPath: string,
+  dir: string,
+  voice: string,
+  style: string,
+) {
+  const batchDir = join(dir, '.batches')
+  mkdirSync(batchDir, { recursive: true })
+  let done = 0
+  for (let start = 0; start < missing.length; start += args.batchSize) {
+    if (args.limit !== null && start / args.batchSize >= args.limit) {
+      console.log(`Stopping at --limit=${args.limit} batches. Re-run to continue.`)
+      break
+    }
+    const group = missing.slice(start, start + args.batchSize)
+    const batchId = `batch-${Date.now()}-${start}`
+    const text = group.join(' <long pause> ')
+    let wav: Buffer
+    for (let attempt = 0; ; attempt++) {
+      try {
+        wav = await synthesize(apiKey, text, voice, style)
+        break
+      } catch (error) {
+        if (error instanceof Error && error.message === 'DAILY_QUOTA_EXHAUSTED') {
+          console.log('Daily free quota exhausted. Stopping until tomorrow.')
+          process.exit(3)
+        }
+        if (error instanceof Error && error.message === 'RATE_LIMITED' && attempt < 3) {
+          const retrySeconds = (error as Error & { retrySeconds?: number }).retrySeconds ?? 65
+          console.log(`Rate limited (per-minute). Waiting ${retrySeconds}s…`)
+          await sleep(retrySeconds * 1000)
+          continue
+        }
+        throw error
+      }
+    }
+    const batchWav = join(batchDir, `${batchId}.wav`)
+    writeFileSync(batchWav, wav)
+    const segDir = join(batchDir, batchId)
+    mkdirSync(segDir, { recursive: true })
+    const split = runBatchTool(['split', batchWav, String(group.length), segDir])
+    const splitInfo = JSON.parse(split) as { ok: boolean; segments: number; expected: number }
+    if (!splitInfo.ok) {
+      // Fail closed: keep the original batch WAV for review, assign nothing.
+      writeFileSync(join(batchDir, `${batchId}.review.json`), JSON.stringify({ group, split: splitInfo }, null, 2))
+      console.log(`[${trainer}/${language}] ${batchId}: split mismatch (${splitInfo.segments}/${splitInfo.expected}) — batch kept for review, no clips assigned`)
+      continue
+    }
+    writeFileSync(join(segDir, 'expected.json'), JSON.stringify(group))
+    const asr = runBatchTool(['asr', language, join(segDir, 'expected.json'), segDir])
+    const checks = JSON.parse(asr) as { atom: string; heard?: string; ratio?: number; ok: boolean }[]
+    const mapping: { atom: string; hash: string; file: string; heard?: string; ratio?: number }[] = []
+    let passed = 0
+    for (let i = 0; i < group.length; i++) {
+      const check = checks[i]
+      if (!check?.ok) {
+        console.log(`[${trainer}/${language}] ASR review needed: "${group[i]}" (heard: "${check?.heard ?? ''}", ratio ${check?.ratio ?? 0})`)
+        continue
+      }
+      const hash = hashAtom(group[i])
+      const file = `${hash}.wav`
+      copyFileSync(join(segDir, `seg-${String(i).padStart(3, '0')}.wav`), join(dir, file))
+      manifest.clips[hash] = file
+      mapping.push({ atom: group[i], hash, file, heard: check.heard, ratio: check.ratio })
+      passed++
+      done++
+    }
+    writeFileSync(join(batchDir, `${batchId}.map.json`), JSON.stringify({ batch: `${batchId}.wav`, style, voice, mapping }, null, 2))
+    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+    console.log(`[${trainer}/${language}] ${batchId}: ${passed}/${group.length} atoms passed split+ASR (${done} total done)`)
+    rmSync(segDir, { recursive: true, force: true })
+    await sleep(args.delayMs)
+  }
+}
+
+function runBatchTool(argv: string[]): string {
+  const result = spawnSync('python3', [join(__dirname, 'batch_tools.py'), ...argv], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  if (result.status !== 0 && argv[0] !== 'split') {
+    throw new Error(`batch_tools.py ${argv[0]} failed: ${result.stderr?.slice(0, 300)}`)
+  }
+  return result.stdout.trim()
 }
 
 const args = parseArgs(process.argv.slice(2))

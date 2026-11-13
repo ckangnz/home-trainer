@@ -37,12 +37,41 @@ per trainer per language** (the name) — run the generator and commit.
    ```
 
    Flags: `--trainer=all`, `--lang=all`, `--limit=N` (stop after N clips;
-   re-run to continue), `--delay-ms=N` (default 4000), `--dry-run`.
+   re-run to continue), `--delay-ms=N` (default 4000), `--dry-run`,
+   `--atoms-file=path` (only the listed atoms), `--batch-size=N` (batch mode).
 3. Commit `public/voices/`.
 
 The script is resumable: it only generates clips missing from the manifest.
 On HTTP 429 (free-tier daily/minute limits) it backs off and retries; if the
 day's quota runs out, re-run tomorrow — nothing is lost.
+
+### Free-tier quota and batch mode
+
+Observed on the free tier (verify against your own key's response headers):
+~3 requests/minute and 10 requests/day for this model; the daily counter
+resets at midnight US Pacific. One request per atom makes a full pack take
+weeks, so batch mode exists: `--batch-size=N` joins N atoms in ONE request,
+separated by the API's official `<long pause>` inline tag, then splits the
+returned WAV at the rendered silences and ASR-verifies every segment before
+assigning it to an atom.
+
+Batch mode is fail-closed by design — the pause tags are hints the model
+usually honours, not guaranteed boundaries:
+
+- If the segment count differs from the atom count (omitted pause, natural
+  intra-sentence silence, merged phrase), nothing is assigned; the batch WAV
+  and a `*.review.json` stay under `public/voices/<trainer>/<lang>/.batches/`
+  (gitignored) for manual review.
+- Each segment is transcribed locally (`scripts/batch_tools.py asr`,
+  faster-whisper "small") and fuzzy-matched against the expected atom
+  (digit/word number forms normalized); mismatches stay missing and are
+  logged for review. Audio is never silently assigned to the wrong atom.
+- Every assigned clip is traceable via the `*.map.json` mapping next to the
+  batch original.
+
+Batch mode needs `ffmpeg` and `pip install faster-whisper` locally. Because a
+batch mixes atoms in one request, only batch atoms that share the same
+trainer, language and style (the script always batches within one pack).
 
 The **Generate coach voice clips** GitHub workflow does the same thing
 manually-triggered, using a `GEMINI_API_KEY` repo secret, and commits the
