@@ -1,0 +1,19 @@
+{
+  "trainer": "female",
+  "language": "en",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Laomedeia",
+  "clips": {
+    "983277c4": "983277c4.wav",
+    "864c5184": "864c5184.wav",
+    "1be9fe62": "1be9fe62.wav",
+    "b41128dc": "b41128dc.wav",
+    "a339de11": "a339de11.wav",
+    "eff3e449": "eff3e449.wav",
+    "cf454d36": "cf454d36.wav",
+    "b3923399": "b3923399.wav",
+    "26dbf21c": "26dbf21c.wav",
+    "ca3f9ff7": "ca3f9ff7.wav",
+    "75d3909e": "75d3909e.wav"
+  }
+}
