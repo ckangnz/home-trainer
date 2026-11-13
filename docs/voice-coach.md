@@ -62,20 +62,27 @@ generated content; see <https://ai.google.dev/gemini-api/terms>). The free tier
 lets Google use submitted content to improve its products — only the coaching
 lines in this repo are sent, never user data.
 
+## Accent and dialect mapping
+
+Direction approved by the app owner on 2026-11-13: English gets a regional
+accent per character (US/UK/AU …) and Korean gets a regional dialect (사투리)
+per character. The current mapping lives in `voices.config.mjs` (`accent` per
+trainer) and is a proposal: Maya (US / 표준어) and Marcus (US / 경상) are
+auditioned; Leo (UK / 충청), Sofia (AU / 전라), Zara (US / 표준 반말),
+Kai (AU / 강원), Nina (UK / 표준) are proposed and need auditions. 제주 and
+North Korean dialects are deliberately unused (caricature/oddity risk).
+Dialect/accent realism from style prompting is not guaranteed — audition every
+character before bulk generation, and write dialect wording into the segment
+banks themselves (style prompts steer intonation, not vocabulary).
+
 ## Decisions still open (need the app owner)
 
-- Dialect (사투리) mapping for all seven trainers. Marcus's Korean pack tries a
-  restrained Gyeongsang intonation via the style prompt; whether to keep it and
-  what the other six get is the owner's call after auditions. Dialect wording
-  in the lines themselves lives in the segment/phrase banks.
 - Exercise-name audio: this prototype splices a fixed lead-in clip plus the
   name clip (`다음은` + `스쿼트`). The seam is audible but small; the
   alternative (one full sentence per exercise per trainer) multiplies the
   generation count by ~227 and is deliberately not the default.
 - Tips (`tipOf`) and other long dynamic text stay on speechSynthesis for now;
   they are per-exercise fixed text and could be pre-generated later.
-- English regional accents per character: currently standard American for all;
-  remap in `voices.config.mjs` if wanted.
 
 ## Extending to the remaining trainers
 
