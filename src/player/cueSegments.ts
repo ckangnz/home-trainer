@@ -160,9 +160,15 @@ export function sideAtoms(language: Language): string[] {
   return language === 'ko' ? ['왼쪽', '오른쪽'] : ['left side', 'right side']
 }
 
-// Every atom a trainer+language pack needs, except exercise names (the caller
-// appends those from the catalog). Round atoms are enumerated for every
-// variant and every done/total pair in range.
+// Every atom a trainer+language pack needs. fixedPhrases: the trainer's
+// go/halfway/tenLeft/switchSides/finish variants from the phrase banks;
+// exerciseNames: every catalog name in this language.
+export function voicePackInventory(bank: SegBank, language: Language, fixedPhrases: string[], exerciseNames: string[]): Set<string> {
+  return new Set([...fixedAtomInventory(bank, language, fixedPhrases), ...exerciseNames])
+}
+
+// Fixed atoms only (everything except exercise names). Round atoms are
+// enumerated for every variant and every done/total pair in range.
 export function fixedAtomInventory(bank: SegBank, language: Language, extra: string[] = []): string[] {
   const atoms = new Set<string>(extra)
   for (const variant of bank.intro) for (const atom of variant) atoms.add(atom)

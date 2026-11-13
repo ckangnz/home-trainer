@@ -21,7 +21,7 @@ import { exerciseName } from '../src/i18n/content'
 import type { Language } from '../src/i18n/types'
 import { BANKS } from '../src/player/cues'
 import { BANKS_KO } from '../src/player/cues.ko'
-import { fixedAtomInventory, segBankFor } from '../src/player/cueSegments'
+import { segBankFor, voicePackInventory } from '../src/player/cueSegments'
 import { hashAtom } from '../src/player/voicehash'
 import { VOICE_LANGUAGES, VOICE_MODEL, VOICE_TRAINERS } from '../voices.config.mjs'
 import type { TrainerId } from '../src/figure/look'
@@ -94,14 +94,8 @@ function inventoryFor(trainer: TrainerId, language: Language): string[] | null {
     return null
   }
   const fixed = [...bank.go, ...bank.halfway, ...bank.tenLeft, ...bank.switchSides, ...bank.finish]
-  const atoms = new Set(fixedAtomInventory(seg, language, fixed))
-  for (const exercise of EXERCISES) {
-    const name = exerciseName(exercise, language)
-    if (name) {
-      atoms.add(name)
-    }
-  }
-  return [...atoms].sort()
+  const names = EXERCISES.map((exercise) => exerciseName(exercise, language)).filter(Boolean)
+  return [...voicePackInventory(seg, language, fixed, names)].sort()
 }
 
 async function synthesize(apiKey: string, text: string, voice: string, style: string): Promise<Buffer> {
