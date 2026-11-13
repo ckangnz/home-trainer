@@ -121,7 +121,38 @@ async function synthesize(apiKey: string, text: string, voice: string, style: st
     }),
   })
   if (response.status === 429) {
-    throw new Error('RATE_LIMITED')
+    // Distinguish minute-level throttling from daily-quota exhaustion using
+    // the quota details in the error body, and honour retry-after.
+    let detail = ''
+    let daily = false
+    let retrySeconds = 65
+    try {
+      const body = (await response.json()) as {
+        error?: {
+          message?: string
+          details?: ({ '@type'?: string; violations?: { quotaMetric?: string }[]; retryDelay?: string } | Record<string, never>)[]
+        }
+      }
+      detail = body.error?.message ?? ''
+      if (/per day|retry in \d+h/i.test(detail)) daily = true
+      for (const d of body.error?.details ?? []) {
+        if ('retryDelay' in d && d.retryDelay) {
+          const parsed = Number.parseFloat(d.retryDelay)
+          if (Number.isFinite(parsed)) retrySeconds = Math.ceil(parsed) + 5
+        }
+        if ('violations' in d) {
+          for (const v of d.violations ?? []) {
+            if (v.quotaMetric && /PerDay|PerProjectDay/i.test(v.quotaMetric)) daily = true
+          }
+        }
+      }
+    } catch {
+      // no parseable body; keep defaults
+    }
+    const error = new Error(daily ? 'DAILY_QUOTA_EXHAUSTED' : 'RATE_LIMITED') as Error & { retrySeconds?: number; detail?: string }
+    error.retrySeconds = retrySeconds
+    error.detail = detail.slice(0, 200)
+    throw error
   }
   if (!response.ok) {
     throw new Error(`API ${response.status}: ${(await response.text()).slice(0, 300)}`)
@@ -204,9 +235,16 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
         console.log(`[${trainer}/${language}] ${done}/${missing.length} ${atom}`)
         break
       } catch (error) {
+        if (error instanceof Error && error.message === 'DAILY_QUOTA_EXHAUSTED') {
+          const detail = (error as Error & { detail?: string }).detail ?? ''
+          console.log(`Daily free quota exhausted${detail ? `: ${detail}` : ''}. Stopping until tomorrow.`)
+          process.exit(3)
+        }
         if (error instanceof Error && error.message === 'RATE_LIMITED' && attempt < 3) {
-          console.log('Rate limited (free tier). Waiting 65s…')
-          await sleep(65000)
+          const retrySeconds = (error as Error & { retrySeconds?: number }).retrySeconds ?? 65
+          const detail = (error as Error & { detail?: string }).detail ?? ''
+          console.log(`Rate limited (per-minute, free tier). Waiting ${retrySeconds}s…${detail ? ` [${detail}]` : ''}`)
+          await sleep(retrySeconds * 1000)
           continue
         }
         throw error
