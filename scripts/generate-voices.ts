@@ -18,6 +18,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { EXERCISES } from '../src/exercises/index'
 import { exerciseName } from '../src/i18n/content'
+import { loadKorean } from '../src/i18n/bundle'
 import type { Language } from '../src/i18n/types'
 import { BANKS } from '../src/player/cues'
 import { BANKS_KO } from '../src/player/cues.ko'
@@ -42,6 +43,7 @@ interface Args {
   delayMs: number
   dryRun: boolean
   limit: number | null
+  atomsFile: string | null
 }
 
 function parseArgs(argv: string[]): Args {
@@ -50,6 +52,7 @@ function parseArgs(argv: string[]): Args {
   let delayMs = 4000
   let dryRun = false
   let limit: number | null = null
+  let atomsFile: string | null = null
   for (const arg of argv) {
     if (arg.startsWith('--trainer=')) {
       const value = arg.slice('--trainer='.length)
@@ -69,6 +72,8 @@ function parseArgs(argv: string[]): Args {
       delayMs = Number(arg.slice('--delay-ms='.length))
     } else if (arg.startsWith('--limit=')) {
       limit = Number(arg.slice('--limit='.length))
+    } else if (arg.startsWith('--atoms-file=')) {
+      atomsFile = arg.slice('--atoms-file='.length)
     } else if (arg === '--dry-run') {
       dryRun = true
     } else {
@@ -82,6 +87,7 @@ function parseArgs(argv: string[]): Args {
     delayMs,
     dryRun,
     limit,
+    atomsFile,
   }
 }
 
@@ -150,13 +156,27 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
     ? { ...(JSON.parse(readFileSync(manifestPath, 'utf8')) as Manifest), model: VOICE_MODEL, voice: config.voice }
     : { trainer, language, model: VOICE_MODEL, voice: config.voice, clips: {} }
 
+  // The Korean content bundle loads asynchronously in the app; without this,
+  // ko inventories silently fall back to English exercise names.
+  if (language === 'ko') {
+    await loadKorean()
+  }
   const atoms = inventoryFor(trainer, language)
   if (!atoms) {
     console.log(`[${trainer}/${language}] skipped: no segment bank yet (see src/player/cueSegments.ts)`)
     return
   }
-  const missing = atoms.filter((atom) => !manifest.clips[hashAtom(atom)] || !existsSync(join(dir, manifest.clips[hashAtom(atom)])))
-  console.log(`[${trainer}/${language}] ${atoms.length} atoms, ${atoms.length - missing.length} already generated, ${missing.length} to go`)
+  // --atoms-file: generate only the listed atoms (one per line, exact
+  // match). For representative early samples before committing quota to a
+  // pack's full inventory.
+  const only = args.atomsFile ? new Set(readFileSync(args.atomsFile, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean)) : null
+  const wanted = only ? atoms.filter((atom) => only.has(atom)) : atoms
+  if (only) {
+    const found = new Set(wanted)
+    for (const atom of only) if (!found.has(atom)) console.log(`  not in inventory: ${atom}`)
+  }
+  const missing = wanted.filter((atom) => !manifest.clips[hashAtom(atom)] || !existsSync(join(dir, manifest.clips[hashAtom(atom)])))
+  console.log(`[${trainer}/${language}] ${wanted.length}${only ? ` of ${atoms.length}` : ''} atoms, ${wanted.length - missing.length} already generated, ${missing.length} to go`)
   if (args.dryRun) {
     for (const atom of missing.slice(0, 20)) console.log(`  missing: ${atom}`)
     if (missing.length > 20) console.log(`  …and ${missing.length - 20} more`)
