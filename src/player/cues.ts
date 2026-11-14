@@ -311,7 +311,9 @@ export function cuesBetween(previous: PlayerState, next: PlayerState, previousNo
     const tip = context.tipOf?.(step.exerciseId)
     const tipWorthy = limit === null || limit >= TIP_MIN_MS
     if (tip && tipWorthy && crossed(before, after, TIP_AT_MS)) {
-      cues.push({ kind: 'say', text: tip })
+      // The tip is a single atom: the pre-generated voice pack covers it, and
+      // speechSynthesis remains the fallback until the clip exists.
+      cues.push({ kind: 'say', text: tip, atoms: [tip] })
     }
   }
   if (limit === null) {

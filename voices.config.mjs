@@ -8,9 +8,12 @@
 // Prebuilt voice list: same page, "Prebuilt voices" table.
 //
 // Voice/style provenance:
-// - maya (Laomedeia) and marcus (Alnilam) were auditioned with the user on
-//   2026-11-13 using gemini-3.8-flash-tts (combined-cue WAV auditions).
-// - The other five voices are un-auditioned draft picks from the official
+// - maya (Zephyr), marcus (Fenrir) and sofia (Autonoe) were auditioned with
+//   the user on 2026-11-14 using gemini-3.8-flash-tts: distinct per-character
+//   base voices with an energetic workout delivery, EN and KO samples, and the
+//   user accepted the direction. (An earlier 2026-11-13 audition had picked
+//   Laomedeia/Alnilam; the user found samey, low-energy samples wanting.)
+// - The other four voices are un-auditioned draft picks from the official
 //   prebuilt list; confirm by audition before bulk generation.
 //
 // Accent/dialect direction (user-approved 2026-11-13): English gets a regional
@@ -25,12 +28,12 @@ export const VOICE_MODEL = 'gemini-3.8-flash-tts'
 export const VOICE_TRAINERS = {
   female: {
     displayName: 'Maya',
-    voice: 'Laomedeia', // official trait: Upbeat — auditioned 2026-11-13
+    voice: 'Zephyr', // official trait: Bright — auditioned 2026-11-14
     status: 'auditioned',
     accent: { ko: 'standard', en: 'american' },
     style: {
-      ko: 'An upbeat, encouraging female fitness coach. Standard Seoul Korean, bright vocal smile, energetic but never shouting, warm gym-buddy tone.',
-      en: 'An upbeat, encouraging female fitness coach. Standard American English, bright vocal smile, energetic but never shouting, warm gym-buddy tone.',
+      ko: 'A bright, high-energy female fitness coach. Standard Seoul Korean, quick and encouraging with a big audible smile, playful hype energy that pushes the workout forward.',
+      en: 'A bright, high-energy female fitness coach. Standard American English, quick and encouraging with a big audible smile, playful hype energy that pushes the workout forward.',
     },
   },
   male: {
@@ -45,12 +48,12 @@ export const VOICE_TRAINERS = {
   },
   sofia: {
     displayName: 'Sofia',
-    voice: 'Sulafat', // official trait: Warm — DRAFT, not auditioned
-    status: 'draft',
-    accent: { ko: 'jeolla', en: 'australian' }, // PROPOSED
+    voice: 'Autonoe', // official trait: Bright — auditioned 2026-11-14
+    status: 'auditioned',
+    accent: { ko: 'jeolla', en: 'australian' }, // PROPOSED (dialect goes in the bank wording; style only steers intonation)
     style: {
-      ko: 'A warm, motivating female fitness coach. Korean with a natural Jeolla-do (southwestern Korean) accent, gentle melodic intonation, encouraging like a close older sister. Restrained, not a caricature.',
-      en: 'A warm, motivating female fitness coach. Friendly Australian English accent, gentle and encouraging, like a supportive friend.',
+      ko: 'A warm, upbeat female fitness coach. Natural Korean, lively and rhythmic, genuinely celebrating effort like a supportive older sister.',
+      en: 'A warm, upbeat female fitness coach. Friendly Australian English accent, lively and rhythmic, genuinely celebrating effort.',
     },
   },
   zara: {
@@ -65,14 +68,14 @@ export const VOICE_TRAINERS = {
   },
   marcus: {
     displayName: 'Marcus',
-    voice: 'Alnilam', // official trait: Firm — auditioned 2026-11-13
+    voice: 'Fenrir', // official trait: Excitable — auditioned 2026-11-14
     status: 'auditioned',
     // Korean dialect direction confirmed worth pursuing in audition; keep the
     // intonation natural and restrained, never a caricature.
     accent: { ko: 'gyeongsang', en: 'american' },
     style: {
-      ko: 'A powerful, driven male drill coach with a deep, firm voice. Korean spoken with a natural Busan/Gyeongsang (southeastern Korean) intonation, firm and restrained, not exaggerated. Short clipped commands, intimidating but caring.',
-      en: 'A powerful, driven male drill coach with a deep, firm voice. General American English. Short clipped commands, intimidating but caring.',
+      ko: 'A powerful, driven male drill coach with a deep voice. Korean spoken with a natural Busan/Gyeongsang (southeastern Korean) edge, firm and restrained, not exaggerated. Short clipped commands, driving hard through every countdown without shouting abuse.',
+      en: 'A powerful, driven male drill coach with a deep voice. General American English. Short clipped commands, driving hard through every countdown without shouting abuse.',
     },
   },
   kai: {

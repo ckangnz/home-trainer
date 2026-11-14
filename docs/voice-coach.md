@@ -4,15 +4,16 @@ Natural per-trainer coaching voices, generated ahead of time with Gemini TTS
 and shipped as static files. No server, no runtime API calls, no cost to app
 users.
 
-Status: **prototype** covering Maya and Marcus (the two auditioned characters),
-Korean and English. Other trainers keep the old browser speechSynthesis voice
-until their segment banks and voices are added.
+Status: **prototype** covering Maya, Marcus and Sofia (the three auditioned
+characters), Korean and English. Other trainers keep the old browser
+speechSynthesis voice until their segment banks and voices are added.
 
 ## How it works
 
 - `src/player/cues.ts` builds each spoken announcement and, for trainers with a
   segment bank, also a list of **atoms** — short strings that each map to one
-  pre-generated clip (`announcementAtoms`).
+  pre-generated clip (`announcementAtoms`). The per-exercise form tip is one
+  atom too, so tips play in the trainer voice once generated.
 - `src/player/cueSegments.ts` holds the segment banks: the fixed parts of
   intros, rests, last-exercise and round announcements, plus enumerations for
   target phrases (`30초`, `10 reps`), set phrases, sides and round numbers.
@@ -25,6 +26,11 @@ until their segment banks and voices are added.
 
 Exercise names are atoms too, so **adding an exercise only needs 2 new clips
 per trainer per language** (the name) — run the generator and commit.
+
+If the configured voice or model changes, existing clips are stale: the
+generator detects the mismatch from `manifest.json`, logs it, and regenerates
+every atom (hashes depend on the atom text, so stale WAVs are overwritten in
+place).
 
 ## Generating clips
 
@@ -81,9 +87,10 @@ result. Public-repo Actions minutes are free.
 
 `voices.config.mjs` defines the model (`gemini-3.8-flash-tts`), each trainer's
 prebuilt voice, per-language style prompt, and dialect direction. Maya
-(Laomedeia) and Marcus (Alnilam) were auditioned on 2026-11-13; the other five
-are draft picks from the official prebuilt list and need an audition before
-bulk generation. Audition without code: <https://aistudio.google.com/generate-speech>.
+(Zephyr), Marcus (Fenrir) and Sofia (Autonoe) were auditioned and accepted by
+the app owner on 2026-11-14 (distinct base voices, energetic workout
+delivery, EN+KO); the other four are draft picks from the official prebuilt
+list and need an audition before bulk generation. Audition without code: <https://aistudio.google.com/generate-speech>.
 
 Model/API reference: <https://ai.google.dev/gemini-api/docs/speech-generation>.
 Generated content may be used in the app (Google claims no ownership of
@@ -96,8 +103,8 @@ lines in this repo are sent, never user data.
 Direction approved by the app owner on 2026-11-13: English gets a regional
 accent per character (US/UK/AU …) and Korean gets a regional dialect (사투리)
 per character. The current mapping lives in `voices.config.mjs` (`accent` per
-trainer) and is a proposal: Maya (US / 표준어) and Marcus (US / 경상) are
-auditioned; Leo (UK / 충청), Sofia (AU / 전라), Zara (US / 표준 반말),
+trainer) and is a proposal: Maya (US / 표준어), Marcus (US / 경상) and Sofia
+(AU / 전라) are auditioned; Leo (UK / 충청), Zara (US / 표준 반말),
 Kai (AU / 강원), Nina (UK / 표준) are proposed and need auditions. 제주 and
 North Korean dialects are deliberately unused (caricature/oddity risk).
 Dialect/accent realism from style prompting is not guaranteed — audition every
@@ -110,8 +117,6 @@ banks themselves (style prompts steer intonation, not vocabulary).
   name clip (`다음은` + `스쿼트`). The seam is audible but small; the
   alternative (one full sentence per exercise per trainer) multiplies the
   generation count by ~227 and is deliberately not the default.
-- Tips (`tipOf`) and other long dynamic text stay on speechSynthesis for now;
-  they are per-exercise fixed text and could be pre-generated later.
 
 ## Extending to the remaining trainers
 

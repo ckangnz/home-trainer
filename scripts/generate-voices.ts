@@ -21,7 +21,8 @@ import { spawnSync } from 'node:child_process'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 import { EXERCISES } from '../src/exercises/index'
-import { exerciseName } from '../src/i18n/content'
+import { getFullExercise, loadAllExercises } from '../src/exercises/content'
+import { exerciseName, localizer } from '../src/i18n/content'
 import { loadKorean } from '../src/i18n/bundle'
 import type { Language } from '../src/i18n/types'
 import { BANKS } from '../src/player/cues'
@@ -110,7 +111,12 @@ function inventoryFor(trainer: TrainerId, language: Language): string[] | null {
   }
   const fixed = [...bank.go, ...bank.halfway, ...bank.tenLeft, ...bank.switchSides, ...bank.finish]
   const names = EXERCISES.map((exercise) => exerciseName(exercise, language)).filter(Boolean)
-  return [...voicePackInventory(seg, language, fixed, names)].sort()
+  // The player speaks the first localized form tip per exercise (mirrors
+  // PlayerPage tipOf); each tip text is one atom. Requires loadAllExercises()
+  // and, for ko, loadKorean() to have run first (generatePack does both).
+  const loc = localizer(language)
+  const tips = EXERCISES.map((exercise) => loc.exerciseTips({ id: exercise.id, tips: getFullExercise(exercise.id)?.tips })[0]).filter(Boolean)
+  return [...new Set([...voicePackInventory(seg, language, fixed, names), ...tips])].sort()
 }
 
 async function synthesize(apiKey: string, text: string, voice: string, style: string): Promise<Buffer> {
@@ -192,8 +198,21 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
   const dir = join('public', 'voices', trainer, language)
   mkdirSync(dir, { recursive: true })
   const manifestPath = join(dir, 'manifest.json')
-  const manifest: Manifest = existsSync(manifestPath)
-    ? { ...(JSON.parse(readFileSync(manifestPath, 'utf8')) as Manifest), model: VOICE_MODEL, voice: config.voice }
+  const existing: Manifest | null = existsSync(manifestPath)
+    ? (JSON.parse(readFileSync(manifestPath, 'utf8')) as Manifest)
+    : null
+  if (existing && (existing.voice !== config.voice || existing.model !== VOICE_MODEL)) {
+    // Voice or model changed: every existing clip was rendered with the old
+    // voice and is stale. Regenerate from scratch (stale WAVs are overwritten
+    // in place; clip hashes depend on the atom text, not the voice).
+    console.log(
+      `[${trainer}/${language}] voice/model changed (${existing.voice}/${existing.model} -> ${config.voice}/${VOICE_MODEL}); ` +
+        `marking ${Object.keys(existing.clips ?? {}).length} existing clips stale for regeneration`,
+    )
+    existing.clips = {}
+  }
+  const manifest: Manifest = existing
+    ? { ...existing, model: VOICE_MODEL, voice: config.voice }
     : { trainer, language, model: VOICE_MODEL, voice: config.voice, clips: {} }
 
   // The Korean content bundle loads asynchronously in the app; without this,
@@ -201,6 +220,8 @@ async function generatePack(trainer: TrainerId, language: Language, args: Args, 
   if (language === 'ko') {
     await loadKorean()
   }
+  // Tips live on the lazily-loaded full exercise catalogs.
+  await loadAllExercises()
   const atoms = inventoryFor(trainer, language)
   if (!atoms) {
     console.log(`[${trainer}/${language}] skipped: no segment bank yet (see src/player/cueSegments.ts)`)
