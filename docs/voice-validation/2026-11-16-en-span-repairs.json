@@ -1,0 +1,1144 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Bird dog",
+    "hash": "f6c392d4",
+    "heard": "bird dog",
+    "batch": "ensofiar1",
+    "span": [
+      0.0,
+      0.921875
+    ],
+    "span_transcripts": [
+      "bird dog"
+    ],
+    "sha256": "be09501aa1a8a99362f9939a52854cb6c0d1d5c7e1c2e579cbfc98d4fe6dc096",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Calf raises",
+    "hash": "7a42ae94",
+    "heard": "calf raises",
+    "batch": "ensofiar1",
+    "span": [
+      2.39179,
+      3.4255
+    ],
+    "span_transcripts": [
+      "calf raises"
+    ],
+    "sha256": "c0a581f974ed81f2e41fc6d59956c4060ab351cd8aee54741d291bfcba6a8fd1",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Floor triceps dip",
+    "hash": "ab86c9b8",
+    "heard": "floor triceps dip",
+    "batch": "ensofiar1",
+    "span": [
+      4.67575,
+      6.00358
+    ],
+    "span_transcripts": [
+      "floor triceps dip"
+    ],
+    "sha256": "72773892dfb97f5b6c99e6a3b75794627b28e0f87148b78ed666f54003389441",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Inchworm",
+    "hash": "fe4d0a2a",
+    "heard": "inchworm",
+    "batch": "ensofiar1",
+    "span": [
+      11.3824,
+      12.1719
+    ],
+    "span_transcripts": [
+      "inchworm"
+    ],
+    "sha256": "4d13c66aef8753faed86a4448d5207a64f6bd3e7c85c3f74687f7e9e68df99f0",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Neck side stretch",
+    "hash": "ed21292c",
+    "heard": "neck side stretch",
+    "batch": "ensofiar1",
+    "span": [
+      13.5475,
+      14.7192
+    ],
+    "span_transcripts": [
+      "neck side stretch"
+    ],
+    "sha256": "37d774e9d9bf198655052e3ae9e35a89d66e0b1f9dfcaf6f91750c14f985e768",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "Neck side tilts",
+    "hash": "d4c0f8d1",
+    "heard": "neck side tilts",
+    "batch": "ensofiar1",
+    "span": [
+      16.115,
+      17.3918
+    ],
+    "span_transcripts": [
+      "neck side tilts"
+    ],
+    "sha256": "c04bc1c720bed94429dec481ae29977a9814d8e690c08fade5f63a9acf447d4e",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "set 2 of 4",
+    "hash": "f847fc92",
+    "heard": "Set two of four.",
+    "batch": "ensofiar1",
+    "span": [
+      23.2051,
+      24.1529
+    ],
+    "span_transcripts": [
+      "Set two of four."
+    ],
+    "sha256": "c144600bdc6cb87827ad738a07df1a5dd17da70ead208c264739c4c236c888f2",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "set 3 of 4",
+    "hash": "96eb763f",
+    "heard": "set three of four",
+    "batch": "ensofiar1",
+    "span": [
+      27.3316,
+      28.4345
+    ],
+    "span_transcripts": [
+      "set three of four"
+    ],
+    "sha256": "4d7206d843b243504e2c9e746c87feb185b72ba379da4efa6cdb729b14d953a8",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Flex your top foot to protect the knee.",
+    "hash": "66f6c094",
+    "heard": "Flex your top foot to protect the knee.",
+    "batch": "enmaler2",
+    "span": [
+      0.0,
+      2.47171
+    ],
+    "span_transcripts": [
+      "Flex your top foot to protect the knee."
+    ],
+    "sha256": "47cde7771d6b356ceb4666456d10a0de39b3a2f319761b6b6f2226b77ed3cdd6",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Floor triceps dip",
+    "hash": "ab86c9b8",
+    "heard": "floor triceps dip",
+    "batch": "enmaler2",
+    "span": [
+      3.74037,
+      4.94975
+    ],
+    "span_transcripts": [
+      "floor triceps dip"
+    ],
+    "sha256": "e3e2c1ea3e1d12cf7f74305a76784f0a713e0799583ee3c173aac2ea04fa2406",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Flutter kicks",
+    "hash": "6dd3979e",
+    "heard": "flutter kicks",
+    "batch": "enmaler2",
+    "span": [
+      6.17158,
+      6.94362
+    ],
+    "span_transcripts": [
+      "flutter kicks"
+    ],
+    "sha256": "1d4c1c8bd640ff5790afb2e17d3b08f251f79de2bdedbb13675fe67c7be7dcf9",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller calves",
+    "hash": "463aec52",
+    "heard": "foam roller calves",
+    "batch": "enmaler2",
+    "span": [
+      8.0105,
+      9.56942
+    ],
+    "span_transcripts": [
+      "foam roller calves"
+    ],
+    "sha256": "42372f9ecd4327be231d496005f58c52ef1217170602bb276c232d975ea59a70",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller glutes",
+    "hash": "b754a0f6",
+    "heard": "foam roller glutes",
+    "batch": "enmaler2",
+    "span": [
+      10.239,
+      11.3515
+    ],
+    "span_transcripts": [
+      "foam roller glutes"
+    ],
+    "sha256": "b38b4ce9b8735c953da49b1f0d793297d282c9e97bcf7cb408b2047111d28e0b",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller hamstrings",
+    "hash": "65ed5dec",
+    "heard": "foam roller hamstrings",
+    "batch": "enmaler2",
+    "span": [
+      12.3207,
+      13.5558
+    ],
+    "span_transcripts": [
+      "foam roller hamstrings"
+    ],
+    "sha256": "c7d7dc54c72b0fc0058956a5a05272ee28906edfaca2b2fca40f1ec109a6ae84",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller hip flexors",
+    "hash": "00f4c352",
+    "heard": "foam roller hip flexors",
+    "batch": "enmaler2",
+    "span": [
+      14.5759,
+      16.0246
+    ],
+    "span_transcripts": [
+      "foam roller hip flexors"
+    ],
+    "sha256": "318b95d4cd80c971eb7bedcd17754a539cce24fa1c7ecb274ff4ae1df0988135",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller quads",
+    "hash": "39952fa8",
+    "heard": "foam roller quads",
+    "batch": "enmaler2",
+    "span": [
+      16.9504,
+      18.2704
+    ],
+    "span_transcripts": [
+      "foam roller quads"
+    ],
+    "sha256": "db6b24dda4819c3555d6fcab4e39757f8ffbff6c72fc671f6846dcd23e10335b",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller shins",
+    "hash": "438d4f1d",
+    "heard": "foam roller shins",
+    "batch": "enmaler2",
+    "span": [
+      19.0984,
+      20.4519
+    ],
+    "span_transcripts": [
+      "foam roller shins"
+    ],
+    "sha256": "c50a421b6fe7f4079e95e6a8ee070219985bdf010b9ebe2363816cca4fd3419f",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Foam roller upper back",
+    "hash": "cc0fc943",
+    "heard": "foam roller upper back",
+    "batch": "enmaler2",
+    "span": [
+      21.2496,
+      22.6819
+    ],
+    "span_transcripts": [
+      "foam roller upper back"
+    ],
+    "sha256": "470a6e8a68911346b08ba25195b8f53df206e106e2c290ec6f59a7a0f7f66ca3",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Forearm plank",
+    "hash": "1b7839c3",
+    "heard": "forearm plank",
+    "batch": "enmaler2",
+    "span": [
+      23.5867,
+      24.4609
+    ],
+    "span_transcripts": [
+      "forearm plank"
+    ],
+    "sha256": "11afc62d8630c837e87d3d61427417846293ab065e5a398039c03bf5edab45aa",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Glute bridge",
+    "hash": "092cc52b",
+    "heard": "glute bridge",
+    "batch": "enmaler2",
+    "span": [
+      29.0258,
+      29.7369
+    ],
+    "span_transcripts": [
+      "glute bridge"
+    ],
+    "sha256": "4d1471cecefc0f428280b4ec1359456c0304f5c6ff0db76e7c30ae09564ea2eb",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Goblet reverse lunge",
+    "hash": "01e714a1",
+    "heard": "goblet reverse lunge",
+    "batch": "enmaler2",
+    "span": [
+      33.5517,
+      35.1167
+    ],
+    "span_transcripts": [
+      "goblet reverse lunge"
+    ],
+    "sha256": "826dc25fdeb7ed300e31d9a973e07ca8a4a9041ee42732e60789e691db6acd27",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Good work. Breathe easy. Coming up:",
+    "hash": "31062702",
+    "heard": "Good work. Breathe easy. Coming up.",
+    "batch": "enmaler2",
+    "span": [
+      36.0313,
+      39.6052
+    ],
+    "span_transcripts": [
+      "Good work.",
+      "Breathe easy.",
+      "Coming up."
+    ],
+    "sha256": "eae077ea387a4997aca35604e650be4424b4c583b9c1cd466b431053e3e30eff",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Halfway point. Good form.",
+    "hash": "fa0ef76a",
+    "heard": "halfway point Good form.",
+    "batch": "enmaler2",
+    "span": [
+      40.5028,
+      42.8069
+    ],
+    "span_transcripts": [
+      "halfway point",
+      "Good form."
+    ],
+    "sha256": "a5028e529391274fa403e79159b9c058c0b351cf31a09587de2d36378fecbdb6",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Heel taps",
+    "hash": "3ad641ab",
+    "heard": "Heel taps.",
+    "batch": "enmaler3",
+    "span": [
+      0.0,
+      1.15567
+    ],
+    "span_transcripts": [
+      "Heel taps."
+    ],
+    "sha256": "7ff2af06788ebf83d315c970c2ffc0ab8a3ded7a75a354e7ed98b476c5a5dae8",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Lizard pose",
+    "hash": "acad564a",
+    "heard": "lizard pose",
+    "batch": "enmaler3",
+    "span": [
+      3.15617,
+      4.32204
+    ],
+    "span_transcripts": [
+      "lizard pose"
+    ],
+    "sha256": "5382e3dc91675de862af8dde77ed94d46642be486aa8fa101e26c8449cba03a4",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Neck side stretch",
+    "hash": "ed21292c",
+    "heard": "neck side stretch",
+    "batch": "enmaler3",
+    "span": [
+      6.03362,
+      7.39621
+    ],
+    "span_transcripts": [
+      "neck side stretch"
+    ],
+    "sha256": "c6a65ff7b042f8160ea2517710865da0167009cab3657f9e9de8b519d03a4efe",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Neck side tilts",
+    "hash": "d4c0f8d1",
+    "heard": "neck side tilts",
+    "batch": "enmaler3",
+    "span": [
+      9.38771,
+      10.5656
+    ],
+    "span_transcripts": [
+      "neck side tilts"
+    ],
+    "sha256": "2aebebd883c478566884e6590f99c8632ca65172a021471d85e37d6038a03856",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Other side.",
+    "hash": "01aeeaee",
+    "heard": "Other side.",
+    "batch": "enmaler3",
+    "span": [
+      12.3146,
+      13.269
+    ],
+    "span_transcripts": [
+      "Other side."
+    ],
+    "sha256": "1f1f2306d98ff9fee9830531989e1c3edcf52533f83287a6178b78a3a3f3a534",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Pigeon pose",
+    "hash": "27952dd4",
+    "heard": "pigeon pose",
+    "batch": "enmaler3",
+    "span": [
+      14.7516,
+      15.7962
+    ],
+    "span_transcripts": [
+      "pigeon pose"
+    ],
+    "sha256": "c7e0568757f2de439e18c73ebdab2b2ed1d4946d275dc3c2129fc15881e955bd",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Plank to pike",
+    "hash": "fa690c8f",
+    "heard": "plank to pike",
+    "batch": "enmaler3",
+    "span": [
+      20.6939,
+      21.5593
+    ],
+    "span_transcripts": [
+      "plank to pike"
+    ],
+    "sha256": "f2c20ab501ec829549ede2f6b205fa3f45a1bc17beca16d26c0ff931c9cfa5ba",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Round 6 complete.",
+    "hash": "077a4076",
+    "heard": "Round six complete.",
+    "batch": "enmaler3",
+    "span": [
+      23.3023,
+      24.6288
+    ],
+    "span_transcripts": [
+      "Round six complete."
+    ],
+    "sha256": "8c3ee096e4cec9baae6085be9d2678685c75c78cc5302651db8c7c5e180525a5",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Superman",
+    "hash": "9d732360",
+    "heard": "Superman",
+    "batch": "enmaler3",
+    "span": [
+      26.4217,
+      27.0747
+    ],
+    "span_transcripts": [
+      "Superman"
+    ],
+    "sha256": "09e2fbc8fed622e62009bd786a0570222203c311304deb8f0021a011156c8e53",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Superman pulls",
+    "hash": "8f30b8c4",
+    "heard": "Superman pulls",
+    "batch": "enmaler3",
+    "span": [
+      28.9962,
+      30.125
+    ],
+    "span_transcripts": [
+      "Superman pulls"
+    ],
+    "sha256": "53bcf52a58554d58630aa545c9eb6a5d121cc94ed7082465aa515813ad893cc5",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "set 3 of 4",
+    "hash": "96eb763f",
+    "heard": "set three of four",
+    "batch": "enmaler3",
+    "span": [
+      34.1067,
+      35.0893
+    ],
+    "span_transcripts": [
+      "set three of four"
+    ],
+    "sha256": "cf77f8e43e2d5eb3d5a9632c3e19eafd3611f252968905a143bd6cb33d6247aa",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Brace your core in the plank so your hips do not sag.",
+    "hash": "d73f06d2",
+    "heard": "Brace your core in the plank so your hips do not sag.",
+    "batch": "enmaler3",
+    "span": [
+      38.9859,
+      41.8563
+    ],
+    "span_transcripts": [
+      "Brace your core in the plank so your hips do not sag."
+    ],
+    "sha256": "202e28ce1f2dedc19e1b7dc7667753d8c3f1b85046e65feeec0ff8ed1e227ed0",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Brace your core so your hips do not sag in the plank.",
+    "hash": "45841a7a",
+    "heard": "Brace your core so your hips do not sag in the plank.",
+    "batch": "enmaler3",
+    "span": [
+      43.1587,
+      46.0536
+    ],
+    "span_transcripts": [
+      "Brace your core so your hips do not sag in the plank."
+    ],
+    "sha256": "9385e818bf7b1136030d579bfaade85a748a18dc78bfbdecc0489ac25d92bc70",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Brace your core so your lower back does not arch.",
+    "hash": "18dd4595",
+    "heard": "Brace your core so your lower back does not arch.",
+    "batch": "enmaler3",
+    "span": [
+      47.717,
+      50.4817
+    ],
+    "span_transcripts": [
+      "Brace your core so your lower back does not arch."
+    ],
+    "sha256": "90bd9f419a145bf5b8c57ac3c749c602a4484cc919a328fba93640b46861d641",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Bring your knees up to your hands rather than reaching down.",
+    "hash": "c197780f",
+    "heard": "Bring your knees up to your hands rather than reaching down.",
+    "batch": "enmaler3",
+    "span": [
+      51.9585,
+      54.8877
+    ],
+    "span_transcripts": [
+      "Bring your knees up to your hands rather than reaching down."
+    ],
+    "sha256": "e393789e67431746b72c967fcad43c3d934941159d2b709d30ab68e4b14bdb08",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Choose very light weights so you can keep the circles smooth and large.",
+    "hash": "38c1a74d",
+    "heard": "Choose very light weights so you can keep the circles smooth and large.",
+    "batch": "enmaler3",
+    "span": [
+      56.3417,
+      60.3609
+    ],
+    "span_transcripts": [
+      "Choose very light weights so you can keep the circles smooth and large."
+    ],
+    "sha256": "dc69922fa313b58e7147493bd8f08bae0ebf6f143daa945d869781bdd170189a",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Count slowly as you lower so the descent stays even.",
+    "hash": "0a4bf31b",
+    "heard": "Count slowly as you lower so the descent stays even.",
+    "batch": "enmaler3",
+    "span": [
+      61.4047,
+      64.84
+    ],
+    "span_transcripts": [
+      "Count slowly as you lower so the descent stays even."
+    ],
+    "sha256": "279808ef9f8ca91fbecf564e7958d471efc91934f6686ba6b50144e4b3fadf66",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Cross the ankle over the knee for more pressure.",
+    "hash": "11b76676",
+    "heard": "Cross the ankle over the knee for more pressure.",
+    "batch": "enmaler4",
+    "span": [
+      0.0,
+      3.14154
+    ],
+    "span_transcripts": [
+      "Cross the ankle over the knee for more pressure."
+    ],
+    "sha256": "72c08b6235f1bff9032a5d8cd87bbd36ef7c1937d5b1c619a12de83ae2ea8b38",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Draw your lower belly in so your lower back does not over-arch.",
+    "hash": "ae6eb1c8",
+    "heard": "Draw your lower belly in so your lower back does not overarch.",
+    "batch": "enmaler4",
+    "span": [
+      4.31233,
+      8.47517
+    ],
+    "span_transcripts": [
+      "Draw your lower belly in so your lower back does not overarch."
+    ],
+    "sha256": "3b3abc63fc4330e3d785ad3a5db75af164461e9cd209d8c7fe3f22e56a1c9a11",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Drive up with the leg on the chair rather than pushing off the floor.",
+    "hash": "00997cd7",
+    "heard": "Drive up with the leg on the chair rather than pushing off the floor.",
+    "batch": "enmaler4",
+    "span": [
+      9.72046,
+      13.5375
+    ],
+    "span_transcripts": [
+      "Drive up with the leg on the chair rather than pushing off the floor."
+    ],
+    "sha256": "b5c1991fc34bd6b7b529b96521a118cc31f941b462b64e7685e4b3e0389bdf81",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Go only as low as you can with your bent-leg heel flat.",
+    "hash": "babc86a4",
+    "heard": "Go only as low as you can with your bent leg heel flat.",
+    "batch": "enmaler4",
+    "span": [
+      14.6225,
+      18.1314
+    ],
+    "span_transcripts": [
+      "Go only as low as you can with your bent leg heel flat."
+    ],
+    "sha256": "258a96d44c17122be126215ffc4a226bbe0be00dd79273c2452cb64517963cb6",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Grip the handles hard and keep your arms straight.",
+    "hash": "a3931962",
+    "heard": "Grip the handles hard and keep your arms straight.",
+    "batch": "enmaler4",
+    "span": [
+      19.288,
+      22.0116
+    ],
+    "span_transcripts": [
+      "Grip the handles hard and keep your arms straight."
+    ],
+    "sha256": "c568926321a2db8cb3e98f25256bfb049d9938aaca549b23bd445a9232f1428f",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Hinge slightly forward at the hips and keep your chest up.",
+    "hash": "450e6414",
+    "heard": "Hinge slightly forward at the hips and keep your chest up.",
+    "batch": "enmaler4",
+    "span": [
+      29.3886,
+      33.0826
+    ],
+    "span_transcripts": [
+      "Hinge slightly forward at the hips and keep your chest up."
+    ],
+    "sha256": "a0d56576fed5797906c45d0e547d0762fc6fb2bb38016fdcc09ebf05b9b2c972",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Hold a towel between your hands if they do not reach each other.",
+    "hash": "892eb1ca",
+    "heard": "Hold a towel between your hands if they do not reach each other.",
+    "batch": "enmaler4",
+    "span": [
+      33.911,
+      37.2356
+    ],
+    "span_transcripts": [
+      "Hold a towel between your hands if they do not reach each other."
+    ],
+    "sha256": "727e5666b6a6e4060359a1741597d15de2fdb8bb54078e6e1ef4a2bbe9ffb5c9",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "If your lower back lifts, raise your legs higher or bend your knees.",
+    "hash": "d625ad01",
+    "heard": "If your lower back lifts, raise your legs higher or bend your knees.",
+    "batch": "enmaler4",
+    "span": [
+      38.1552,
+      41.9952
+    ],
+    "span_transcripts": [
+      "If your lower back lifts, raise your legs higher or bend your knees."
+    ],
+    "sha256": "5593bc21ffca85a7e2ea2a029d9115839196524dc874edcfc51606ca5a13e8c0",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Keep a slight bend in your knees if your hamstrings feel tight.",
+    "hash": "a7f712ad",
+    "heard": "Keep a slight bend in your knees if your hamstrings feel tight.",
+    "batch": "enmaler4",
+    "span": [
+      42.8152,
+      46.0003
+    ],
+    "span_transcripts": [
+      "Keep a slight bend in your knees if your hamstrings feel tight."
+    ],
+    "sha256": "5e361151f46e7a08cdab7e4679ac1fc98f15b5224e1ab41a2caa313e8124b5ef",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Keep a slight bend in your knees on every landing.",
+    "hash": "efe0c632",
+    "heard": "Keep a slight bend in your knees on every landing.",
+    "batch": "enmaler4",
+    "span": [
+      46.8788,
+      49.5609
+    ],
+    "span_transcripts": [
+      "Keep a slight bend in your knees on every landing."
+    ],
+    "sha256": "e8d45be44742469e678dbd7bebbea59e22fe24594abf4bed589e186aea247129",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Keep a slight bend in your knees to take pressure off your lower back.",
+    "hash": "35841094",
+    "heard": "Keep a slight bend in your knees to take pressure off your lower back.",
+    "batch": "enmaler4",
+    "span": [
+      50.3757,
+      53.6417
+    ],
+    "span_transcripts": [
+      "Keep a slight bend in your knees to take pressure off your lower back."
+    ],
+    "sha256": "ec7deaf3f91998a90d07697557eb76bb70a3834caa630601ea68a8a4440cba3c",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Keep both shoulders level and away from your ears.",
+    "hash": "615826cb",
+    "heard": "Keep both shoulders level and away from your ears.",
+    "batch": "enmaler4",
+    "span": [
+      54.4012,
+      57.1903
+    ],
+    "span_transcripts": [
+      "Keep both shoulders level and away from your ears."
+    ],
+    "sha256": "4cb9cda4c531a0577f1302b334dbd6d67a36e2959ec71de5f022cb74da9b07df",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Keep both sides of your waist long instead of collapsing over the front leg.",
+    "hash": "5fd8bd26",
+    "heard": "Keep both sides of your waist long instead of collapsing over the front leg.",
+    "batch": "enmaler4",
+    "span": [
+      58.0373,
+      62.007
+    ],
+    "span_transcripts": [
+      "Keep both sides of your waist long instead of collapsing over the front leg."
+    ],
+    "sha256": "b2dd0a6f076e1ef8bf1f4a81fd332852bb1652a51da37f18fdc60d45a37e92ad",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Lift only as high as you can without your hips twisting or your back arching.",
+    "hash": "e063de5a",
+    "heard": "Lift only as high as you can without your hips twisting or your back arching.",
+    "batch": "enmaler4",
+    "span": [
+      62.9339,
+      67.1422
+    ],
+    "span_transcripts": [
+      "Lift only as high as you can without your hips twisting or your back arching."
+    ],
+    "sha256": "a0c1915ac8f539c155ead4941b5b13caddb3de9d5036880c5ba411b0804f648f",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Press your whole back and head lightly into the wall.",
+    "hash": "a7a0a48e",
+    "heard": "Press your whole back and head lightly into the wall.",
+    "batch": "enmaler4",
+    "span": [
+      68.0675,
+      71.2
+    ],
+    "span_transcripts": [
+      "Press your whole back and head lightly into the wall."
+    ],
+    "sha256": "88660105b803185d806a8f419dce38aebac8f55dd46deac234db8344cde5ee49",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Band biceps curl",
+    "hash": "c38bb258",
+    "heard": "band biceps curl",
+    "batch": "enkair1",
+    "span": [
+      0.0,
+      1.77862
+    ],
+    "span_transcripts": [
+      "band biceps curl"
+    ],
+    "sha256": "eb6bddd923448afaeb6203278fa0ea518034534a65e0aaaaa2dcc01a78810ede",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Barbell bench press",
+    "hash": "faa202b2",
+    "heard": "barbell bench press",
+    "batch": "enkair1",
+    "span": [
+      10.3529,
+      11.4951
+    ],
+    "span_transcripts": [
+      "barbell bench press"
+    ],
+    "sha256": "43806a50be6b1b7011778c8991d84c8bb74ca60dc8cd748ffef52f48f6edb70a",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Barbell deadlift",
+    "hash": "8a585aaa",
+    "heard": "barbell deadlift",
+    "batch": "enkair1",
+    "span": [
+      12.5593,
+      13.5542
+    ],
+    "span_transcripts": [
+      "barbell deadlift"
+    ],
+    "sha256": "125ba7e49b838309898da766a592a8b676e8b133f25223b9644ed6714d83f63e",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Boat pose",
+    "hash": "265d2ad0",
+    "heard": "boat pose",
+    "batch": "enkair1",
+    "span": [
+      18.7497,
+      19.4476
+    ],
+    "span_transcripts": [
+      "boat pose"
+    ],
+    "sha256": "e8ab54e8937c1369125b97aadab216681eb9f707c8654a301390d8e96d3a1602",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Burpees",
+    "hash": "446acf89",
+    "heard": "burpees",
+    "batch": "enkair1",
+    "span": [
+      20.6045,
+      21.1709
+    ],
+    "span_transcripts": [
+      "burpees"
+    ],
+    "sha256": "8028a96ea3a303ea71efbab0c2d99bdbb806262c88c618f59def5681f6a31707",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Calf raises",
+    "hash": "7a42ae94",
+    "heard": "calf raises",
+    "batch": "enkair1",
+    "span": [
+      23.7432,
+      24.6165
+    ],
+    "span_transcripts": [
+      "calf raises"
+    ],
+    "sha256": "2f34ad54f96ecfad8fc2de76dba983b3787284f410d6c7a500beb22ada28a9a6",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Chair pose",
+    "hash": "1cee9ad3",
+    "heard": "chair pose",
+    "batch": "enkair1",
+    "span": [
+      25.5487,
+      26.4934
+    ],
+    "span_transcripts": [
+      "chair pose"
+    ],
+    "sha256": "b05fc46dc83639527005d7ce9f7d19e21165f442241b90c722d1b285318e9ba2",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Chair squat",
+    "hash": "4f8f7c08",
+    "heard": "chair squat",
+    "batch": "enkair1",
+    "span": [
+      27.3486,
+      28.2145
+    ],
+    "span_transcripts": [
+      "chair squat"
+    ],
+    "sha256": "06fbecb0b3b41c5c2e002e2a8e0860cc33d6e3a66d7eb56e0b21f91efc539515",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Farmer march",
+    "hash": "bca4a265",
+    "heard": "Farmer March",
+    "batch": "enkair1",
+    "span": [
+      33.729,
+      34.6186
+    ],
+    "span_transcripts": [
+      "Farmer March"
+    ],
+    "sha256": "a5291ef64daff977c7c6bdc78f8d8c0ce89701b04907d02aa37a3fed0196e49d",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Flutter kicks",
+    "hash": "6dd3979e",
+    "heard": "flutter kicks",
+    "batch": "enkair1",
+    "span": [
+      35.641,
+      36.3885
+    ],
+    "span_transcripts": [
+      "flutter kicks"
+    ],
+    "sha256": "4e79e1bc14f0e37751baeb5718fc282b0a93edbd6f84bec431991ce205db2389",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Foam roller calves",
+    "hash": "463aec52",
+    "heard": "foam roller calves",
+    "batch": "enkair1",
+    "span": [
+      37.3263,
+      38.6622
+    ],
+    "span_transcripts": [
+      "foam roller calves"
+    ],
+    "sha256": "ded63be72b0841e079d44bf1ccd7a44dade66a51fc7b523122a67ab6f11668ae",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Forearm plank",
+    "hash": "1b7839c3",
+    "heard": "forearm plank",
+    "batch": "enkair1",
+    "span": [
+      39.7145,
+      40.6846
+    ],
+    "span_transcripts": [
+      "forearm plank"
+    ],
+    "sha256": "722ab642a0783b0761caa5de30b91e98e5330d5eac9c3e5d7694eea383cc89dd",
+    "method": "independent per-speech-span ASR, unique exact content/numeric match, non-overlapping expected order; not listened"
+  }
+]
