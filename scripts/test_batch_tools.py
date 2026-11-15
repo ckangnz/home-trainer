@@ -27,5 +27,24 @@ class EnglishNumberTests(unittest.TestCase):
         self.assertFalse(bt.check_atom('105 seconds', '10, 5 seconds', 'en')['ok'])
         self.assertFalse(bt.check_atom('30 seconds', '30 reps', 'en')['ok'])
 
+class KoreanNumberTests(unittest.TestCase):
+    def test_numeral_spellings_with_units(self):
+        for atom, heard in [('105초', '백오초'), ('30초', '삼십 초'),
+                            ('6세트 중 6세트', '육세트 중 육세트'),
+                            ('3회', '세 회'), ('10회', '열 회')]:
+            self.assertEqual(bt.numbers_in(atom, 'ko'), bt.numbers_in(heard, 'ko'))
+            self.assertTrue(bt.check_atom(atom, heard, 'ko')['ok'], (atom, heard, bt.check_atom(atom, heard, 'ko')))
+        self.assertEqual(bt.numbers_in('육세트 중 육세트', 'ko'), [6, 6])
+
+    def test_non_numeral_syllables_are_not_counts(self):
+        for text in ['자세 바꿔요.', '가슴을 세우고', '스텝백 버피',
+                     '바벨 백 스쿼트', '비둘기 자세', '네거티브 푸시업']:
+            self.assertEqual(bt.numbers_in(text, 'ko'), [], text)
+
+    def test_wrong_counts_remain_different(self):
+        for atom, heard in [('105초', '십오초'), ('6세트 중 6세트', '육세트 중 오세트'),
+                            ('10회', '아홉 회'), ('한 다리', '두 다리')]:
+            self.assertNotEqual(bt.numbers_in(atom, 'ko'), bt.numbers_in(heard, 'ko'))
+
 if __name__ == '__main__':
     unittest.main()

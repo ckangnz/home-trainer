@@ -158,11 +158,14 @@ def numbers_in(text, lang):
                     values.append(total + current)
                     total, current, consuming = 0, 0, False
     else:
-        s = re.sub(r"[^가-힣]", "", text)
-        # Longest-match scan over sino/native Korean number words.
+        # A number must be a count, not a syllable inside a word. For
+        # example, 자세 / 세트 / 스텝백 do not mean 3 / 3 / 100.
+        # Preserve digits for the separate scan above; do not join words.
+        s = text
+        native = "|".join(sorted(KO_NATIVE, key=len, reverse=True))
         pat = re.compile(
-            "([일이삼사오육칠팔구]?십[일이삼사오육칠팔구]?|[일이삼사오육칠팔구]?백[일이삼사오육칠팔구십백]*|"
-            + "|".join(sorted(KO_NATIVE, key=len, reverse=True)) + ")")
+            r"(?<![가-힣0-9])([영공일이삼사오육칠팔구십백]+|" + native +
+            r")(?=\s*(?:초|분|회|번|세트|라운드|다리|쪽|개|명|덩어리)|$|[,.!?])")
         for m in pat.finditer(s):
             tok = m.group(1)
             if tok in KO_NATIVE:
@@ -189,6 +192,15 @@ UNIT_WORDS = {
 
 
 def normalize(text, lang, expand):
+    if lang == "ko":
+        # Normalize only explicit numeral + classifier phrases. This makes
+        # 세 회 / 삼회 / 3회 equal without rewriting ordinary Korean words.
+        native = "|".join(sorted(KO_NATIVE, key=len, reverse=True))
+        pattern = r"(?<![가-힣0-9])([영공일이삼사오육칠팔구십백]+|" + native + r")\s*(초|분|회|번|세트|라운드|다리|쪽|개|명|덩어리)"
+        def canon_count(match):
+            values = numbers_in(match.group(0), "ko")
+            return str(values[0]) + match.group(2) if len(values) == 1 else match.group(0)
+        text = re.sub(pattern, canon_count, text)
     # Numbers are spoken as words; TTS prompts carry digits, and ASR output
     # mixes both forms. Compare with digits kept AND with digits expanded to
     # the language's number words, and keep the best match.
@@ -275,6 +287,13 @@ def check_atom(atom, heard, lang):
         if tok.isdigit() or tok in UNIT_WORDS[lang]:
             continue  # covered by the exact numeric/unit checks
         if len(tok) < 2:
+            continue
+        if lang == "ko" and re.fullmatch(r"\d+(?:초|분|회|번|세트|라운드)", tok):
+            # Exact count and unit are checked separately. Native/sino
+            # spellings such as 6세트 / 육세트 are the same count.
+            unit = re.sub(r"^\d+", "", tok)
+            if not any(unit in h for h in heard_variants):
+                reasons.append(f"unit '{unit}' not heard")
             continue
         if not any(tok in h for h in heard_variants):
             reasons.append(f"token '{tok}' not heard")
