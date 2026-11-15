@@ -1,0 +1,288 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "스파이더맨 푸시업",
+    "hash": "aacd0d94",
+    "heard": "스파이더맨 푸쉬업",
+    "span": [
+      10.7707,
+      12.0116
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "e5bebb0c6ced5079000026bfd4e321fd51ab64caf4a049c8865991268bd74128"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "인클라인 푸시업",
+    "hash": "bc4b6fea",
+    "heard": "인클라인 푸쉬업",
+    "span": [
+      36.6541,
+      38.06
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "20bcde67da87c06dc0800ffa26b0ba10392f3a09f259aff201a3be8f0247eac8"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "푸시업 버피",
+    "hash": "36ae8574",
+    "heard": "푸쉬업 버피",
+    "span": [
+      8.85875,
+      9.85946
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "d29fc2d6f44535346ccbfa1d14ebebc08f96a2c1f27a6ed5b38500480a051b68"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "푸시업하는 동안 몸을 일직선으로 유지해요.",
+    "hash": "59883788",
+    "heard": "푸쉬업 하는 동안 몸을 일직선으로 유지해요.",
+    "span": [
+      10.0554,
+      13.0334
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "8057395e3e476991dd2c80332afd117b766640aef917c63e52812b459627731e"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "네거티브 푸시업",
+    "hash": "92493b9a",
+    "heard": "네거티브 푸쉬업",
+    "span": [
+      3.16779,
+      4.45592
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "5df4cd2655496ce2dc8c3e0bdce9a87aba8b91787f2974aaf6e21720e0c2489a"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "네거티브 푸시업",
+    "hash": "92493b9a",
+    "heard": "네거티브 푸쉬업",
+    "span": [
+      54.7633,
+      55.9865
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "805caa5d664ef4585beb088db00baccaeebbc7f0ac3e084d65c176b22e9f3f82"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "다이아몬드 푸시업",
+    "hash": "10be4488",
+    "heard": "다이아몬드 푸쉬업",
+    "span": [
+      62.57,
+      63.889900000000004
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "fee2492a094d860577ccb8c2f6a7e85d23a8b4bb92d0356a520745a86f95f7ed"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "벽 푸시업",
+    "hash": "5df035a3",
+    "heard": "벽 푸쉬업",
+    "span": [
+      6.050960000000001,
+      7.03533
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "5e22d7880efc6f70b88505e427ec567acfd64d4ca54a163154e1c162fcc03124"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "스파이더맨 푸시업",
+    "hash": "aacd0d94",
+    "heard": "스파이더맨 푸쉬업",
+    "span": [
+      30.2944,
+      31.625300000000003
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "6bf584fdfaa26e3da5f4e1a40c1dd6a5587addc585477c0a9365f3fa20bb1fb7"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "인클라인 푸시업",
+    "hash": "bc4b6fea",
+    "heard": "인클라인 푸쉬업",
+    "span": [
+      45.105399999999996,
+      46.2683
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "6de7ed553b54630154d65d93c4ad7870e116841a3358d1df2b0309d5d6ed5087"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "파이크 푸시업",
+    "hash": "6b3a69d8",
+    "heard": "파이크 푸쉬업",
+    "span": [
+      43.2119,
+      44.2691
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "44e242459721c3b2f67aadf90dcbc666e1c54cd9da76f3eec99adfc420d9f422"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "네거티브 푸시업",
+    "hash": "92493b9a",
+    "heard": "네거티브 푸쉬업",
+    "span": [
+      3.52942,
+      4.760079999999999
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "ca5dbd052424ef3f24c573caf9118d4b1176665fe68b12b0e61fc5426dde773c"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "다이아몬드 푸시업",
+    "hash": "10be4488",
+    "heard": "다이아몬드 푸쉬업",
+    "span": [
+      13.5619,
+      14.7602
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "37113300b82c1a5c876afcd8479084c3cedadd1411f48c9cb54fc7f9951451e5"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "디클라인 푸시업",
+    "hash": "3f85f03e",
+    "heard": "디클라인 푸쉬업",
+    "span": [
+      23.7261,
+      24.842000000000002
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "4708fa744bf3bcae3b838f539d5c7cb77bdea1b6ccac6808d4c90f0acbce1fae"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎 푸시업",
+    "hash": "2913483c",
+    "heard": "무릎 푸쉬업",
+    "span": [
+      34.3311,
+      35.6218
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "43cfc041b72b5b669c93312862e80d479a4c659a4c0ed0132077c5a129226f4b"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽 푸시업",
+    "hash": "5df035a3",
+    "heard": "벽 푸쉬업",
+    "span": [
+      38.282199999999996,
+      39.3613
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "c8dc4300e71c671fe267b6648ec510dacfdf0ef590b50074dcf16f8575302a30"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스파이더맨 푸시업",
+    "hash": "aacd0d94",
+    "heard": "스파이더맨 푸쉬업",
+    "span": [
+      11.2744,
+      12.6722
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "68f909dcbd7d2922f8f9e245a2096d399eea004025dcca76f58960e33b8fc55c"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "웨이브 푸시업",
+    "hash": "e5df1834",
+    "heard": "웨이브 푸쉬업",
+    "span": [
+      44.9388,
+      45.973
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "348ae217eedd47bffd888dcb4c6e86c721700d2c11d557f953d71ebbba39d6c7"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "인클라인 푸시업",
+    "hash": "bc4b6fea",
+    "heard": "인클라인 푸쉬업",
+    "span": [
+      14.222,
+      15.5039
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "01c6b5c7f98ed6fb04a6d6d26c4a264107e93fb393b5481da55e67c92382ac40"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "파이크 푸시업",
+    "hash": "6b3a69d8",
+    "heard": "파이크 푸쉬업",
+    "span": [
+      56.8185,
+      57.894
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "8e6812da0ccc5e078542b4e5f7b1dff6dff13ce1a00ba7d6056ef3ddf5f155c9"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "푸시업 로테이션",
+    "hash": "83957f10",
+    "heard": "푸쉬업 로테이션",
+    "span": [
+      25.1022,
+      26.4234
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "09758d3e3c55ed88e43d13a86fe069726d5682f228e0a09c4e46e7c7089165d0"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "푸시업하는 동안 몸을 일직선으로 유지해요.",
+    "hash": "59883788",
+    "heard": "푸쉬업 하는 동안 몸을 일직선으로 유지해요?",
+    "span": [
+      29.6343,
+      32.547200000000004
+    ],
+    "method": "Machine semantic review of explicit Korean transliteration 푸쉬업/푸시업 only; remaining phrase exact, same exercise identity, counts and meaning. Not listened.",
+    "sha256": "5797896ad82413f7c29a3555ffc61ce797ce730c30e934c142b51326c85d69cb"
+  }
+]
