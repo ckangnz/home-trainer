@@ -1,0 +1,2598 @@
+[
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+    "hash": "b717aaab",
+    "heard": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+    "span": [
+      0,
+      4.69342
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요."
+    ],
+    "sha256": "2b9bc8a621f687a5b732c3d5ffb3c39f44b7e1175c96bcd8d99a70b414db0e60",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎이 발끝과 같은 방향을 향하게 해요.",
+    "hash": "49f6724a",
+    "heard": "무릎이 발끝과 같은 방향을 향하게 해요.",
+    "span": [
+      5.796080000000001,
+      8.52475
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "무릎이 발끝과 같은 방향을 향하게 해요."
+    ],
+    "sha256": "90afbeb123b8dc2b90a3f27c0614c79aed9604493b90eaff7e57b6d1de847f60",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요.",
+    "hash": "7563ee5c",
+    "heard": "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요.",
+    "span": [
+      9.57404,
+      13.9396
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요."
+    ],
+    "sha256": "d98261fef5b6b14d5e589d2ae057aaff2616c08f3a2675cf6b071c7065e698db",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무리하지 말고 편안한 만큼 크게 원을 그려요.",
+    "hash": "85a93cd9",
+    "heard": "무리하지 말고 편안한 만큼 크게 원을 그려요.",
+    "span": [
+      14.882900000000001,
+      18.584400000000002
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "무리하지 말고 편안한 만큼 크게 원을 그려요."
+    ],
+    "sha256": "6ce454776304ac1a42b5f5fc84fdb7a83cde74972489b5ec5d8de8758d700af7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요.",
+    "hash": "1809c002",
+    "heard": "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요.",
+    "span": [
+      19.776899999999998,
+      23.2527
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요."
+    ],
+    "sha256": "0cb291f6df7d9ef27a9a77c135edcb2755924c0d16efef7563c578cab62673b7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바닥 트라이셉스 딥스",
+    "hash": "f903a2a4",
+    "heard": "바닥 트라이셉스 딥스",
+    "span": [
+      28.234099999999998,
+      29.8718
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바닥 트라이셉스 딥스"
+    ],
+    "sha256": "11f1fda3343095c217dafa6a1d49597cff596dd840a62483714a912dd3485717",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바닥에 둔 발을 평평하게 두어 압력을 조절해요.",
+    "hash": "80e5a0dc",
+    "heard": "바닥에 둔 발을 평평하게 두어 압력을 조절해요.",
+    "span": [
+      30.586399999999998,
+      33.7344
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바닥에 둔 발을 평평하게 두어 압력을 조절해요."
+    ],
+    "sha256": "d4b1d4fb7f659ea699386f1dd8dcf304e8e7288f7c03741ac10eb6716344bfac",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바닥을 차고 오르지 말고 위에 올린 다리로 올라가요.",
+    "hash": "2104c208",
+    "heard": "바닥을 차고 오르지 말고 위에 올린 다리로 올라가요.",
+    "span": [
+      34.6722,
+      38.243300000000005
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바닥을 차고 오르지 말고 위에 올린 다리로 올라가요."
+    ],
+    "sha256": "b3a6e132f7995ebc122936be011a5674fb715fc1a577db092c5f624a769645fd",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 데드리프트",
+    "hash": "c725dd4d",
+    "heard": "바벨 데드리프트",
+    "span": [
+      47.7821,
+      49.0812
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 데드리프트"
+    ],
+    "sha256": "ee50352a6438a9be332617a0682791fb2051976356ed454b8b71bcf60f050331",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 로우",
+    "hash": "ad9a8747",
+    "heard": "바벨 로우",
+    "span": [
+      49.8197,
+      50.8037
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 로우"
+    ],
+    "sha256": "74d2bcc7311b1683166176fb3e7a79854edc1a5be69bf84b3bbe89d22d3fbe53",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 루마니안 데드리프트",
+    "hash": "06a5261f",
+    "heard": "바벨 루마니안 데드리프트",
+    "span": [
+      51.372099999999996,
+      53.2478
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 루마니안 데드리프트"
+    ],
+    "sha256": "33a8daa16402981c13d63bf37bc6d7819d86048f1f1014edee17e580d731dfa1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 백 스쿼트",
+    "hash": "25ed9ef6",
+    "heard": "바벨 백스쿼트",
+    "span": [
+      53.707,
+      55.0193
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 백스쿼트"
+    ],
+    "sha256": "6585746d2b710c9ced9c382432cc6258c1110d34892a791a4e0f3eae742bdee2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 벤치 프레스",
+    "hash": "44bcc2df",
+    "heard": "바벨 벤치 프레스",
+    "span": [
+      55.5845,
+      57.0101
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 벤치 프레스"
+    ],
+    "sha256": "63a468170e48f66778ead9fdb9be8f16cc7918f36f43a664cdb7e6076fe497b9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 오버헤드 프레스",
+    "hash": "9c87e353",
+    "heard": "바벨 오버헤드 프레스",
+    "span": [
+      59.1049,
+      60.8903
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 오버헤드 프레스"
+    ],
+    "sha256": "6f09ca5a3d587d33ec4f59999af019a23708ad181673a96c4a897391130ca89f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 프론트 스쿼트",
+    "hash": "787212ed",
+    "heard": "바벨 프론트 스쿼트",
+    "span": [
+      61.0847,
+      62.6663
+    ],
+    "queue_index": 37,
+    "span_transcripts": [
+      "바벨 프론트 스쿼트"
+    ],
+    "sha256": "78eb5b9eefe942ce6aaebb373b57152a5db3078c451821223b405f1797a86a9a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요.",
+    "hash": "83994574",
+    "heard": "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요.",
+    "span": [
+      0,
+      4.62317
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요."
+    ],
+    "sha256": "840bd71c01b644a870c4246b5055ee4339b743466b1eb7c0dbaafadd0cabb082",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "hash": "fd442a4d",
+    "heard": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "span": [
+      5.4195400000000005,
+      8.40542
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "뒷다리는 길게 뻗고 힘을 유지해요."
+    ],
+    "sha256": "388b59c5b801aaf26c83f950caf64a599144cfaa240ece79e924a7967481d62e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "뒷발 바깥쪽 날로 바닥을 단단히 눌러요.",
+    "hash": "78d1de51",
+    "heard": "뒷발 바깥쪽 날로 바닥을 단단히 눌러요.",
+    "span": [
+      8.875210000000001,
+      12.6616
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "뒷발 바깥쪽 날로 바닥을 단단히 눌러요."
+    ],
+    "sha256": "c5566c6ee2476e0082f99fd4cfc1b8eecef06f2e7d43b83cc4879da6d3347691",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "뒷발 발끝은 정면을 향하게 해요.",
+    "hash": "3b529bf5",
+    "heard": "뒷발 발끝은 정면을 향하게 해요.",
+    "span": [
+      13.1308,
+      15.911999999999999
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "뒷발 발끝은 정면을 향하게 해요."
+    ],
+    "sha256": "77e7ce6a9a5c33f7039186d70f3c54fbe54cb9ae136aa33b224d21673dc614eb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등 위쪽 허그 스트레칭",
+    "hash": "ba3451d4",
+    "heard": "등 위쪽 허그 스트레칭",
+    "span": [
+      16.4839,
+      18.3672
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등 위쪽 허그 스트레칭"
+    ],
+    "sha256": "9639d478b83b2b26f82f3a8a8718e67bf87827b79a963d06bf0e9fc3c6995572",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등 위쪽을 말지 말고 가슴부터 앞으로 내밀어요.",
+    "hash": "c71698eb",
+    "heard": "등 위쪽을 말지 말고 가슴부터 앞으로 내밀어요.",
+    "span": [
+      18.9496,
+      22.1844
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등 위쪽을 말지 말고 가슴부터 앞으로 내밀어요."
+    ],
+    "sha256": "203a65374e4b0c4a39e70d7c6204767b533706f42aef87ee25a0a668da041da1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등은 의자에 가깝게 두고 어깨는 귀에서 멀리 내려요.",
+    "hash": "545a920d",
+    "heard": "등은 의자에 가깝게 두고 어깨는 귀에서 멀리 내려요.",
+    "span": [
+      26.9,
+      31.044700000000002
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등은 의자에 가깝게 두고",
+      "어깨는 귀에서 멀리 내려요."
+    ],
+    "sha256": "c7ebd2ec3130dabc7c73c577713180fc89835bc81ee555322597902d9468451f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등은 평평하게, 골반은 어깨와 같은 높이를 유지해요.",
+    "hash": "2190e4f3",
+    "heard": "등은 평평하게 골반은 어깨와 같은 높이를 유지해요.",
+    "span": [
+      31.6608,
+      35.427800000000005
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등은 평평하게",
+      "골반은 어깨와 같은 높이를 유지해요."
+    ],
+    "sha256": "104ecb4278a2e8a4c56f73de5aae5c5c0296a79a9a45fd49e048b86e6fc3331a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등은 평평하게, 팔꿈치는 넓게 벌려요.",
+    "hash": "2fb4f589",
+    "heard": "등은 평평하게 팔꿈치는 넓게 벌려요.",
+    "span": [
+      35.9246,
+      39.621500000000005
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등은 평평하게",
+      "팔꿈치는 넓게 벌려요."
+    ],
+    "sha256": "28ab31857ef8ec01424ab92e1aa932ebaa85ecc1154216cb01c54137d76b7428",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등을 둥글게 말지 말고 가슴부터 숙여요.",
+    "hash": "1378ba4c",
+    "heard": "등을 둥글게 말지 말고 가슴부터 숙여요.",
+    "span": [
+      40.2928,
+      42.990500000000004
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등을 둥글게 말지 말고 가슴부터 숙여요."
+    ],
+    "sha256": "b4684fb2d61571d6c5354ba0f15bc5311c0dd74c5876cb4ef97c5996c1148aaa",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등을 둥글게 말지 말고 가슴부터 앞으로 이끌어요.",
+    "hash": "3f98f3ad",
+    "heard": "등을 둥글게 말지 말고 가슴부터 앞으로 이끌어요.",
+    "span": [
+      43.314299999999996,
+      47.4506
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등을 둥글게 말지 말고 가슴부터 앞으로 이끌어요."
+    ],
+    "sha256": "a4ec78a8ac3a6968a5e56f033048de43c618cc885abbcd542de3dd0763080ec0",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등을 둥글게 말지 말고 가슴을 들어요.",
+    "hash": "5daa9593",
+    "heard": "등을 둥글게 말지 말고 가슴을 들어요.",
+    "span": [
+      47.9017,
+      50.9236
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등을 둥글게 말지 말고 가슴을 들어요."
+    ],
+    "sha256": "a3f4a9a28f791c815d6ee4d48a01b91a4d65999928fc8c3bccc08f64ec607991",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등을 평평하게, 골반은 바닥과 수평으로 유지해요.",
+    "hash": "013cd178",
+    "heard": "등을 평평하게, 골반은 바닥과 수평으로 유지해요.",
+    "span": [
+      51.4512,
+      54.9543
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등을 평평하게, 골반은 바닥과 수평으로 유지해요."
+    ],
+    "sha256": "9c0c40bbc6779bc7af3516e1cd23581e9215d93232412220b6de3526d71568e2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "등이 둥글게 말리지 않고 길게 펴지도록 필요한 만큼 무릎을 굽혀요.",
+    "hash": "9ec639b5",
+    "heard": "등이 둥글게 말리지 않고 길게 펴지도록 필요한 만큼 무릎을 굽혀요.",
+    "span": [
+      55.5456,
+      61.0095
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "등이 둥글게 말리지 않고 길게 펴지도록 필요한 만큼 무릎을 굽혀요."
+    ],
+    "sha256": "53e89e21dff112f2256ef43ef1ac5d2199f686bf6684ec6f3d697f245efc5bc2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "디딘 다리의 무릎은 살짝 굽혀요.",
+    "hash": "18d07e05",
+    "heard": "디딘 다리의 무릎은 살짝 굽혀요.",
+    "span": [
+      61.4953,
+      63.7579
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "디딘 다리의 무릎은 살짝 굽혀요."
+    ],
+    "sha256": "401f058f9908d2cb2fe1a0b636a9ff7fa84a8ae362d4f1ac7556155b0a1f2367",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "러시안 트위스트",
+    "hash": "a27931ed",
+    "heard": "러시안 트위스트",
+    "span": [
+      65.915,
+      67.2665
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "러시안 트위스트"
+    ],
+    "sha256": "75bb5e3690060ef8f303922c34404b97d6c8476b2ee1897d037c8587c014ef4e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "레그 레이즈",
+    "hash": "4b4fa539",
+    "heard": "레그레이즈",
+    "span": [
+      67.9684,
+      68.8754
+    ],
+    "queue_index": 38,
+    "span_transcripts": [
+      "레그레이즈"
+    ],
+    "sha256": "c378b6bb3c78a8314574e499a065296bc74c812f97b6a8127403da3941b52762",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "견갑골을 모아 벤치에 단단히 붙여요.",
+    "hash": "b1b936dd",
+    "heard": "견갑골을 모아 벤치에 단단히 붙여요.",
+    "span": [
+      0,
+      2.8059600000000002
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "견갑골을 모아 벤치에 단단히 붙여요."
+    ],
+    "sha256": "3049b0bf3648e70e65354f9942d44849712ed92682a8d4634bf77232d39f6c6a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "고양이-소 자세",
+    "hash": "3cf076a1",
+    "heard": "고양이 소 자세",
+    "span": [
+      9.431000000000001,
+      10.7755
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "고양이 소 자세"
+    ],
+    "sha256": "a567eb0a0896129ab26d9c3e0e745ed68ac0067da49eca9ca94e23a1804c7b19",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반 돌리기",
+    "hash": "34e3d6d5",
+    "heard": "골반 돌리기?",
+    "span": [
+      11.7234,
+      12.7144
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반 돌리기?"
+    ],
+    "sha256": "d650f72f2c87e65461b3c4c0996d8dea290615d5be8531f4e069e9d519abe677",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반에서 상체를 살짝 앞으로 숙이고 가슴은 펴요.",
+    "hash": "ac3dd522",
+    "heard": "골반에서 상체를 살짝 앞으로 숙이고 가슴은 펴요.",
+    "span": [
+      13.5381,
+      17.105700000000002
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반에서 상체를 살짝 앞으로 숙이고 가슴은 펴요."
+    ],
+    "sha256": "a1f4ede905d76b45504dc1530018bc4f8016e48169e2cb3918c2b6bcdf74bf57",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반은 고정하고 등 위쪽으로 움직여요.",
+    "hash": "7d4d3ba7",
+    "heard": "골반은 고정하고 등 위쪽으로 움직여요?",
+    "span": [
+      18.058899999999998,
+      20.9979
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반은 고정하고 등 위쪽으로 움직여요?"
+    ],
+    "sha256": "638d260b2115f092c5c982af2e6c0988ad7a77aa2d385e0ba6297a7da2899e38",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 고정하고 좌우로 흔들리지 않게 해요.",
+    "hash": "f75a43aa",
+    "heard": "골반을 고정하고 좌우로 흔들리지 않게 해요.",
+    "span": [
+      21.572599999999998,
+      24.509700000000002
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 고정하고 좌우로 흔들리지 않게 해요."
+    ],
+    "sha256": "2f093d913d75c5884c05342a31e0135be83735958cb6f664e921341629e6ae26",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "hash": "769fdb2d",
+    "heard": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "span": [
+      25.2702,
+      28.9223
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 수직으로 포개고 몸을 일직선으로 유지해요."
+    ],
+    "sha256": "2f6b8da7da264021b015ca73a6877a922c4a5fc83ab3f30bb5e749f796af2822",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 수평으로 두고 뒷발 발끝은 바닥을 향하게 해요.",
+    "hash": "bf165674",
+    "heard": "골반을 수평으로 두고 뒷발 발끝은 바닥을 향하게 해요.",
+    "span": [
+      29.472099999999998,
+      33.4594
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 수평으로 두고 뒷발 발끝은 바닥을 향하게 해요."
+    ],
+    "sha256": "a94036035da5f85a9c2c81e09473b83496ef81b36596fc334260acfe5a762f75",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 수평으로 유지하고 좌우로 흔들리지 않게 해요.",
+    "hash": "b6a949fa",
+    "heard": "골반을 수평으로 유지하고 좌우로 흔들리지 않게 해요.",
+    "span": [
+      34.067099999999996,
+      37.707100000000004
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 수평으로 유지하고 좌우로 흔들리지 않게 해요."
+    ],
+    "sha256": "2a7c8d767cc916d61f3b8d4ab9186c83064571a879dcd42dd1f45cd4decad0bc",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 수평으로, 어깨와 일직선으로 유지해요.",
+    "hash": "343cb4d9",
+    "heard": "골반을 수평으로, 어깨와 일직선으로 유지해요?",
+    "span": [
+      38.174,
+      41.6639
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 수평으로, 어깨와 일직선으로 유지해요?"
+    ],
+    "sha256": "a99112e2333b8f76703678e880e1176fc0817a0481c5e18648154e253e187014",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요.",
+    "hash": "9d529ef7",
+    "heard": "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요?",
+    "span": [
+      42.2422,
+      45.9471
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요?"
+    ],
+    "sha256": "86c0d96f4721dc1065176bec72e0f9f5768dc630ed47a5b7bbe7261c7081df3a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 바닥과 수평을 이루도록 유지해요.",
+    "hash": "50036198",
+    "heard": "골반이 바닥과 수평을 이루도록 유지해요.",
+    "span": [
+      50.631699999999995,
+      53.2346
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반이 바닥과 수평을 이루도록 유지해요."
+    ],
+    "sha256": "02dca63915b26a767fae307e06a3b0abfdb94a066be4f02a2d0e56ae4ad94409",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "hash": "ed29a5e9",
+    "heard": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "span": [
+      53.821,
+      56.559200000000004
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반이 바닥과 평행하게 유지되도록 해요."
+    ],
+    "sha256": "b4edf415b314f5159474aac8bbea011274ba86c93c3f37f06c6094632a59f6ef",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 비틀리거나 허리가 꺾이지 않는 높이까지만 들어 올려요.",
+    "hash": "66b6fa4d",
+    "heard": "골반이 비틀리거나 허리가 꺾이지 않는 높이까지만 들어 올려요.",
+    "span": [
+      57.064499999999995,
+      61.3299
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반이 비틀리거나 허리가 꺾이지 않는 높이까지만 들어 올려요."
+    ],
+    "sha256": "11b078c01d413a6540fbbc35785ffd84b1ca9a2d5d81eee5898f894c41af7543",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "span": [
+      61.8468,
+      65.7957
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요."
+    ],
+    "sha256": "87024da9331dd01fab24e03cdb0d2a9c55bfa00411dd28234558c129659388b7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 열리지 않게 바닥과 평행하게 유지해요.",
+    "hash": "2f326ffa",
+    "heard": "골반이 열리지 않게 바닥과 평행하게 유지해요.",
+    "span": [
+      66.31630000000001,
+      69.6348
+    ],
+    "queue_index": 39,
+    "span_transcripts": [
+      "골반이 열리지 않게 바닥과 평행하게 유지해요."
+    ],
+    "sha256": "e14b180a20d3365c614cbbe30137f561421e1043eaa7867592520bd29ee90bea",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "목 옆으로 기울이기",
+    "hash": "dd634836",
+    "heard": "목 옆으로 기울이기",
+    "span": [
+      0,
+      1.71646
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "목 옆으로 기울이기"
+    ],
+    "sha256": "ebd1b868148fab48efbe2b85be3b0da3908f1a9207e42cad8bf7dcb2c85f4206",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "hash": "8143d2c3",
+    "heard": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "span": [
+      2.92846,
+      7.064
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요."
+    ],
+    "sha256": "e7574562a00fbf17a4d98ad642b7c1ecc028df3e03a1154a48648c3ed7e31511",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸을 돌리는 동안 골반이 무릎 바로 위에 있도록 유지해요.",
+    "hash": "1e5b0639",
+    "heard": "몸을 돌리는 동안 골반이 무릎 바로 위에 있도록 유지해요.",
+    "span": [
+      7.67154,
+      12.1838
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸을 돌리는 동안 골반이 무릎 바로 위에 있도록 유지해요."
+    ],
+    "sha256": "d878d23c762cb6c511bc717343fcb02e4137b9d58370c260377a94d22dea39f1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸을 뒤로 젖혀 당기지 말고 똑바로 앉은 자세를 유지해요.",
+    "hash": "2c89fe82",
+    "heard": "몸을 뒤로 젖혀 당기지 말고 똑바로 앉은 자세를 유지해요.",
+    "span": [
+      13.0495,
+      17.6919
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸을 뒤로 젖혀 당기지 말고",
+      "똑바로 앉은 자세를 유지해요."
+    ],
+    "sha256": "2d77c4a63f5ebbf61cd8d1445597a2801dd0340a947c51665715d26091146f78",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸을 접어 올릴 때 숨을 내쉬어요.",
+    "hash": "201215ac",
+    "heard": "몸을 접어 올릴 때 숨을 내쉬어요.",
+    "span": [
+      18.6038,
+      21.166800000000002
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸을 접어 올릴 때 숨을 내쉬어요."
+    ],
+    "sha256": "e3845d200a7909762d7fe6823588eb35ed9cc64e023c137b81cec618489b1a5e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸이 이동하는 동안 손과 발은 바닥에 고정해요.",
+    "hash": "ce11824b",
+    "heard": "몸이 이동하는 동안 손과 발은 바닥에 고정해요.",
+    "span": [
+      21.7919,
+      25.6473
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸이 이동하는 동안 손과 발은 바닥에 고정해요."
+    ],
+    "sha256": "d5c95fbdcec714483f20704e6f499180802adc7d7c1bb63e4cf323e97d2378cb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "hash": "aa2802ba",
+    "heard": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "span": [
+      26.279,
+      30.591900000000003
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요."
+    ],
+    "sha256": "5f15e5fda0505f2c4bf2af7a9db94b105b92d2bf5a8db125d599d85fabbb50d2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "hash": "7ea17346",
+    "heard": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "span": [
+      31.4328,
+      34.7554
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎 꿇고 고관절 굴곡근 스트레칭"
+    ],
+    "sha256": "7a8e81922034beb51becd54a0467f92033ee8baf19f50627ff6456ba38e10c07",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎 뒤쪽을 길게 펴 두어요.",
+    "hash": "a1165bd0",
+    "heard": "무릎 뒤쪽을 길게 펴 두어요.",
+    "span": [
+      37.917699999999996,
+      40.3833
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎 뒤쪽을 길게 펴 두어요."
+    ],
+    "sha256": "7c65436eb3869eb52f7430d5c6dc28972b7ba19bd4364cc2a229f3d1830e0a3d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎 플랭크",
+    "hash": "8ee137ea",
+    "heard": "무릎 플랭크?",
+    "span": [
+      43.147,
+      44.2444
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎 플랭크?"
+    ],
+    "sha256": "ae615d35d34a4ef36fa7ab2733f91c5f8320eb29804dfbaf432b9609fa842812",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 끌어 올리기 전에 박스 위에서 완전히 똑바로 서요.",
+    "hash": "6fe6621f",
+    "heard": "무릎을 끌어올리기 전에 박스 위에서 완전히 똑바로 서요.",
+    "span": [
+      44.7767,
+      48.8967
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 끌어올리기 전에 박스 위에서 완전히 똑바로 서요."
+    ],
+    "sha256": "7b37f6a317b66786003aa474f595824a069d2fc8699f5e9c6339bfd07569fc09",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 보호하기 위해 위에 올린 발의 발끝을 몸 쪽으로 당겨요.",
+    "hash": "76a8ffb0",
+    "heard": "무릎을 보호하기 위해 위에 올린 발의 발끝을 몸쪽으로 당겨요.",
+    "span": [
+      49.8642,
+      54.4642
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 보호하기 위해 위에 올린 발의 발끝을 몸쪽으로 당겨요."
+    ],
+    "sha256": "a6b0715ffc2bca30354868c147f7f90eea1e6ffe1242472e97c7fcbdc6e6d590",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 보호하도록 왼발 발끝을 몸 쪽으로 당겨요.",
+    "hash": "2d26469f",
+    "heard": "무릎을 보호하도록 왼발 발끝을 몸쪽으로 당겨요.",
+    "span": [
+      55.0064,
+      59.114000000000004
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 보호하도록 왼발 발끝을 몸쪽으로 당겨요."
+    ],
+    "sha256": "03e5518458377a8733cc1140d82838697c1a0d02301a542ff83eff081792b918",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 비틀지 말고 허리와 등 위쪽에서 회전이 나오게 해요.",
+    "hash": "33aa4d75",
+    "heard": "무릎을 비틀지 말고 허리와 등 위쪽에서 회전이 나오게 해요.",
+    "span": [
+      59.6562,
+      64.30879999999999
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 비틀지 말고 허리와 등 위쪽에서 회전이 나오게 해요."
+    ],
+    "sha256": "3d5e7ec9552e1708d5df180c20cb762ed4b8b07a2d515c3fc8202f87fe6fe36a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 살짝 굽혀 허리 부담을 덜어요.",
+    "hash": "c99ece43",
+    "heard": "무릎을 살짝 굽혀 허리 부담을 덜어요.",
+    "span": [
+      65.20790000000001,
+      67.96629999999999
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 살짝 굽혀 허리 부담을 덜어요."
+    ],
+    "sha256": "1f9e4546ae5380567f4877d5945f9b3c0c1d5778c6f396f099ada7058cd671f9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 살짝 굽혀요.",
+    "hash": "986a2687",
+    "heard": "무릎을 살짝 굽혀요.",
+    "span": [
+      68.74090000000001,
+      70.533
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 살짝 굽혀요."
+    ],
+    "sha256": "03cdff09b7501103f139b7da05a0da59d9952c06cbfb73abf7fc03c3ccb60fd0",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "hash": "4b19804f",
+    "heard": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "span": [
+      70.93900000000001,
+      74.902
+    ],
+    "queue_index": 40,
+    "span_transcripts": [
+      "무릎을 서로 포개지 말고 간격을 둔 채 움직여요."
+    ],
+    "sha256": "ff243bc166077956c974a55ca9e0333b31e472e9624084998174050c62962f08",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "버드독",
+    "hash": "2e2e6508",
+    "heard": "버드독",
+    "span": [
+      2.3249999999999997,
+      3.0041700000000002
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "버드독"
+    ],
+    "sha256": "94991f65c879a74ff4eb91c96a7ed0c2df6676bc9c7f16c2b74ba333086088d3",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "버피",
+    "hash": "613512bd",
+    "heard": "버피",
+    "span": [
+      5.27383,
+      6.0298799999999995
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "버피"
+    ],
+    "sha256": "3b4197bb10510528cdb740f0423ead4e36a14f68d50a7236dc71485f65680e5e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "베어 크롤",
+    "hash": "6d7c80bb",
+    "heard": "베어크롤?",
+    "span": [
+      6.6345,
+      7.425459999999999
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "베어크롤?"
+    ],
+    "sha256": "19b38657b6c9fb89852c022e626b73be4935486dce051404087820b2dd2b936f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벤트오버 덤벨 로우",
+    "hash": "46399d21",
+    "heard": "벤트 오버 덤벨 로우",
+    "span": [
+      7.855790000000001,
+      9.59325
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "벤트 오버 덤벨 로우"
+    ],
+    "sha256": "f9e9c4919284ad4b3cf284c4ca633963a1fae577e6452174165989d3f2be0086",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽 가슴 스트레칭",
+    "hash": "0841887f",
+    "heard": "벽 가슴 스트레칭",
+    "span": [
+      12.1442,
+      13.503499999999999
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "벽 가슴 스트레칭"
+    ],
+    "sha256": "bb48a19252acd3b6450ea32cd73630dc559f71fb4bab743009409fe5fbeb5774",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽 광배근 스트레칭",
+    "hash": "434dab22",
+    "heard": "벽 광배근 스트레칭",
+    "span": [
+      14.092500000000001,
+      15.7978
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "벽 광배근 스트레칭"
+    ],
+    "sha256": "f28c1f3f4ebae66b3e984fe71d816494ade3455b626231ba3daa9c7563d555c4",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽 마사지볼 등 위쪽",
+    "hash": "561c74ee",
+    "heard": "벽 마사지볼 등 위쪽",
+    "span": [
+      16.179599999999997,
+      17.8964
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "벽 마사지볼 등 위쪽"
+    ],
+    "sha256": "8ccafdb04e52c4141151b6af3706f8a37443c000461f2241a4135e45ae594e2f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽 종아리 스트레칭",
+    "hash": "06b67a0a",
+    "heard": "벽 종아리 스트레칭",
+    "span": [
+      18.464299999999998,
+      19.8719
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "벽 종아리 스트레칭"
+    ],
+    "sha256": "051232145819a558f2ba6f3e5757e9a8101ad136dd3d692d3b6e93d998207dc9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "불가리안 스플릿 스쿼트",
+    "hash": "0f2ad9cc",
+    "heard": "불가리안 스플릿 스쿼트",
+    "span": [
+      30.621,
+      32.2165
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "불가리안 스플릿 스쿼트"
+    ],
+    "sha256": "ad3d83814fd3feeddd96768e26afe5f734bb93a991eb9835839bc4a552a28e11",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "비둘기 자세",
+    "hash": "d7cd34b9",
+    "heard": "비둘기 자세",
+    "span": [
+      33.893,
+      34.8345
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "비둘기 자세"
+    ],
+    "sha256": "bd34fda468017f1b503c950fdd606739ed69ced03a30f1291f0dd64bb0090e5b",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "사이드 런지",
+    "hash": "16db1d71",
+    "heard": "사이드 런지",
+    "span": [
+      35.2541,
+      36.2233
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "사이드 런지"
+    ],
+    "sha256": "bd5556828e89d16dfd99b1caba4518b30a1b779fb11db16738d1216edf42c9c3",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "사이드 플랭크",
+    "hash": "a70ad3fe",
+    "heard": "사이드 플랭크",
+    "span": [
+      36.6136,
+      37.940000000000005
+    ],
+    "queue_index": 41,
+    "span_transcripts": [
+      "사이드 플랭크"
+    ],
+    "sha256": "e5317ca25584c9c340985f15f58368012aaa7881f4233a17faaa714671624798",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스텝 잭",
+    "hash": "e16d9f69",
+    "heard": "스텝잭",
+    "span": [
+      2.07888,
+      2.92679
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스텝잭"
+    ],
+    "sha256": "7425ca6477b47d33f4cda8ce066d092ba6ebd401f73a8289fe1f453fc8207cd0",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스텝업 니 드라이브",
+    "hash": "9cd666ff",
+    "heard": "스텝업 니 드라이브",
+    "span": [
+      5.68942,
+      7.1265
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스텝업 니 드라이브"
+    ],
+    "sha256": "ba1b4db5fb029f86dd3e614394e8f19b58fa7f657e7b9a71a57eded50d4eb9ba",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스트랩 햄스트링 스트레칭",
+    "hash": "dae502ae",
+    "heard": "스트랩 햄스트링 스트레칭",
+    "span": [
+      7.84429,
+      9.57112
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스트랩 햄스트링 스트레칭"
+    ],
+    "sha256": "5229c9217b8be3d452b51c7984595c5b4c5687544194147ecd010cc184374f75",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스트랩 허벅지 앞쪽 스트레칭",
+    "hash": "dfd14891",
+    "heard": "스트랩 허벅지 앞쪽 스트레칭",
+    "span": [
+      10.1919,
+      12.267999999999999
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스트랩 허벅지 앞쪽 스트레칭"
+    ],
+    "sha256": "a04e84182ec31299849be4b30fba1e699c72b46f900008e2aa7643e4cbad4829",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스트레칭을 더 깊게 하려면 오른발을 몸 쪽으로 더 가까이 옮겨요.",
+    "hash": "a03d9635",
+    "heard": "스트레칭을 더 깊게 하려면 오른발을 몸쪽으로 더 가까이 옮겨요.",
+    "span": [
+      12.862400000000001,
+      17.639000000000003
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스트레칭을 더 깊게 하려면 오른발을 몸쪽으로 더 가까이 옮겨요."
+    ],
+    "sha256": "45c7f05918df92801b2e0ed7917705ff6d12e3e9937cc3e39334abe39df168e1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스트레칭이 편안하게 느껴질 만큼 무릎을 충분히 굽혀요.",
+    "hash": "d390811a",
+    "heard": "스트레칭이 편안하게 느껴질 만큼 무릎을 충분히 굽혀요.",
+    "span": [
+      18.3173,
+      22.3911
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스트레칭이 편안하게 느껴질 만큼 무릎을 충분히 굽혀요."
+    ],
+    "sha256": "419329be885bc3665bbcc7012a1a7b286b1e77b3ec9138a2428be3d7c3a943cb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스플릿 스쿼트",
+    "hash": "dd5be5d6",
+    "heard": "스플릿 스쿼트",
+    "span": [
+      24.9015,
+      26.1674
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "스플릿 스쿼트"
+    ],
+    "sha256": "11555081a20322622cc87f9d0537fd0b7724d33d3d75a76b156ffdd5cadd049e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "슬로우 마운틴 클라이머",
+    "hash": "dd474d01",
+    "heard": "슬로우 마운틴 클라이머",
+    "span": [
+      26.665699999999998,
+      28.2862
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "슬로우 마운틴 클라이머"
+    ],
+    "sha256": "155c64114479697893794b1e0277af2a55f8cd167440aeafff6d582d4a475685",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "hash": "d3e381e4",
+    "heard": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "span": [
+      28.8312,
+      32.6088
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요."
+    ],
+    "sha256": "27b9a883bb94b96789e9766ad0ca69f39821f5768b233d5401e3a4bbd4516fec",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "시작!",
+    "hash": "e342910d",
+    "heard": "시작",
+    "span": [
+      33.193,
+      33.8465
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "시작"
+    ],
+    "sha256": "2117605d86a960d3f61048a679e45a7ac2dbbcca766a7ce672a00d9be1385536",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "실 꿰기 자세",
+    "hash": "c26fe343",
+    "heard": "실꿰기 자세",
+    "span": [
+      36.3341,
+      37.5322
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "실꿰기 자세"
+    ],
+    "sha256": "3613f9f60f570531031105f382ba599a3cd157723267e923fff8e740d89a4797",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "싱글 레그 글루트 브릿지",
+    "hash": "92a79ecf",
+    "heard": "싱글 레그 글루트 브릿지",
+    "span": [
+      40.544799999999995,
+      42.331900000000005
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "싱글 레그 글루트 브릿지"
+    ],
+    "sha256": "2fea6b5ab59a4e64f52981f379015792b8035544e44db3b8ba821ef405249429",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "싱글 레그 데드리프트",
+    "hash": "946f8fa8",
+    "heard": "싱글 레그 데드 리프트",
+    "span": [
+      42.8062,
+      44.4949
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "싱글 레그 데드 리프트"
+    ],
+    "sha256": "d8d9875206dc922df6bb019ceac684e51bc167054e9e0d18739e7d129432e67a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "싱글 레그 카프 레이즈",
+    "hash": "00646f78",
+    "heard": "싱글 레그 카프 레이즈",
+    "span": [
+      44.978699999999996,
+      46.74
+    ],
+    "queue_index": 42,
+    "span_transcripts": [
+      "싱글 레그 카프 레이즈"
+    ],
+    "sha256": "be63d8ad4d3400df0185ead91eea0f98a4b4f3ad9fe0f4209ea026ef69fa87e9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 1라운드 더!",
+    "hash": "f452d79d",
+    "heard": "정확하게? 일라운드 더",
+    "span": [
+      0,
+      1.99404
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게?",
+      "일라운드 더"
+    ],
+    "sha256": "04697030d154a594f0b98160f9c09aaa8ea2fdde01c2c9bfe5cd4e5a6f3fae2d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 2라운드 더!",
+    "hash": "b505b174",
+    "heard": "정확하게 이 라운드 더",
+    "span": [
+      2.53992,
+      4.41758
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게",
+      "이 라운드 더"
+    ],
+    "sha256": "fdee52eb08a07f43de10f056fdf41d723010ad2be5e95f2b29bab5bc52e801a4",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 3라운드 더!",
+    "hash": "8ddbeecf",
+    "heard": "정확하게 3라운드 더?",
+    "span": [
+      4.89733,
+      7.00608
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 3라운드 더?"
+    ],
+    "sha256": "08f73104ee5ca3b6729d9d8408acba409b0565a7fec17d72dc0b6c763b37e1ba",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 4라운드 더!",
+    "hash": "b0b1a2ce",
+    "heard": "정확하게 4라운드 더?",
+    "span": [
+      7.4825800000000005,
+      9.66
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 4라운드 더?"
+    ],
+    "sha256": "96c8abfa18cfdaf0c935dbf2a90a5af7c9895bbcc98631403114fa467dabd971",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 5라운드 더!",
+    "hash": "cb297af1",
+    "heard": "정확하게 5라운드 더.",
+    "span": [
+      9.84925,
+      11.6548
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 5라운드 더."
+    ],
+    "sha256": "157f1438d93592a06b567ae5fff01c46afef37c209f77f550681a2e34996fd1d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 6라운드 더!",
+    "hash": "4e091478",
+    "heard": "정확하게 6라운드 더.",
+    "span": [
+      12.028,
+      13.8847
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 6라운드 더."
+    ],
+    "sha256": "394c41c44e35d3ad1c4498d448ca4b4477ac58dbf2ace6a3531e7f1416786898",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 7라운드 더!",
+    "hash": "6f9ffa93",
+    "heard": "정확하게 7라운드 더",
+    "span": [
+      14.2783,
+      16.166900000000002
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 7라운드 더"
+    ],
+    "sha256": "b62b0c6ac6ea678384210bc6921886d677993942ab97cf0493438a2a5d5d3cc7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 8라운드 더!",
+    "hash": "65baecd2",
+    "heard": "정확하게 8라운드 더.",
+    "span": [
+      16.5173,
+      18.3338
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 8라운드 더."
+    ],
+    "sha256": "d76235c9c837d62d37965093ee58a2b8e9cb3330571065ce24629da6625ba99a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 9라운드 더!",
+    "hash": "98a35be5",
+    "heard": "정확하게 9라운드 더.",
+    "span": [
+      18.6279,
+      20.4131
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 9라운드 더."
+    ],
+    "sha256": "476fc949f9d5fbc1fb8faf77b35aa31c57db9abb87e431f4721fe463cac778d7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확하게, 가요!",
+    "hash": "3f02b9ce",
+    "heard": "정확하게 가요?",
+    "span": [
+      20.8156,
+      21.904600000000002
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확하게 가요?"
+    ],
+    "sha256": "a49187fb73b47769ba0ec1145836e213d9a35e675ad3b8ad63dbe5f11396759f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "정확해요! 잠깐 쉬고, 다음은",
+    "hash": "6a79edb6",
+    "heard": "정확해요. 잠깐 쉬고 다음은",
+    "span": [
+      22.5487,
+      26.237000000000002
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "정확해요.",
+      "잠깐 쉬고",
+      "다음은"
+    ],
+    "sha256": "eaafad60b5e7ebe0edb2222a58d6c99d2419921956e7448933ce081d7076b5a1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "제자리 걷기",
+    "hash": "3634ffd2",
+    "heard": "제자리 걷기",
+    "span": [
+      27.0327,
+      28.009300000000003
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "제자리 걷기"
+    ],
+    "sha256": "2600215e433b9bbbcc0414c722b1c9d10d7da471e0eb2789ce9013f67a14806c",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "제자리 멀리뛰기",
+    "hash": "b5d639b1",
+    "heard": "제자리 멀리뛰기",
+    "span": [
+      28.315199999999997,
+      29.4827
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "제자리 멀리뛰기"
+    ],
+    "sha256": "2a197d622a4ebfe018bed62cdecba28d1c5b4b74d3bcb6e51297b23337c20ffd",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "제자리 조깅",
+    "hash": "4aa82d3e",
+    "heard": "제자리 조깅",
+    "span": [
+      29.781799999999997,
+      30.7617
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "제자리 조깅"
+    ],
+    "sha256": "74b97efac124b62f54c13a161283f93643a9fb2a66233fd5e62fc00a530ca29f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "준비 자세.",
+    "hash": "a5462ce7",
+    "heard": "준비 자세",
+    "span": [
+      31.074499999999997,
+      31.8842
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "준비 자세"
+    ],
+    "sha256": "a4eb8ce5676ee530f127abc317238bc7f9a669d166bc5444b5d3c974dab8dd32",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "중간에 위로 올라간 팔을 바꿔요.",
+    "hash": "082ab6b2",
+    "heard": "중간에 위로 올라간 팔을 바꿔요.",
+    "span": [
+      32.354,
+      34.789
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "중간에 위로 올라간 팔을 바꿔요."
+    ],
+    "sha256": "dd2cfa1e6ce04c091f588cbe36e70e99332ca673e7b69544a466cef1156b31b3",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "착지할 때마다 무릎과 골반을 굽혀 충격을 흡수해요.",
+    "hash": "bb8497fc",
+    "heard": "착지할 때마다 무릎과 골반을 굽혀 충격을 흡수해요.",
+    "span": [
+      35.2156,
+      39.046800000000005
+    ],
+    "queue_index": 43,
+    "span_transcripts": [
+      "착지할 때마다 무릎과 골반을 굽혀 충격을 흡수해요."
+    ],
+    "sha256": "2d8dd3a664bfe7d37c0a2a79475cc1be47157ea4d930d02fba7d0042d74e974e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "웨이티드 크런치",
+    "hash": "22b324a9",
+    "heard": "웨이티드 크런치",
+    "span": [
+      0,
+      1.46821
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "웨이티드 크런치"
+    ],
+    "sha256": "065fcf4c50a0b146e8c47c8c1333b86cc25fc820b34587039cc3daaf1cc8fb77",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "윈드밀",
+    "hash": "ecf049e3",
+    "heard": "윈드밀",
+    "span": [
+      12.8854,
+      13.7158
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "윈드밀"
+    ],
+    "sha256": "fec40417f77039b7ec5e6767955d012c53e87b103e58dea89c4dc2c6e635f73e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "윈드실드 와이퍼",
+    "hash": "07036819",
+    "heard": "윈드실드 와이퍼",
+    "span": [
+      14.246500000000001,
+      15.5978
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "윈드실드 와이퍼"
+    ],
+    "sha256": "9c8fbaf491b4fa91f34e695a572b2bdbc1c043259bb6fd8bae7ece34f492bb2b",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 4자 스트레칭",
+    "hash": "a4a4f616",
+    "heard": "의자 4자 스트레칭",
+    "span": [
+      16.1679,
+      17.770500000000002
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 4자 스트레칭"
+    ],
+    "sha256": "9e177e6e87405bec43ae4e30a65211a4626c2444f75d7dff0e5189d7cb7499a1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 스텝업",
+    "hash": "fb585133",
+    "heard": "의자 스텝 업",
+    "span": [
+      20.0144,
+      20.976300000000002
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 스텝 업"
+    ],
+    "sha256": "6aecc73014712234294d41b9e7cd0597b36c67b56bc78c04cf63ca247d36211d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 자세",
+    "hash": "08b167cf",
+    "heard": "의자 자세",
+    "span": [
+      21.6026,
+      22.5165
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 자세"
+    ],
+    "sha256": "02ecf052b41e0cf5ac4145e7148b679025b43d3d2b4c8572ae2d53e8021281cb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 잡고 허벅지 앞쪽 스트레칭",
+    "hash": "e9a43803",
+    "heard": "의자 잡고 허벅지 앞쪽 스트레칭",
+    "span": [
+      23.002299999999998,
+      25.4664
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 잡고 허벅지 앞쪽 스트레칭"
+    ],
+    "sha256": "62a2b8fbd1272d08cb8b526006a5d158f39f332597578e486b8b85aecd53bca2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 트라이셉스 딥스",
+    "hash": "8d4c1b09",
+    "heard": "의자 트라이셉스 딥스",
+    "span": [
+      26.0312,
+      27.5502
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 트라이셉스 딥스"
+    ],
+    "sha256": "7e79314b076039ecd167bafcb263ec4c83aec1a33018c225ca51efd2fd8d58f2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자 햄스트링 스트레칭",
+    "hash": "4967fbc7",
+    "heard": "의자 햄스트링 스트레칭",
+    "span": [
+      28.0733,
+      29.6449
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자 햄스트링 스트레칭"
+    ],
+    "sha256": "b4001473ead0d763b1138baddf755be8d3beb7ac14e21d4861f99b55a4de864f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "의자에 털썩 앉지 말고 천천히 내려가요.",
+    "hash": "30afc717",
+    "heard": "의자에 털썩 앉지 말고 천천히 내려가요.",
+    "span": [
+      30.1279,
+      32.7762
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "의자에 털썩 앉지 말고 천천히 내려가요."
+    ],
+    "sha256": "821bc85867e10d385222ca9211b069314a57cfac9d0c71b1ac1b86b17745aeed",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "이제 마지막,",
+    "hash": "b3302c62",
+    "heard": "이제 마지막?",
+    "span": [
+      33.3384,
+      34.3427
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "이제 마지막?"
+    ],
+    "sha256": "530999afdc4bcf814a8ae9b649efaa2364d77543f58a4aa8ce7d04934a3075d3",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "인치웜",
+    "hash": "f02e7d03",
+    "heard": "인치웜",
+    "span": [
+      34.8812,
+      35.7286
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "인치웜"
+    ],
+    "sha256": "69c3a79af0d12d6737c8e479b7ce5b217c11405dbc369426f5bdf58d6e5d97a1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "인클라인 마운틴 클라이머",
+    "hash": "fb517143",
+    "heard": "인클라인 마운틴 클라이머",
+    "span": [
+      36.2735,
+      37.8885
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "인클라인 마운틴 클라이머"
+    ],
+    "sha256": "636fe921379909931c3a71652181e1288d4fa09e7268866e196e7bb55068104d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "자, 해 봐요!",
+    "hash": "ca7adc96",
+    "heard": "자, 해봐요.",
+    "span": [
+      39.963499999999996,
+      40.8498
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "자, 해봐요."
+    ],
+    "sha256": "799609b7a3e97b0460c73ae82a2347181db4886e5c7cb2da453be00fe04c8383",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "자세 그대로, 1라운드 남았어요.",
+    "hash": "2c30651a",
+    "heard": "자세 그대로 1라운드 남았어요.",
+    "span": [
+      41.053799999999995,
+      44.5
+    ],
+    "queue_index": 44,
+    "span_transcripts": [
+      "자세 그대로",
+      "1라운드 남았어요."
+    ],
+    "sha256": "f69638e9eafcf3420fe13b9aa4add3132933756619f91100238d2343d3f36679",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "프론트 레이즈",
+    "hash": "5ddc6b87",
+    "heard": "프론트레이즈",
+    "span": [
+      8.682830000000001,
+      9.58525
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "프론트레이즈"
+    ],
+    "sha256": "03bb906f11c452bbbcf461492b21cb7aede07f8dfe86a465803a4c43423fe20c",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크",
+    "hash": "43e8dd7a",
+    "heard": "플랭크",
+    "span": [
+      10.2341,
+      10.9229
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크"
+    ],
+    "sha256": "73f9eb2ab4790bc3250dc8c8f1a864acd0699c47ae543de923d7c81e78fa26b8",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 레그 리프트",
+    "hash": "95cb807e",
+    "heard": "플랭크 레그 리프트",
+    "span": [
+      11.6532,
+      13.056
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 레그 리프트"
+    ],
+    "sha256": "0bff815d8ea014b26dc584e5e701494a245a9c4df7e3bf9140f118e9795474e7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 숄더 탭",
+    "hash": "72c813b5",
+    "heard": "플랭크 숄더 탭",
+    "span": [
+      13.708400000000001,
+      15.1124
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 숄더 탭"
+    ],
+    "sha256": "ee11024c8821c10012a5559247fb0e7ebec98dc5f1bd8016f9e6f944c4301027",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 암 리치",
+    "hash": "d9fa1ade",
+    "heard": "플랭크 암리치",
+    "span": [
+      15.6128,
+      16.910500000000003
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 암리치"
+    ],
+    "sha256": "0041f44eaf0dbe555c90e8db87da2adf0d9b17c389b2230e701634403d32a863",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 업다운",
+    "hash": "311a75e1",
+    "heard": "플랭크 업다운",
+    "span": [
+      17.542299999999997,
+      18.6432
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 업다운"
+    ],
+    "sha256": "b196615da2f277dbe7f9a22dd36600814add6841f4297dcb8fa0a3d742ee85f6",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "078f19b0",
+    "heard": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "span": [
+      19.078799999999998,
+      22.9816
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요."
+    ],
+    "sha256": "7e2d68d90e70b6345abfb0d42f5adea6b76da9a01df41d722f935ba68d377c35",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크 투 파이크",
+    "hash": "df0f78f2",
+    "heard": "플랭크 투 파이크?",
+    "span": [
+      23.7076,
+      24.9952
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크 투 파이크?"
+    ],
+    "sha256": "e2a8bea4399d3d89f3a0f13cdc4d0f439e376255c16979082b2568431578fc11",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "015d07ec",
+    "heard": "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "span": [
+      25.569499999999998,
+      29.0835
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요."
+    ],
+    "sha256": "7b8c79647004c39ad3f589f128de24573037a7bd091badd92e3bbe2cdf56c2bb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "플러터 킥",
+    "hash": "018dfbe8",
+    "heard": "플러터 킥",
+    "span": [
+      29.8277,
+      30.6033
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "플러터 킥"
+    ],
+    "sha256": "b079b22cdbf3bd27847da5621612416d472fb5c5970c4d5b1224bb53f9c31bea",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "필요하면 무릎을 살짝 굽혀요.",
+    "hash": "a0165419",
+    "heard": "필요하면 무릎을 살짝 굽혀요.",
+    "span": [
+      30.8985,
+      33.097500000000004
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "필요하면 무릎을 살짝 굽혀요."
+    ],
+    "sha256": "13239f32c61a8f61696342ee9865152146d22b2a62c26aae83dc87e4890a2e67",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "필요한 만큼 무릎을 굽혀요. 정강이까지만 닿아도 괜찮아요.",
+    "hash": "7bd593ad",
+    "heard": "필요한 만큼 무릎을 굽혀요. 정강이까지만 닿아도 괜찮아요.",
+    "span": [
+      33.7455,
+      37.4456
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "필요한 만큼 무릎을 굽혀요. 정강이까지만 닿아도 괜찮아요."
+    ],
+    "sha256": "0cd078735dbe15645f076578cd1a8a3c9064fa230bfe92ff91c845d8dd563310",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "한 다리 햄스트링 스트레칭",
+    "hash": "729ece0b",
+    "heard": "한 다리 햄스트링 스트레칭",
+    "span": [
+      39.2716,
+      41.0017
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "한 다리 햄스트링 스트레칭"
+    ],
+    "sha256": "2d433241f808ff3987394425f3d663fc681da226ce90a75d54489d36ae95c1c3",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "한 번 반복하는 동안 손과 발끝 위치는 그대로 유지해요.",
+    "hash": "3dd310a2",
+    "heard": "한번 반복하는 동안 손과 발끝 위치는 그대로 유지해요.",
+    "span": [
+      41.1623,
+      45.4303
+    ],
+    "queue_index": 45,
+    "span_transcripts": [
+      "한번 반복하는 동안 손과 발끝 위치는 그대로 유지해요."
+    ],
+    "sha256": "3ebe028c4c4615ed000c3853dfeec1916bff04ac242b998444343b9c44570071",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "엉덩이는 높게 유지하고 손으로 바닥을 밀어내요.",
+    "hash": "89ba136a",
+    "heard": "엉덩이는 높게 유지하고 손으로 바닥을 밀어내요.",
+    "span": [
+      0,
+      3.65721
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "엉덩이는 높게 유지하고 손으로 바닥을 밀어내요."
+    ],
+    "sha256": "8dba6775c15023151dcd7e8e4379816757d93fd995fd9ae39e5c9ffe202b9f4e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "엉덩이는 바닥에 붙여 두어요.",
+    "hash": "56a6c543",
+    "heard": "엉덩이는 바닥에 붙여두어요.",
+    "span": [
+      4.86179,
+      7.23042
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "엉덩이는 바닥에 붙여두어요."
+    ],
+    "sha256": "dfa7e9d03e8f319624fed1111d0dcf68caf24e31e4e6c0957fe82238b5c35885",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "엉덩이에 힘을 주면 스트레칭이 깊어져요.",
+    "hash": "4e079ec6",
+    "heard": "엉덩이에 힘을 주면 스트레칭이 깊어져요.",
+    "span": [
+      8.08737,
+      11.136
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "엉덩이에 힘을 주면 스트레칭이 깊어져요."
+    ],
+    "sha256": "8cdca74bfb6119f2c74a7295fbe218bfc424c77f3642bbed6feb425b0dc989af",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "옆으로 누워 다리 들기",
+    "hash": "a4598c7f",
+    "heard": "옆으로 누워 다리 들기",
+    "span": [
+      11.994900000000001,
+      13.673
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "옆으로 누워 다리 들기"
+    ],
+    "sha256": "a740f2ba3206fc973c8c93958db6a889fe69bbdbb611b6da749b648e1c182513",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "옆으로 누워 허벅지 앞쪽 스트레칭",
+    "hash": "1c5d904e",
+    "heard": "옆으로 누워 허벅지 앞쪽 스트레칭",
+    "span": [
+      14.5434,
+      17.0008
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "옆으로 누워 허벅지 앞쪽 스트레칭"
+    ],
+    "sha256": "5e24e877edabcce0766fefa7a4f912dde92c9b791bdfd870c7d13ceb8717bea2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "오른쪽",
+    "hash": "89e1f8c4",
+    "heard": "오른쪽",
+    "span": [
+      17.6363,
+      18.410700000000002
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "오른쪽"
+    ],
+    "sha256": "509adf9af54788b2742233481c958e8d5ed0ab4df2049e03c04869162e7d3c35",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "오버헤드 트라이셉스 익스텐션",
+    "hash": "e7ce5f71",
+    "heard": "오버헤드 트라이셉스 익스텐션",
+    "span": [
+      21.1956,
+      23.425
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "오버헤드 트라이셉스 익스텐션"
+    ],
+    "sha256": "43ea84fad54d454522e5b651e40a1503db8f439f80ae8a77d2a687486aa7f3aa",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "올라가고 내려갈 때 골반이 수평을 유지하게 해요.",
+    "hash": "6ecccc7e",
+    "heard": "올라가고 내려갈 때 골반이 수평을 유지하게 해요.",
+    "span": [
+      24.083099999999998,
+      27.844
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "올라가고 내려갈 때",
+      "골반이 수평을 유지하게 해요."
+    ],
+    "sha256": "e065a81911c1836d2598f4b17080ca4ccf1b507b37456402c91fc291bd41d0df",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "완료! 오늘 정말 깔끔했어요!",
+    "hash": "4261dc34",
+    "heard": "완료. 오늘 정말 깔끔했어요.",
+    "span": [
+      28.609299999999998,
+      31.305200000000003
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "완료.",
+      "오늘 정말 깔끔했어요."
+    ],
+    "sha256": "7101385d819973fbed02d6ede69992b87d0ee336da170d441240c05b175cfff0",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "왼쪽",
+    "hash": "f13ebcf2",
+    "heard": "왼쪽",
+    "span": [
+      36.0684,
+      36.606300000000005
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "왼쪽"
+    ],
+    "sha256": "50389ac625044204f6b7c90653df55c74cc0adf002adace40e1d69dd6ff8d798",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "운동 끝! 잘했어요!",
+    "hash": "a7570fb7",
+    "heard": "운동 끝. 잘했어요.",
+    "span": [
+      37.387699999999995,
+      39.4117
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "운동 끝.",
+      "잘했어요."
+    ],
+    "sha256": "4e8743ec8436f460e9c47d0e87b7f14abd06dee970317cb966697cc93fe27b42",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "움직임은 작게 유지해요.",
+    "hash": "0da22019",
+    "heard": "움직임은 작게 유지해요.",
+    "span": [
+      39.7461,
+      41.505900000000004
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "움직임은 작게 유지해요."
+    ],
+    "sha256": "d7ef97c499cdb238c1914822da7e2275714e816df733162bcb2f0698a36554bf",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "원을 부드럽고 크게 돌릴 수 있도록 아주 가벼운 덤벨을 골라요.",
+    "hash": "f1300feb",
+    "heard": "원을 부드럽고 크게 돌릴 수 있도록 아주 가벼운 덤벨을 골라요.",
+    "span": [
+      44.0022,
+      48.4637
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "원을 부드럽고 크게 돌릴 수 있도록 아주 가벼운 덤벨을 골라요."
+    ],
+    "sha256": "ce31591f86bf3555d43f6b4b3b011f10dfafd857960e2f1cb75fcfb68cf9d7d9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "월 슬라이드",
+    "hash": "c7a8fd61",
+    "heard": "월슬라이드",
+    "span": [
+      48.925399999999996,
+      49.8598
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "월슬라이드"
+    ],
+    "sha256": "d384ba14fb716dd7744d716092c2cf34f330e0794a64ed560452bde3f100f5be",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "월드 그레이티스트 스트레칭",
+    "hash": "fb9da262",
+    "heard": "월드 그레이티스트 스트레칭",
+    "span": [
+      51.797399999999996,
+      53.5201
+    ],
+    "queue_index": 46,
+    "span_transcripts": [
+      "월드 그레이티스트 스트레칭"
+    ],
+    "sha256": "cf8df52745e41bce848666465ea6a1a8a2e381f0b8c72f4ea912f8657291aa20",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]
