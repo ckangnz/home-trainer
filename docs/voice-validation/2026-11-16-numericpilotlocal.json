@@ -1,0 +1,54 @@
+[
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "5회",
+    "hash": "ff9e52d4",
+    "heard": "오회",
+    "span": [
+      0.09337499999999999,
+      0.9215829999999999
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "오회"
+    ],
+    "sha256": "e489c010f76bf83eec58ffb4e4f10c1e3afd3ca3d51bfce1429c1d0ed177b243",
+    "method": "Fresh local faster-whisper small int8, Korean language specified, no prompt. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "9라운드 더, 힘내!",
+    "hash": "39c4a8d7",
+    "heard": "구라운드 더 힘내!",
+    "span": [
+      5.95004,
+      7.85171
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "구라운드 더 힘내!"
+    ],
+    "sha256": "b196f8e82b24f0a0797787642b80db7565063b06018e3368a54ea54402820fdf",
+    "method": "Fresh local faster-whisper small int8, Korean language specified, no prompt. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "9라운드 남았어요. 여유 있게 가요.",
+    "hash": "aa1f9954",
+    "heard": "9라운드 남았어요 여유 있게 가요",
+    "span": [
+      3.633,
+      6.55704
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "9라운드 남았어요",
+      "여유 있게 가요"
+    ],
+    "sha256": "e46d18250d90677fc29e97ae69cbe277b143303ccb11e424f48d5b8afd88b9d3",
+    "method": "Fresh local faster-whisper small int8, Korean language specified, no prompt. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

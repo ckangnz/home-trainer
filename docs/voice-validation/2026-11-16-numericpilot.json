@@ -1,0 +1,311 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "135초",
+    "hash": "c7f49270",
+    "heard": "135초",
+    "span": [
+      0,
+      1.34183
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "135초"
+    ],
+    "sha256": "4a25f6fd9726b7f64139ccaff352856b247f79e847447191a2be1b8c54599276",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "29회",
+    "hash": "81a98298",
+    "heard": "29회",
+    "span": [
+      2.55488,
+      3.57308
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "29회"
+    ],
+    "sha256": "8e628da34367187382b0c217d5017e263c4047aa41721ebf557b795e708759a1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "6회",
+    "hash": "619910df",
+    "heard": "육회",
+    "span": [
+      8.316790000000001,
+      9.01137
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "육회"
+    ],
+    "sha256": "c5936495a358b6c936f9bb591ab5f008d73b7b408f58fc83f620d84d29f76887",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "10초 더! 버텨!",
+    "hash": "04515e6c",
+    "heard": "10초 더 버텨.",
+    "span": [
+      0.133125,
+      1.87687
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "10초 더 버텨."
+    ],
+    "sha256": "7fe0f26fb1181b6c37a41533e27927599d156b7872882e79ee2a14d505311390",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "2라운드 더, 힘내!",
+    "hash": "8b4e5e7a",
+    "heard": "이 라운드 더 힘내.",
+    "span": [
+      3.17083,
+      4.83067
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "이 라운드 더",
+      "힘내."
+    ],
+    "sha256": "affbd07be7dd31d02122bed08ce3c358520b768f8ceff7b3fba25e89c5c6793e",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "1분",
+    "hash": "870ddd48",
+    "heard": "1분",
+    "span": [
+      2.55471,
+      3.1530400000000003
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "1분"
+    ],
+    "sha256": "71fe8f7c754da710ca69687b01de7bdf1652e54afccf7f4fbf4b590af5e2e2f1",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "10회",
+    "hash": "bc7eeed8",
+    "heard": "10회",
+    "span": [
+      2.71746,
+      3.57817
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "10회"
+    ],
+    "sha256": "d9cba29f7bcf795e75058a66b8c084d6d31a6fe62a7323c04895e04c21898735",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "11회",
+    "hash": "e27fd641",
+    "heard": "11회",
+    "span": [
+      4.118,
+      4.9415
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "11회"
+    ],
+    "sha256": "1efcf396187f430d983bcf62ddabc7c0ae5a73398abad9f04262d9d9f4857e02",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "잘하고 있어, 2라운드 남았어!",
+    "hash": "c09df082",
+    "heard": "잘하고 있어. 이 라운드 남았어.",
+    "span": [
+      4.0233300000000005,
+      6.52917
+    ],
+    "repair_source_index": 5,
+    "span_transcripts": [
+      "잘하고 있어.",
+      "이 라운드 남았어."
+    ],
+    "sha256": "ec8bea32d3b25c9d8b017d77a846db643738e78b92cedb4ddb74be14f157cc54",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "잘하고 있어, 7라운드 남았어!",
+    "hash": "204e1e11",
+    "heard": "잘하고 있어. 7라운드 남았어.",
+    "span": [
+      7.134790000000001,
+      9.71733
+    ],
+    "repair_source_index": 5,
+    "span_transcripts": [
+      "잘하고 있어. 7라운드 남았어."
+    ],
+    "sha256": "0b327f1aa6ccb72144cc13388905a5e4a9601472a69ad8d2169885fed431d0dd",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "잘하고 있어, 9라운드 남았어!",
+    "hash": "fa1e9b27",
+    "heard": "잘하고 있어. 9라운드 남았어.",
+    "span": [
+      10.4572,
+      12.7456
+    ],
+    "repair_source_index": 5,
+    "span_transcripts": [
+      "잘하고 있어. 9라운드 남았어."
+    ],
+    "sha256": "c04855dcdbf1bc617a6f773d84ee3425338cc0b7cb69e787bfe45efe59c54569",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "11회",
+    "hash": "e27fd641",
+    "heard": "11회",
+    "span": [
+      0.068917,
+      0.81475
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "11회"
+    ],
+    "sha256": "770313ab9a94da171e0dbfd4f44356c4fdbd5d5c668367b44ec797741cbadd9f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "12회",
+    "hash": "007d8b12",
+    "heard": "12회",
+    "span": [
+      1.34571,
+      2.29108
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "12회"
+    ],
+    "sha256": "69397df80da731f1949d5d029cd510e57b8d31dc6501cfb1b2dd598a80332e72",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "145초",
+    "hash": "9c784ead",
+    "heard": "145초",
+    "span": [
+      2.66562,
+      3.87908
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "145초"
+    ],
+    "sha256": "b6a2a76b51b9c31ab03bc4649963f5584173c96a58f972b93d71339d5b39039c",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "1라운드 끝!",
+    "hash": "f85a7772",
+    "heard": "1라운드 끝.",
+    "span": [
+      4.37521,
+      5.428039999999999
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "1라운드 끝."
+    ],
+    "sha256": "0daa03821d037a9e9387a977d2f24722c50386ba0e574949935e353fbbd4dfcb",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "28회",
+    "hash": "a7a74401",
+    "heard": "28회",
+    "span": [
+      5.932250000000001,
+      6.97021
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "28회"
+    ],
+    "sha256": "035fe5652e1156c67ed2c17d0ac23c41d4bdf50f17cf5471954d31cbf3133e70",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "8회",
+    "hash": "e5811891",
+    "heard": "8회",
+    "span": [
+      7.41833,
+      8.09254
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "8회"
+    ],
+    "sha256": "65378d5fa150a6c48f6d83d65442a5b905627b25e4e28bb9ef25f2425aa8edc9",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "9라운드 남았어, 멈추지 마!",
+    "hash": "64b9cb67",
+    "heard": "9라운드 남았어. 멈추지 마.",
+    "span": [
+      8.55762,
+      10.8866
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "9라운드 남았어.",
+      "멈추지 마."
+    ],
+    "sha256": "e643b1cb2fd8810edf80900486e66da42c0af073229964a62e1667db1a955857",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]

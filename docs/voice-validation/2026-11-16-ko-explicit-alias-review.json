@@ -1,0 +1,572 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "누워서 4자 스트레칭",
+    "hash": "eead776c",
+    "heard": "누워서 사자 스트레칭",
+    "span": [
+      6.8500000000000005,
+      8.51454
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "누워서 사자 스트레칭",
+      "누워서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "546392321871805dea722962b4d49880c6a4cfa558e5fb03b18ebb218e13ebbc"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "덤벨 쓰러스터",
+    "hash": "dc0b1093",
+    "heard": "덤벨 스러스터",
+    "span": [
+      13.2623,
+      14.5417
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "덤벨 스러스터",
+      "덤벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "2fab93bf7ce935b05b410fe5b3e6386e91bf965968ce8cad09b74b354bff7091"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "스태거드 푸시업",
+    "hash": "282134a6",
+    "heard": "스테거드 푸쉬업",
+    "span": [
+      5.75342,
+      6.9474599999999995
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "스테거드 푸쉬업",
+      "스태거드 푸시업"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "e52619f74a455a65555559b782f46c505f21763b76c29cef097857cb3d407aff"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "앉아서 4자 스트레칭",
+    "hash": "38a5defb",
+    "heard": "앉아서 사자 스트레칭?",
+    "span": [
+      19.324499999999997,
+      21.398100000000003
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "앉아서 사자 스트레칭",
+      "앉아서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "52f3d0e0350a93d39aa4b1ac37d117edefd4999f2069a44d3c286594e8129680"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨스 러스터",
+    "span": [
+      60.982099999999996,
+      62.2339
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "907c78fd9d888770be5d87fee7cafddee06ec18e296da9215e6de7ddd35ada85"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "바벨 힙 쓰러스트",
+    "hash": "9edf05da",
+    "heard": "바벨 힙스러스트",
+    "span": [
+      63.857299999999995,
+      65.25789999999999
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 힙 스러스트",
+      "바벨 힙 쓰러스트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "aa71caaffaf120d8e9dd8402a308c52b04b624310d33cc32cdce229800cf7403"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "벽 4자 스트레칭",
+    "hash": "5866fa47",
+    "heard": "벽 사자 스트레칭",
+    "span": [
+      3.12267,
+      4.9446699999999995
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "벽 사자 스트레칭",
+      "벽 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "d71a5f11d6b91d3322d31fc8e922230a5b75bfba543a1f3055947c10474d0c32"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "스태거드 푸시업",
+    "hash": "282134a6",
+    "heard": "스테거드 푸쉬업",
+    "span": [
+      26.141499999999997,
+      27.3121
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "스테거드 푸쉬업",
+      "스태거드 푸시업"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "3ba2ed5be537dde6b8e088a53988d0f4f5680bbed402dfc16592e7c1a37a62a2"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "덤벨 쓰러스터",
+    "hash": "dc0b1093",
+    "heard": "덤벨 스러스터",
+    "span": [
+      16.971899999999998,
+      18.1275
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "덤벨 스러스터",
+      "덤벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "48dac3087b9ccb1c6afcff7a670a5bed0e7b817f6ec82275e9816fbf7137fac9"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨스러스터",
+    "span": [
+      12.402800000000001,
+      13.5956
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "9a784e2220c23e16cdaec8a33814719c054a544142439ff5436bd29a55e30128"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "바벨 힙 쓰러스트",
+    "hash": "9edf05da",
+    "heard": "바벨 힙스러스트",
+    "span": [
+      14.2379,
+      15.5336
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 힙 스러스트",
+      "바벨 힙 쓰러스트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "6ed5f0130a80f1b170e3c2bdab0bd496cba4fbd4e6a34a5849fc4be15f2ce102"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "앉아서 4자 스트레칭",
+    "hash": "38a5defb",
+    "heard": "앉아서 사자 스트레칭",
+    "span": [
+      17.949499999999997,
+      20.126700000000003
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "앉아서 사자 스트레칭",
+      "앉아서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "f3cf9397a8702d880d170641fcbee0da5da018feec97c10e9e2ddeadb2b72237"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "덤벨 쓰러스터",
+    "hash": "dc0b1093",
+    "heard": "덤벨스러스터",
+    "span": [
+      5.98942,
+      7.049869999999999
+    ],
+    "recognizer": "local-faster-whisper",
+    "alias_pair": [
+      "덤벨 스러스터",
+      "덤벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "483a7f97f00d4fb408afe6b43bd99e6e2ff3f5d19b7e2a367af938fe1c492353"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨 스러스터",
+    "span": [
+      14.2721,
+      15.2834
+    ],
+    "recognizer": "local-faster-whisper",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "4a24aa5ff3034ffe94294b79b131d6614cba3974d3528ce1f5393cf9bee60dde"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바벨 힙 쓰러스트",
+    "hash": "9edf05da",
+    "heard": "바벨 힙 스러스트",
+    "span": [
+      21.292499999999997,
+      22.517500000000002
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 힙 스러스트",
+      "바벨 힙 쓰러스트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "b2989c810a668d4b2fd695607789fe0b2978ee59cab60b63b0c4beb95e692bfe"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "스태거드 푸시업",
+    "hash": "282134a6",
+    "heard": "스테거드 푸쉬업",
+    "span": [
+      12.4937,
+      13.5521
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "스테거드 푸쉬업",
+      "스태거드 푸시업"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "24fc58590a0bfaac12f2fa840cb774ea8ebc46c60e67a19a758134130e90109e"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "코사크 스쿼트",
+    "hash": "f82f37db",
+    "heard": "코삭 스쿼트",
+    "span": [
+      21.7348,
+      22.680200000000003
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "코삭 스쿼트",
+      "코사크 스쿼트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "ededb64a65b95cf283df7c8cc31f6bd4d76e7322d80040f948e33ec192c52860"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "누워서 4자 스트레칭",
+    "hash": "eead776c",
+    "heard": "누워서 사자 스트레칭",
+    "span": [
+      42.2919,
+      44.051300000000005
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "누워서 사자 스트레칭",
+      "누워서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "4c108c2ce1546c650e859c4b079f6e1a82904618f943b37458c437dc093d38db"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨 쓰러스터",
+    "hash": "dc0b1093",
+    "heard": "덤벨 스러스터",
+    "span": [
+      49.8562,
+      50.9973
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "덤벨 스러스터",
+      "덤벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "963e7ff7affab30ddac4400bc2df9afde9754c1504268bad6c0cd4e439d18b8c"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨 스러스터",
+    "span": [
+      47.803,
+      48.8888
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "0d181725845f7bee0b7800d5024ffbd64bf526a4cb9fc1a601d296d02e3a6413"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "바벨 힙 쓰러스트",
+    "hash": "9edf05da",
+    "heard": "바벨 힙스러스트",
+    "span": [
+      49.4857,
+      50.749700000000004
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 힙 스러스트",
+      "바벨 힙 쓰러스트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "11a9919f7d8242f038893547c6043a6705e02a99be5173289b96b8e8cabb0c8b"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "벽 4자 스트레칭",
+    "hash": "5866fa47",
+    "heard": "벽 사자 스트레칭",
+    "span": [
+      21.4031,
+      22.887700000000002
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "벽 사자 스트레칭",
+      "벽 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "52602e8cc3645a0bf6769e414dd2f293c5b5a19d851650048f3a4aacd1d8ea55"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "스태거드 푸시업",
+    "hash": "282134a6",
+    "heard": "스테거드 푸쉬업",
+    "span": [
+      16.406799999999997,
+      17.9266
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "스테거드 푸쉬업",
+      "스태거드 푸시업"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "88a679bd92fc289f6c9669d783758698a1a700a9e3377170d8d9192ce55269ed"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "앉아서 4자 스트레칭",
+    "hash": "38a5defb",
+    "heard": "앉아서 사자 스트레칭",
+    "span": [
+      1.8167099999999998,
+      3.87113
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "앉아서 사자 스트레칭",
+      "앉아서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "34e3e4bd8a1ae59ef0d61c8b0cbab5fd2e5204f1a69c5bcb51566b2829352bf1"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨, 스러스터",
+    "span": [
+      0.158625,
+      2.7324200000000003
+    ],
+    "recognizer": "local-faster-whisper",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "186177a3bb2e867fcb7d2e9c871f8e7086626c6cb7d121eb4286f94944618d04"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "누워서 4자 스트레칭",
+    "hash": "eead776c",
+    "heard": "누워서 사자 스트레칭",
+    "span": [
+      38.6862,
+      40.4765
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "누워서 사자 스트레칭",
+      "누워서 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "7a4a02625488d8966c75ed93b84ce806bf49ae2e8c99927c1e6a0358e783c749"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "덤벨 쓰러스터",
+    "hash": "dc0b1093",
+    "heard": "덤벨 스러스터",
+    "span": [
+      13.9955,
+      15.3036
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "덤벨 스러스터",
+      "덤벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "814e2968c357eb0b6571ec6d5191c0045f3580c78cb36919c2a499cafe03ae8a"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "바벨 쓰러스터",
+    "hash": "1406f2a3",
+    "heard": "바벨스러스터",
+    "span": [
+      19.694799999999997,
+      21.2417
+    ],
+    "recognizer": "local-faster-whisper",
+    "alias_pair": [
+      "바벨 스러스터",
+      "바벨 쓰러스터"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "70ddb4341c79a4196167aebd9ab1e65614a0a9d544d7540e16d04ec0e2365b08"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "바벨 힙 쓰러스트",
+    "hash": "9edf05da",
+    "heard": "바벨 힙스러스트",
+    "span": [
+      23.9257,
+      25.759700000000002
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "바벨 힙 스러스트",
+      "바벨 힙 쓰러스트"
+    ],
+    "review": "Explicit exercise-name Korean transliteration variant of the same English exercise term; all other words unchanged. No general fuzzy or homophone rule.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "b1bfca870d48b1cd677d9d1acc672a0621181c1bd03c85883f24b624014dff80"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "벽 4자 스트레칭",
+    "hash": "5866fa47",
+    "heard": "벽 사자 스트레칭",
+    "span": [
+      33.1524,
+      34.6837
+    ],
+    "recognizer": "independent",
+    "alias_pair": [
+      "벽 사자 스트레칭",
+      "벽 4자 스트레칭"
+    ],
+    "review": "Korean 4 is pronounced 사; 4자 and 사자 have identical syllables in the established figure-four stretch name. Only numeral orthography differs, not the spoken count, position or exercise.",
+    "method": "Machine semantic review of this explicit pair only; not strict ASR, not listened.",
+    "sha256": "e99d3b9e4809be6205a491f9b549760881186d18edc036f7a5c7fc260242f3c9"
+  }
+]
