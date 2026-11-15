@@ -1,0 +1,27 @@
+{
+  "trainer": "nina",
+  "language": "ko",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Erinome",
+  "clips": {
+    "426f9405": "426f9405.wav",
+    "cc01ba46": "cc01ba46.wav",
+    "6a0a223b": "6a0a223b.wav",
+    "606d48d6": "606d48d6.wav",
+    "99a63481": "99a63481.wav",
+    "fba0f28c": "fba0f28c.wav",
+    "9e813a07": "9e813a07.wav",
+    "7c30c360": "7c30c360.wav",
+    "a22e84c9": "a22e84c9.wav",
+    "e3f621e6": "e3f621e6.wav",
+    "870ddd48": "870ddd48.wav",
+    "7f96c5b0": "7f96c5b0.wav",
+    "eb7af755": "eb7af755.wav",
+    "6773db89": "6773db89.wav",
+    "415cea20": "415cea20.wav",
+    "c36abe8b": "c36abe8b.wav",
+    "a5702fba": "a5702fba.wav",
+    "e763cbad": "e763cbad.wav",
+    "3d87dc78": "3d87dc78.wav"
+  }
+}
