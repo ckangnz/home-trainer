@@ -125,3 +125,18 @@ banks themselves (style prompts steer intonation, not vocabulary).
    their phrase bank in `cues.ts`/`cues.ko.ts` (keep variant counts aligned —
    the same seed picks the variant).
 3. Run the generator for that trainer and commit.
+
+
+## Independently transcribed span recovery
+
+When short-clip recognition loses words, keep the original WAV and obtain a
+separate transcript for each isolated speech span. `scripts/install_transcribed_spans.py`
+can recover only unique exact inventory matches (including exact numeric values
+and units), rejects overlapping candidates, and never overwrites accepted clips.
+Run its `--help`, prepare the documented input JSON, and use `--dry-run` first.
+Keep evidence JSON with the atom text, actual heard text, time span, method and
+clip hash. A transcript is machine evidence, not a listening or accent-quality
+check. Do not copy the expected text into a transcript field. Ambiguous names,
+merged atoms and wrong or uncertain counts must remain on device-voice fallback.
+Any individually reviewed spelling/transliteration exception needs separate
+explicit evidence; do not add blanket homophone or edit-distance acceptance.
