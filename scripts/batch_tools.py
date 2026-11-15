@@ -126,7 +126,7 @@ def ko_number(n):
 
 
 EN_WORD2NUM = {w: i for i, w in enumerate(EN_DIGITS)}
-EN_WORD2NUM.update({w: (i + 2) * 10 for i, w in enumerate(EN_TENS) if w})
+EN_WORD2NUM.update({w: i * 10 for i, w in enumerate(EN_TENS) if w})
 KO_WORD2NUM = {w: i for i, w in enumerate(KO_DIGITS) if w}
 KO_WORD2NUM.update({"공": 0})
 KO_NATIVE = {
@@ -148,8 +148,9 @@ def numbers_in(text, lang):
             if w in EN_WORD2NUM:
                 current += EN_WORD2NUM[w]
                 consuming = True
-            elif w == "hundred" and consuming:
+            elif w == "hundred":
                 current = max(current, 1) * 100
+                consuming = True
             elif w == "and" and consuming:
                 continue
             else:

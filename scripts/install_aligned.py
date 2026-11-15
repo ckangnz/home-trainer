@@ -32,7 +32,7 @@ def hash_atom(text):
 
 def asr(path, lang, mode):
     global MODEL
-    if MODEL is None: MODEL = WhisperModel("small", device="cpu", compute_type="int8")
+    if MODEL is None: MODEL = WhisperModel("small", device="cpu", compute_type="int8", cpu_threads=2)
     prompt = ("Exercise timer cues: 105 seconds, 110 seconds, 12 reps, 30 seconds, halfway, switch sides." if lang == "en"
               else "운동 타이머 안내: 105초, 110초, 12회, 30초 남았어요, 절반 왔어요, 자세 바꿔요.")
     kw = dict(beam_size=5, condition_on_previous_text=False, vad_filter=(mode == 0), initial_prompt=prompt)
@@ -55,7 +55,8 @@ class Wav:
 
 def ok_atom(w, atom, j, k):
     for mode in (0, 1):
-        v = bt.check_atom(atom, w.text(j, k, mode), w.lang)
+        heard = w.text(j, k, mode)
+        v = {**bt.check_atom(atom, heard, w.lang), "heard": heard}
         if v["ok"]: return v
     return v
 
@@ -128,11 +129,12 @@ def main():
             for i, (j, k) in acc.items():
                 h = hash_atom(atoms[i]); out = os.path.join(d, f"{h}.wav"); w.clip(j, k, out)
                 m["clips"][h] = f"{h}.wav"; installed.append(atoms[i])
-                j0, k0 = acc[i]; open(LOG, 'a').write(json.dumps({'trainer': trainer, 'lang': lang, 'batch': b, 'atom': atoms[i], 'hash': h, 'status': 'lenient' if atoms[i] in LENIENT else 'strict', 'heard': w.text(j0, k0, 0), 'wav': os.path.basename(wp), 'span': [round(w.spans[j0][0], 2), round(w.spans[j0 + k0 - 1][1], 2)]}, ensure_ascii=False) + '\n')
+                j0, k0 = acc[i]; open(LOG, 'a').write(json.dumps({'trainer': trainer, 'lang': lang, 'batch': b, 'atom': atoms[i], 'hash': h, 'status': 'strict' if ok_atom(w, atoms[i], j0, k0)['ok'] else 'lenient', 'heard': ok_atom(w, atoms[i], j0, k0)['heard'], 'wav': os.path.basename(wp), 'span': [round(w.spans[j0][0], 2), round(w.spans[j0 + k0 - 1][1], 2)]}, ensure_ascii=False) + '\n')
             json.dump(m, open(mp, "w"), indent=2, ensure_ascii=False)
         else:
             failed = {i: "batch not identified or <50% aligned; nothing installed" for i in range(len(atoms))}
         report.append({"wav": os.path.basename(wp), "batch": b, "installed": len(installed), "lenient": len([a for a in LENIENT if a in installed]), "failed_atoms": [{"atom": atoms[i], "why": why} for i, why in sorted(failed.items())]})
         print(json.dumps(report[-1], ensure_ascii=False), flush=True)
         shutil.rmtree(tmp, ignore_errors=True)
-main()
+if __name__ == "__main__":
+    main()
