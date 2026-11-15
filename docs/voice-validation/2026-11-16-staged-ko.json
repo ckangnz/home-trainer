@@ -1,0 +1,3079 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+    "hash": "e4470877",
+    "label": "staged-female-ko-e4470877",
+    "job_label": "stageko000",
+    "heard": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+    "check": {
+      "atom": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "571659252be30d8bbdd5f528d1feafddadec81f12a82df85ace72698159a1bfc",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "hash": "209a9e11",
+    "label": "staged-female-ko-209a9e11",
+    "job_label": "stageko002",
+    "heard": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "check": {
+      "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cd6ab4ec4791101a067108cd73c307f958bd4d9d9e86c604e1ec958e416a8709",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "label": "staged-female-ko-f06d0582",
+    "job_label": "stageko003",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "check": {
+      "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "14dce5974fb1a681facfca6ae2885df98164d4ecdf0fa16008cebadefc75972b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "균형이 필요하면 벽이나 의자를 잡아요.",
+    "hash": "4a58db4c",
+    "label": "staged-female-ko-4a58db4c",
+    "job_label": "stageko005",
+    "heard": "균형이 필요하면 벽이나 의자를 잡아요.",
+    "check": {
+      "atom": "균형이 필요하면 벽이나 의자를 잡아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "95241f4a6d593408cc9f5d0549b56405dc59db7b625a67d88cbb18949fa0df23",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "덤벨 스텝업",
+    "hash": "4baa2f47",
+    "label": "staged-female-ko-4baa2f47",
+    "job_label": "stageko010",
+    "heard": "덤벨 스텝업",
+    "check": {
+      "atom": "덤벨 스텝업",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "453ae907cd48b6f3238dfa50907f811f7507541b41c9ea433a48a153620f88a9",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "덤벨 풀오버",
+    "hash": "71d92c69",
+    "label": "staged-female-ko-71d92c69",
+    "job_label": "stageko012",
+    "heard": "덤벨 풀오버",
+    "check": {
+      "atom": "덤벨 풀오버",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ce30cf2351bcad0d92b92651291d7be22b2f5e754de3808cb723df1584322f5f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "hash": "9575f0e2",
+    "label": "staged-female-ko-9575f0e2",
+    "job_label": "stageko013",
+    "heard": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "21cf91876d7899c44ad70db1218f6eb69a1505d4cec6b6e2079a1529b1817dcd",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+    "hash": "5e8dd6a9",
+    "label": "staged-female-ko-5e8dd6a9",
+    "job_label": "stageko016",
+    "heard": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+    "check": {
+      "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "bd027f2099c96e5591fc98cb760e1dbb798fcbffe7aa224088089841eb28c524",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "디딘 다리의 무릎은 살짝 굽혀요.",
+    "hash": "18d07e05",
+    "label": "staged-female-ko-18d07e05",
+    "job_label": "stageko017",
+    "heard": "디딘 다리의 무릎은 살짝 굽혀요.",
+    "check": {
+      "atom": "디딘 다리의 무릎은 살짝 굽혀요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "039504bd8e3a4b88a4416513451026150fd15a65b8f6f6e642f2594c4c00df75",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "레터럴 셔플",
+    "hash": "4a0d9141",
+    "label": "staged-female-ko-4a0d9141",
+    "job_label": "stageko020",
+    "heard": "레터럴 셔플",
+    "check": {
+      "atom": "레터럴 셔플",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "51d0887ef8b9d33f24c17a4acfe6777c8927dc1cb897c622e67bccbfce82bb86",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "hash": "8143d2c3",
+    "label": "staged-female-ko-8143d2c3",
+    "job_label": "stageko023",
+    "heard": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "check": {
+      "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "8fe13e85cbf2d189b8d63384a88770c7bba2a0284d5d1254be554e212370ef3d",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "몸을 뒤로 젖혀 당기지 말고 똑바로 앉은 자세를 유지해요.",
+    "hash": "2c89fe82",
+    "label": "staged-female-ko-2c89fe82",
+    "job_label": "stageko024",
+    "heard": "몸을 뒤로 젖혀 당기지 말고 똑바로 앉은 자세를 유지해요.",
+    "check": {
+      "atom": "몸을 뒤로 젖혀 당기지 말고 똑바로 앉은 자세를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cdc2444ba0d7469f40fb1511983f5d2435f5c1ee6da35dac1e6e86615a8c209e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "hash": "7ea17346",
+    "label": "staged-female-ko-7ea17346",
+    "job_label": "stageko025",
+    "heard": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "check": {
+      "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "28acd0caa78bd3410c1c60f17815fc449d7d0cba8427da32993621d6d56051ad",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "바벨 벤치 프레스",
+    "hash": "44bcc2df",
+    "label": "staged-female-ko-44bcc2df",
+    "job_label": "stageko028",
+    "heard": "바벨 벤치 프레스",
+    "check": {
+      "atom": "바벨 벤치 프레스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ef75894387df28a95e60cc5f9a981d8d7296f36ccecc40b78a2d27dff629d3a3",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "발 앞꿈치로 먼저 착지한 뒤 뒤꿈치를 내려놓아요.",
+    "hash": "863162b7",
+    "label": "staged-female-ko-863162b7",
+    "job_label": "stageko033",
+    "heard": "발 앞꿈치로 먼저 착지한 뒤 뒤꿈치를 내려놓아요?",
+    "check": {
+      "atom": "발 앞꿈치로 먼저 착지한 뒤 뒤꿈치를 내려놓아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9cf277b0dbe546e7b2beeb4e2dcca910845a8232f354fe74c9ab3bb90e55967f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "hash": "5d9edb1b",
+    "label": "staged-female-ko-5d9edb1b",
+    "job_label": "stageko036",
+    "heard": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "check": {
+      "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f468cf6d9c4bcf4a1afe9899770d96deb8b1d7ae8c36c6f8726f0ec39cacccf1",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "밴드 패스스루",
+    "hash": "4ab5be8f",
+    "label": "staged-female-ko-4ab5be8f",
+    "job_label": "stageko037",
+    "heard": "밴드 패스 스루",
+    "check": {
+      "atom": "밴드 패스스루",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "fea808240af295d84bd3ba630cf2fd85e036d3c37024c8ce0e3f578b7f16b7a7",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "벤트오버 덤벨 로우",
+    "hash": "46399d21",
+    "label": "staged-female-ko-46399d21",
+    "job_label": "stageko042",
+    "heard": "벤트오버 덤벨 로우",
+    "check": {
+      "atom": "벤트오버 덤벨 로우",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a9a1ea0e9dc66de9b9cccb50db676ca6ce1ede2b566f5e75c6b2aca5b76f4f6f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "hash": "0bb10a80",
+    "label": "staged-female-ko-0bb10a80",
+    "job_label": "stageko043",
+    "heard": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "25698ff88fb3465d067246b5978b196df5b12d832ba0066d18ea3ca9ccaad92e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "서 있는 다리의 무릎은 잠그지 말고 살짝 굽혀요.",
+    "hash": "a86854cb",
+    "label": "staged-female-ko-a86854cb",
+    "job_label": "stageko044",
+    "heard": "서있는 다리의 무릎은 잠그지 말고 살짝 굽혀요.",
+    "check": {
+      "atom": "서 있는 다리의 무릎은 잠그지 말고 살짝 굽혀요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9fc5ee8e99dcb4f7e2cf541e7a58b9f0dd0e1255844ab096085f1ed3355219a0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "세게 당기지 말고 손 무게만 실어요.",
+    "hash": "00852aac",
+    "label": "staged-female-ko-00852aac",
+    "job_label": "stageko045",
+    "heard": "세게 당기지 말고 손 무게만 실어요.",
+    "check": {
+      "atom": "세게 당기지 말고 손 무게만 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "830db2a8d5721e890b1b5518a7ae3081b7fbbc4b2395925763055f975c0c1dfc",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+    "hash": "5402f2b2",
+    "label": "staged-female-ko-5402f2b2",
+    "job_label": "stageko046",
+    "heard": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+    "check": {
+      "atom": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "916072b92436ba8bbe74f0189b672973d02296ab49b81a2656354b4c16c0fe3e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "스쿼트 스러스트",
+    "hash": "e807ce31",
+    "label": "staged-female-ko-e807ce31",
+    "job_label": "stageko047",
+    "heard": "스쿼트 스러스트",
+    "check": {
+      "atom": "스쿼트 스러스트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5b4ea71d94c69399e8a99d85d2a277a90389eb6ccb9f92b670ff7216961e415c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "hash": "d3e381e4",
+    "label": "staged-female-ko-d3e381e4",
+    "job_label": "stageko051",
+    "heard": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "check": {
+      "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "19c78f6974c591fc6366cac5e670495d86e822c11384b74423f3f6248f43e3ba",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "시티드 밴드 로우",
+    "hash": "105dd583",
+    "label": "staged-female-ko-105dd583",
+    "job_label": "stageko052",
+    "heard": "시티드 밴드 로우",
+    "check": {
+      "atom": "시티드 밴드 로우",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "8bc391eb80819b2c05f68a168ff82743111af29b87a58dc39d740589b87a2cf7",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "실 꿰기 자세",
+    "hash": "c26fe343",
+    "label": "staged-female-ko-c26fe343",
+    "job_label": "stageko053",
+    "heard": "실꿰기 자세",
+    "check": {
+      "atom": "실 꿰기 자세",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c59818a8ddaddcb5abc0c17ade35fb30fe2033d411ea96766a0f4a23c25241f0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "싱글 레그 글루트 브릿지",
+    "hash": "92a79ecf",
+    "label": "staged-female-ko-92a79ecf",
+    "job_label": "stageko054",
+    "heard": "싱글 레그 글루트 브릿지",
+    "check": {
+      "atom": "싱글 레그 글루트 브릿지",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "37df2b23da30ef900021a725efb52579403e9af32f651e2598afce5c1461de41",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "싱글 레그 데드리프트",
+    "hash": "946f8fa8",
+    "label": "staged-female-ko-946f8fa8",
+    "job_label": "stageko055",
+    "heard": "싱글 레그 데드 리프트",
+    "check": {
+      "atom": "싱글 레그 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "23bc8e7d71974c58b3bfdea8edaf63f080d249c7fb08a8830652063a015c16b5",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "아놀드 프레스",
+    "hash": "cda767b7",
+    "label": "staged-female-ko-cda767b7",
+    "job_label": "stageko057",
+    "heard": "아놀드 프레스?",
+    "check": {
+      "atom": "아놀드 프레스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "17fb7ea72ede757548e97099b69595ab9ab70b3f9178573a02c01b7bbd50a861",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "a8e5311b",
+    "label": "staged-female-ko-a8e5311b",
+    "job_label": "stageko059",
+    "heard": "엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "check": {
+      "atom": "엉덩이가 처지지 않게 코어에 힘을 줘요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3d983f1672cb4d077e3743fad2a7d6154dae70c2dbcd9309201463c5bd4916d6",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "윈드실드 와이퍼",
+    "hash": "07036819",
+    "label": "staged-female-ko-07036819",
+    "job_label": "stageko062",
+    "heard": "윈드실드 와이퍼",
+    "check": {
+      "atom": "윈드실드 와이퍼",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cdf08f739802caa7ff4f617e7fb7be392bc19688e9642c2541f9a759143c3e45",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "케틀벨 데드리프트",
+    "hash": "e7058003",
+    "label": "staged-female-ko-e7058003",
+    "job_label": "stageko070",
+    "heard": "케틀벨 데드리프트",
+    "check": {
+      "atom": "케틀벨 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a9722cceed0fad184468d9eb1edea08788fedd61daf427230f4a65a7cc225508",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "케틀벨 스모 스쿼트",
+    "hash": "26a63a41",
+    "label": "staged-female-ko-26a63a41",
+    "job_label": "stageko071",
+    "heard": "케틀벨 스모 스쿼트",
+    "check": {
+      "atom": "케틀벨 스모 스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d134dac52e2d223b9427979f5054fae5ce7a45a9f3f8f5a920560b562b8e9035",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "케틀벨 스윙",
+    "hash": "a6a51396",
+    "label": "staged-female-ko-a6a51396",
+    "job_label": "stageko072",
+    "heard": "케틀벨 스윙",
+    "check": {
+      "atom": "케틀벨 스윙",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c3b617806169e251bd7c10d9d3ce57cc1bc977cc8ed4cb39f96b5afac258b3c1",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "078f19b0",
+    "label": "staged-female-ko-078f19b0",
+    "job_label": "stageko077",
+    "heard": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "check": {
+      "atom": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f745ba4022d6d616f044a922cd7e6cfc77403466f0b5b76d86731e8de5c25d31",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "015d07ec",
+    "label": "staged-female-ko-015d07ec",
+    "job_label": "stageko078",
+    "heard": "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "check": {
+      "atom": "플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "90137776a5ecabdaa1ccc8a5e11a9bb57b4ff11d94d48e5d86d22b29c533d824",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "한 번 반복하는 동안 손과 발끝 위치는 그대로 유지해요.",
+    "hash": "3dd310a2",
+    "label": "staged-female-ko-3dd310a2",
+    "job_label": "stageko080",
+    "heard": "한 번 반복하는 동안 손과 발끝 위치는 그대로 유지해요.",
+    "check": {
+      "atom": "한 번 반복하는 동안 손과 발끝 위치는 그대로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "b2343c007c7434dd1ad2d48eea878778ced7070005d9e17c6434aa29d7a49394",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "힘은 팔이 아니라 골반에서 나와요.",
+    "hash": "ddd74559",
+    "label": "staged-female-ko-ddd74559",
+    "job_label": "stageko081",
+    "heard": "힘은 팔이 아니라 골반에서 나와요.",
+    "check": {
+      "atom": "힘은 팔이 아니라 골반에서 나와요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "430a8ed0a140059f917ea470b5f0dbd76bcce8a1312504bcdb76ec936e7c5db5",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "골반 돌리기",
+    "hash": "34e3d6d5",
+    "label": "staged-male-ko-34e3d6d5",
+    "job_label": "stageko084",
+    "heard": "골반 돌리기",
+    "check": {
+      "atom": "골반 돌리기",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "501ba2ea41b662f0373da3a8367ac0841fff098575552cd523e6aa776cd9bd19",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "hash": "769fdb2d",
+    "label": "staged-male-ko-769fdb2d",
+    "job_label": "stageko085",
+    "heard": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "check": {
+      "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "52c3e4da674a5cf8fd9f70e0672050f710578622a047a4de7695d3fc4db6a55b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "hash": "209a9e11",
+    "label": "staged-male-ko-209a9e11",
+    "job_label": "stageko086",
+    "heard": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "check": {
+      "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "89089725f8805b3b436226fbdae4edcc3e563931a2a491c8387cf7197709f72c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "label": "staged-male-ko-f06d0582",
+    "job_label": "stageko087",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "check": {
+      "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5ee40a9a150b225cf52b42c56f382ea3d82984dc31ed88ae68c77f749fc95961",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "덤벨 스텝업",
+    "hash": "4baa2f47",
+    "label": "staged-male-ko-4baa2f47",
+    "job_label": "stageko088",
+    "heard": "덤벨 스텝업",
+    "check": {
+      "atom": "덤벨 스텝업",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a0abcd9470c320fdf5102d2dbf9f5a45ba73a3f0dbdc1e89360279fcc2db856c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "덤벨 싱글 레그 데드리프트",
+    "hash": "4c95125a",
+    "label": "staged-male-ko-4c95125a",
+    "job_label": "stageko089",
+    "heard": "덤벨 싱글 레그 데드 리프트",
+    "check": {
+      "atom": "덤벨 싱글 레그 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "b8c0dbf6ca77dc30360b76d0fec2a3f2ab5a0b5a947d844a72e821c806650f00",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "덤벨은 가슴 가까이, 팔꿈치는 몸에 붙여요.",
+    "hash": "0c9d806a",
+    "label": "staged-male-ko-0c9d806a",
+    "job_label": "stageko093",
+    "heard": "덤벨은 가슴 가까이, 팔꿈치는 몸에 붙여요.",
+    "check": {
+      "atom": "덤벨은 가슴 가까이, 팔꿈치는 몸에 붙여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6325b110f0e87306d25b3f36c187d4cdffa1c22f323cb9197df168f658ee779e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "hash": "9575f0e2",
+    "label": "staged-male-ko-9575f0e2",
+    "job_label": "stageko094",
+    "heard": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "28c78c9c274026279eb69d894c6b40aa4be54d19d118c395c87beb641d70f8fd",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+    "hash": "5e8dd6a9",
+    "label": "staged-male-ko-5e8dd6a9",
+    "job_label": "stageko099",
+    "heard": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한덩어리로 움직여요.",
+    "check": {
+      "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "0c598f526893e3a84413bdcf3e6a4f0db133f92aae309c7cc290fca455699311",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "hash": "fd442a4d",
+    "label": "staged-male-ko-fd442a4d",
+    "job_label": "stageko100",
+    "heard": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "check": {
+      "atom": "뒷다리는 길게 뻗고 힘을 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "af3da0bc77b4b791f7b865e8beb3b39064454c4d9864cc6cf7c1bd204306db94",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "레터럴 셔플",
+    "hash": "4a0d9141",
+    "label": "staged-male-ko-4a0d9141",
+    "job_label": "stageko101",
+    "heard": "레터럴 셔플",
+    "check": {
+      "atom": "레터럴 셔플",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d3f8f7d078c7036d1fdcc641b366d5379efd54cdd663df8e0aca8e62a3a36827",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "반동으로 들지 말고 상체를 고정해요.",
+    "hash": "ade9fb6e",
+    "label": "staged-male-ko-ade9fb6e",
+    "job_label": "stageko103",
+    "heard": "반동으로 들지 말고 상체를 고정해요.",
+    "check": {
+      "atom": "반동으로 들지 말고 상체를 고정해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "74b369e08133638cad804ff3fdd5a2aa078c0c90086ecfaa9fa5729425af9ab8",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "발끝을 안쪽이나 바깥쪽으로 돌려 근육의 다른 부위를 풀어요.",
+    "hash": "c38ab6c6",
+    "label": "staged-male-ko-c38ab6c6",
+    "job_label": "stageko105",
+    "heard": "발끝을 안쪽이나 바깥쪽으로 돌려 근육의 다른 부위를 풀어요.",
+    "check": {
+      "atom": "발끝을 안쪽이나 바깥쪽으로 돌려 근육의 다른 부위를 풀어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9d0ec9bcfe30220242ce082d5f6470fca449b85263857102947b2fbf9025b653",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "발은 무릎 위나 아래에 두고, 무릎 관절에 직접 대지 않아요.",
+    "hash": "88063d43",
+    "label": "staged-male-ko-88063d43",
+    "job_label": "stageko106",
+    "heard": "발은 무릎 위나 아래에 두고 무릎 관절에 직접 대지 않아요?",
+    "check": {
+      "atom": "발은 무릎 위나 아래에 두고, 무릎 관절에 직접 대지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d8b4b0d59d368450623f05acb4223ebba962a1929c0a98823f0ae1ec2160d37d",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "hash": "5d9edb1b",
+    "label": "staged-male-ko-5d9edb1b",
+    "job_label": "stageko109",
+    "heard": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "check": {
+      "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1b06ce1b35bca65a2d01df5c30e627da378dbff557cf46055c3ed7b0d554c09a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "베어 크롤",
+    "hash": "6d7c80bb",
+    "label": "staged-male-ko-6d7c80bb",
+    "job_label": "stageko113",
+    "heard": "베어크롤",
+    "check": {
+      "atom": "베어 크롤",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "dc012ae79dc6a0ac2017b8ca51156940955c28e90bdffd44845593b84f385602",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "골반 돌리기",
+    "hash": "34e3d6d5",
+    "label": "staged-marcus-ko-34e3d6d5",
+    "job_label": "stageko117",
+    "heard": "골반 돌리기",
+    "check": {
+      "atom": "골반 돌리기",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f135e428d4f3959f644c0d8e8d1e3fd42383a5fd0e68bb0b5d3ba89124413b15",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "hash": "769fdb2d",
+    "label": "staged-marcus-ko-769fdb2d",
+    "job_label": "stageko118",
+    "heard": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "check": {
+      "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "0e7aefefcda170a8c147b5ab373ac2db222f75bbf2ea0171dbee70fb2a209673",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요.",
+    "hash": "9d529ef7",
+    "label": "staged-marcus-ko-9d529ef7",
+    "job_label": "stageko119",
+    "heard": "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요.",
+    "check": {
+      "atom": "골반을 흔들거나 상체를 젖혀 반동으로 들지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3a411758af56d6e17ecbb63abe93e7596f59c8eccee95793a6331a2df20fbefb",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "hash": "ed29a5e9",
+    "label": "staged-marcus-ko-ed29a5e9",
+    "job_label": "stageko121",
+    "heard": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "check": {
+      "atom": "골반이 바닥과 평행하게 유지되도록 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "204041b4944e11243bbd544bbf2c74d813d349611b235022757797fabdb55853",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "label": "staged-marcus-ko-f06d0582",
+    "job_label": "stageko122",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "check": {
+      "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d72dca0c87fa94475c946bcc84b19417b1e48192cbe8de9edbc9e9bc07fffe62",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "뉴트럴 그립 덤벨 프레스",
+    "hash": "8cbfdfb6",
+    "label": "staged-marcus-ko-8cbfdfb6",
+    "job_label": "stageko123",
+    "heard": "뉴트럴 그립 덤벨 프레스",
+    "check": {
+      "atom": "뉴트럴 그립 덤벨 프레스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d103514994d9def46225a48e7142aab4b7f9e3385f4560ce1c024a85be350e66",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "다리를 들 때 허리가 꺾이지 않게 등을 평평하게 유지해요.",
+    "hash": "792ce0c6",
+    "label": "staged-marcus-ko-792ce0c6",
+    "job_label": "stageko125",
+    "heard": "다리를 들 때 허리가 꺾이지 않게 등을 평평하게 유지해요.",
+    "check": {
+      "atom": "다리를 들 때 허리가 꺾이지 않게 등을 평평하게 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cd844fda4758e3848fbf2962b3a6d107dc0d66de086e018d767699fd6afbd813",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "hash": "b45bc98a",
+    "label": "staged-marcus-ko-b45bc98a",
+    "job_label": "stageko126",
+    "heard": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "check": {
+      "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f8d28f8a12a7ae2356843f6f870a812436a099abee6f9bdf1650f28d6ce4d585",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "덤벨 루마니안 데드리프트",
+    "hash": "a82bda2f",
+    "label": "staged-marcus-ko-a82bda2f",
+    "job_label": "stageko130",
+    "heard": "덤벨 루마니안 데드리프트",
+    "check": {
+      "atom": "덤벨 루마니안 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cc6c4b00fa3db3c9800f3819ec07f9213de422eeac6d0e3eed7d6fe06fcd186c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "hash": "9575f0e2",
+    "label": "staged-marcus-ko-9575f0e2",
+    "job_label": "stageko132",
+    "heard": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f2c3c3967e747017ba0231f1233240b5e1a7475d6bc2fc435beabc8ceb3be86f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "동작 내내 등은 평평하게, 팔은 길게 뻗은 상태를 유지해요.",
+    "hash": "566de97e",
+    "label": "staged-marcus-ko-566de97e",
+    "job_label": "stageko133",
+    "heard": "동작 내내 등은 평평하게, 팔은 길게 뻗은 상태를 유지해요.",
+    "check": {
+      "atom": "동작 내내 등은 평평하게, 팔은 길게 뻗은 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f17a2bb9eac5a7c2557fd7b960de9f2ed6b65252d31565cfc4fb2b6501ee0db3",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "hash": "8143d2c3",
+    "label": "staged-marcus-ko-8143d2c3",
+    "job_label": "stageko134",
+    "heard": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "check": {
+      "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "058261d08f7871c94594787ec915f6443009da7ecc17a80064966e569c58154d",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "hash": "aa2802ba",
+    "label": "staged-marcus-ko-aa2802ba",
+    "job_label": "stageko135",
+    "heard": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "check": {
+      "atom": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "82cd6f358978c68ea05d4a46ff28675ed3cec5ea8e26d5239eedbc2e0d3cad80",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "hash": "7ea17346",
+    "label": "staged-marcus-ko-7ea17346",
+    "job_label": "stageko136",
+    "heard": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "check": {
+      "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a7347aa36bc4540d3b6e792624ddbff93bfbed656415a8a4320631dc2219683a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "hash": "4b19804f",
+    "label": "staged-marcus-ko-4b19804f",
+    "job_label": "stageko139",
+    "heard": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "check": {
+      "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "01c935fa13f28bd237411e76e20d09bbdb7f25df9b06ed4cb79eac3312fee627",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "무릎이 발끝과 같은 방향을 향하게 해요.",
+    "hash": "49f6724a",
+    "label": "staged-marcus-ko-49f6724a",
+    "job_label": "stageko140",
+    "heard": "무릎이 발끝과 같은 방향을 향하게 해요.",
+    "check": {
+      "atom": "무릎이 발끝과 같은 방향을 향하게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "594c37735d83cd424a1edfc770fede8cc465bf97dbdd3e53a32d6befbc3d0b8a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요.",
+    "hash": "7563ee5c",
+    "label": "staged-marcus-ko-7563ee5c",
+    "job_label": "stageko141",
+    "heard": "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요.",
+    "check": {
+      "atom": "무릎이 앞으로 올 때 엉덩이를 낮고 수평으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "7c40f5244deab3edcc619cc9288d73e2218778b6cb37b5307df22677a85d4ec5",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요.",
+    "hash": "1809c002",
+    "label": "staged-marcus-ko-1809c002",
+    "job_label": "stageko142",
+    "heard": "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요.",
+    "check": {
+      "atom": "밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9571092d462d18a761fbf6cc913acdf1fb997397ad6b6f74c32fd15d9803be19",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바벨 데드리프트",
+    "hash": "c725dd4d",
+    "label": "staged-marcus-ko-c725dd4d",
+    "job_label": "stageko147",
+    "heard": "바벨 데드리프트",
+    "check": {
+      "atom": "바벨 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "accd826445a346a61d9ada8eca93a0d04bd6c9b2d1cd5d9d7cb668924621a3ac",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바벨 루마니안 데드리프트",
+    "hash": "06a5261f",
+    "label": "staged-marcus-ko-06a5261f",
+    "job_label": "stageko149",
+    "heard": "바벨 루마니안 데드리프트",
+    "check": {
+      "atom": "바벨 루마니안 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "eddc2484f62a12e91431a0545c5cb1ea00d3fc3912e6279055a2ee20f5a4317e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바벨 백 스쿼트",
+    "hash": "25ed9ef6",
+    "label": "staged-marcus-ko-25ed9ef6",
+    "job_label": "stageko150",
+    "heard": "바벨 백 스쿼트",
+    "check": {
+      "atom": "바벨 백 스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "32d71d5d0b8cd64b9c4e3eb69b141430b8c6e7426501c0eea0d268d708c31d29",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+    "hash": "50952835",
+    "label": "staged-marcus-ko-50952835",
+    "job_label": "stageko153",
+    "heard": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+    "check": {
+      "atom": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6161f4e0f453195caf94d90a100a77f03d02a99d97b32e793faf3df6cc48e9f1",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "hash": "0bb10a80",
+    "label": "staged-marcus-ko-0bb10a80",
+    "job_label": "stageko154",
+    "heard": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1372a37fcde24ce4fd8e357dfb9c731de5127185533bd71bffc2c9f5faca8fe7",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "선 자세 전굴",
+    "hash": "d6bcd0a7",
+    "label": "staged-marcus-ko-d6bcd0a7",
+    "job_label": "stageko156",
+    "heard": "손자세 전굴",
+    "check": {
+      "atom": "선 자세 전굴",
+      "ratio": 0.8,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c8f6f0c091ac676badfe5acf7763d70267995ef115f664a0df5d52d69748d9b9",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "선 자세 허벅지 앞쪽 스트레칭",
+    "hash": "456a8784",
+    "label": "staged-marcus-ko-456a8784",
+    "job_label": "stageko157",
+    "heard": "선자세 허벅지 앞쪽 스트레칭",
+    "check": {
+      "atom": "선 자세 허벅지 앞쪽 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "48685aabb9f1c4e73ebe8c752fab3e8d66444d051b7a2ba8182caf94cf9f6ec0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "세게 당기지 말고 손 무게만 실어요.",
+    "hash": "00852aac",
+    "label": "staged-marcus-ko-00852aac",
+    "job_label": "stageko158",
+    "heard": "세게 당기지 말고 손 무게만 실어요.",
+    "check": {
+      "atom": "세게 당기지 말고 손 무게만 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1a5a747febf9c140b3b5ea5788fb0ca28f5bfdd83f524fdd6bcb9da32adf1ffd",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "손 위치를 조금 높이거나 낮춰 가장 시원한 지점을 찾아요.",
+    "hash": "3fc51568",
+    "label": "staged-marcus-ko-3fc51568",
+    "job_label": "stageko159",
+    "heard": "손 위치를 조금 높이거나 낮춰 가장 시원한 지점을 찾아요.",
+    "check": {
+      "atom": "손 위치를 조금 높이거나 낮춰 가장 시원한 지점을 찾아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a80da9d308051db07e606570f933cf51c246f45e26c2c9fc8bf9c0ea724d6e03",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "손목 굴곡근 스트레칭",
+    "hash": "d55d0c2e",
+    "label": "staged-marcus-ko-d55d0c2e",
+    "job_label": "stageko160",
+    "heard": "손목 굴곡근 스트레칭",
+    "check": {
+      "atom": "손목 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6acd20c7a6d550a6ea8f23ba3792f124b27b5908cb142a848cc227f9c0a5171e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "스모 데드리프트",
+    "hash": "de17933d",
+    "label": "staged-marcus-ko-de17933d",
+    "job_label": "stageko161",
+    "heard": "스모 데드 리프트",
+    "check": {
+      "atom": "스모 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9a5f70bd2cb05ad8c15a43668fab746f4e7ca85c57c08e634f642a0829f63c2a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "스쿼트 스러스트",
+    "hash": "e807ce31",
+    "label": "staged-marcus-ko-e807ce31",
+    "job_label": "stageko164",
+    "heard": "스쿼트 스러스트",
+    "check": {
+      "atom": "스쿼트 스러스트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9a8f88056dc3bb90e702df5b8eb7cfc25660a5f38dee8e958775df8e7b48430a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "hash": "d3e381e4",
+    "label": "staged-marcus-ko-d3e381e4",
+    "job_label": "stageko169",
+    "heard": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "check": {
+      "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "982e7bd0a63f60bb03e6a9c3ce4737f6cee1e2f81e80a2d5e6f642bd707ec349",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "싱글 레그 글루트 브릿지",
+    "hash": "92a79ecf",
+    "label": "staged-marcus-ko-92a79ecf",
+    "job_label": "stageko172",
+    "heard": "싱글 레그 글루트 브릿지",
+    "check": {
+      "atom": "싱글 레그 글루트 브릿지",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "750304700a814001c69a75bde866d4f8c5fa93ab0fcc6e7f06b5a4df6691ecb0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "케틀벨 데드리프트",
+    "hash": "e7058003",
+    "label": "staged-marcus-ko-e7058003",
+    "job_label": "stageko175",
+    "heard": "케틀벨 데드리프트",
+    "check": {
+      "atom": "케틀벨 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3b935035409f36fe877bc66b0a17a4ea39f943ab137dc626203507e96b23bf5c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+    "hash": "03cedb11",
+    "label": "staged-marcus-ko-03cedb11",
+    "job_label": "stageko177",
+    "heard": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+    "check": {
+      "atom": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3f26378ea4b91736857d4c927f7e9a94722bce08dc75cbb2247fda07d7549396",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "트라이셉스 킥백",
+    "hash": "4c072a98",
+    "label": "staged-marcus-ko-4c072a98",
+    "job_label": "stageko178",
+    "heard": "트라이셉스 킥백",
+    "check": {
+      "atom": "트라이셉스 킥백",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "af899c4b68a68c0f140a9b07ec340366ac219c2749e2844fb9b22f9956ddaa4c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+    "hash": "a628d70d",
+    "label": "staged-marcus-ko-a628d70d",
+    "job_label": "stageko181",
+    "heard": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+    "check": {
+      "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c2072c43a2a32c96c59b9a9d024baed05db12c20e9201c9d4386eded3e6ce740",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "팔꿈치를 높게 유지해 바가 어깨 위에 머물게 해요.",
+    "hash": "44c86ac5",
+    "label": "staged-marcus-ko-44c86ac5",
+    "job_label": "stageko182",
+    "heard": "팔꿈치를 높게 유지해 바가 어깨 위에 머물게 해요.",
+    "check": {
+      "atom": "팔꿈치를 높게 유지해 바가 어깨 위에 머물게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "076a2921ac2a64098d461f362e62c3a6f9bfa43c02e4d9af9d0814a8f8442d2c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "팔은 계속 어깨 높이를 유지해요.",
+    "hash": "c6d40920",
+    "label": "staged-marcus-ko-c6d40920",
+    "job_label": "stageko184",
+    "heard": "팔은 계속 어깨 높이를 유지해요.",
+    "check": {
+      "atom": "팔은 계속 어깨 높이를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "32a77e182dd3e96908e7a7c4b17a7f210d499053c61a4ce081b7ec816002abc2",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "폼롤러 고관절 굴곡근",
+    "hash": "5d063902",
+    "label": "staged-marcus-ko-5d063902",
+    "job_label": "stageko187",
+    "heard": "폼롤러 고관절 굴곡근",
+    "check": {
+      "atom": "폼롤러 고관절 굴곡근",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "bc3295057d6dff29947a0d6e23ed0f9a3392bf02aa057a2223e87d64c229bbe0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "폼롤러 허벅지 앞쪽",
+    "hash": "0982bbfb",
+    "label": "staged-marcus-ko-0982bbfb",
+    "job_label": "stageko192",
+    "heard": "폼롤러 허벅지 앞쪽",
+    "check": {
+      "atom": "폼롤러 허벅지 앞쪽",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5a95e3c3e1187dd1628b7b48e9939d32f2c4ac8382bdc3a1e16c6c5dab1a2dbc",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "hash": "209a9e11",
+    "label": "staged-sofia-ko-209a9e11",
+    "job_label": "stageko196",
+    "heard": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+    "check": {
+      "atom": "골반이 뒤로 넘어가지 않게 위아래로 포개 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "4958a1a6fe75a990e5cba0f3b2cd2d1027f13832043ca9415f02e287026be658",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "hash": "ed29a5e9",
+    "label": "staged-sofia-ko-ed29a5e9",
+    "job_label": "stageko197",
+    "heard": "골반이 바닥과 평행하게 유지되도록 해요.",
+    "check": {
+      "atom": "골반이 바닥과 평행하게 유지되도록 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "8c941ccffc63ac3331d5cd0c7b0f676ff3ee48479a7e5455ea5600b2da7fc3d2",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "label": "staged-sofia-ko-f06d0582",
+    "job_label": "stageko198",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "check": {
+      "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "63a982fd805ad9a41fbb8a6ecdfc796858e0c531e0b0cdd69fb22b693c82cc0e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "굽힌 다리의 뒤꿈치가 바닥에 붙어 있는 만큼만 내려가요.",
+    "hash": "82fdbc14",
+    "label": "staged-sofia-ko-82fdbc14",
+    "job_label": "stageko199",
+    "heard": "굽힌 다리의 뒤꿈치가 바닥에 붙어 있는 만큼만 내려가요.",
+    "check": {
+      "atom": "굽힌 다리의 뒤꿈치가 바닥에 붙어 있는 만큼만 내려가요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d176643e8f9e0c5aecea2368acb7a436820df194fee5eac3f648c8c48432a5cf",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "균형이 안정될 때까지 가벼운 무게로 시작해요.",
+    "hash": "b0ae06a0",
+    "label": "staged-sofia-ko-b0ae06a0",
+    "job_label": "stageko200",
+    "heard": "균형이 안정될 때까지 가벼운 무게로 시작해요.",
+    "check": {
+      "atom": "균형이 안정될 때까지 가벼운 무게로 시작해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1b41457d91c564d1600cbf08510fef67020013bf65757a835d83d70c849da365",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "내딛는 발은 앞꿈치로 부드럽게 디뎌요.",
+    "hash": "9f8b26bb",
+    "label": "staged-sofia-ko-9f8b26bb",
+    "job_label": "stageko204",
+    "heard": "내 딛는 발은 앞꿈치로 부드럽게 디뎌요.",
+    "check": {
+      "atom": "내딛는 발은 앞꿈치로 부드럽게 디뎌요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "abbe4daec7a30061ce532e2d59f9107fcbd03dee48df34cc7d154989217c9c28",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "다리는 움직이지 않고 위로 곧게 유지해요.",
+    "hash": "d4677e89",
+    "label": "staged-sofia-ko-d4677e89",
+    "job_label": "stageko207",
+    "heard": "다리는 움직이지 않고 위로 곧게 유지해요.",
+    "check": {
+      "atom": "다리는 움직이지 않고 위로 곧게 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "0e1bfb2487310186de27b955dbc391ba7a856ab826794141198839f2a63d65c9",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "hash": "b45bc98a",
+    "label": "staged-sofia-ko-b45bc98a",
+    "job_label": "stageko208",
+    "heard": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "check": {
+      "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "07959552f2797f22b889a1b78de5fc790f34bdb0021512692864b113321ab680",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨 글루트 브릿지",
+    "hash": "31a96852",
+    "label": "staged-sofia-ko-31a96852",
+    "job_label": "stageko210",
+    "heard": "덤벨 글루트 브릿지",
+    "check": {
+      "atom": "덤벨 글루트 브릿지",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3310f106577c7ed77a0644ba88f0502345b04fb10bf83c38ecc99235033fb42f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨 루마니안 데드리프트",
+    "hash": "a82bda2f",
+    "label": "staged-sofia-ko-a82bda2f",
+    "job_label": "stageko211",
+    "heard": "덤벨 루마니안 데드리프트",
+    "check": {
+      "atom": "덤벨 루마니안 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6f1d96ba828d3c7cc5f7db75cf7d2cd51e51daaff2f84fbc42164d36f22c3e25",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨 스텝업",
+    "hash": "4baa2f47",
+    "label": "staged-sofia-ko-4baa2f47",
+    "job_label": "stageko212",
+    "heard": "덤벨 스텝 업",
+    "check": {
+      "atom": "덤벨 스텝업",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ec0716b10164747e49aceff59eff850a4d19ba2c9c8bccad3123a44577ba3b2a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨 스플릿 스쿼트",
+    "hash": "ae917e44",
+    "label": "staged-sofia-ko-ae917e44",
+    "job_label": "stageko213",
+    "heard": "덤벨 스플릿 스쿼트",
+    "check": {
+      "atom": "덤벨 스플릿 스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5951b6b548e4d2c4263f66db43ba8f11e3107dfb54c6e839c3ea65d6e9ab3223",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "hash": "9575f0e2",
+    "label": "staged-sofia-ko-9575f0e2",
+    "job_label": "stageko215",
+    "heard": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "덤벨은 골반 옆에 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "3c9d082c79a103d0e51df6dd5efcf2f35967d8b0f2af333ffa6305dbbdbda3e8",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "덤벨이 계속 가슴에 닿아 있게 해요.",
+    "hash": "0b68a319",
+    "label": "staged-sofia-ko-0b68a319",
+    "job_label": "stageko216",
+    "heard": "덤벨이 계속 가슴에 닿아 있게 해요.",
+    "check": {
+      "atom": "덤벨이 계속 가슴에 닿아 있게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "50423ee02485f7662a8ef7320c105dac5de5c03b5cc887c67aa34d02d2895e5b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+    "hash": "5e8dd6a9",
+    "label": "staged-sofia-ko-5e8dd6a9",
+    "job_label": "stageko217",
+    "heard": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+    "check": {
+      "atom": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "eff11c77556ecd6c6f35bf9a02318037f0da85d6e13b0d28ec7e79748bcbff2b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요.",
+    "hash": "83994574",
+    "label": "staged-sofia-ko-83994574",
+    "job_label": "stageko218",
+    "heard": "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요.",
+    "check": {
+      "atom": "뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5b4283a098f314b9220e9a8149dce4e9aae419aed16b6d669058dbe474bfda5c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "hash": "fd442a4d",
+    "label": "staged-sofia-ko-fd442a4d",
+    "job_label": "stageko219",
+    "heard": "뒷다리는 길게 뻗고 힘을 유지해요.",
+    "check": {
+      "atom": "뒷다리는 길게 뻗고 힘을 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "92952565d0e894cd55b750eebedecb06e24e6394e39c2064e461bd1674c50a06",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "hash": "aa2802ba",
+    "label": "staged-sofia-ko-aa2802ba",
+    "job_label": "stageko224",
+    "heard": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+    "check": {
+      "atom": "몸통이 돌아가지 않게 골반을 바닥과 수평으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6e14b18b18ee045ec20ec0e661381259278e229ef7e898dc5f210024f273dd87",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "hash": "7ea17346",
+    "label": "staged-sofia-ko-7ea17346",
+    "job_label": "stageko225",
+    "heard": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "check": {
+      "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "08bc0035f4e742854e29a21b98643a95a451fa2e98892cef88be0d10f1e42049",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "hash": "4b19804f",
+    "label": "staged-sofia-ko-4b19804f",
+    "job_label": "stageko228",
+    "heard": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "check": {
+      "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5a53b1681d6c13b10328a6dc0d3848f6a3fd8544330c8e5371291c26a99ec497",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+    "hash": "b717aaab",
+    "label": "staged-sofia-ko-b717aaab",
+    "job_label": "stageko229",
+    "heard": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+    "check": {
+      "atom": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "2f690f068d6dc582eb146e03e7a30e7f746eec58b242b5216262eb47aac66a59",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "바벨 오버헤드 프레스",
+    "hash": "9c87e353",
+    "label": "staged-sofia-ko-9c87e353",
+    "job_label": "stageko235",
+    "heard": "바벨 오버헤드 프레스",
+    "check": {
+      "atom": "바벨 오버헤드 프레스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "d3c14dc19e25cf99ecbdc2d7043f1982a1c3cd881ae0b2609b99ae3ffa034761",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "바벨 프론트 스쿼트",
+    "hash": "787212ed",
+    "label": "staged-sofia-ko-787212ed",
+    "job_label": "stageko236",
+    "heard": "바벨 프론트 스쿼트",
+    "check": {
+      "atom": "바벨 프론트 스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "98749043605487a4c74c789568a50fbdd3e1d75baabf6988428ef1b8d94fb411",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "발은 무릎 위나 아래에 두고, 무릎 관절에 직접 대지 않아요.",
+    "hash": "88063d43",
+    "label": "staged-sofia-ko-88063d43",
+    "job_label": "stageko240",
+    "heard": "발은 무릎 위나 아래에 두고 무릎 관절에 직접 대지 않아요?",
+    "check": {
+      "atom": "발은 무릎 위나 아래에 두고, 무릎 관절에 직접 대지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6805b2374b409341911b6b70f71eb9e89baa12c370f02dbc9d1945fe121dd706",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "hash": "5d9edb1b",
+    "label": "staged-sofia-ko-5d9edb1b",
+    "job_label": "stageko242",
+    "heard": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+    "check": {
+      "atom": "발이 손에 닿지 않으면 수건을 발에 걸어 잡아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "293b85a18e186929fae2e513d2a3a4aa78b33399dc34f59d32d9e202fd389bf9",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "밴드 고관절 굴곡근 스트레칭",
+    "hash": "508cdf6f",
+    "label": "staged-sofia-ko-508cdf6f",
+    "job_label": "stageko243",
+    "heard": "밴드 고관절 굴곡근 스트레칭",
+    "check": {
+      "atom": "밴드 고관절 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "660bbf54994008b4fba38efd7b2d310c820a24af1f2a1d04c9c765f26d6d138a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+    "hash": "50952835",
+    "label": "staged-sofia-ko-50952835",
+    "job_label": "stageko246",
+    "heard": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+    "check": {
+      "atom": "사이드 플랭크에서 골반을 들고 수직으로 포개요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f28bb75aedb38d882db78007a682021be87e3e185e7c0df4b0a4a412fa8f3db3",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "상체가 앞으로 기울지 않게 곧게 세워요.",
+    "hash": "833b1057",
+    "label": "staged-sofia-ko-833b1057",
+    "job_label": "stageko247",
+    "heard": "상체가 앞으로 기울지 않게 곧게 세워요.",
+    "check": {
+      "atom": "상체가 앞으로 기울지 않게 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cd0d978fac2342fd9fa7aff7e3e8188da51749a88b59853750a4fcd00b3e898e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "hash": "0bb10a80",
+    "label": "staged-sofia-ko-0bb10a80",
+    "job_label": "stageko248",
+    "heard": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "112a771364f5af3d62531f9bec815cb98a9a68babf6b719aacb6b573e19c319e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "섀도복싱 잽-크로스",
+    "hash": "209e25a1",
+    "label": "staged-sofia-ko-209e25a1",
+    "job_label": "stageko249",
+    "heard": "섀도복싱 잽 크로스",
+    "check": {
+      "atom": "섀도복싱 잽-크로스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "14e63a5bd2552c554b72df98c3561dc93440dfc60047743b471a7e75ce3eb5c4",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+    "hash": "5212e74b",
+    "label": "staged-sofia-ko-5212e74b",
+    "job_label": "stageko253",
+    "heard": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+    "check": {
+      "atom": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1fda03df0e2eefc8ac0cf468adebd170bab5ff162aee1aaa0698c0f0db97f690",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+    "hash": "a628d70d",
+    "label": "staged-sofia-ko-a628d70d",
+    "job_label": "stageko258",
+    "heard": "팔꿈치는 펴되 완전히 잠그지 않아요?",
+    "check": {
+      "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ecc67a0a469f47c1ed1967cc855a01310d7c3e277d3c3d2ead851b508d6916d6",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "팔은 곧게 펴고 손으로 바닥을 계속 눌러요.",
+    "hash": "31b646be",
+    "label": "staged-sofia-ko-31b646be",
+    "job_label": "stageko259",
+    "heard": "팔은 곧게 펴고 손으로 바닥을 계속 눌러요.",
+    "check": {
+      "atom": "팔은 곧게 펴고 손으로 바닥을 계속 눌러요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "b8f9bf6d35479d7795e5f72c492dad5f9c9be419b76d3d59a6b6ecee89f60998",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "폼롤러 고관절 굴곡근",
+    "hash": "5d063902",
+    "label": "staged-sofia-ko-5d063902",
+    "job_label": "stageko260",
+    "heard": "폼롤러 고관절 굴곡근",
+    "check": {
+      "atom": "폼롤러 고관절 굴곡근",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "bf10a428a08346c724b79d2cd187138d4489219ed17995b332e2d8c27c31413f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "폼롤러 종아리",
+    "hash": "68a16004",
+    "label": "staged-sofia-ko-68a16004",
+    "job_label": "stageko263",
+    "heard": "폼롤러 종아리",
+    "check": {
+      "atom": "폼롤러 종아리",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "efe1f4674d3d803cac8c3153acd3d65fa11bdc5f2e43ca360f1ae0b256cc6c6c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "폼롤러 햄스트링",
+    "hash": "c64b0906",
+    "label": "staged-sofia-ko-c64b0906",
+    "job_label": "stageko264",
+    "heard": "폼롤러 햄스트링",
+    "check": {
+      "atom": "폼롤러 햄스트링",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "fe95d6fad3f51050e5205dccdf71f2c4b37566f90399a4af91e9767ab8fe0dd4",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "폼롤러 허벅지 앞쪽",
+    "hash": "0982bbfb",
+    "label": "staged-sofia-ko-0982bbfb",
+    "job_label": "stageko265",
+    "heard": "폼 롤러 허벅지 앞쪽",
+    "check": {
+      "atom": "폼롤러 허벅지 앞쪽",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "689ec45720cbb5c02f05c39aef1cb8b850c98464dde908966e9d910579738f4d",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "가슴은 들고 등은 곧게 펴요.",
+    "hash": "a5002947",
+    "label": "staged-zara-ko-a5002947",
+    "job_label": "stageko267",
+    "heard": "가슴은 들고 등은 곧게 펴요.",
+    "check": {
+      "atom": "가슴은 들고 등은 곧게 펴요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c39d2f421884fd3101ae74b6e64418ce8e7b2b1975c89bdd55a6f61f7b95666f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "갈비뼈를 내려 허리가 젖혀지지 않게 해요.",
+    "hash": "61f7e4ad",
+    "label": "staged-zara-ko-61f7e4ad",
+    "job_label": "stageko269",
+    "heard": "갈비뼈를 내려 허리가 젖혀지지 않게 해요.",
+    "check": {
+      "atom": "갈비뼈를 내려 허리가 젖혀지지 않게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "b8940b9d9a61a5cb168b280d93c7989b4431d618cf5af043cb09808367ac8f2b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "갈비뼈를 내리고 허리가 젖혀지지 않게 해요.",
+    "hash": "95adaa07",
+    "label": "staged-zara-ko-95adaa07",
+    "job_label": "stageko270",
+    "heard": "갈비뼈를 내리고 허리가 젖혀지지 않게 해요.",
+    "check": {
+      "atom": "갈비뼈를 내리고 허리가 젖혀지지 않게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "7c7315c67a6df1593e001c37c55d135cfa9b6c094b8b9d8afa03e32e389a58ac",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+    "hash": "e4470877",
+    "label": "staged-zara-ko-e4470877",
+    "job_label": "stageko272",
+    "heard": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+    "check": {
+      "atom": "견갑골을 귀 쪽으로 올리지 말고 아래로 모아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "73c1afd6b6c7c17791e2e85aa71800ad56f123aa87f5d0b3eddc0f68bde97c71",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "견갑골을 모아 벤치에 단단히 붙여요.",
+    "hash": "b1b936dd",
+    "label": "staged-zara-ko-b1b936dd",
+    "job_label": "stageko273",
+    "heard": "견갑골을 모아 벤치에 단단히 붙여요.",
+    "check": {
+      "atom": "견갑골을 모아 벤치에 단단히 붙여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6ebb3aca1d270fefa12c6494ac1707bc0379f23f45af264cd0f302b6f910ad34",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "골반 돌리기",
+    "hash": "34e3d6d5",
+    "label": "staged-zara-ko-34e3d6d5",
+    "job_label": "stageko274",
+    "heard": "골반 돌리기",
+    "check": {
+      "atom": "골반 돌리기",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9704e7de4dfd9b22c2e3848e6939dece25d8bf3e6c902a82eec0c51e73d0d582",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "hash": "769fdb2d",
+    "label": "staged-zara-ko-769fdb2d",
+    "job_label": "stageko276",
+    "heard": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+    "check": {
+      "atom": "골반을 수직으로 포개고 몸을 일직선으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a631ebf3bc0b72e577a41d75b48667f734eada46962fc9653f7accaa27791c82",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "hash": "f06d0582",
+    "label": "staged-zara-ko-f06d0582",
+    "job_label": "stageko278",
+    "heard": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+    "check": {
+      "atom": "골반이 앞으로 돌아가지 않게 위아래로 포갠 상태를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "03e60d4637a7694ec8d0041cdbe043cc129139a68e6d52f1f4bd38f5bee8f714",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "골반이 처지거나 솟지 않게 수평을 유지해요.",
+    "hash": "43481f59",
+    "label": "staged-zara-ko-43481f59",
+    "job_label": "stageko279",
+    "heard": "골반이 처지거나 솟지 않게 수평을 유지해요.",
+    "check": {
+      "atom": "골반이 처지거나 솟지 않게 수평을 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "1c5ea30a20a7fed832db04b37af981fa47c3621f3c7b203e7de0768a387cc82f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "hash": "b45bc98a",
+    "label": "staged-zara-ko-b45bc98a",
+    "job_label": "stageko280",
+    "heard": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+    "check": {
+      "atom": "다리를 앞으로 흔들 때 등이 말리지 않게 상체를 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "19521e545d673aa4804224d3949f0a1abee877b720888ad7722e4549e433a074",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "당기는 팔 쪽으로 몸을 비틀지 말고 골반과 어깨를 정면으로 유지해요.",
+    "hash": "2a45339e",
+    "label": "staged-zara-ko-2a45339e",
+    "job_label": "stageko282",
+    "heard": "당기는 팔 쪽으로 몸을 비틀지 말고 골반과 어깨를 정면으로 유지해요.",
+    "check": {
+      "atom": "당기는 팔 쪽으로 몸을 비틀지 말고 골반과 어깨를 정면으로 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9ec43783a66a18c832df3953be0528bb9346f4c9c3723f64aac70f4ecf7c4a21",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "덤벨 글루트 브릿지",
+    "hash": "31a96852",
+    "label": "staged-zara-ko-31a96852",
+    "job_label": "stageko283",
+    "heard": "덤벨 글루트 브릿지",
+    "check": {
+      "atom": "덤벨 글루트 브릿지",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "7ccf51dbe664b8eaee6376daf2c559f02d4cc56e079e1bc384503555f99862ea",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "덤벨 숄더 프레스",
+    "hash": "f862006b",
+    "label": "staged-zara-ko-f862006b",
+    "job_label": "stageko284",
+    "heard": "덤벨 숄더 프레스",
+    "check": {
+      "atom": "덤벨 숄더 프레스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "e8109a1ad13f3eddeb41055de4f28bab91d2f4de3e290e9b8b44abd2164d33e3",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "등은 평평하게, 골반은 어깨와 같은 높이를 유지해요.",
+    "hash": "2190e4f3",
+    "label": "staged-zara-ko-2190e4f3",
+    "job_label": "stageko286",
+    "heard": "등은 평평하게, 골반은 어깨와 같은 높이를 유지해요.",
+    "check": {
+      "atom": "등은 평평하게, 골반은 어깨와 같은 높이를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ff8c72137ec0b8352c25a223c1633089af935be5f89bbfa6ab58adb7e52312c7",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "등을 둥글게 말지 말고 가슴부터 숙여요.",
+    "hash": "1378ba4c",
+    "label": "staged-zara-ko-1378ba4c",
+    "job_label": "stageko287",
+    "heard": "등을 둥글게 말지 말고 가슴부터 숙여요.",
+    "check": {
+      "atom": "등을 둥글게 말지 말고 가슴부터 숙여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ce44f8103a1973f018aadb2706212e466e2e5d35f7560cd788944b895a759054",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "등을 둥글게 말지 말고 가슴을 들어요.",
+    "hash": "5daa9593",
+    "label": "staged-zara-ko-5daa9593",
+    "job_label": "stageko288",
+    "heard": "등을 둥글게 말지 말고 가슴을 들어요.",
+    "check": {
+      "atom": "등을 둥글게 말지 말고 가슴을 들어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "83ddce25e7dd29824a55dcde5cf52121768a8ee2a30bf28e9b6d86522d2e8dc8",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "hash": "8143d2c3",
+    "label": "staged-zara-ko-8143d2c3",
+    "job_label": "stageko290",
+    "heard": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+    "check": {
+      "atom": "몸을 곧게 세우고 체중을 엄지발가락 쪽에 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "6935ebe813418d924481f7b2f63bba7ffd07873a15ce129d670c968b84db3cce",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "hash": "7ea17346",
+    "label": "staged-zara-ko-7ea17346",
+    "job_label": "stageko291",
+    "heard": "무릎 꿇고 고관절 굴곡근 스트레칭",
+    "check": {
+      "atom": "무릎 꿇고 고관절 굴곡근 스트레칭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a23da26ae84bae1d099ded5a1457584051140b9a002e338ce40afca51f8447e5",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "hash": "4b19804f",
+    "label": "staged-zara-ko-4b19804f",
+    "job_label": "stageko294",
+    "heard": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+    "check": {
+      "atom": "무릎을 서로 포개지 말고 간격을 둔 채 움직여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "610a4a49ad8c71557f88edb34d7fbcd392e6c876b15097917622547bc6d8f6ce",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+    "hash": "b717aaab",
+    "label": "staged-zara-ko-b717aaab",
+    "job_label": "stageko295",
+    "heard": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요?",
+    "check": {
+      "atom": "무릎을 올릴 때 상체가 뒤로 젖혀지지 않게 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "f811d1f5bfb124465a00d62e156aaead80d58c498ae4789486b6ff8c47672375",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "바벨 데드리프트",
+    "hash": "c725dd4d",
+    "label": "staged-zara-ko-c725dd4d",
+    "job_label": "stageko301",
+    "heard": "바벨 데드 리프트?",
+    "check": {
+      "atom": "바벨 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ac24ba1a89935ead71ebe561b6725acb8696bf2f3ac1c7650286068630e17e88",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "상체가 앞으로 기울지 않게 곧게 세워요.",
+    "hash": "833b1057",
+    "label": "staged-zara-ko-833b1057",
+    "job_label": "stageko307",
+    "heard": "상체가 앞으로 기울지 않게 곧게 세워요.",
+    "check": {
+      "atom": "상체가 앞으로 기울지 않게 곧게 세워요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "8d5347057e637093810c05248db00510ca76fffe07ef3d021a95ffe83daa2d7f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "hash": "0bb10a80",
+    "label": "staged-zara-ko-0bb10a80",
+    "job_label": "stageko308",
+    "heard": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+    "check": {
+      "atom": "상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "48b123f8271bdc8be0393708c77a673e94b0db685461556d781018ca016e5d98",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "상체는 곧게 세우고 앞 무릎은 발목 위에 오게 해요.",
+    "hash": "31ef2f24",
+    "label": "staged-zara-ko-31ef2f24",
+    "job_label": "stageko309",
+    "heard": "상체는 곧게 세우고 앞무릎은 발목 위에 오게 해요.",
+    "check": {
+      "atom": "상체는 곧게 세우고 앞 무릎은 발목 위에 오게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "51619ead8453a64ba6dc40d8e7c1a5f94c40a6addea3ea5e7c4cad869933774b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "상체를 세워 케틀벨이 위아래로 곧게 움직이게 해요.",
+    "hash": "14bf0b5c",
+    "label": "staged-zara-ko-14bf0b5c",
+    "job_label": "stageko310",
+    "heard": "상체를 세워 케틀벨이 위아래로 곧게 움직이게 해요.",
+    "check": {
+      "atom": "상체를 세워 케틀벨이 위아래로 곧게 움직이게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a548c830fadce34a62fe8c084f7598fdf5d82cdd61021f230249b8aeb79c1b63",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "섀도복싱 잽-크로스",
+    "hash": "209e25a1",
+    "label": "staged-zara-ko-209e25a1",
+    "job_label": "stageko311",
+    "heard": "섀도복싱 잽 크로스",
+    "check": {
+      "atom": "섀도복싱 잽-크로스",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cc7123b5cc7ee501ad51ec11d42b78b93eb59de157e3f3d49f0eb89c9210bcc3",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+    "hash": "5402f2b2",
+    "label": "staged-zara-ko-5402f2b2",
+    "job_label": "stageko312",
+    "heard": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+    "check": {
+      "atom": "손잡이를 꽉 쥐고 팔은 곧게 펴요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ac0c0e370051ddc2d9da09a1223245abada25f2e1dd91c1a0fff9d2403c504fa",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "스쿼트",
+    "hash": "6f18007f",
+    "label": "staged-zara-ko-6f18007f",
+    "job_label": "stageko314",
+    "heard": "스쿼트",
+    "check": {
+      "atom": "스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "182096bfedcaa9681bf0f5fdffcccc73a284bf4ce6c52de992a7687d22eebc88",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "스쿼트 스러스트",
+    "hash": "e807ce31",
+    "label": "staged-zara-ko-e807ce31",
+    "job_label": "stageko315",
+    "heard": "스쿼트 스러스트",
+    "check": {
+      "atom": "스쿼트 스러스트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9d2fbee5f986dbf5eb80a9582dde803da40c0f7243488abd38fd9a8176849fa0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "슬로우 마운틴 클라이머",
+    "hash": "dd474d01",
+    "label": "staged-zara-ko-dd474d01",
+    "job_label": "stageko319",
+    "heard": "슬로우 마운틴 클라이머",
+    "check": {
+      "atom": "슬로우 마운틴 클라이머",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "048f233a6525bea51cc310668263c50eea774faaa5f985ca6f0c4c6f400e218a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "hash": "d3e381e4",
+    "label": "staged-zara-ko-d3e381e4",
+    "job_label": "stageko320",
+    "heard": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+    "check": {
+      "atom": "시선은 바닥을 향해 목이 척추와 일직선이 되게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "8fbcaff3ef0c463ef461d28fae4d296acfdccebe62abc824cde71a51c5200600",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "싱글 레그 글루트 브릿지",
+    "hash": "92a79ecf",
+    "label": "staged-zara-ko-92a79ecf",
+    "job_label": "stageko323",
+    "heard": "싱글 레그 글루트 브릿지?",
+    "check": {
+      "atom": "싱글 레그 글루트 브릿지",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "293866bc2f32a6145f483d4231aa43dcad804d49b4d4e245e268098cd97638d0",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "싱글 레그 데드리프트",
+    "hash": "946f8fa8",
+    "label": "staged-zara-ko-946f8fa8",
+    "job_label": "stageko324",
+    "heard": "싱글 레그 데드리프트",
+    "check": {
+      "atom": "싱글 레그 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "347f15ee7f15959eb4a01319b4c9c481889f9311a6846319bd2d2f7c5d2f9a71",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "싱글 레그 카프 레이즈",
+    "hash": "00646f78",
+    "label": "staged-zara-ko-00646f78",
+    "job_label": "stageko325",
+    "heard": "싱글 레그 카프 레이즈",
+    "check": {
+      "atom": "싱글 레그 카프 레이즈",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "582eafb03a1e4e71ee4c35818f7d973cb9cde95b9262765ee7a9186d5ad87e8f",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "압력을 줄이려면 손에 체중을 더 실어요.",
+    "hash": "ee3d8dfa",
+    "label": "staged-zara-ko-ee3d8dfa",
+    "job_label": "stageko326",
+    "heard": "압력을 줄이려면 손에 체중을 더 실어요.",
+    "check": {
+      "atom": "압력을 줄이려면 손에 체중을 더 실어요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "fa7b832fe1e930a7041a0e3a5222b9bc46115491a64cfda484d5efaae40689ea",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+    "hash": "5212e74b",
+    "label": "staged-zara-ko-5212e74b",
+    "job_label": "stageko328",
+    "heard": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+    "check": {
+      "atom": "앞이나 뒤로 기울지 말고 정확히 옆으로 기울여요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "135172aeda858d455215ffe913123e75dcac5454cb67ae57f5a2f24dac39a5c4",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "원암 덤벨 로우",
+    "hash": "f30f91f1",
+    "label": "staged-zara-ko-f30f91f1",
+    "job_label": "stageko330",
+    "heard": "원암 덤벨 로우",
+    "check": {
+      "atom": "원암 덤벨 로우",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "07133d2c7709ae7cf123a5a285f268004c9ef4e6b7e6a1f22bfd8bbd579af9d5",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "제자리 걷기",
+    "hash": "3634ffd2",
+    "label": "staged-zara-ko-3634ffd2",
+    "job_label": "stageko334",
+    "heard": "제자리 걷기",
+    "check": {
+      "atom": "제자리 걷기",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "5b84a59999ddeaccbd06948487cea405ee083dd92f78fb5d145d8494da59c546",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "착지할 때마다 무릎을 살짝 굽혀요.",
+    "hash": "2ed93650",
+    "label": "staged-zara-ko-2ed93650",
+    "job_label": "stageko335",
+    "heard": "착지할 때마다 무릎을 살짝 굽혀요.",
+    "check": {
+      "atom": "착지할 때마다 무릎을 살짝 굽혀요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "df843b614e84f26eaa8b4b54bd42c1bb5e5bc9d733337fc9174c82e519e7b39b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "처음에는 손 간격 차이를 작게 해 어깨가 편안하게 해요.",
+    "hash": "cb41bb25",
+    "label": "staged-zara-ko-cb41bb25",
+    "job_label": "stageko337",
+    "heard": "처음에는 손 간격 차이를 작게 어깨가 편안하게 해요.",
+    "check": {
+      "atom": "처음에는 손 간격 차이를 작게 해 어깨가 편안하게 해요.",
+      "ratio": 0.977,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "b6d4df6b176161b8572c593d7f5692db0482112ac927cd2169eb1d10e375cf2c",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "케틀벨 데드리프트",
+    "hash": "e7058003",
+    "label": "staged-zara-ko-e7058003",
+    "job_label": "stageko340",
+    "heard": "케틀벨 데드리프트?",
+    "check": {
+      "atom": "케틀벨 데드리프트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "a1f68aff29fc46313384a120d8de4e46c32cb9a325d6caf72b711ed8061b2361",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "케틀벨 스모 스쿼트",
+    "hash": "26a63a41",
+    "label": "staged-zara-ko-26a63a41",
+    "job_label": "stageko341",
+    "heard": "케틀벨 스모 스쿼트",
+    "check": {
+      "atom": "케틀벨 스모 스쿼트",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "62bad33d4ebad3b98fbbb8ab3fe8c361f44262f8fe82fec79ee2652ca4f87a6a",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+    "hash": "03cedb11",
+    "label": "staged-zara-ko-03cedb11",
+    "job_label": "stageko343",
+    "heard": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+    "check": {
+      "atom": "코어에 힘을 주어 허리가 젖혀지지 않게 해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9ff54eb84aa25fee0b1c1f6928e8a0cbf8e4a0f818f794c5546591f15d22bd8b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "크로스 잭",
+    "hash": "40acd4dc",
+    "label": "staged-zara-ko-40acd4dc",
+    "job_label": "stageko344",
+    "heard": "크로스잭",
+    "check": {
+      "atom": "크로스 잭",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "cd6c1ec7e92654f42a4cdec2a785edad932a8dbe5fda9b0c7bc52174c45b7ce2",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+    "hash": "a628d70d",
+    "label": "staged-zara-ko-a628d70d",
+    "job_label": "stageko346",
+    "heard": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+    "check": {
+      "atom": "팔꿈치는 펴되 완전히 잠그지 않아요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "22274749f7d4d3f4e0fd7b301c4359a47847ac255968acc08be11c120aca956e",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "팔꿈치를 옆으로 벌리지 말고 몸 약간 앞쪽에 둬요.",
+    "hash": "8fbdd37b",
+    "label": "staged-zara-ko-8fbdd37b",
+    "job_label": "stageko347",
+    "heard": "팔꿈치를 옆으로 벌리지 말고 몸 약간 앞쪽에 둬요.",
+    "check": {
+      "atom": "팔꿈치를 옆으로 벌리지 말고 몸 약간 앞쪽에 둬요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "259c37d5a7b9fa76a354814577104f08e577edff98ed2904ac3abb1ff97dc731",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "팔은 계속 어깨 높이를 유지해요.",
+    "hash": "c6d40920",
+    "label": "staged-zara-ko-c6d40920",
+    "job_label": "stageko348",
+    "heard": "팔은 계속 어깨 높이를 유지해요.",
+    "check": {
+      "atom": "팔은 계속 어깨 높이를 유지해요.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "9d586a7171c25cc830349c994f7275f2147351cf5be1c27f8d688e57badc3baa",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "폼롤러 등 위쪽",
+    "hash": "472b916b",
+    "label": "staged-zara-ko-472b916b",
+    "job_label": "stageko350",
+    "heard": "폼 롤러 등 위쪽",
+    "check": {
+      "atom": "폼롤러 등 위쪽",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "ff7a4a1614ec11af881935c7eee667dcf48bb8dda9067f71c9abe96d9c23adba",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "폼롤러 햄스트링",
+    "hash": "c64b0906",
+    "label": "staged-zara-ko-c64b0906",
+    "job_label": "stageko352",
+    "heard": "폼롤러 햄스트링",
+    "check": {
+      "atom": "폼롤러 햄스트링",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "c5bea7b4f6a599c1ae77a86e0556a6b0e1abea096a5f15b81dd2864b91954676",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "폼롤러 허벅지 앞쪽",
+    "hash": "0982bbfb",
+    "label": "staged-zara-ko-0982bbfb",
+    "job_label": "stageko353",
+    "heard": "폼롤러 허벅지 앞쪽",
+    "check": {
+      "atom": "폼롤러 허벅지 앞쪽",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "sha256": "76897999ca05411eb9429ad09c590fb3439485432e288a73dc62773120a4dc0b",
+    "method": "Independent isolated staged clip ASR with exact content/count/unit checks. Not listened."
+  }
+]
