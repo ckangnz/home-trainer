@@ -127,7 +127,12 @@ def main():
         atoms = batches[b]; installed = []
         if len(acc) >= max(5, len(atoms) // 2):
             for i, (j, k) in acc.items():
-                h = hash_atom(atoms[i]); out = os.path.join(d, f"{h}.wav"); w.clip(j, k, out)
+                h = hash_atom(atoms[i]); out = os.path.join(d, f"{h}.wav")
+                # Padding atoms in repair batches must not overwrite an
+                # existing accepted clip or downgrade its evidence status.
+                if h in m["clips"] and os.path.exists(os.path.join(d, m["clips"][h])):
+                    continue
+                w.clip(j, k, out)
                 m["clips"][h] = f"{h}.wav"; installed.append(atoms[i])
                 j0, k0 = acc[i]; open(LOG, 'a').write(json.dumps({'trainer': trainer, 'lang': lang, 'batch': b, 'atom': atoms[i], 'hash': h, 'status': 'strict' if ok_atom(w, atoms[i], j0, k0)['ok'] else 'lenient', 'heard': ok_atom(w, atoms[i], j0, k0)['heard'], 'wav': os.path.basename(wp), 'span': [round(w.spans[j0][0], 2), round(w.spans[j0 + k0 - 1][1], 2)]}, ensure_ascii=False) + '\n')
             json.dump(m, open(mp, "w"), indent=2, ensure_ascii=False)

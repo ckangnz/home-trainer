@@ -1,0 +1,202 @@
+[
+  {
+    "trainer": "female",
+    "language": "en",
+    "source_wav_sha256": "e50fe2423555f6609391ddb6aa9d944bce0a2bd579375ffdf78d08e8731877b0",
+    "expected": [
+      "Neck side stretch",
+      "Neck side tilts",
+      "Shake it out, 4 more.",
+      "set 2 of 4",
+      "set 2 of 5",
+      "set 3 of 4",
+      "Abdominal crunch",
+      "Ankle circles",
+      "Arm circles",
+      "Arnold press",
+      "Band biceps curl",
+      "Band face pull"
+    ],
+    "full_transcript": "Neck side stretch. Neck side tilts. Shake it out, four more. Set two of four. Set two of five. Set three of four. Abdominal crunch. Ankle circles. Arm circles. Arnold press. Band biceps curl. Band face pull.",
+    "speech_spans": [
+      [
+        0.0,
+        1.38867
+      ],
+      [
+        2.74971,
+        3.94862
+      ],
+      [
+        5.18342,
+        6.41937
+      ],
+      [
+        7.18342,
+        8.51262
+      ],
+      [
+        9.48646,
+        10.7336
+      ],
+      [
+        11.6825,
+        12.8878
+      ],
+      [
+        14.1676,
+        15.1702
+      ],
+      [
+        16.0113,
+        17.2823
+      ],
+      [
+        18.4689,
+        19.3239
+      ],
+      [
+        20.3881,
+        21.5004
+      ],
+      [
+        22.6236,
+        23.715
+      ],
+      [
+        25.1156,
+        25.888
+      ]
+    ],
+    "recovered": [
+      {
+        "atom": "Neck side stretch",
+        "hash": "ed21292c",
+        "clip_sha256": "8ebee0b95d88a6369ca43d3e0b48b637132701a7a660b0680c7eb8b4bf42df90",
+        "span": [
+          0.0,
+          1.38867
+        ]
+      },
+      {
+        "atom": "Neck side tilts",
+        "hash": "d4c0f8d1",
+        "clip_sha256": "b51b37f5b2e61934497caace629134f17eb87299dd799193257feed9f7b15c90",
+        "span": [
+          2.74971,
+          3.94862
+        ]
+      },
+      {
+        "atom": "set 2 of 4",
+        "hash": "f847fc92",
+        "clip_sha256": "85c26c359554e45b5612c29f8f6c05e4df4cde27a66e55f882174013e960bcbd",
+        "span": [
+          7.18342,
+          8.51262
+        ]
+      },
+      {
+        "atom": "set 2 of 5",
+        "hash": "f947fe25",
+        "clip_sha256": "b9d7f9f0af302dee0f27998715a44935d456a74c09ce0c058945f86c6c87ded6",
+        "span": [
+          9.48646,
+          10.7336
+        ]
+      }
+    ],
+    "verification": "Independent full-batch ASR exact sequence, exact numerical values, 12 isolated spans for 12 atoms. Not listened. Short-clip ASR had uncertain words and was not used as a pass."
+  },
+  {
+    "trainer": "marcus",
+    "language": "en",
+    "source_wav_sha256": "29ba0a645c57f2de57f52f472f3885f58db9b08e1ef82b3d157595397d2ca7c3",
+    "expected": [
+      "Butt kicks",
+      "Neck side stretch",
+      "Neck side tilts",
+      "Abdominal crunch",
+      "Ankle circles",
+      "Arm circles",
+      "Arnold press",
+      "Band biceps curl",
+      "Band face pull",
+      "Band pass-through",
+      "Band pull-apart",
+      "Banded lat stretch"
+    ],
+    "full_transcript": "butt kicks neck side stretch neck side tilts abdominal crunch ankle circles arm circles Arnold press band biceps curl band face pull band pass through band pull apart banded lat stretch",
+    "speech_spans": [
+      [
+        0.0,
+        1.07158
+      ],
+      [
+        2.77629,
+        4.11467
+      ],
+      [
+        5.62879,
+        6.95792
+      ],
+      [
+        8.27862,
+        9.4755
+      ],
+      [
+        10.9028,
+        11.9542
+      ],
+      [
+        13.3282,
+        14.3677
+      ],
+      [
+        15.9236,
+        16.7632
+      ],
+      [
+        18.1694,
+        19.4857
+      ],
+      [
+        20.9705,
+        21.9264
+      ],
+      [
+        23.4607,
+        24.4832
+      ],
+      [
+        25.9059,
+        26.8337
+      ],
+      [
+        28.3179,
+        29.72
+      ]
+    ],
+    "recovered": [
+      {
+        "atom": "Neck side stretch",
+        "hash": "ed21292c",
+        "clip_sha256": "8c3af0f63a2ccfeda85024f61a5a2272b222cf930201e206784fab905fc293c9",
+        "span": [
+          2.77629,
+          4.11467
+        ]
+      },
+      {
+        "atom": "Neck side tilts",
+        "hash": "d4c0f8d1",
+        "clip_sha256": "3c98c75e4d7c483bb3a1e8caac9484c995ddc0c3248a481f9b35d00cf2051301",
+        "span": [
+          5.62879,
+          6.95792
+        ]
+      }
+    ],
+    "verification": "Independent full-batch ASR exact sequence, exact numerical values, 12 isolated spans for 12 atoms. Not listened. Short-clip ASR had uncertain words and was not used as a pass."
+  }
+]
