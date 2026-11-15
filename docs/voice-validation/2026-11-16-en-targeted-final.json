@@ -1,0 +1,395 @@
+[
+  {
+    "trainer": "male",
+    "atom": "Band pass-through",
+    "hash": "01c261e3",
+    "heard": "band pass through",
+    "span": [
+      0,
+      1.4375
+    ],
+    "span_transcripts": [
+      "band pass through"
+    ],
+    "sha256": "7c80e11cb5c89fe45913f5519d848db37c833b2edb56e7f583040ea6ddff5597",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Band pull-apart",
+    "hash": "4a77d14a",
+    "heard": "band pull apart",
+    "span": [
+      2.1520799999999998,
+      3.41533
+    ],
+    "span_transcripts": [
+      "band pull apart"
+    ],
+    "sha256": "f775d16d5f1ee98eba573d7f7ce7915f77db3202ff700843294e45d944952be9",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Banded hip flexor stretch",
+    "hash": "f4fcbb21",
+    "heard": "Banded hip flexor stretch.",
+    "span": [
+      4.305540000000001,
+      6.20829
+    ],
+    "span_transcripts": [
+      "Banded hip flexor stretch."
+    ],
+    "sha256": "d146584402cb020e2fa19cd70e3e50b4e595448f954374f1fba2396ee82cd696",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Bird dog",
+    "hash": "f6c392d4",
+    "heard": "bird dog",
+    "span": [
+      8.68571,
+      9.81475
+    ],
+    "span_transcripts": [
+      "bird dog"
+    ],
+    "sha256": "777b70e9865c16554eccac36a2ef0cd6ad9edd6dcc792196736ca44bfa69431b",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Butt kicks",
+    "hash": "0b345f1f",
+    "heard": "butt kicks",
+    "span": [
+      10.3336,
+      11.1032
+    ],
+    "span_transcripts": [
+      "butt kicks"
+    ],
+    "sha256": "c9eaf63b7e7baadda0dda5d58d74e5ed919bff54250484471a2d85b0b745daf3",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Front raise",
+    "hash": "b29be728",
+    "heard": "front raise",
+    "span": [
+      13.5905,
+      14.8586
+    ],
+    "span_transcripts": [
+      "front raise"
+    ],
+    "sha256": "739d179db88e42f629cbbd56d9f35c42c7618c96978b1b78bd7d1b50a76a498f",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Glute bridge march",
+    "hash": "bff66e0c",
+    "heard": "glute bridge march",
+    "span": [
+      15.6149,
+      16.9171
+    ],
+    "span_transcripts": [
+      "glute bridge march"
+    ],
+    "sha256": "a3b189ab4a2670c15373641c065b1c5c88540fc53685d5e58c671e2351b93c4e",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Go.",
+    "hash": "e0a68b9f",
+    "heard": "Go.",
+    "span": [
+      17.7332,
+      18.288
+    ],
+    "span_transcripts": [
+      "Go."
+    ],
+    "sha256": "dcf7054d055bf3039fc1cffb547a1a0a2f9aa339baa8cef273e4f7dc88ed6886",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Hammer curl",
+    "hash": "82f66b9b",
+    "heard": "hammer curl",
+    "span": [
+      19.1104,
+      19.9552
+    ],
+    "span_transcripts": [
+      "hammer curl"
+    ],
+    "sha256": "5ff722b9ba07d5b1051ae911058621d76063d78dc0013773b397879d69ba96ff",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Plank arm reach",
+    "hash": "49437712",
+    "heard": "plank arm reach",
+    "span": [
+      20.673199999999998,
+      21.899
+    ],
+    "span_transcripts": [
+      "plank arm reach"
+    ],
+    "sha256": "3e7581c1fcbfaabd1dc7b5e32b572f7604f30bb2d89d558425c3c01619122c17",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "set 2 of 4",
+    "hash": "f847fc92",
+    "heard": "Set two of four.",
+    "span": [
+      22.6815,
+      23.960800000000003
+    ],
+    "span_transcripts": [
+      "Set two of four."
+    ],
+    "sha256": "d01cfe64e747324cb5ab8229a5f07e91df9984a4b4be20f9234d76cd24837169",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "set 4 of 5",
+    "hash": "fedbad87",
+    "heard": "Set four of five.",
+    "span": [
+      24.671,
+      26.116300000000003
+    ],
+    "span_transcripts": [
+      "Set four of five."
+    ],
+    "sha256": "88d1c379f67971d5a6a4351ae6f3b3d22c01f1f6ebe728d95c84691829c67ec1",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "male",
+    "atom": "Hello, Leo here. Let's begin, nice and steady. First:",
+    "hash": "7d4b2a31",
+    "heard": "Hello, Leo here. Let's begin. Nice and steady. first",
+    "span": [
+      26.8085,
+      32.5
+    ],
+    "span_transcripts": [
+      "Hello, Leo here.",
+      "Let's begin.",
+      "Nice and steady.",
+      "first"
+    ],
+    "sha256": "351302040dce8a90507d7a2ec587cd2d0ee8da66b7273e9dd1fd237c958a0724",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "atom": "Burpees",
+    "hash": "446acf89",
+    "heard": "burpees",
+    "span": [
+      0.30241700000000005,
+      1.201
+    ],
+    "span_transcripts": [
+      "burpees"
+    ],
+    "sha256": "123013658e677be78047151b24a2ce042b86e58d29adc6f214ed07e505216703",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "atom": "Calf raises",
+    "hash": "7a42ae94",
+    "heard": "calf raises",
+    "span": [
+      1.86117,
+      3.08346
+    ],
+    "span_transcripts": [
+      "calf raises"
+    ],
+    "sha256": "1424b78dbf145f12f50e2befcac706fc3554888152ff603226ae229005eff208",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "atom": "Floor triceps dip",
+    "hash": "ab86c9b8",
+    "heard": "floor triceps dip",
+    "span": [
+      3.50929,
+      5.2134599999999995
+    ],
+    "span_transcripts": [
+      "floor triceps dip"
+    ],
+    "sha256": "46205be80df7bd781a85890704522b263af0d1fd3ce0b916da69ca5723e7e801",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "atom": "Insane! Quick breather. Next up:",
+    "hash": "a9de2770",
+    "heard": "Insane. Quick breather. Next up,",
+    "span": [
+      5.6782900000000005,
+      8.94242
+    ],
+    "span_transcripts": [
+      "Insane. Quick breather. Next up,"
+    ],
+    "sha256": "9e08d12902616d4157adffcc4bbc3be0867bb214e2d0df9172d44d6cf91b4330",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "atom": "Round 5 crushed!",
+    "hash": "0ba3f759",
+    "heard": "Round five crushed.",
+    "span": [
+      9.48342,
+      11.610199999999999
+    ],
+    "span_transcripts": [
+      "Round five crushed."
+    ],
+    "sha256": "131ba70b53aeb590af406b59ebf9a908e2549a4f36ef1b61515d09b7666b1fc9",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Band face pull",
+    "hash": "b18bdac2",
+    "heard": "band face pull",
+    "span": [
+      0,
+      1.94904
+    ],
+    "span_transcripts": [
+      "band face pull"
+    ],
+    "sha256": "ea70053bf462a729276911e0b4cd04fa821a120d916b0b51c6b979cb28cb3a38",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Band pass-through",
+    "hash": "01c261e3",
+    "heard": "band pass through",
+    "span": [
+      3.77017,
+      5.163119999999999
+    ],
+    "span_transcripts": [
+      "band pass through"
+    ],
+    "sha256": "40fed9695a157c500c32eb3f9c78ba80f68627cebc94018993cb59879cc3a6ac",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Band pull-apart",
+    "hash": "4a77d14a",
+    "heard": "band pull apart",
+    "span": [
+      6.6950400000000005,
+      8.40612
+    ],
+    "span_transcripts": [
+      "band pull apart"
+    ],
+    "sha256": "6aa29d00ea9d835e8bbc4f52ebd7b2317458a5b5eea7245752853fe7d182c9ac",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Bear crawl",
+    "hash": "6c20e87c",
+    "heard": "bear crawl",
+    "span": [
+      12.8101,
+      13.7935
+    ],
+    "span_transcripts": [
+      "bear crawl"
+    ],
+    "sha256": "c5196bd2019bf37969fe188668e5955696c95ffec194733207b0ca3b8fecd4c0",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Butt kicks",
+    "hash": "0b345f1f",
+    "heard": "butt kicks",
+    "span": [
+      15.3118,
+      16.4176
+    ],
+    "span_transcripts": [
+      "butt kicks"
+    ],
+    "sha256": "a7792f3442b5d3c8d2a0eff330219dc7dfa191894157c393dc115be2c0820af9",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "atom": "Dumbbell calf raise",
+    "hash": "7433cd9e",
+    "heard": "dumbbell calf raise",
+    "span": [
+      20.228099999999998,
+      22.2692
+    ],
+    "span_transcripts": [
+      "dumbbell calf raise"
+    ],
+    "sha256": "b66f30cc2e932632810dbbb7cdd5e6af6e692647809d9e53664090beb322a1a3",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "atom": "Calf raises",
+    "hash": "7a42ae94",
+    "heard": "calf raises",
+    "span": [
+      0,
+      1.5171700000000001
+    ],
+    "span_transcripts": [
+      "calf raises"
+    ],
+    "sha256": "ff3621cde6bb7baa0a15ccbeb57859faaab905fb4b013cfadcf23afeb47e946b",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "atom": "Chair pose",
+    "hash": "1cee9ad3",
+    "heard": "chair pose",
+    "span": [
+      1.9840399999999998,
+      3.0758300000000003
+    ],
+    "span_transcripts": [
+      "chair pose"
+    ],
+    "sha256": "a8172d9b3fae80fc1a5c423fd49d76c90ced98c18422096c3f4b97a5ecc1271e",
+    "method": "Independent isolated speech-span ASR, unique exact content/count/unit match in non-overlapping expected order. Not listened."
+  }
+]
