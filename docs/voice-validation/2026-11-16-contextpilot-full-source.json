@@ -1,0 +1,91 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "atom": "set 2 of 5",
+    "hash": "f947fe25",
+    "heard": ". Set two of five.",
+    "span": [
+      3.15087,
+      4.54721
+    ],
+    "source_full_transcript": "Next workout cue. Set two of five.",
+    "isolated_span_transcripts": [
+      "Set to a five."
+    ],
+    "method": "Independent full contextual WAV transcription exactly matches this cue after numeral/punctuation normalization. Exact number of recognized carrier sentences, each independently identified in isolated spans, determines cue boundaries. Carrier audio excluded. Not listened.",
+    "sha256": "6e97f2f40856318e074ea40cf3256c4c83bb0964a531360a0c7997dfa452c78a",
+    "boundary_note": "The non-published carrier cue/queue spelling is the same spoken marker; full-source ASR spells cue, isolated ASR may spell queue. This explicit marker-only equivalence does not change or validate the cue words."
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Bear crawl",
+    "hash": "6c20e87c",
+    "heard": ". Bear crawl.",
+    "span": [
+      2.92542,
+      3.7236700000000003
+    ],
+    "source_full_transcript": "Next workout cue. Bear crawl. Next workout cue. Forward lunge.",
+    "isolated_span_transcripts": [
+      "back row"
+    ],
+    "method": "Independent full contextual WAV transcription exactly matches this cue after numeral/punctuation normalization. Exact number of recognized carrier sentences, each independently identified in isolated spans, determines cue boundaries. Carrier audio excluded. Not listened.",
+    "sha256": "fbaf0fc6ea4c56b6dffb8975c92b271c8a2bb3e152139cbc34a6fd745a39b9f4",
+    "boundary_note": "The non-published carrier cue/queue spelling is the same spoken marker; full-source ASR spells cue, isolated ASR may spell queue. This explicit marker-only equivalence does not change or validate the cue words."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "맨 위에서 견갑골을 모아 조여요.",
+    "hash": "e56f4c7c",
+    "heard": ". 맨 위에서 견갑골을 모아 조여요.",
+    "span": [
+      17.950699999999998,
+      20.635
+    ],
+    "source_full_transcript": "다음 운동 안내입니다. 글루트 브릿지 마치. 다음 운동 안내입니다. 덤벨 고블린 스쿼트. 다음 운동 안내입니다. 디클라인 푸쉬업. 다음 운동 안내입니다. 레니게이드 로우. 다음 운동 안내입니다. 맨 위에서 견갑골을 모아 조여요. 다음 운동 안내입니다. 무릎 당겨 앉기. 다음 운동 안내입니다. 바는 어깨에 얹고 손가락 끝으로만 잡아줘요. 다음 운동 안내입니다. 바를 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요.",
+    "isolated_span_transcripts": [
+      "맨 위에서 견갑골을 모아 줘요."
+    ],
+    "method": "Independent full contextual WAV transcription exactly matches this cue after numeral/punctuation normalization. Exact number of recognized carrier sentences, each independently identified in isolated spans, determines cue boundaries. Carrier audio excluded. Not listened.",
+    "sha256": "74e6a5b6ee99d75e7cec229e4b1dc25877a79f7d8b2f4ad50356c1ddabe5bddc"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "바는 어깨에 얹고 손가락 끝으로만 잡아 줘요.",
+    "hash": "ff962a69",
+    "heard": ". 바는 어깨에 얹고 손가락 끝으로만 잡아줘요.",
+    "span": [
+      27.052,
+      30.384900000000002
+    ],
+    "source_full_transcript": "다음 운동 안내입니다. 글루트 브릿지 마치. 다음 운동 안내입니다. 덤벨 고블린 스쿼트. 다음 운동 안내입니다. 디클라인 푸쉬업. 다음 운동 안내입니다. 레니게이드 로우. 다음 운동 안내입니다. 맨 위에서 견갑골을 모아 조여요. 다음 운동 안내입니다. 무릎 당겨 앉기. 다음 운동 안내입니다. 바는 어깨에 얹고 손가락 끝으로만 잡아줘요. 다음 운동 안내입니다. 바를 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요.",
+    "isolated_span_transcripts": [
+      "반은 어깨에 얹고",
+      "손가락 끝으로만 잡아줘요."
+    ],
+    "method": "Independent full contextual WAV transcription exactly matches this cue after numeral/punctuation normalization. Exact number of recognized carrier sentences, each independently identified in isolated spans, determines cue boundaries. Carrier audio excluded. Not listened.",
+    "sha256": "c94f0b53632fb1b6734e3c58d798ec9fcbcfc145a681c35d75623f1b5fc817bd"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "바를 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요.",
+    "hash": "7c075ef3",
+    "heard": ". 바를 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요.",
+    "span": [
+      32.876799999999996,
+      36.7125
+    ],
+    "source_full_transcript": "다음 운동 안내입니다. 글루트 브릿지 마치. 다음 운동 안내입니다. 덤벨 고블린 스쿼트. 다음 운동 안내입니다. 디클라인 푸쉬업. 다음 운동 안내입니다. 레니게이드 로우. 다음 운동 안내입니다. 맨 위에서 견갑골을 모아 조여요. 다음 운동 안내입니다. 무릎 당겨 앉기. 다음 운동 안내입니다. 바는 어깨에 얹고 손가락 끝으로만 잡아줘요. 다음 운동 안내입니다. 바를 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요.",
+    "isolated_span_transcripts": [
+      "발을 확 잡아당기지 말고",
+      "바닥을 밀어낸다고 생각해요."
+    ],
+    "method": "Independent full contextual WAV transcription exactly matches this cue after numeral/punctuation normalization. Exact number of recognized carrier sentences, each independently identified in isolated spans, determines cue boundaries. Carrier audio excluded. Not listened.",
+    "sha256": "8d3b43619840c0330bf63b890d7b70ddfa09417c86b19c09374f69e211b3bcdd"
+  }
+]

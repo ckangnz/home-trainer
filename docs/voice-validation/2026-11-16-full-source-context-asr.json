@@ -1,0 +1,744 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "스텝업 니 드라이브",
+    "hash": "9cd666ff",
+    "heard": "스텝업 니 드라이브,",
+    "span": [
+      8.87613,
+      10.1928
+    ],
+    "word_timing_span": [
+      8.9,
+      10.02
+    ],
+    "word_timings": [
+      {
+        "start": 8.9,
+        "end": 9.38,
+        "word": " 스텝업",
+        "probability": 0.9376104325056076
+      },
+      {
+        "start": 9.38,
+        "end": 9.58,
+        "word": " 니",
+        "probability": 0.834755539894104
+      },
+      {
+        "start": 9.58,
+        "end": 10.02,
+        "word": " 드라이브,",
+        "probability": 0.9501519948244095
+      }
+    ],
+    "source": "speech-20261115-191656-0a0baa29.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "af3810a481a74f46a61ad9533058c7328bee1a50be6534fb305e0ef99b0abf6a"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "실 잭",
+    "hash": "b9c4e0cc",
+    "heard": "실잭,",
+    "span": [
+      14.5786,
+      15.3958
+    ],
+    "word_timing_span": [
+      14.58,
+      15.34
+    ],
+    "word_timings": [
+      {
+        "start": 14.58,
+        "end": 15.34,
+        "word": " 실잭,",
+        "probability": 0.7546138862768809
+      }
+    ],
+    "source": "speech-20261115-191656-0a0baa29.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "d24776f53f1d16caa1b1d1f4947592fc455754d3ba4468f8ae299a87e82f4942"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "카프 레이즈",
+    "hash": "60560cc1",
+    "heard": "카프레이즈,",
+    "span": [
+      7.1540799999999996,
+      8.24354
+    ],
+    "word_timing_span": [
+      7.34,
+      8.02
+    ],
+    "word_timings": [
+      {
+        "start": 7.34,
+        "end": 8.02,
+        "word": " 카프레이즈,",
+        "probability": 0.8275974094867706
+      }
+    ],
+    "source": "speech-20261115-191659-fca6d5a3.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "2a2b7a80029e53d44113959c158da109b459068f82010bda8dca30ca4f5d5857"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "파머스 마치",
+    "hash": "16a87c8d",
+    "heard": "파머스마치,",
+    "span": [
+      12.5492,
+      13.4541
+    ],
+    "word_timing_span": [
+      12.58,
+      13.34
+    ],
+    "word_timings": [
+      {
+        "start": 12.58,
+        "end": 13.34,
+        "word": " 파머스마치,",
+        "probability": 0.8792036056518555
+      }
+    ],
+    "source": "speech-20261115-191659-fca6d5a3.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "87725718354fae6f05ac819728be0f75949f62bf3436cdb8fe1a0dbc89df4260"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "파이크 푸시업",
+    "hash": "6b3a69d8",
+    "heard": "파이크 푸시업,",
+    "span": [
+      14.2712,
+      15.1799
+    ],
+    "word_timing_span": [
+      14.32,
+      15.14
+    ],
+    "word_timings": [
+      {
+        "start": 14.32,
+        "end": 14.68,
+        "word": " 파이크",
+        "probability": 0.8379393418629965
+      },
+      {
+        "start": 14.68,
+        "end": 15.14,
+        "word": " 푸시업,",
+        "probability": 0.8260775655508041
+      }
+    ],
+    "source": "speech-20261115-191659-fca6d5a3.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "3dbd9c5b05758646795ab389378088eef197ad15dd76b753f030f9ec38f18e05"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "9회",
+    "hash": "bf835728",
+    "heard": "9회",
+    "span": [
+      24.704300000000003,
+      25.365199999999998
+    ],
+    "word_timing_span": [
+      24.78,
+      25.16
+    ],
+    "word_timings": [
+      {
+        "start": 24.78,
+        "end": 25.16,
+        "word": " 9회",
+        "probability": 0.8445280194282532
+      }
+    ],
+    "source": "speech-20261115-191903-8ce3b763.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "c6247ebb8c6c861d653d4a546ebcd91841dcaafebc1536b555db64b3a00906c5"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "디클라인 푸시업",
+    "hash": "3f85f03e",
+    "heard": "디클라인 푸시업,",
+    "span": [
+      10.0971,
+      11.3555
+    ],
+    "word_timing_span": [
+      10.040000000000001,
+      11.34
+    ],
+    "word_timings": [
+      {
+        "start": 10.040000000000001,
+        "end": 10.74,
+        "word": " 디클라인",
+        "probability": 0.7694190561771392
+      },
+      {
+        "start": 10.74,
+        "end": 11.34,
+        "word": " 푸시업,",
+        "probability": 0.7081623412668705
+      }
+    ],
+    "source": "speech-20261115-191906-d22f79d0.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "a523f5183d7ff5a592d171c5fa6cc803f9f5935951e1bce89ee68a50b8ae1f80"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "커티시 런지",
+    "hash": "e7778b85",
+    "heard": "커티시런지,",
+    "span": [
+      18.492500000000003,
+      19.525799999999997
+    ],
+    "word_timing_span": [
+      18.54,
+      19.4
+    ],
+    "word_timings": [
+      {
+        "start": 18.54,
+        "end": 19.4,
+        "word": " 커티시런지,",
+        "probability": 0.8176030537911824
+      }
+    ],
+    "source": "speech-20261115-191903 (1)-29f0483e.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "f87a015a818d9f31e8124de0ca5bba94517eb1d07fb9c40de9ce75a4c65509a1"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "컨센트레이션 컬",
+    "hash": "12b72ef1",
+    "heard": "컨센트레이션 컬,",
+    "span": [
+      20.416,
+      21.768199999999997
+    ],
+    "word_timing_span": [
+      20.52,
+      21.64
+    ],
+    "word_timings": [
+      {
+        "start": 20.52,
+        "end": 21.32,
+        "word": " 컨센트레이션",
+        "probability": 0.8406099319458008
+      },
+      {
+        "start": 21.32,
+        "end": 21.64,
+        "word": " 컬,",
+        "probability": 0.7643530368804932
+      }
+    ],
+    "source": "speech-20261115-191903 (1)-29f0483e.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "2ab85fa2b967d0977c56ca361bbe8de64caf109a0782fe3a44c37e8c47238d8e"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "컬 앤 프레스",
+    "hash": "5fffe897",
+    "heard": "컬 앤 프레스.",
+    "span": [
+      22.625200000000003,
+      23.631899999999998
+    ],
+    "word_timing_span": [
+      22.54,
+      23.52
+    ],
+    "word_timings": [
+      {
+        "start": 22.54,
+        "end": 22.9,
+        "word": " 컬",
+        "probability": 0.9317170083522797
+      },
+      {
+        "start": 22.9,
+        "end": 23.02,
+        "word": " 앤",
+        "probability": 0.6821442991495132
+      },
+      {
+        "start": 23.02,
+        "end": 23.52,
+        "word": " 프레스.",
+        "probability": 0.921252985795339
+      }
+    ],
+    "source": "speech-20261115-191903 (1)-29f0483e.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "4043057408f7695b91fd40acc32350cc142d8319a16c741c13a0673f4d0a87a6"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "밴드 풀 어파트",
+    "hash": "a66ae7dd",
+    "heard": "밴드 풀어파트.",
+    "span": [
+      33.282900000000005,
+      34.686299999999996
+    ],
+    "word_timing_span": [
+      33.42,
+      34.6
+    ],
+    "word_timings": [
+      {
+        "start": 33.42,
+        "end": 33.92,
+        "word": " 밴드",
+        "probability": 0.9965629776318868
+      },
+      {
+        "start": 33.92,
+        "end": 34.6,
+        "word": " 풀어파트.",
+        "probability": 0.7377688139677048
+      }
+    ],
+    "source": "speech-20261115-191904-6fa5f074.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "acd02ad9577ac6c2cbb2e284e66fa71d7d3d9e1546d27638efc6413b884af519"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "버트 킥",
+    "hash": "d2317252",
+    "heard": "버트킥.",
+    "span": [
+      35.275400000000005,
+      35.943
+    ],
+    "word_timing_span": [
+      35.34,
+      35.86
+    ],
+    "word_timings": [
+      {
+        "start": 35.34,
+        "end": 35.86,
+        "word": " 버트킥.",
+        "probability": 0.7778118848800659
+      }
+    ],
+    "source": "speech-20261115-191904-6fa5f074.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "5dcd527d0120a8c6beeb73ccf547139fcda95181d4b36dad3d306e988bc0d8ff"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "벽은 균형을 잡는 용도로만 쓰고, 벽을 밀어 몸을 올리지 않아요.",
+    "hash": "aeda0990",
+    "heard": "벽은 균형을 잡는 용도로만 쓰고 벽을 밀어 몸을 올리지 않아요.",
+    "span": [
+      39.7999,
+      44.3621
+    ],
+    "word_timing_span": [
+      40.04,
+      44.06
+    ],
+    "word_timings": [
+      {
+        "start": 40.04,
+        "end": 40.52,
+        "word": " 벽은",
+        "probability": 0.9950336217880249
+      },
+      {
+        "start": 40.52,
+        "end": 41.08,
+        "word": " 균형을",
+        "probability": 0.9954145103693008
+      },
+      {
+        "start": 41.08,
+        "end": 41.36,
+        "word": " 잡는",
+        "probability": 0.9898654818534851
+      },
+      {
+        "start": 41.36,
+        "end": 41.88,
+        "word": " 용도로만",
+        "probability": 0.9869796335697174
+      },
+      {
+        "start": 41.88,
+        "end": 42.12,
+        "word": " 쓰고",
+        "probability": 0.9940815567970276
+      },
+      {
+        "start": 42.12,
+        "end": 42.94,
+        "word": " 벽을",
+        "probability": 0.9584478338559469
+      },
+      {
+        "start": 42.94,
+        "end": 43.16,
+        "word": " 밀어",
+        "probability": 0.6067420020699501
+      },
+      {
+        "start": 43.16,
+        "end": 43.5,
+        "word": " 몸을",
+        "probability": 0.9846638441085815
+      },
+      {
+        "start": 43.5,
+        "end": 43.86,
+        "word": " 올리지",
+        "probability": 0.9506260752677917
+      },
+      {
+        "start": 43.86,
+        "end": 44.06,
+        "word": " 않아요.",
+        "probability": 0.9880495667457581
+      }
+    ],
+    "source": "speech-20261115-191904-6fa5f074.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "e503e0ed1a257205cb6229bc157689c7f2adc6daca2d5fb04d166ebef2b8211c"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "스텝백 버피",
+    "hash": "2a56564b",
+    "heard": "스텝백 버피",
+    "span": [
+      9.396749999999999,
+      10.7627
+    ],
+    "word_timing_span": [
+      9.379999999999999,
+      10.58
+    ],
+    "word_timings": [
+      {
+        "start": 9.379999999999999,
+        "end": 10.04,
+        "word": " 스텝백",
+        "probability": 0.8166746973991394
+      },
+      {
+        "start": 10.04,
+        "end": 10.58,
+        "word": " 버피",
+        "probability": 0.8366518616676331
+      }
+    ],
+    "source": "speech-20261115-191902 (1)-f1acbbfb.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "2fadb459c50ea785d50f110d386504b7007d5157fe53ff6dbb93eb8e44234ebd"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "실 잭",
+    "hash": "b9c4e0cc",
+    "heard": "실잭",
+    "span": [
+      15.447,
+      16.287499999999998
+    ],
+    "word_timing_span": [
+      15.379999999999999,
+      16.28
+    ],
+    "word_timings": [
+      {
+        "start": 15.379999999999999,
+        "end": 16.28,
+        "word": " 실잭",
+        "probability": 0.6998358567555746
+      }
+    ],
+    "source": "speech-20261115-191902 (1)-f1acbbfb.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "338a6397cfc3fa907e7a2db865404c436fdf93a7fed66075a8291cf2c7b23b5f"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "엇갈려 뺄 때도 골반은 정면을 향하게 해요.",
+    "hash": "fe218abc",
+    "heard": "엇갈려 뺄 때도 골반은 정면을 향하게 해요.",
+    "span": [
+      32.0929,
+      35.1448
+    ],
+    "word_timing_span": [
+      32.2,
+      35.02
+    ],
+    "word_timings": [
+      {
+        "start": 32.2,
+        "end": 32.8,
+        "word": " 엇갈려",
+        "probability": 0.9024228930473328
+      },
+      {
+        "start": 32.8,
+        "end": 32.98,
+        "word": " 뺄",
+        "probability": 0.9267919858296713
+      },
+      {
+        "start": 32.98,
+        "end": 33.18,
+        "word": " 때도",
+        "probability": 0.9752233624458313
+      },
+      {
+        "start": 33.18,
+        "end": 33.96,
+        "word": " 골반은",
+        "probability": 0.9328813950220743
+      },
+      {
+        "start": 33.96,
+        "end": 34.46,
+        "word": " 정면을",
+        "probability": 0.9850750764211019
+      },
+      {
+        "start": 34.46,
+        "end": 34.76,
+        "word": " 향하게",
+        "probability": 0.9843143224716187
+      },
+      {
+        "start": 34.76,
+        "end": 35.02,
+        "word": " 해요.",
+        "probability": 0.8603683114051819
+      }
+    ],
+    "source": "speech-20261115-191902 (1)-f1acbbfb.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "89aaa15c55d8e15fa0f813dd30a0c1b778e6d8754b1967a9854e5eabf49c0672"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "9회",
+    "hash": "bf835728",
+    "heard": "9회",
+    "span": [
+      5.99775,
+      6.56321
+    ],
+    "word_timing_span": [
+      6.0,
+      6.44
+    ],
+    "word_timings": [
+      {
+        "start": 6.0,
+        "end": 6.44,
+        "word": " 9회",
+        "probability": 0.7994298040866852
+      }
+    ],
+    "source": "speech-20261115-192233 (1)-7d9b6079.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "83ad078bae43f2cbc16dd59d3d856234d7e89c0b7164466af819df010e9ef8ec"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "걸어 돌아가기 전에 매번 착지 자세를 단단히 멈춰요.",
+    "hash": "5a24a7da",
+    "heard": "걸어 돌아가기 전에 매번 착지 자세를 단단히 멈춰요",
+    "span": [
+      49.5952,
+      52.8332
+    ],
+    "word_timing_span": [
+      49.5,
+      52.76
+    ],
+    "word_timings": [
+      {
+        "start": 49.5,
+        "end": 49.96,
+        "word": " 걸어",
+        "probability": 0.49677642434835434
+      },
+      {
+        "start": 49.96,
+        "end": 50.34,
+        "word": " 돌아가기",
+        "probability": 0.9909634987513224
+      },
+      {
+        "start": 50.34,
+        "end": 50.52,
+        "word": " 전에",
+        "probability": 0.940282940864563
+      },
+      {
+        "start": 50.52,
+        "end": 51.16,
+        "word": " 매번",
+        "probability": 0.9916088879108429
+      },
+      {
+        "start": 51.16,
+        "end": 51.54,
+        "word": " 착지",
+        "probability": 0.9715169966220856
+      },
+      {
+        "start": 51.54,
+        "end": 51.9,
+        "word": " 자세를",
+        "probability": 0.977366030216217
+      },
+      {
+        "start": 51.9,
+        "end": 52.34,
+        "word": " 단단히",
+        "probability": 0.9897035956382751
+      },
+      {
+        "start": 52.34,
+        "end": 52.76,
+        "word": " 멈춰요",
+        "probability": 0.9871226996183395
+      }
+    ],
+    "source": "speech-20261115-192233 (1)-7d9b6079.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "702266285443a5056c3a74edcf3dfc40b9e665e52be36dc63ba6c005ff1d6f68"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "데드버그",
+    "hash": "25a2035d",
+    "heard": "데드버그,",
+    "span": [
+      10.2562,
+      10.8904
+    ],
+    "word_timing_span": [
+      10.32,
+      10.8
+    ],
+    "word_timings": [
+      {
+        "start": 10.32,
+        "end": 10.8,
+        "word": " 데드버그,",
+        "probability": 0.8934763967990875
+      }
+    ],
+    "source": "speech-20261115-192231 (1)-e949adaf.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "86d6698f4a89702e27c75af9c590a82f7fb58685d228441eb6b133c5f01f9d51"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "동작 내내 뒤꿈치, 골반, 어깨를 일직선으로 유지해요.",
+    "hash": "25e1069c",
+    "heard": "동작 내내 뒤꿈치, 골반, 어깨를 일직선으로 유지해요.",
+    "span": [
+      11.281,
+      15.2892
+    ],
+    "word_timing_span": [
+      11.34,
+      15.18
+    ],
+    "word_timings": [
+      {
+        "start": 11.34,
+        "end": 11.62,
+        "word": " 동작",
+        "probability": 0.8853809237480164
+      },
+      {
+        "start": 11.62,
+        "end": 11.94,
+        "word": " 내내",
+        "probability": 0.9897375404834747
+      },
+      {
+        "start": 11.94,
+        "end": 12.88,
+        "word": " 뒤꿈치,",
+        "probability": 0.8426501601934433
+      },
+      {
+        "start": 13.2,
+        "end": 13.56,
+        "word": " 골반,",
+        "probability": 0.981589287519455
+      },
+      {
+        "start": 13.8,
+        "end": 14.16,
+        "word": " 어깨를",
+        "probability": 0.9832268953323364
+      },
+      {
+        "start": 14.16,
+        "end": 14.8,
+        "word": " 일직선으로",
+        "probability": 0.837630920112133
+      },
+      {
+        "start": 14.8,
+        "end": 15.18,
+        "word": " 유지해요.",
+        "probability": 0.97912069161733
+      }
+    ],
+    "source": "speech-20261115-192231 (1)-e949adaf.wav",
+    "method": "No-prompt full-source local faster-whisper small int8 with context and word timestamps. Exact unique inventory/count/unit match, whole detected speech-span boundaries within450ms of word timing, no other recognized words inside selected audio. No overlapping candidate groups. Not listened.",
+    "sha256": "a194c34a26e465fcafa7de08161bb5b5e736f46262d5c932006fc022590bb893"
+  }
+]
