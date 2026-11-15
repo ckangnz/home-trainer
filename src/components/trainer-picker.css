@@ -80,3 +80,8 @@
 .skin-swatch[aria-checked='true'] {
   box-shadow: 0 0 0 3px var(--color-accent);
 }
+
+.trainer-picker__voice-hint { margin: 0; }
+.trainer-picker__voice { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.trainer-picker__voice [role='status'] { flex-basis: 100%; font-size: var(--text-sm); }
+.trainer-option__tagline { word-break: keep-all; overflow-wrap: break-word; }

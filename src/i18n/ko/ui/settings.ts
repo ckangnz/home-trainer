@@ -13,6 +13,12 @@ export const settings = {
   },
   trainer: '내 트레이너',
   trainerPicker: {
+    voiceHint: '트레이너를 고르면 짧은 인사를 들을 수 있어요. 음성 코치가 꺼져 있어도 재생돼요.',
+    hearGreeting: '{trainer} 인사 다시 듣기',
+    stopGreeting: '멈추기',
+    playingGreeting: '인사 재생 중…',
+    greetingError: '인사를 재생하지 못했어요. 소리를 확인하고 다시 눌러 주세요.',
+
     trainer: '트레이너',
     skinTone: '피부색',
     skinLabel: '피부색 {skin}',

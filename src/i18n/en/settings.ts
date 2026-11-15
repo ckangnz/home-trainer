@@ -10,6 +10,12 @@ export const settings = {
   },
   trainer: 'Your trainer',
   trainerPicker: {
+    voiceHint: 'Select a trainer to hear a short greeting. Sound plays even when Voice coach is off.',
+    hearGreeting: 'Hear {trainer} again',
+    stopGreeting: 'Stop',
+    playingGreeting: 'Playing greeting…',
+    greetingError: 'The greeting could not play. Check your sound and try again.',
+
     trainer: 'Trainer',
     skinTone: 'Skin tone',
     skinLabel: '{skin} skin tone',

@@ -1,0 +1,126 @@
+[
+  {
+    "trainer": "female",
+    "language": "en",
+    "text": "Hi, I'm Maya! Let's get moving!",
+    "independentTranscript": "Hi, I'm Maya. Let's get moving.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "aa9b979e0ef6f832dedf78c090d40d639d348bc3a91b9708b9ffbc4e51f8ea4c"
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "text": "안녕하세요, 마야예요! 같이 움직여 볼까요?",
+    "independentTranscript": "안녕하세요, 마야예요. 같이 움직여 볼까요?",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "7c23dd4bddbe63f69673c49d62b818435b4fd9fc96593a0ffe74868c0898640b"
+  },
+  {
+    "trainer": "marcus",
+    "language": "en",
+    "text": "I'm Marcus. Let's get stronger!",
+    "independentTranscript": "I'm Marcus. Let's get stronger.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "ef70bf2131c2d19f084230e6e25c7b9dd35bfabddfd6a11252cd855a33ca925b"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "text": "마커스입니다. 오늘도 강하게 가 봅시다!",
+    "independentTranscript": "마커스입니다. 오늘도 강하게 가봅시다.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "328de5ac2df271cd78e850e02f6d37841b7babcb0a1a108f14f0be538acfb82e"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "text": "Hey, I'm Sofia! Good vibes, let's go!",
+    "independentTranscript": "Hi, I'm Sophia. Good vibes, let's go.",
+    "localTranscript": "Hey! I'm Sophia. Good vibes! Let's go!",
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "ae1bec32bed24a78a4a89252058bdefd2f7ba8ceb00c86dc6e2891fcecb71c3d"
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "text": "소피아예요! 기분 좋게 시작해 봐요!",
+    "independentTranscript": "소피아예요. 기분 좋게 시작해 봐요.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "33340f37389a0ffce921da7bc123c41c9dac17a50268b0ca6a1a0d6870a00552"
+  },
+  {
+    "trainer": "male",
+    "language": "en",
+    "text": "Hello, I'm Leo. Let's move with focus.",
+    "independentTranscript": "Hello, I'm Leo. Let's move with focus.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "d50e26acadb56b70510d54ad842b869d5123c64eeef12693bcc2036f260299fa"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "text": "레오입니다. 차분하게 시작해 볼까요?",
+    "independentTranscript": "내일입니다. 차분하게 시작해 볼까요?",
+    "localTranscript": "레오입니다. 차분하게 시작해 볼까요?",
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "29ecc3e7dd111ed2fde8f7c2badc16b4d406fa4b80145005cfa3a4fad735d45c"
+  },
+  {
+    "trainer": "zara",
+    "language": "en",
+    "text": "Zara here! Bring that energy!",
+    "independentTranscript": "Zara here, bring that energy.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "25b53ee28f53590d9cc9348bc7dee4cc11f079f457c37b102f8566a96887846f"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "text": "자라야! 오늘 제대로 불태워 보자!",
+    "independentTranscript": "차라야, 오늘 제대로 불태워보자.",
+    "localTranscript": "자라야 오늘 제대로 불태워보자",
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "3b883bba0f38b8222402c22d7fb37c0c9667a4ea182e626b0cb1a790ee39f4e5"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "text": "Hey, I'm Kai. Take a breath, settle in.",
+    "independentTranscript": "Hey, I'm Kai. Take a breath. Settle in.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "be7cc1768f2a48f2e5491d714eee0acf8ce4cec396fd0601c2834c2e98013330"
+  },
+  {
+    "trainer": "nina",
+    "language": "en",
+    "text": "Hi, I'm Nina! Clean form, big smiles!",
+    "independentTranscript": "Hi, I'm Nina. Clean form, big smiles.",
+    "localTranscript": null,
+    "method": "Independent transcription; second local no-prompt language-specific recognition for ambiguous names. Sofia/Sophia is a spelling variant of the same proper name; not listened.",
+    "sha256": "d281bbb7d9f5cd073dba132313dadf3a06b6994af622458bb23a6ebad0a76561"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "text": "마음 편하게, 호흡부터 해요.",
+    "independentTranscript": "마음 편하게 호흡부터 해요.",
+    "method": "Exact independent transcription ignoring punctuation/spacing. Not listened.",
+    "sha256": "879ac524fa17c8cb1ec9137d853c3b39016ad3b9b44f705d7ba7dc4cb58b6ecf"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "text": "정확한 자세로 즐겁게 시작해 봐요!",
+    "independentTranscript": "정확한 자세로 즐겁게 시작해 봐요.",
+    "method": "Exact independent transcription ignoring punctuation/spacing. Not listened.",
+    "sha256": "0da63fd8fe05b0faba1b82a52a9bc242f5b4dfafa9bd906da78e6ce62ca767aa"
+  }
+]

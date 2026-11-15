@@ -163,3 +163,18 @@ is wrong, but is not sufficient evidence to install it either. Keep these cues o
 fallback until stronger phonetic/listening evidence or a genuinely different
 recording approach is available. Do not repeatedly regenerate identical prompts
 or silently accept a different exercise, count, unit, body part or instruction.
+
+## Character-selection greeting preview
+
+Settings plays a dedicated `voices/<trainer>/<language>/greeting.wav` when a
+trainer is selected or the replay button is pressed. All seven trainers have
+English and Korean greetings using their existing saved voice/style. The preview
+is an explicit sound test, independent of the workout Voice coach toggle. It does
+not autoplay on page load, change the workout voice preference, or fall back to a
+different device voice if the character greeting cannot play. A failure is shown
+with a retry prompt. Switching characters, stopping, changing language or leaving
+settings cancels the old preview and ignores stale callbacks.
+
+Greeting transcription evidence is in `docs/voice-validation/2026-11-16-greetings.json`.
+The fourteen greetings are separate assets and do not change expected workout-atom
+coverage. The 206 unresolved Korean workout cues remain on device fallback.
