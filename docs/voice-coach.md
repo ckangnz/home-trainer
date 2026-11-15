@@ -140,3 +140,26 @@ check. Do not copy the expected text into a transcript field. Ambiguous names,
 merged atoms and wrong or uncertain counts must remain on device-voice fallback.
 Any individually reviewed spelling/transliteration exception needs separate
 explicit evidence; do not add blanket homophone or edit-distance acceptance.
+
+
+## Context recognition and remaining fidelity limits (2026-11-16)
+
+The seven English inventories now have 595 expected atoms each. This is file
+coverage with machine evidence, not a claim of full listening, accent quality,
+or natural joins. Korean still has missing atoms and uses device voice fallback.
+
+Some clips fail isolated recognition but pass independent full-source recognition.
+Those recoveries keep the full transcript and timing evidence. Two boundary
+methods are recorded separately: word timestamps aligned to complete detected
+speech spans, and exact unique neighboring speech-span anchors bracketing an
+exact inventory cue. Source start/end can replace a neighbor only at the edge.
+The app cue must still match exactly after documented number/spacing rules;
+neighbor matching does not authorize fuzzy cue matching. Carrier sentences in
+the contextual pilot are excluded from the installed clip.
+
+Repeated pronunciation-directed pilots did not reliably fix Korean exercise
+loanwords or body-part contrasts. A failed transcript is not proof that the audio
+is wrong, but is not sufficient evidence to install it either. Keep these cues on
+fallback until stronger phonetic/listening evidence or a genuinely different
+recording approach is available. Do not repeatedly regenerate identical prompts
+or silently accept a different exercise, count, unit, body part or instruction.

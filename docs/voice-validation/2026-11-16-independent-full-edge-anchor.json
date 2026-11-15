@@ -1,0 +1,273 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "플러터 킥",
+    "hash": "018dfbe8",
+    "span": [
+      23.084999999999997,
+      24.220000000000002
+    ],
+    "full_source_transcript": "폼롤러 종아리 폼롤러 햄스트링 폼롤러 허벅지 앞쪽 폼롤러 흉추 신전 푸쉬업 버피 푸쉬업 하는 동안 몸을 일직선으로 유지해요 프론트 레이즈 플랭크 레그 리프트 플랭크 암 리치 플랭크 업다운 플랭크 투 파이크 플러터 킥",
+    "isolated_span_transcripts": [
+      "플라토키"
+    ],
+    "before_anchor_normalized": "플랭크투파이크",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-191653-e3c4eefd.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "b8bba326c6f1d47ae67af9e0351ed85575408c5d51a0119502f53c80950ef31c"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "처음부터 끝까지 엄지가 위를 향하게 해요.",
+    "hash": "7e05e447",
+    "span": [
+      61.0276,
+      63.8499
+    ],
+    "full_source_transcript": "양쪽 어깨 높이를 맞추고 귀에서 멀리 내려요. 어깨를 내리고 갈비뼈를 모아요. 얼터네이팅 덤벨 로우. 얼터네이팅 숄더 프레스. 원 암 덤벨 로우. 월 슬라이드. 웨이브 푸쉬업. 웨이티드 크런치. 윗팔은 고정하고 아래팔만 움직여요. 윗팔은 고정하고 팔꿈치는 위를 향하게 해요. 윗팔은 고정하고 팔꿈치만 움직여요. 의자 사자 스트레칭. 의자 스텝업. 인클라인 마운틴 클라이머. 인클라인 푸쉬업. 전사 자세 3. 절반이에요. 호흡 유지. 처음부터 끝까지 덤벨을 다리에 가깝게 유지해요. 처음부터 끝까지 발을 다리에 가깝게 유지해요. 처음부터 끝까지 엄지가 위를 향하게 해요.",
+    "isolated_span_transcripts": [
+      "처부터 끝까지",
+      "엄지가 위를 향하게 해요."
+    ],
+    "before_anchor_normalized": "발을다리에가깝게유지해요",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-191903 (2)-3d84ce41.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "3559752049e5dfad1469d8039169ed2c2567a411a844bc29b898cada0200a08a"
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "푸시업 로테이션",
+    "hash": "83957f10",
+    "span": [
+      57.7012,
+      59.2468
+    ],
+    "full_source_transcript": "처음엔 무릎을 벽에서 멀리 두고 점차 가까이 가요. 천천히 시작. 카이예요. 마음 편하게 호흡부터. 첫 운동은 카프 레이즈, 커티시 런지, 컨센트레이션 컬, 컬 앤 프레스. 컬을 할 때 팔꿈치를 몸에 가깝게 붙여요. 케틀벨 고블린 스쿼트, 케틀벨 스윙, 코사크 스쿼트. 코어에 힘을 주어 허리가 젖혀지지 않게 해요. 크로스 잭, 토리치, 파이크 푸시업. 팔뚝은 고정하고 손목에서 움직임이 나오게 해요. 팔은 곧게 펴고 손으로 바닥을 계속 눌러요. 패스트 피트, 폼 롤러 엉덩이, 푸시업 로테이션.",
+    "isolated_span_transcripts": [
+      "push up rotation"
+    ],
+    "before_anchor_normalized": "폼롤러엉덩이",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-191903 (1)-29f0483e.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "36f3742eb4dc6ec8bd0198594286816d56f8eab61b339b55581d9aa3a0b174fe"
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "글루트 브릿지",
+    "hash": "014a5e44",
+    "span": [
+      0.18475,
+      1.3287900000000001
+    ],
+    "full_source_transcript": "글루트 브릿지, 깍지 껴서 가슴 열기, 네거티브 푸쉬업, 누워서 사자 스트레칭. 니납니다, 정확하게 그리고 즐겁게. 첫 운동은 다이브 바머 푸쉬업, 다이아몬드 푸쉬업, 덤벨 고블린 스쿼트, 덤벨 스러스터. 도마뱀 자세, 동키 킥. 등 전체와 머리를 벽에 가볍게 기대요. 디클라인 푸쉬업, 레니게이드 로우, 마운틴 클라이머. 맨 위에서 견갑골을 모아 조여요. 목 옆 스트레칭, 무릎 당겨 앉기, 무릎 푸쉬업. 무릎을 올릴 때 반대쪽 팔을 앞으로 흔들어요.",
+    "isolated_span_transcripts": [
+      "글루투브릿지"
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "깍지껴서가슴열기",
+    "source": "speech-20261115-191900-c33a9921.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "e30af3a405d13c276dcba131a112480da02d834bc8a3f56889f3cccecccabeab"
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "바닥 트라이셉스 딥스",
+    "hash": "f903a2a4",
+    "span": [
+      0.6235,
+      1.8425
+    ],
+    "full_source_transcript": "바닥 트라이셉스 딥스 바닥을 차지 말고 의자 위에 다리 힘으로 올라가요. 발을 확 잡아당기지 말고 바닥을 밀어낸다고 생각해요. 바벨 로우 바벨 스러스트 바벨 오버헤드 프레스 바벨 프론트 스쿼트 바벨 힙 스러스트 바이시클 크런치 반대쪽 발은 무릎 위나 아래에 두고 무릎 관절에 직접 대지 않아요. 발을 들 때마다 골반이 수평을 유지하게 해요. 발을 부드럽게 내려딛어 소리를 줄이고 관절 부담을 덜어요. 발이 손에 닿지 않으면 수건을 발에 걸어 잡아요. 밴드 광배근 스트레칭 밴드 페이스 풀 버드독 버피 벤트 오버 덤벨 로우 벽 광배근 스트레칭",
+    "isolated_span_transcripts": [
+      "트라이셉스 딥스"
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "바닥을차지말고의자위에다리힘으로올라가요",
+    "source": "speech-20261115-192234-1d2945b2.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "99656862fb1b092b025cf0347668ba0f66860dfe877a859dbd8adf71f6737b21"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "브이업",
+    "hash": "df710598",
+    "span": [
+      62.070699999999995,
+      62.6238
+    ],
+    "full_source_transcript": "바벨 스러스터 바벨 오버헤드 프레스 바벨 힙 스러스트 바이시클 크런치 반동은 작고 통제되게 해요. 발을 들 때마다 골반이 수평을 유지하게 해요. 발을 부드럽게 내려딛어 소리를 줄이고 관절 부담을 덜어요. 밴드 광배근 스트레칭 밴드 바이셉스 컬 밴드 패스 스루 밴드 페이스 풀 밴드 풀 어파트 버드독 벤트 오버 덤벨 로우 벽 광배근 스트레칭 벽은 균형을 잡는 용도로만 쓰고 벽을 밀어 몸을 올리지 않아요. 보트 자세 볼이 척추 위에 오지 않게 해요. 불가리안 스플릿 스쿼트 브이업",
+    "isolated_span_transcripts": [
+      "부여"
+    ],
+    "before_anchor_normalized": "불가리안스플릿스쿼트",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-192519-1bc8539e.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "545d24ffd6d41b5660c02be594a2370e0175600bd97e1543bfe328eb7e2748c7"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "선 자세 전굴",
+    "hash": "d6bcd0a7",
+    "span": [
+      58.217,
+      59.757200000000005
+    ],
+    "full_source_transcript": "비둘기 자세 사이드 런지 사이드 플랭크 사이드 플랭크에서 골반을 들고 수직으로 뻗어요. 삼각 자세 상체가 앞으로 기울지 않게 곧게 세워요. 상체는 곧게 세우고 덤벨은 아래로 곧게 늘어뜨려요. 상체는 곧게 세우고 앞 무릎은 발목 위에 오게 해요. 상체를 곧게 세워요. 상체를 뒤로 흔들지 말고 고정해요. 상체를 세우고 체중은 앞발에 실어요. 상체를 세워 케틀벨이 위아래로 곧게 움직이게 해요. 섀도우 복싱 잽 크로스 서 있는 다리의 무릎은 잠그지 말고 살짝 굽혀요. 선 자세 고관절 굴곡근 스트레칭 선 자세 몸통 비틀기 선 자세 발끝 터치 선 자세 엉덩이 바깥쪽 스트레칭 선 자세 옆구리 늘리기 선 자세 전굴",
+    "isolated_span_transcripts": [
+      "선 자세",
+      "전골"
+    ],
+    "before_anchor_normalized": "옆구리늘리기",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-192520 (1)-1437d816.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "3bc83b1809c58d8b33ef8c1d0dce61ad8cbf7ca0d94df9731c2bc6316a6344e2"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "슬로우 마운틴 클라이머",
+    "hash": "dd474d01",
+    "span": [
+      0.082208,
+      2.95129
+    ],
+    "full_source_transcript": "슬로우 마운틴 클라이머 시선은 바닥을 향해 목이 척추와 일직선이 되게 해요. 시작 시티드 밴드로우 실 꿰기 자세 실잭 싯업 싱글 레그 글루트 브릿지 싱글 레그 데드 리프트 싱글 레그 카프 레이즈 아기 자세 아놀드 프레스 앉아서 니턱 압력을 줄이려면 손에 체중을 더 실어요. 앞무릎은 발목 바로 위에 두고 상체는 곧게 세워요. 앞무릎은 발목 위에 두어요. 앞꿈치로 가볍게 뛰어요. 앞다리 쪽으로 무너지지 말고 양쪽 옆구리를 모두 길게 늘려요. 얼터네이팅 덤벨 로우 얼터네이팅 숄더 프레스",
+    "isolated_span_transcripts": [
+      "slow mountain climber",
+      ""
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "시선은바닥을향해",
+    "source": "speech-20261115-192518-c8445034.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "53a86b143a6320de4f1da426ae03f8c8cfea9ea0a3063d6d2d4df7888e519eae"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "폼롤러 등 위쪽",
+    "hash": "472b916b",
+    "span": [
+      52.913199999999996,
+      54.42
+    ],
+    "full_source_transcript": "크로스 잭 크로스바디 어깨 스트레칭 턱 점프 토 리치 트라이셉스 킥백 팔 돌리기 팔 힘을 쓰지 않도록 덤벨을 가슴에 바짝 붙여요. 팔다리를 뻗을 때 숨을 내쉬어요. 팔꿈치는 고정하고 손목에서 움직임이 나오게 해요. 팔만 움직이지 말고 어깨까지 돌려요. 팔은 계속 어깨 높이를 유지해요. 팔은 곧게 펴고 손으로 바닥을 계속 눌러요. 팔을 들 때 골반이 바닥과 수평을 이루게 해요. 팔을 앞으로 휘두르지 말고 귀와 나란히 유지해요. 패스트 피트 펀치하지 않는 손은 얼굴 옆에 올려둬요. 편 무릎을 손으로 누르지 않아요. 포워드 런지 폼롤러 고관절 굴곡근 폼롤러 등 위쪽",
+    "isolated_span_transcripts": [
+      "폼롤러로",
+      "등 위쪽"
+    ],
+    "before_anchor_normalized": "폼롤러고관절굴곡근",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-192520-e0761c9f.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "43dedf92f3a661495204101cf0f9b3ee2fca1cd844a9a9cf5d705b3e9322602e"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "폼롤러 엉덩이",
+    "hash": "217e4c8d",
+    "span": [
+      0.05224999999999999,
+      1.68879
+    ],
+    "full_source_transcript": "폼롤러 엉덩이 폼롤러 정강이 폼롤러 종아리 폼롤러 햄스트링 폼롤러 허벅지 앞쪽 폼롤러 흉추 신전 푸쉬업 푸쉬업 로테이션 푸쉬업 버피 푸쉬업 하는 동안 몸을 일직선으로 유지해요. 프론트 레이즈 플랭크 플랭크 레그 리프트 플랭크 숄더 탭 플랭크 암 리치 플랭크 업 다운 플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플랭크 투 파이크 플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플러터 킥",
+    "isolated_span_transcripts": [
+      "홈런볼 엉덩이"
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "폼롤러정강이",
+    "source": "speech-20261115-192516 (1)-42d62232.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "62ee93f92694366896ae2851522b491c74d9ca261bb99c9598bf55233e4debb9"
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "플러터 킥",
+    "hash": "018dfbe8",
+    "span": [
+      43.8656,
+      44.7232
+    ],
+    "full_source_transcript": "폼롤러 엉덩이 폼롤러 정강이 폼롤러 종아리 폼롤러 햄스트링 폼롤러 허벅지 앞쪽 폼롤러 흉추 신전 푸쉬업 푸쉬업 로테이션 푸쉬업 버피 푸쉬업 하는 동안 몸을 일직선으로 유지해요. 프론트 레이즈 플랭크 플랭크 레그 리프트 플랭크 숄더 탭 플랭크 암 리치 플랭크 업 다운 플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플랭크 투 파이크 플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플러터 킥",
+    "isolated_span_transcripts": [
+      "플로터 킥"
+    ],
+    "before_anchor_normalized": "플랭크에서엉덩이가처지지않게코어에힘을줘요",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-192516 (1)-42d62232.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "c1654e16b4416e41874976d0ef72b1d49b805716db0a66f27afd5148b32d68cf"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "덤벨 레터럴 런지",
+    "hash": "20e04737",
+    "span": [
+      0.168583,
+      1.62575
+    ],
+    "full_source_transcript": "덤벨 레터럴 런지 덤벨 불가리안 스플릿 스쿼트 덤벨 스쿼트 덤벨 스텝업 덤벨 스플릿 스쿼트 덤벨 싱글 레그 데드 리프트 덤벨 스러스터 덤벨 카프 레이즈 덤벨 팔 들어올리기 덤벨 풀오버 덤벨 플로어 프레스 덤벨은 가슴 가까이, 팔꿈치는 몸에 붙여요. 덤벨은 골반 옆에 곧게 늘어뜨려요. 덤벨이 계속 가슴에 닿아 있게 해요. 데드버그 도마뱀 자세 동작 내내 뒤꿈치, 골반, 어깨를 일직선으로 유지해요. 동작 내내 등은 평평하게, 팔은 길게 뻗은 상태를 유지해요. 동작 내내 어깨를 든 상태를 유지해요. 동키 킥",
+    "isolated_span_transcripts": [
+      "썸벨 레터럴 런지"
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "덤벨불가리안스플릿스쿼트",
+    "source": "speech-20261115-192558 (3)-ff45609b.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "111b1abaf2411c57bcee67c107e13fd8ed60251b79fd420a0c7af9a7af768dcb"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "바는 어깨에 얹고 손가락 끝으로만 잡아 줘요.",
+    "hash": "ff962a69",
+    "span": [
+      62.7758,
+      66.01259999999999
+    ],
+    "full_source_transcript": "뒤꿈치는 바닥에 붙이고 머리부터 뒤꿈치까지 한 덩어리로 움직여요. 뒷다리는 길게 뻗고 갈비뼈는 내린 상태를 유지해요. 뒷발 바깥쪽 날로 바닥을 단단히 눌러요. 뒷발 발끝은 정면을 향하게 해요. 등이 둥글게 말리지 않고 길게 펴지도록 필요한 만큼 무릎을 굽혀요. 디클라인 푸쉬업, 레그레이즈, 레터럴 레이즈, 레터럴 셔플, 마운틴 클라이머. 맨 위에서 견갑골을 모아 조여요. 맨 위에서 턱을 당기고 갈비뼈를 내려요. 맨몸 굿모닝. 머리를 당기지 말고 갈비뼈부터 돌려요. 목 옆 스트레칭. 무릎 당겨 앉기. 무릎 푸쉬업. 무릎을 끌어올리기 전에 박스 위에서 완전히 똑바로 서요. 밀어 올리는 팔 반대쪽으로 몸이 기울지 않게 해요. 바는 어깨에 얹고 손가락 끝으로만 잡아줘요.",
+    "isolated_span_transcripts": [
+      "팔은 어깨에 얹고 손가락 끝으로만 잡아줘요."
+    ],
+    "before_anchor_normalized": "밀어올리는팔반대쪽으로몸이기울지않게해요",
+    "after_anchor_normalized": "",
+    "source": "speech-20261115-192602-b6de7a78.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "c7bba952a79f3084bd0f99d3711ecad5d4fe39ac8dd8ad550a79c44d13d57e8e"
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요.",
+    "hash": "078f19b0",
+    "span": [
+      0,
+      3.8432500000000003
+    ],
+    "full_source_transcript": "플랭크 자세에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플랭크 투 파이크. 플랭크에서 엉덩이가 처지지 않게 코어에 힘을 줘요. 플러터 킥. 필요하면 무릎을 살짝 굽혀요. 필요한 만큼 무릎을 굽혀요. 정강이까지만 닿아도 괜찮아요. 하이 니. 한 다리 햄스트링 스트레칭. 한 번 반복하는 동안 손과 발끝 위치는 그대로 유지해요. 한계까지 밀어붙여. 한쪽 다리를 다른 쪽 위에 올려 압력을 더해요. 할로우 바디 홀드. 해보자. 해냈다. 다음에도 이렇게 가자. 해머 컬. 햄스트링이 늘어나도록 편안한 만큼 다리를 곧게 펴요. 허리가 과하게 젖혀지지 않게 아랫배를 당겨요. 허리가 둥글게 말리면 접은 수건 위에 앉아요. 허리가 처지지 않게 중립을 유지해요. 허리를 젖히지 말고 상체를 곧게 세워요.",
+    "isolated_span_transcripts": [
+      "플랭크 자세에서 엉덩이가 처지지 않게",
+      "코이 힘을 줘요."
+    ],
+    "before_anchor_normalized": "",
+    "after_anchor_normalized": "플랭크투파이크",
+    "source": "speech-20261115-192601-75b32f43.wav",
+    "method": "Independent full-source ASR middle exactly matches one inventory atom after numeral/spacing normalization. Unique exact isolated neighbor anchors and source start/end edges bracket exactly that middle and determine whole speech-span group. No overlapping candidate groups. No fuzzy text acceptance. Not listened.",
+    "sha256": "ee090bd50324a060eac8e8023718f88ddda8eab3691fc66ffdbf1028943c7c8b"
+  }
+]
