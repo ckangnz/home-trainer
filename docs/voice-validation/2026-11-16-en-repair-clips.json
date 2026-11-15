@@ -1,0 +1,2984 @@
+[
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "4 reps",
+    "label": "enmaler1-00",
+    "span": [
+      0.0,
+      1.39396
+    ],
+    "hash": "48b8bd15",
+    "heard": "four reps",
+    "check": {
+      "atom": "4 reps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "dddac0b12e21d83963834a7a23c98ff701c28162feeff7e9251289a488079895"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Barbell deadlift",
+    "label": "enmaler1-04",
+    "span": [
+      10.7681,
+      11.8267
+    ],
+    "hash": "8a585aaa",
+    "heard": "barbell deadlift",
+    "check": {
+      "atom": "Barbell deadlift",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "1bd991ccc85395c671376c53f200504a3be86558106e05997b4e1dc09579c9ff"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Barbell row",
+    "label": "enmaler1-05",
+    "span": [
+      13.3089,
+      14.2542
+    ],
+    "hash": "784888cb",
+    "heard": "barbell row",
+    "check": {
+      "atom": "Barbell row",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "989cd1e9e70fb4615c7a5fbbeb8c73081971c0039946bdd7f48a661a1e852763"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Barbell thruster",
+    "label": "enmaler1-06",
+    "span": [
+      15.7523,
+      16.7215
+    ],
+    "hash": "a798a720",
+    "heard": "barbell thruster",
+    "check": {
+      "atom": "Barbell thruster",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "75d090f1614212d60634790b7867d11d29a11b3ac0a1ecdda0446ccbff561a42"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Brace your core so your hips do not sag.",
+    "label": "enmaler1-09",
+    "span": [
+      22.411,
+      24.8785
+    ],
+    "hash": "c567889e",
+    "heard": "Brace your core so your hips do not sag.",
+    "check": {
+      "atom": "Brace your core so your hips do not sag.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b63d256ca37f5e1763c2a2ace576293daaac7f3e6259d48d82352587f5297926"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Bulgarian split squat",
+    "label": "enmaler1-10",
+    "span": [
+      26.2787,
+      27.5775
+    ],
+    "hash": "ab696d60",
+    "heard": "Bulgarian split squat",
+    "check": {
+      "atom": "Bulgarian split squat",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b7d0a9fe07d6692be8c7f51e26e6a8f66858f49d804d1d77396d44b23609d235"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Burpee with push-up",
+    "label": "enmaler1-11",
+    "span": [
+      29.0836,
+      30.4044
+    ],
+    "hash": "bb202b96",
+    "heard": "burpee with push-up",
+    "check": {
+      "atom": "Burpee with push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "c867e0a6ae2bdd017aad9a0d0b4c0b23936fc386859ab920a58c80e7e0700d90"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Calf raises",
+    "label": "enmaler1-13",
+    "span": [
+      33.7296,
+      34.6928
+    ],
+    "hash": "7a42ae94",
+    "heard": "calf raises",
+    "check": {
+      "atom": "Calf raises",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "6676476c5573b177479c5567918f2614021f12a8e2901f839d7ba5467b1e66ee"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Calm finish, full effort.",
+    "label": "enmaler1-14",
+    "span": [
+      36.0438,
+      38.1946
+    ],
+    "hash": "7cbe47a0",
+    "heard": "calm finish full effort",
+    "check": {
+      "atom": "Calm finish, full effort.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ba81548a3595f84968f098df07387827c442535e5d9af5708a95c467e06a8325"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Chair pose",
+    "label": "enmaler1-15",
+    "span": [
+      39.5343,
+      40.7625
+    ],
+    "hash": "1cee9ad3",
+    "heard": "chair pose",
+    "check": {
+      "atom": "Chair pose",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "15531059c2aa5830d604c7e1e4e57211f0944d7e63f1037fad23da2ff92d1034"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Clasped-hands chest opener",
+    "label": "enmaler1-16",
+    "span": [
+      41.6261,
+      43.324
+    ],
+    "hash": "b38ec20c",
+    "heard": "clasped hands chest opener",
+    "check": {
+      "atom": "Clasped-hands chest opener",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "dc12569e20e71e70f8564fec5b56da2b22842c525a7a45f522f9a69ee418f18b"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Curtsy lunge",
+    "label": "enmaler1-17",
+    "span": [
+      44.5391,
+      45.5295
+    ],
+    "hash": "6ab6d1b8",
+    "heard": "curtsy lunge",
+    "check": {
+      "atom": "Curtsy lunge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "18c95f2a45356b371d9e2dac11baa079d91aba15840f3434fcbb370c1f15e97c"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Done. Strong session. Rest up.",
+    "label": "enmaler1-18",
+    "span": [
+      46.8515,
+      50.1105
+    ],
+    "hash": "8a546229",
+    "heard": "Done. Strong session. Rest up.",
+    "check": {
+      "atom": "Done. Strong session. Rest up.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "62f0de1ebbf223e50b42a07378702c012758cf547070e41492cc2111b890b12b"
+  },
+  {
+    "trainer": "male",
+    "batch": "1",
+    "atom": "Final exercise:",
+    "label": "enmaler1-19",
+    "span": [
+      50.9284,
+      52.32
+    ],
+    "hash": "80ee9643",
+    "heard": "Final exercise.",
+    "check": {
+      "atom": "Final exercise:",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "3f4d3cea4a63c41b0c6a0e7afee0cb27b38c79bada42e042dfeab94a80fe3055"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "28 reps",
+    "label": "enzarar1-00",
+    "span": [
+      0.0,
+      1.82983
+    ],
+    "hash": "3f28d559",
+    "heard": "28 reps",
+    "check": {
+      "atom": "28 reps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "86bb5381c2415513c492036beb0e40b4144cee97aad53ea5170378306a9b378c"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "29 reps",
+    "label": "enzarar1-01",
+    "span": [
+      2.38304,
+      3.6645
+    ],
+    "hash": "58f47f9c",
+    "heard": "29 reps",
+    "check": {
+      "atom": "29 reps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "7f67c552705f2c5ea28258681453006f7e974ae86a261fdaf5f18c09e4c6c7ca"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "4 left. Do not stop!",
+    "label": "enzarar1-02",
+    "span": [
+      4.03158,
+      6.09138
+    ],
+    "hash": "076976fd",
+    "heard": "Four left. Do not stop.",
+    "check": {
+      "atom": "4 left. Do not stop!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "988c6ed81e7de4f0baecfa2cd7c4896afdcef686e63dcf038e8ca091720e2649"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Band biceps curl",
+    "label": "enzarar1-03",
+    "span": [
+      7.23442,
+      8.6875
+    ],
+    "hash": "c38bb258",
+    "heard": "band biceps curl",
+    "check": {
+      "atom": "Band biceps curl",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "1c6de6b82cbfda4c3a6f3c921731fdf7f57a7de060624446674cd7bb2b32afea"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Band face pull",
+    "label": "enzarar1-04",
+    "span": [
+      9.45108,
+      10.6134
+    ],
+    "hash": "b18bdac2",
+    "heard": "band face pull",
+    "check": {
+      "atom": "Band face pull",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "1646228d56ab0d59fe06cf277332793a24a4160a69cd60ebf5d760dac28bf2fc"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Band pass-through",
+    "label": "enzarar1-05",
+    "span": [
+      11.31,
+      12.5264
+    ],
+    "hash": "01c261e3",
+    "heard": "band pass through",
+    "check": {
+      "atom": "Band pass-through",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "686b0c86749f99ced8f89fdb65ca4cc49f0c178ab01342b56894d7b7664fe061"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Band pull-apart",
+    "label": "enzarar1-06",
+    "span": [
+      13.4336,
+      14.4172
+    ],
+    "hash": "4a77d14a",
+    "heard": "band Pull Apart",
+    "check": {
+      "atom": "Band pull-apart",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4aa271d209891866fa5a2ca33fc48e99ae6451b725f16e084c7a18ff62401981"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Banded lat stretch",
+    "label": "enzarar1-07",
+    "span": [
+      15.1561,
+      16.7032
+    ],
+    "hash": "82acd357",
+    "heard": "banded lat stretch",
+    "check": {
+      "atom": "Banded lat stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "622dbab58965eac48e74bc112c1f3fdf0b2356ab9bdb585db3afe7dc8d6ff84c"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Barbell front squat",
+    "label": "enzarar1-08",
+    "span": [
+      17.5,
+      18.8325
+    ],
+    "hash": "34abb61a",
+    "heard": "barbell front squat",
+    "check": {
+      "atom": "Barbell front squat",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "63e5a2f3c2d3e8c77a0afe904aa3e0bba0cc7421364c13e47dc6e4539a50d8d5"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Chair-supported quad stretch",
+    "label": "enzarar1-11",
+    "span": [
+      22.3978,
+      24.066
+    ],
+    "hash": "d1c94a41",
+    "heard": "chair supported quad stretch",
+    "check": {
+      "atom": "Chair-supported quad stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8dfc2c5d25d3f5eb817fe44e6926a7458e48f656ebd12efcbf8aed73c80ca82d"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Couch stretch",
+    "label": "enzarar1-12",
+    "span": [
+      24.5784,
+      25.4823
+    ],
+    "hash": "6bd849bc",
+    "heard": "couch stretch",
+    "check": {
+      "atom": "Couch stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8c65e607e23551b352b6e20a399dfffb8ec92e17f566a37b8f64a20f1b76baf3"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Dumbbell reverse lunge",
+    "label": "enzarar1-13",
+    "span": [
+      26.0717,
+      27.6123
+    ],
+    "hash": "5a6a383d",
+    "heard": "dumbbell reverse lunge",
+    "check": {
+      "atom": "Dumbbell reverse lunge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8661773225eb15eac936f0ac2c9a3f902cf59db3aa5cd8de713127603c9ff4d5"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Glute bridge",
+    "label": "enzarar1-15",
+    "span": [
+      30.1412,
+      31.1226
+    ],
+    "hash": "092cc52b",
+    "heard": "glute bridge",
+    "check": {
+      "atom": "Glute bridge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "efb7d3e35f63b1041ac1ceadc626703935a1e7f038232493ae3398030a81f79b"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Glute bridge march",
+    "label": "enzarar1-16",
+    "span": [
+      31.7551,
+      32.8106
+    ],
+    "hash": "bff66e0c",
+    "heard": "glute bridge march",
+    "check": {
+      "atom": "Glute bridge march",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ef8dbb94ea54dcde1b400511bf911f2941c2b84558155b73f8c938155059946e"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Heel taps",
+    "label": "enzarar1-17",
+    "span": [
+      33.4483,
+      34.2443
+    ],
+    "hash": "3ad641ab",
+    "heard": "heel taps",
+    "check": {
+      "atom": "Heel taps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "024ace66963fef11de29867cc18f93368df48ee8c46dc842ada023482133d6a6"
+  },
+  {
+    "trainer": "zara",
+    "batch": "1",
+    "atom": "Hip circles",
+    "label": "enzarar1-18",
+    "span": [
+      34.7774,
+      36.9819
+    ],
+    "hash": "5aaf1ab3",
+    "heard": "Hip circles, insane.",
+    "check": {
+      "atom": "Hip circles",
+      "ratio": 0.769,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2fefa0bd326a3f899238164dbd9e275978446ae5d3c9d2132847c23eae96be9a"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Jog in place",
+    "label": "enzarar2-00",
+    "span": [
+      0.0,
+      1.4135
+    ],
+    "hash": "e4cf0bb1",
+    "heard": "Jog in place.",
+    "check": {
+      "atom": "Jog in place",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b8fa48203dc66880bf7eb7459a16e09759058a3e5d4e8eb78681242d26eb0e21"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Keep a soft bend in your knees.",
+    "label": "enzarar2-01",
+    "span": [
+      2.14171,
+      3.94075
+    ],
+    "hash": "e8ea2144",
+    "heard": "Keep a soft bend in your knees.",
+    "check": {
+      "atom": "Keep a soft bend in your knees.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "6abda0eff828959c5a3d82506343e78408a20e0ad8789651417d8eec33de6ddc"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Keep the pulses small and controlled.",
+    "label": "enzarar2-02",
+    "span": [
+      4.71546,
+      6.79962
+    ],
+    "hash": "6400dd4d",
+    "heard": "Keep the pulses small and controlled.",
+    "check": {
+      "atom": "Keep the pulses small and controlled.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "33943c73a3dadbcf92e66e820f15b3e67d0bd775f69f51fdc6d6300cd4cc8f8c"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Keep your back flat and your elbows wide.",
+    "label": "enzarar2-03",
+    "span": [
+      7.44437,
+      9.76608
+    ],
+    "hash": "db3730a2",
+    "heard": "Keep your back flat and your elbows wide.",
+    "check": {
+      "atom": "Keep your back flat and your elbows wide.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "fc9b5857caa85b91180356edcc3930a93788faed277f1edf809233e500d71c90"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Keep your back leg long and strong.",
+    "label": "enzarar2-04",
+    "span": [
+      10.3209,
+      12.7784
+    ],
+    "hash": "6583c0ba",
+    "heard": "Keep your back leg long and strong.",
+    "check": {
+      "atom": "Keep your back leg long and strong.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "00aefac3a4913c8eead0c1ef0d8eab3cc7f3604ef35d433f9c2864776329ec69"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Keep your back leg long and your ribs down.",
+    "label": "enzarar2-05",
+    "span": [
+      13.436,
+      15.761
+    ],
+    "hash": "2bdd04dc",
+    "heard": "Keep your back leg long and your ribs down.",
+    "check": {
+      "atom": "Keep your back leg long and your ribs down.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "e5bf606fa24e3d8d96d642b1c286ce5c387b4695b631436e88857288fcda921a"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Knee push-up",
+    "label": "enzarar2-06",
+    "span": [
+      16.4902,
+      17.3135
+    ],
+    "hash": "73a6cd44",
+    "heard": "knee push-up",
+    "check": {
+      "atom": "Knee push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "c2cea560bbf7879861887beb5cd77252388726deb91b0c8317a9e2a6a46709d8"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Neck side stretch",
+    "label": "enzarar2-07",
+    "span": [
+      18.1027,
+      19.2707
+    ],
+    "hash": "ed21292c",
+    "heard": "neck side stretch",
+    "check": {
+      "atom": "Neck side stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2b057d94d7abf67c5ea93cfb5bb9bf6a51ea6e63236b15057e7ed4a83616bc32"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Neck side tilts",
+    "label": "enzarar2-08",
+    "span": [
+      19.8796,
+      21.2144
+    ],
+    "hash": "d4c0f8d1",
+    "heard": "neck side tilts",
+    "check": {
+      "atom": "Neck side tilts",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "7a1c4776676c463c7a5db8c2f661659bc3238efb3fe6604b7830ae070260dc29"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Plank to pike",
+    "label": "enzarar2-09",
+    "span": [
+      21.6945,
+      22.6186
+    ],
+    "hash": "fa690c8f",
+    "heard": "plank to pike",
+    "check": {
+      "atom": "Plank to pike",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "5e9c11506e4e376aaf300dbcd7347573bd190f6d03d4c68ec66a5a4b9dcee973"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Round 4 crushed!",
+    "label": "enzarar2-10",
+    "span": [
+      23.1962,
+      25.235
+    ],
+    "hash": "3cf3ddd4",
+    "heard": "Round four crushed.",
+    "check": {
+      "atom": "Round 4 crushed!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ccc51109c1aa0154971f05331c372938b162e6791e98c100bbb9751614f410ef"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Round 6 crushed!",
+    "label": "enzarar2-12",
+    "span": [
+      28.4076,
+      30.16
+    ],
+    "hash": "66e2cbea",
+    "heard": "Round six, crushed.",
+    "check": {
+      "atom": "Round 6 crushed!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b09ea1c55f2b0ffa1a31eeedbc804fb11dbe608791abb338b3ad1806188a6d68"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Round 7 crushed!",
+    "label": "enzarar2-13",
+    "span": [
+      30.7096,
+      32.2572
+    ],
+    "hash": "2f195857",
+    "heard": "Round seven crushed.",
+    "check": {
+      "atom": "Round 7 crushed!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "066ef7e0e7f345c2a359f11fe7489ac984c309e442f2e951937f5d6e48f8bacb"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Side lunge",
+    "label": "enzarar2-14",
+    "span": [
+      32.7404,
+      33.9416
+    ],
+    "hash": "0f0270d5",
+    "heard": "side lunge",
+    "check": {
+      "atom": "Side lunge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "449621fee572f2eb02a4b7edc4fb5e84537f7480cdfc55c1b3aa0fba2fd46a1c"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Side-lying quad stretch",
+    "label": "enzarar2-15",
+    "span": [
+      34.5633,
+      36.1588
+    ],
+    "hash": "d3656818",
+    "heard": "sidelying quad stretch",
+    "check": {
+      "atom": "Side-lying quad stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "9d4ffaacccee66993985d0a198655e0f90840d5bc63c20f00a717305fab805a4"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Sit up tall rather than leaning back to pull.",
+    "label": "enzarar2-16",
+    "span": [
+      36.512,
+      39.398
+    ],
+    "hash": "9d70e18d",
+    "heard": "Sit up tall rather than leaning back to pull.",
+    "check": {
+      "atom": "Sit up tall rather than leaning back to pull.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "3e811a2eef8405f8ef4052cf52b582f1dca39807affadf9053aa9bdb2600b4aa"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "That's round 9!",
+    "label": "enzarar2-17",
+    "span": [
+      40.2336,
+      41.245
+    ],
+    "hash": "0630c674",
+    "heard": "That's round nine.",
+    "check": {
+      "atom": "That's round 9!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "77a7a8b8c7b789b71284b410e7222de2a8288fa53480d09f924d36fe97bdddb5"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Triceps dip on chair",
+    "label": "enzarar2-18",
+    "span": [
+      41.7355,
+      43.4161
+    ],
+    "hash": "ee2b9a96",
+    "heard": "triceps dip on chair",
+    "check": {
+      "atom": "Triceps dip on chair",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b7cc7e6362926a3ea0698a2705f93240f5f21421809ebd40372f8de4997ba324"
+  },
+  {
+    "trainer": "zara",
+    "batch": "2",
+    "atom": "Upper back hug stretch",
+    "label": "enzarar2-19",
+    "span": [
+      44.5132,
+      46.04
+    ],
+    "hash": "8c462cb7",
+    "heard": "upper back hug stretch",
+    "check": {
+      "atom": "Upper back hug stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "52a1fff1a3753b3705f422a22662ffdd126a58e95f033e05a5677fdb558786c1"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Wall push-up",
+    "label": "enzarar3-00",
+    "span": [
+      0.0,
+      1.20471
+    ],
+    "hash": "22fc91af",
+    "heard": "wall pushup",
+    "check": {
+      "atom": "Wall push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "956848035220e67bc1ae9a0bc7613b55c141cbe9f5fcb31a5e6bfd45195c7144"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Wall slides",
+    "label": "enzarar3-02",
+    "span": [
+      3.77588,
+      4.88033
+    ],
+    "hash": "1e13d8f9",
+    "heard": "wall slides",
+    "check": {
+      "atom": "Wall slides",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "a3d7a55423d6ee7e2b0310c7192fc6160d4a319aebdfea61b9377bf0d8947fdc"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Warrior I",
+    "label": "enzarar3-03",
+    "span": [
+      5.79921,
+      6.78037
+    ],
+    "hash": "56243ec6",
+    "heard": "Warrior One",
+    "check": {
+      "atom": "Warrior I",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "9edc6b755eb90a64b1149f00a04ef7c292fe2c51bfd69a511a6eea3a2e7e8a33"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Windmills",
+    "label": "enzarar3-04",
+    "span": [
+      7.55229,
+      8.48421
+    ],
+    "hash": "4d7ebfd2",
+    "heard": "windmills",
+    "check": {
+      "atom": "Windmills",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d0656dba72145efc94609f7211fecb51064218ac9ecd58fd2c7f32d07a90def3"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Wrist circles",
+    "label": "enzarar3-05",
+    "span": [
+      9.36158,
+      10.3002
+    ],
+    "hash": "b665f2e5",
+    "heard": "wrist circles",
+    "check": {
+      "atom": "Wrist circles",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4e6d9dc860f422e666d269e0da5ae969577dc8bb5444ed6a4d6c2940bb51a929"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "set 1 of 5",
+    "label": "enzarar3-06",
+    "span": [
+      10.8393,
+      12.2708
+    ],
+    "hash": "2fb95d6a",
+    "heard": "Set one of five.",
+    "check": {
+      "atom": "set 1 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4bef0844f0d54671f38425a93e1c56a514388289dbc57290783b29964407b2e0"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "set 2 of 4",
+    "label": "enzarar3-07",
+    "span": [
+      13.1051,
+      14.2715
+    ],
+    "hash": "f847fc92",
+    "heard": "Set two of four.",
+    "check": {
+      "atom": "set 2 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "41599947dc0bae002d5218295085f82270601108449aba824340c57d97c82a4e"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "set 2 of 5",
+    "label": "enzarar3-08",
+    "span": [
+      15.0992,
+      16.4235
+    ],
+    "hash": "f947fe25",
+    "heard": "Set two of five.",
+    "check": {
+      "atom": "set 2 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "67070ae38ebc5bf9937336c9413448b847670d2634a3607f2973cdada565e103"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Brace your core so your hips do not sag in the plank.",
+    "label": "enzarar3-09",
+    "span": [
+      16.9047,
+      20.5278
+    ],
+    "hash": "45841a7a",
+    "heard": "Brace your core so your hips do not sag in the plank.",
+    "check": {
+      "atom": "Brace your core so your hips do not sag in the plank.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "7fe28372ad4e9d01dcd0841aca8c75f18bd58eefe0ef0ac5072988d1fc421765"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Brace your core so your lower back does not arch.",
+    "label": "enzarar3-10",
+    "span": [
+      21.0851,
+      24.0039
+    ],
+    "hash": "18dd4595",
+    "heard": "Brace your core so your lower back does not arch.",
+    "check": {
+      "atom": "Brace your core so your lower back does not arch.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "551f2deee2bb4634c36747fb49a2dc2f28d08e8256d1d7d7d26b2b104f2755d0"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Hinge slightly forward at the hips and keep your chest up.",
+    "label": "enzarar3-11",
+    "span": [
+      24.6272,
+      28.1222
+    ],
+    "hash": "450e6414",
+    "heard": "Hinge slightly forward at the hips and keep your chest up.",
+    "check": {
+      "atom": "Hinge slightly forward at the hips and keep your chest up.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2768b80d16d61a180047370d6659d84e73617a5cd9f1fbff028d5c7ddbc5c14b"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Keep your heels, hips and shoulders in one line throughout.",
+    "label": "enzarar3-12",
+    "span": [
+      28.8566,
+      32.4853
+    ],
+    "hash": "3a7b468e",
+    "heard": "Keep your heels, hips, and shoulders in one line throughout.",
+    "check": {
+      "atom": "Keep your heels, hips and shoulders in one line throughout.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2c5d4777faa6108a5655ea2f752f60136004bd4809f4a7512b09742ab585e1cf"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Keep your lower back in contact with the floor.",
+    "label": "enzarar3-13",
+    "span": [
+      32.9342,
+      35.68
+    ],
+    "hash": "332a1679",
+    "heard": "Keep your lower back in contact with the floor.",
+    "check": {
+      "atom": "Keep your lower back in contact with the floor.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2323d8642b91bb9050ea9469e7220d724090f42ecbd9e05e259e14abb5401f1c"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Let the weights hang straight down by your hips.",
+    "label": "enzarar3-14",
+    "span": [
+      36.2909,
+      39.0427
+    ],
+    "hash": "c398ba2a",
+    "heard": "Let the weights hang straight down by your hips.",
+    "check": {
+      "atom": "Let the weights hang straight down by your hips.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8d53bd43ddbdfd64c17b77888906eee74e53940ab0dd09f242cd200bdbca22f3"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Place a folded towel or cushion under your hips or forehead if they do not reach.",
+    "label": "enzarar3-15",
+    "span": [
+      39.5988,
+      43.9855
+    ],
+    "hash": "063bc530",
+    "heard": "Place a folded towel or cushion under your hips or forehead if they do not reach.",
+    "check": {
+      "atom": "Place a folded towel or cushion under your hips or forehead if they do not reach.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "860bd1581d80d3568c82f543cf51b431e6c8ae905191c773d6e88d146b1ceb66"
+  },
+  {
+    "trainer": "zara",
+    "batch": "3",
+    "atom": "Point the toes of your back foot straight ahead.",
+    "label": "enzarar3-16",
+    "span": [
+      44.59,
+      47.44
+    ],
+    "hash": "29e4e9f5",
+    "heard": "Point the toes of your back foot straight ahead.",
+    "check": {
+      "atom": "Point the toes of your back foot straight ahead.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "cc81894ab785f7af4ae4cc255ad7ebc1b2b9fbdede5f8b32b7a78c6da965dcd8"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Glute bridge",
+    "label": "enkair2-00",
+    "span": [
+      0.0,
+      1.14796
+    ],
+    "hash": "092cc52b",
+    "heard": "glute bridge",
+    "check": {
+      "atom": "Glute bridge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "da743155e25c2540c441792ce7d19b4f98603cd0592389c750ca50cea50d2ab9"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Hammer curl",
+    "label": "enkair2-01",
+    "span": [
+      2.04558,
+      2.82721
+    ],
+    "hash": "82f66b9b",
+    "heard": "hammer curl",
+    "check": {
+      "atom": "Hammer curl",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "f1de1a2a75992cfa3ab12f90dd895712cce09346b0420d2957feb890e350244d"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "I'm Kai. Settle in, breathe. First exercise:",
+    "label": "enkair2-02",
+    "span": [
+      3.63562,
+      8.30979
+    ],
+    "hash": "5b172e7a",
+    "heard": "I'm Kai. Settle in. Breathe. First exercise.",
+    "check": {
+      "atom": "I'm Kai. Settle in, breathe. First exercise:",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ed91ab3c06a89af9bc936c1215b4822caf21b42e2603ee4a16b628c361a0a6f4"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Neck side stretch",
+    "label": "enkair2-03",
+    "span": [
+      9.36304,
+      10.7844
+    ],
+    "hash": "ed21292c",
+    "heard": "neck side stretch",
+    "check": {
+      "atom": "Neck side stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "0096dbffdeab1b95a186a756e5ea557e23e12d96061e28c2c0915666a0e59ca1"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Neck side tilts",
+    "label": "enkair2-04",
+    "span": [
+      11.7958,
+      13.0301
+    ],
+    "hash": "d4c0f8d1",
+    "heard": "neck side tilts",
+    "check": {
+      "atom": "Neck side tilts",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "a17aa2668f569ba06f2a2a4cfef558bc5f6892abc0510200124776a556ae1b0f"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Pigeon pose",
+    "label": "enkair2-05",
+    "span": [
+      13.8984,
+      14.865
+    ],
+    "hash": "27952dd4",
+    "heard": "pigeon pose",
+    "check": {
+      "atom": "Pigeon pose",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4aa3c7088b31d29854e4e8d92d8d25c64a9d4c27a04e8ba48abad6893ac85358"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Pike push-up",
+    "label": "enkair2-06",
+    "span": [
+      15.8725,
+      16.817
+    ],
+    "hash": "25f982d4",
+    "heard": "pike push-up",
+    "check": {
+      "atom": "Pike push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "de076d3699515f81ae022e0bdd6bfe7040a3fc7787f89f58f6e81b9163f4f7e9"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Plank to pike",
+    "label": "enkair2-07",
+    "span": [
+      17.7771,
+      18.8748
+    ],
+    "hash": "fa690c8f",
+    "heard": "plank to pike",
+    "check": {
+      "atom": "Plank to pike",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "88289ac85ee985748126b3127abd62dd5ff8357939f6630a77b403ca0d5b6cc6"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Wall lat stretch",
+    "label": "enkair2-08",
+    "span": [
+      19.7437,
+      21.1344
+    ],
+    "hash": "383aef39",
+    "heard": "wall lat stretch",
+    "check": {
+      "atom": "Wall lat stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "982f65b4ed3ccdd0d501c0dbb15e3d80f0d187a37a46d65fd82194bafa83a22c"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Wall push-up",
+    "label": "enkair2-09",
+    "span": [
+      22.0836,
+      22.8375
+    ],
+    "hash": "22fc91af",
+    "heard": "wall pushup",
+    "check": {
+      "atom": "Wall push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2e3e954aac5c048c4d524e90561919a5e5df3cd7b7eafb0df43d8881462dd243"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 1 of 3",
+    "label": "enkair2-11",
+    "span": [
+      25.118,
+      26.7181
+    ],
+    "hash": "29b953f8",
+    "heard": "Set one of three.",
+    "check": {
+      "atom": "set 1 of 3",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "a59dcf4708b6bb4b214b1317abbb0f9e7f67b6b4ff51cacb0b7b4545e45ebd80"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 1 of 4",
+    "label": "enkair2-12",
+    "span": [
+      27.593,
+      28.9554
+    ],
+    "hash": "30b95efd",
+    "heard": "Set one of four.",
+    "check": {
+      "atom": "set 1 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "bbc4cbc2f22cef0e24228e1b9c8205d84db387e8a4fe63d91b0aadbeeaefb1ca"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 1 of 5",
+    "label": "enkair2-13",
+    "span": [
+      29.8459,
+      31.171
+    ],
+    "hash": "2fb95d6a",
+    "heard": "Set one of five.",
+    "check": {
+      "atom": "set 1 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "da7ff70d26d85bad4ec3e3d7135c96a94e945ba919cea84a284ebc0d99383403"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 2 of 3",
+    "label": "enkair2-14",
+    "span": [
+      32.0945,
+      33.4281
+    ],
+    "hash": "f347f4b3",
+    "heard": "Set two of three.",
+    "check": {
+      "atom": "set 2 of 3",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "22c5c2774df6bcc2bc9ac34193a514377ca00b6838ed084e8994f06d68b61cd5"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 2 of 4",
+    "label": "enkair2-15",
+    "span": [
+      34.3424,
+      35.6742
+    ],
+    "hash": "f847fc92",
+    "heard": "Set two of four.",
+    "check": {
+      "atom": "set 2 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "3d364983e4569e984dcf99efd731136c117e6c2509cd74abf25c8317c3026d13"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "set 2 of 5",
+    "label": "enkair2-16",
+    "span": [
+      36.5879,
+      37.9747
+    ],
+    "hash": "f947fe25",
+    "heard": "Set two of five.",
+    "check": {
+      "atom": "set 2 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "15a5e1bb3370addc957e51b2d9e4f0056e1f7e2cb4b80466461a01207cd1a939"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Keep the bar close to your legs the whole way.",
+    "label": "enkair2-17",
+    "span": [
+      38.644,
+      41.6023
+    ],
+    "hash": "0aa546b2",
+    "heard": "Keep the bar close to your legs the whole way.",
+    "check": {
+      "atom": "Keep the bar close to your legs the whole way.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "9559ba21ebe79359154d64d804adc22addff781e0b0124344216e02451e5ee2d"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Keep your legs as straight as is comfortable to feel the hamstring stretch.",
+    "label": "enkair2-18",
+    "span": [
+      42.4485,
+      46.6957
+    ],
+    "hash": "558d968a",
+    "heard": "Keep your legs as straight as is comfortable to feel the hamstring stretch.",
+    "check": {
+      "atom": "Keep your legs as straight as is comfortable to feel the hamstring stretch.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "383a4ab57836d2a3fd1d34c74ca22c3fd1e9ea451008719708c4a3deea84e084"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Keep your legs still and pointing straight up.",
+    "label": "enkair2-19",
+    "span": [
+      47.3719,
+      50.1695
+    ],
+    "hash": "91f63f4a",
+    "heard": "Keep your legs still and pointing straight up.",
+    "check": {
+      "atom": "Keep your legs still and pointing straight up.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "0cd9e6f428f36e0c123048ee242af81516275df5534a3e8bf1d7472e5f5cfc26"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Loop a towel around your foot if you cannot reach it.",
+    "label": "enkair2-20",
+    "span": [
+      50.8793,
+      53.6531
+    ],
+    "hash": "ee7bc474",
+    "heard": "Loop a towel around your foot if you cannot reach it.",
+    "check": {
+      "atom": "Loop a towel around your foot if you cannot reach it.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "f2c1ae6ab3f39c6cc0b23e61aec4ccbdfc9cda85883f002811df266fffd9c1f3"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Sit on a folded towel if your lower back rounds.",
+    "label": "enkair2-21",
+    "span": [
+      54.4405,
+      57.4273
+    ],
+    "hash": "66d09f8f",
+    "heard": "Sit on a folded towel if your lower back rounds.",
+    "check": {
+      "atom": "Sit on a folded towel if your lower back rounds.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2702f86578535646d307ec39753aca83473f3859a3c10efd805fdb1b63d3c2b7"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Stop lowering at the point where your lower back starts to arch.",
+    "label": "enkair2-22",
+    "span": [
+      57.922,
+      61.5026
+    ],
+    "hash": "b8f7d89a",
+    "heard": "Stop lowering at the point where your lower back starts to arch.",
+    "check": {
+      "atom": "Stop lowering at the point where your lower back starts to arch.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "5a2742dd77318bac4b44737f1d256fb918e583b29da1dbbc0fc4778ec33d123f"
+  },
+  {
+    "trainer": "kai",
+    "batch": "2",
+    "atom": "Widen your grip if your shoulders feel pinched.",
+    "label": "enkair2-23",
+    "span": [
+      62.4065,
+      65.36
+    ],
+    "hash": "55437717",
+    "heard": "Widen your grip if your shoulders feel pinched.",
+    "check": {
+      "atom": "Widen your grip if your shoulders feel pinched.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d574f64220624613d48135df960035b7e5f0e760ea331e87e1dd4c404089ed37"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "27 reps",
+    "label": "enninar1-00",
+    "span": [
+      0.0,
+      1.42762
+    ],
+    "hash": "9ab6b1ca",
+    "heard": "27 reps",
+    "check": {
+      "atom": "27 reps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "c4c09e464c207ea7ab4ba696e8676a6d0348888e66b6b7c36a80ea1fd78eb7c5"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "28 reps",
+    "label": "enninar1-01",
+    "span": [
+      2.43883,
+      3.59725
+    ],
+    "hash": "3f28d559",
+    "heard": "28 reps",
+    "check": {
+      "atom": "28 reps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "f7003653549f568915da3a581e8c32b1dc2558879da00d004df874e9ad4282db"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "65 seconds",
+    "label": "enninar1-02",
+    "span": [
+      4.58796,
+      5.93938
+    ],
+    "hash": "d809a341",
+    "heard": "65 seconds",
+    "check": {
+      "atom": "65 seconds",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "fcc1ac1381b111ce0f7e2b94c5d5f48b108299906a79c7f716d28b401026e7ef"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Band face pull",
+    "label": "enninar1-03",
+    "span": [
+      6.78929,
+      8.05342
+    ],
+    "hash": "b18bdac2",
+    "heard": "band face pull",
+    "check": {
+      "atom": "Band face pull",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "bc9cde551656e15acd193852c73a10adaf062e64dba55ace5fd3ef7ec834a326"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Band pass-through",
+    "label": "enninar1-04",
+    "span": [
+      8.94779,
+      10.2544
+    ],
+    "hash": "01c261e3",
+    "heard": "band pass through",
+    "check": {
+      "atom": "Band pass-through",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "1b588818458e1dd4748ef283ce7dffa0b34797e32c06a660fa702748d1a33677"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Banded hip flexor stretch",
+    "label": "enninar1-05",
+    "span": [
+      11.0771,
+      12.8314
+    ],
+    "hash": "f4fcbb21",
+    "heard": "banded hip flexor stretch",
+    "check": {
+      "atom": "Banded hip flexor stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8ba7f0195c6f8c248d995f9e23f332ef95a40ffcb11ea88421aebd9fc6984cfe"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Barbell Romanian deadlift",
+    "label": "enninar1-06",
+    "span": [
+      13.6108,
+      15.6231
+    ],
+    "hash": "59468bf9",
+    "heard": "Barbell Romanian deadlift",
+    "check": {
+      "atom": "Barbell Romanian deadlift",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "a51bc3a1705fe01221e68029a5c38c01dab8761ab224dd86c87188d41896a85a"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Bird dog",
+    "label": "enninar1-07",
+    "span": [
+      16.3458,
+      17.1869
+    ],
+    "hash": "f6c392d4",
+    "heard": "bird dog",
+    "check": {
+      "atom": "Bird dog",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2b6a745cab97c32472f645980cd350d6b91894265910ccd45ed6c76766a1409e"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Boat pose",
+    "label": "enninar1-08",
+    "span": [
+      17.9689,
+      18.8722
+    ],
+    "hash": "265d2ad0",
+    "heard": "boat pose",
+    "check": {
+      "atom": "Boat pose",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d622f1b9e73b0f72c55577fec2dd6ba7aec139cb58af9ef848d08da77e888480"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Broad jumps",
+    "label": "enninar1-09",
+    "span": [
+      19.6785,
+      20.6837
+    ],
+    "hash": "76bf369e",
+    "heard": "broad jumps",
+    "check": {
+      "atom": "Broad jumps",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "98d5a87cf3d905a731b02101c42b7777410112ebfb1801d9a6aa519f42b40281"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Burpee with push-up",
+    "label": "enninar1-10",
+    "span": [
+      21.3508,
+      22.6903
+    ],
+    "hash": "bb202b96",
+    "heard": "Burpee with push-up",
+    "check": {
+      "atom": "Burpee with push-up",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "9e4987679801cd1ff4a5bf80b8efa27aed6393b444ac46eb6fb2def9cf393013"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Butt kicks",
+    "label": "enninar1-11",
+    "span": [
+      23.4436,
+      24.3323
+    ],
+    "hash": "0b345f1f",
+    "heard": "butt kicks",
+    "check": {
+      "atom": "Butt kicks",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d77545f074f9ff89a8bef7cfbbd965ac2f671ad59da53ac2290af18a491fc736"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Clasped-hands chest opener",
+    "label": "enninar1-14",
+    "span": [
+      28.3501,
+      30.2987
+    ],
+    "hash": "b38ec20c",
+    "heard": "Clasped hands chest opener?",
+    "check": {
+      "atom": "Clasped-hands chest opener",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "40b0805add47c5462bfb6c8b925bc1729688c5ad31a14eb6fc815413eb47c0c8"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Cossack squat",
+    "label": "enninar1-15",
+    "span": [
+      30.8344,
+      31.9966
+    ],
+    "hash": "933dcb98",
+    "heard": "Cossack squat",
+    "check": {
+      "atom": "Cossack squat",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "9d7f4060e8144cc184fdeffe55b506d4a92996c21253ea4a15cd3b6ce879cb2c"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Curtsy lunge",
+    "label": "enninar1-17",
+    "span": [
+      37.8585,
+      38.7428
+    ],
+    "hash": "6ab6d1b8",
+    "heard": "curtsy lunge",
+    "check": {
+      "atom": "Curtsy lunge",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b6f83a245521122cb98ad684c4dd196dfa453a72a97982b3f086c663fdc0c6b0"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Dumbbell shoulder press",
+    "label": "enninar1-18",
+    "span": [
+      39.6311,
+      40.9524
+    ],
+    "hash": "e67af56f",
+    "heard": "dumbbell shoulder press",
+    "check": {
+      "atom": "Dumbbell shoulder press",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "af4eea87ed68af7ed01ae7cfb71eb643bf56ab12b23d6d13ead3c4994a4ac134"
+  },
+  {
+    "trainer": "nina",
+    "batch": "1",
+    "atom": "Fast feet",
+    "label": "enninar1-19",
+    "span": [
+      41.74,
+      42.5287
+    ],
+    "hash": "62fadecd",
+    "heard": "fast feet",
+    "check": {
+      "atom": "Fast feet",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ffc3a19e5be18a0a4f8a60e15f3d78ab7095711b41aae05c79d996554a6a79a3"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Flutter kicks",
+    "label": "enninar2-00",
+    "span": [
+      0.0,
+      1.15104
+    ],
+    "hash": "6dd3979e",
+    "heard": "flutter kicks",
+    "check": {
+      "atom": "Flutter kicks",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "078f3e2588e656f5ccdeddc9a199197e611042dd9c37f7bc8c3570b77b08cb85"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Foam roller glutes",
+    "label": "enninar2-01",
+    "span": [
+      2.63129,
+      3.94117
+    ],
+    "hash": "b754a0f6",
+    "heard": "foam roller glutes",
+    "check": {
+      "atom": "Foam roller glutes",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "96ed590038a3b6a5a885607399ca6c9c3fb5d38071ff9f99abc950dd511c07cb"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Foam roller quads",
+    "label": "enninar2-02",
+    "span": [
+      5.17042,
+      6.57533
+    ],
+    "hash": "39952fa8",
+    "heard": "foam roller quads",
+    "check": {
+      "atom": "Foam roller quads",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "81f7d6f802eb985dc986f4b0c68cc6f72a4c2a46e2770a696451cb420f4d5d80"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Foam roller upper back",
+    "label": "enninar2-03",
+    "span": [
+      7.81933,
+      9.34496
+    ],
+    "hash": "cc0fc943",
+    "heard": "foam roller upper back",
+    "check": {
+      "atom": "Foam roller upper back",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "8c46f704367b77a11a8a28589dbed2d27dd4386deb8351a097c29657ec880104"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Forearm plank",
+    "label": "enninar2-04",
+    "span": [
+      10.6783,
+      11.6962
+    ],
+    "hash": "1b7839c3",
+    "heard": "forearm plank",
+    "check": {
+      "atom": "Forearm plank",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "7556c60aebcd8ac6ffedd7b152a9010644adc7acdf81a01bbc9c6099674b6c4c"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Kettlebell deadlift",
+    "label": "enninar2-05",
+    "span": [
+      12.6297,
+      13.9802
+    ],
+    "hash": "a95fb082",
+    "heard": "kettlebell deadlift",
+    "check": {
+      "atom": "Kettlebell deadlift",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "738b526d67381f925d64dac9cbc9af4e6d41fb7dc03de2e2d8148be4d535e3cf"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Kettlebell goblet squat",
+    "label": "enninar2-06",
+    "span": [
+      15.0557,
+      16.6188
+    ],
+    "hash": "7dc05846",
+    "heard": "kettlebell goblet squat",
+    "check": {
+      "atom": "Kettlebell goblet squat",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "67509bcb606cca2bfd3e759fc347491e9e4d291b14e218ecec63b5cbf7129ef6"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Neck side stretch",
+    "label": "enninar2-07",
+    "span": [
+      17.597,
+      18.9527
+    ],
+    "hash": "ed21292c",
+    "heard": "neck side stretch",
+    "check": {
+      "atom": "Neck side stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d6b4a898ba0ca2a9d4eb7b2f9aa0ca6005ccbe046a2c0565b6edc58fa748007f"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Neck side tilts",
+    "label": "enninar2-08",
+    "span": [
+      20.145,
+      21.3511
+    ],
+    "hash": "d4c0f8d1",
+    "heard": "neck side tilts",
+    "check": {
+      "atom": "Neck side tilts",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "5b2599dc8e9149b5786f2a5e411e180615f17c351288cdd7ed8b2202efdcedfa"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Precision, please. 4 more.",
+    "label": "enninar2-09",
+    "span": [
+      22.2487,
+      24.0151
+    ],
+    "hash": "45e54874",
+    "heard": "Precision, please. Four more.",
+    "check": {
+      "atom": "Precision, please. 4 more.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "34fefb14f6d35a45c9062fa389b4c62be343604a7bab84952234628ceb707161"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Precision, please. 6 more.",
+    "label": "enninar2-10",
+    "span": [
+      24.9862,
+      26.7848
+    ],
+    "hash": "27e80e7a",
+    "heard": "Precision please, six more.",
+    "check": {
+      "atom": "Precision, please. 6 more.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "e3dbcc80a6db04a9bf7c7b46948bfc6839dc57dd7643e729b6239e113b56bb4f"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Precision, please. 9 more.",
+    "label": "enninar2-11",
+    "span": [
+      27.6943,
+      29.5686
+    ],
+    "hash": "731a814f",
+    "heard": "Precision, please. Nine more.",
+    "check": {
+      "atom": "Precision, please. 9 more.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "46e3fdce350d6166e8358d1dc1536bba4e130e2d652f248a4813774057501a78"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Round 1 complete!",
+    "label": "enninar2-12",
+    "span": [
+      30.2409,
+      31.5895
+    ],
+    "hash": "7f5777d2",
+    "heard": "Round one complete.",
+    "check": {
+      "atom": "Round 1 complete!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "e86bc0755023a8d16529f142ce4a0b0d03bed0db8e247eb056a3c67c419a81d4"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Round 2 complete!",
+    "label": "enninar2-13",
+    "span": [
+      32.4638,
+      33.7573
+    ],
+    "hash": "e6b5a45b",
+    "heard": "Round two complete.",
+    "check": {
+      "atom": "Round 2 complete!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "6dbff048be43df505c567711459500261409e43a7717d518fe34410c66682e0f"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Round 3 complete!",
+    "label": "enninar2-14",
+    "span": [
+      34.7378,
+      35.9801
+    ],
+    "hash": "e1460198",
+    "heard": "Round three complete.",
+    "check": {
+      "atom": "Round 3 complete!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d33f8064e96126e713452abc0758c14c39774c757dd16a6d96784e533c183f84"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Round 6 complete!",
+    "label": "enninar2-15",
+    "span": [
+      36.7102,
+      38.0533
+    ],
+    "hash": "127a51c7",
+    "heard": "Round six complete.",
+    "check": {
+      "atom": "Round 6 complete!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "f67c9a3db179060a53eaeaea9bc111a08898e2ef408252c4cbccb72ee3984f5c"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Round 7 complete!",
+    "label": "enninar2-16",
+    "span": [
+      38.8685,
+      40.1132
+    ],
+    "hash": "89e2f694",
+    "heard": "Round seven complete.",
+    "check": {
+      "atom": "Round 7 complete!",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b6983688ab403c5c4e0fa7cf162a33f73d63bbfd9e1cf977564301183d413f2d"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Shadow boxing jab-cross",
+    "label": "enninar2-17",
+    "span": [
+      40.6333,
+      42.3329
+    ],
+    "hash": "d683cbcc",
+    "heard": "shadow boxing jab cross",
+    "check": {
+      "atom": "Shadow boxing jab-cross",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "b56afbbe362679f81dbfd1ff8cbd28368612a7a0c375ff164da054e0982e97be"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Standing outer hip stretch",
+    "label": "enninar2-18",
+    "span": [
+      42.9121,
+      44.6323
+    ],
+    "hash": "ddf139ee",
+    "heard": "standing outer hip stretch",
+    "check": {
+      "atom": "Standing outer hip stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "2908db26867eb49630650ce1baf694df0c6ee2d9590c85fe726f741acc1d07a9"
+  },
+  {
+    "trainer": "nina",
+    "batch": "2",
+    "atom": "Standing side bend",
+    "label": "enninar2-19",
+    "span": [
+      45.2983,
+      46.92
+    ],
+    "hash": "712ef087",
+    "heard": "Standing side bend.",
+    "check": {
+      "atom": "Standing side bend",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "195ad1c12249921da78535fbc5857ebcbe0aa90d65f60e996c49c541425a4066"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Upper back hug stretch",
+    "label": "enninar3-00",
+    "span": [
+      0.0,
+      1.71308
+    ],
+    "hash": "8c462cb7",
+    "heard": "Upper back hug stretch.",
+    "check": {
+      "atom": "Upper back hug stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "274febeadf3cb3fc16ae0cc81fc2335c1ae520358e05b197744214bbf060d98d"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Upward-facing dog",
+    "label": "enninar3-01",
+    "span": [
+      2.56875,
+      3.85633
+    ],
+    "hash": "c0e45281",
+    "heard": "upward facing dog",
+    "check": {
+      "atom": "Upward-facing dog",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "5d915fd91aaead774ef7ec1a1af51cf8266b284cd329b4290970c3c5beaf31ae"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "V-ups",
+    "label": "enninar3-02",
+    "span": [
+      4.97358,
+      5.648
+    ],
+    "hash": "a7242d86",
+    "heard": "V-ups.",
+    "check": {
+      "atom": "V-ups",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "3f30fbb4c3448d902648fce893b5aaa032f4b3ad957a251af9f52de2d2c7e04d"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Wall calf stretch",
+    "label": "enninar3-03",
+    "span": [
+      6.674,
+      7.95225
+    ],
+    "hash": "8c080224",
+    "heard": "wall calf stretch",
+    "check": {
+      "atom": "Wall calf stretch",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4d6ed808b6b1950d8a1461bd771dbac63dde6ac2a40f0c44d1b385e6b5dbd125"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 1 of 4",
+    "label": "enninar3-04",
+    "span": [
+      8.63133,
+      9.99125
+    ],
+    "hash": "30b95efd",
+    "heard": "set one of four",
+    "check": {
+      "atom": "set 1 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "00eb85f0eafab68fc2931e3367e9f6e4dd6ec9ec781917843d31545416b50a96"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 2 of 4",
+    "label": "enninar3-05",
+    "span": [
+      10.782,
+      11.706
+    ],
+    "hash": "f847fc92",
+    "heard": "set two of four",
+    "check": {
+      "atom": "set 2 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "fae61a71bb99ea6dba1db8e9e1988345b2ab715e6c5b0d44555eb6e4eaaf5bd9"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 2 of 5",
+    "label": "enninar3-06",
+    "span": [
+      12.5693,
+      13.8835
+    ],
+    "hash": "f947fe25",
+    "heard": "Set two of five.",
+    "check": {
+      "atom": "set 2 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "4c881d6e5c91014a904e5a10cc175dd99cc826653f5ea876e9a5bd216867a102"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 3 of 4",
+    "label": "enninar3-07",
+    "span": [
+      14.7387,
+      15.8887
+    ],
+    "hash": "96eb763f",
+    "heard": "Set three of four.",
+    "check": {
+      "atom": "set 3 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "ccc65b8d3299f9cceefd8e47d4e3ee5ce5b82f1b4d91ae1004eccf81495d2a71"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 4 of 4",
+    "label": "enninar3-08",
+    "span": [
+      16.6717,
+      17.9004
+    ],
+    "hash": "fddbabf4",
+    "heard": "Set four of four.",
+    "check": {
+      "atom": "set 4 of 4",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "c21c47ff1c97e605934445ab6d92e9c05cd4ebbf271c6d6aefecbcc8c1dbdc7c"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 4 of 5",
+    "label": "enninar3-09",
+    "span": [
+      18.6196,
+      20.2427
+    ],
+    "hash": "fedbad87",
+    "heard": "Set four of five.",
+    "check": {
+      "atom": "set 4 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "a86f2bf37d8d5e5fc75dafeeee3ea0ba4bd91ea2a2a3d0d1beb9d0902df794ab"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "set 5 of 5",
+    "label": "enninar3-10",
+    "span": [
+      20.6825,
+      22.2334
+    ],
+    "hash": "982610c6",
+    "heard": "Set five of five.",
+    "check": {
+      "atom": "set 5 of 5",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "7b2bd20f7246028ebd5657fff6f19544a3c9aa41cf9e4ca970c6209a6ed95c5a"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Bend directly sideways without leaning forward or back.",
+    "label": "enninar3-11",
+    "span": [
+      22.8204,
+      26.7598
+    ],
+    "hash": "ade7f404",
+    "heard": "Bend directly sideways without leaning forward or back.",
+    "check": {
+      "atom": "Bend directly sideways without leaning forward or back.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "fc9d5c7f447f5af330227c94c0011c3021fec43e69e9aed23f00bd2973d04fbf"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Bend your knees as much as you need to keep your back long rather than rounded.",
+    "label": "enninar3-12",
+    "span": [
+      27.265,
+      31.8857
+    ],
+    "hash": "f65a9f69",
+    "heard": "Bend your knees as much as you need to keep your back long rather than rounded.",
+    "check": {
+      "atom": "Bend your knees as much as you need to keep your back long rather than rounded.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "0a75532956f809f01b947e54fb9a99cd1445be7284a695b86ab6def2070c6289"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Bend your knees as much as you need; reaching your shins is fine.",
+    "label": "enninar3-13",
+    "span": [
+      32.4503,
+      36.1126
+    ],
+    "hash": "53fd3207",
+    "heard": "Bend your knees as much as you need, reaching your shins is fine.",
+    "check": {
+      "atom": "Bend your knees as much as you need; reaching your shins is fine.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "adf4dad02bdd8e5c7c335b3592ae587ac74622fcc2885e92173b362a1c55ad44"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Keep your hips square to the floor instead of twisting.",
+    "label": "enninar3-14",
+    "span": [
+      36.9023,
+      39.9105
+    ],
+    "hash": "0d1d0b78",
+    "heard": "Keep your hips square to the floor instead of twisting.",
+    "check": {
+      "atom": "Keep your hips square to the floor instead of twisting.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "c00baa9568a74604752777b241c4fbfc645c55c85d8dc9fae36e18586b15d03d"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Let the weights hang straight down by your hips.",
+    "label": "enninar3-15",
+    "span": [
+      40.5157,
+      43.4012
+    ],
+    "hash": "c398ba2a",
+    "heard": "Let the weights hang straight down by your hips.",
+    "check": {
+      "atom": "Let the weights hang straight down by your hips.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "1b7a5e90c77915b294b561b02ce24b1532fdfdc86a092af7d0ccc9b6f9f4f397"
+  },
+  {
+    "trainer": "nina",
+    "batch": "3",
+    "atom": "Squeeze your shoulder blades together at the top.",
+    "label": "enninar3-16",
+    "span": [
+      43.965,
+      46.44
+    ],
+    "hash": "eefae7bc",
+    "heard": "Squeeze your shoulder blades together at the top.",
+    "check": {
+      "atom": "Squeeze your shoulder blades together at the top.",
+      "ratio": 1.0,
+      "ok": true,
+      "reasons": []
+    },
+    "method": "independent isolated-clip ASR, not listening",
+    "accepted": true,
+    "sha256": "d35e7cf42a3bd27aaf9bfa497f1ed6734f7d4b83d4e87daa054fa6d08bacb0ba"
+  }
+]
