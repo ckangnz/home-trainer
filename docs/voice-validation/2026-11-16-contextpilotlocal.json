@@ -1,0 +1,36 @@
+[
+  {
+    "trainer": "zara",
+    "language": "en",
+    "atom": "Wall sit",
+    "hash": "28799be9",
+    "heard": "wall-sit?",
+    "span": [
+      4.03275,
+      5.1042499999999995
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "wall-sit?"
+    ],
+    "sha256": "3acfd99a2b19b9c51d27163781eb3262eb8d771081d1a49f280d59ca8a467dba",
+    "method": "Local faster-whisper small int8, specified source language, no prompt. Exact unique inventory text/count/unit match; carrier sentence excluded. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Wall sit",
+    "hash": "28799be9",
+    "heard": "wall sit",
+    "span": [
+      6.83288,
+      7.92279
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "wall sit"
+    ],
+    "sha256": "196d02d34863d2eaaf9d9fc25038c7796d17de15133a3fd9c3436672990a28fd",
+    "method": "Local faster-whisper small int8, specified source language, no prompt. Exact unique inventory text/count/unit match; carrier sentence excluded. Not listened."
+  }
+]

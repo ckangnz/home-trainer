@@ -1,0 +1,70 @@
+[
+  {
+    "trainer": "male",
+    "language": "en",
+    "atom": "Forward lunge",
+    "hash": "194b3f59",
+    "heard": "forward lunge",
+    "span": [
+      6.87558,
+      8.21133
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "forward lunge"
+    ],
+    "sha256": "3963fcec29b8c7bee0e0ef2c19e04e9145a9234542e2ae5fb280e3148366a341",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "atom": "Curtsy lunge",
+    "hash": "6ab6d1b8",
+    "heard": "curtsy lunge",
+    "span": [
+      2.20462,
+      3.35783
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "curtsy lunge"
+    ],
+    "sha256": "59258237fe65aab43219f8e1efdcbb8503e940e4cb005a6da7d78186d60f61b2",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "글루트 브릿지 마치",
+    "hash": "fb4cbc9c",
+    "heard": "글루트 브릿지 마치",
+    "span": [
+      2.21629,
+      3.6945
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "글루트 브릿지 마치"
+    ],
+    "sha256": "615696059501063ae5423d64a15adbfacdc14d5d4273ebc5806193ebe3720e65",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "레니게이드 로우",
+    "hash": "020fae55",
+    "heard": "레니게이드 로우",
+    "span": [
+      14.305900000000001,
+      15.5152
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "레니게이드 로우"
+    ],
+    "sha256": "280eb1d3bfd482f5f559ad8adb0be26d70409d8dd45e43627207182e1cda29be",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]
