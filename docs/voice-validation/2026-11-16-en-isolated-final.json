@@ -1,0 +1,78 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "hash": "4ef9f77c",
+    "atom": "Hey, I'm Sofia! Let's ease into it. First up:",
+    "heard": "Hey, I'm Sophia. Let's ease into it. First up,",
+    "local_asr": [
+      {
+        "vad": false,
+        "heard": " Hey, I'm Sophia! Let's ease into it! First up..."
+      },
+      {
+        "vad": true,
+        "heard": " Hey, I'm Sophia. Let's ease into it. First up..."
+      }
+    ],
+    "method": "Independent isolated ASR with explicit same-name spelling review (Sophia/Sofia); remaining words and meaning exact, no numeric difference. Not listened.",
+    "sha256": "c5ba6741c6856dc02705f040a519538c553fc28acbbd19b2f337a03d07778bdd"
+  },
+  {
+    "trainer": "sofia",
+    "language": "en",
+    "hash": "13f6a831",
+    "atom": "Sofia here. Good vibes only. First exercise:",
+    "heard": "Sophia here, good vibes only. First exercise.",
+    "local_asr": [
+      {
+        "vad": false,
+        "heard": " Sophia here, good vibes only. First exercise."
+      },
+      {
+        "vad": true,
+        "heard": " I don't know."
+      }
+    ],
+    "method": "Independent isolated ASR with explicit same-name spelling review (Sophia/Sofia); remaining words and meaning exact, no numeric difference. Not listened.",
+    "sha256": "890287b8d7f381376152d7a3965066fc57256666e27c9b2d131df7f2a4a879ef"
+  },
+  {
+    "trainer": "kai",
+    "language": "en",
+    "hash": "a798a720",
+    "atom": "Barbell thruster",
+    "heard": "barbell thruster",
+    "local_asr": [
+      {
+        "vad": false,
+        "heard": " Barbell Thruster"
+      },
+      {
+        "vad": true,
+        "heard": " Barbell Thruster"
+      }
+    ],
+    "method": "Independent isolated ASR exact content/count/unit match, confirmed by local ASR. Not listened.",
+    "sha256": "d7a558aec589e9c641746694300fd0b0003ccb6d12126490d5827150af25cba3"
+  },
+  {
+    "trainer": "nina",
+    "language": "en",
+    "hash": "4960a289",
+    "atom": "Crisp work! Breather. Coming up:",
+    "heard": "Crisp work, breather. Coming up,",
+    "local_asr": [
+      {
+        "vad": false,
+        "heard": " Crisp work, breather. Coming up!"
+      },
+      {
+        "vad": true,
+        "heard": " Crisp work, breather. Coming up."
+      }
+    ],
+    "method": "Independent isolated ASR exact content/count/unit match, confirmed by local ASR. Not listened.",
+    "sha256": "c48e390c3851a9603574b991f444302c8bcce9fa8de53571d89cc688658fe227"
+  }
+]
