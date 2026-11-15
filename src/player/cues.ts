@@ -122,7 +122,7 @@ function targetPhrase(step: WorkStep, language: Language): string {
     return seconds % 60 === 0 ? `${seconds / 60}분` : `${seconds}초`
   }
   if (step.target.kind === 'reps') {
-    return `${step.target.reps} reps`
+    return step.target.reps === 1 ? '1 rep' : `${step.target.reps} reps`
   }
   const seconds = Math.round(step.target.ms / 1000)
   if (seconds % 60 === 0) {

@@ -361,7 +361,7 @@ export const ROUND_MAX = 10
 export function targetAtoms(language: Language): string[] {
   const atoms: string[] = []
   for (let reps = 1; reps <= 30; reps++) {
-    atoms.push(language === 'ko' ? `${reps}회` : `${reps} reps`)
+    atoms.push(language === 'ko' ? `${reps}회` : reps === 1 ? '1 rep' : `${reps} reps`)
   }
   for (let seconds = 10; seconds <= 180; seconds += 5) {
     if (seconds % 60 === 0) {

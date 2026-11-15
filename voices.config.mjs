@@ -58,7 +58,7 @@ export const VOICE_TRAINERS = {
   },
   zara: {
     displayName: 'Zara',
-    voice: 'Sadachbia', // official trait: Lively — DRAFT, not auditioned
+    voice: 'Kore', // official trait: Firm, FEMALE — DRAFT, not auditioned. (Sadachbia is a male voice; replaced to keep Zara female.)
     status: 'draft',
     accent: { ko: 'standard', en: 'american' }, // PROPOSED (Seoul banmal energy, not a dialect)
     style: {
@@ -80,7 +80,7 @@ export const VOICE_TRAINERS = {
   },
   kai: {
     displayName: 'Kai',
-    voice: 'Callirrhoe', // official trait: Easy-going — DRAFT, not auditioned
+    voice: 'Umbriel', // official trait: Easy-going, MALE — DRAFT, not auditioned. (Callirrhoe is a female voice; replaced to keep Kai male.)
     status: 'draft',
     accent: { ko: 'gangwon', en: 'australian' }, // PROPOSED
     style: {

@@ -9,7 +9,7 @@ asr:    transcribe segments with a local Whisper model and compare each
         wrong atom: any mismatch is reported, not forced.
 
 Usage:
-  python3 scripts/batch_tools.py split <batch.wav> <expected_count> <out_dir>
+  python3 scripts/batch_tools.py split <batch.wav> <expected_count|expected.json> <out_dir>
   python3 scripts/batch_tools.py asr <lang:en|ko> <expected.json> <seg_dir>
       expected.json: ["atom text in segment order", ...]
 """
@@ -52,9 +52,21 @@ def detect_speech_spans(wav_path):
     return [(s, e) for s, e in spans if e - s >= MIN_SEGMENT_SEC]
 
 
-def cmd_split(wav_path, expected_count, out_dir):
+def internal_breaks(atom):
+    """Sentence breaks inside one atom render as pauses too (e.g. 'Great
+    work! Take a breather.'), so an atom may span several speech spans."""
+    return len(re.findall(r"[.!?]\s+\S", atom.strip()))
+
+
+def cmd_split(wav_path, expected_arg, out_dir):
     spans = detect_speech_spans(wav_path)
-    result = {"segments": len(spans), "expected": expected_count,
+    if expected_arg.endswith(".json"):
+        atoms = json.load(open(expected_arg, encoding="utf-8"))
+        counts = [internal_breaks(a) + 1 for a in atoms]
+    else:
+        counts = [1] * int(expected_arg)
+    expected_count = sum(counts)
+    result = {"segments": len(spans), "expected": expected_count, "atoms": len(counts),
               "spans": [(round(s, 3), round(e, 3)) for s, e in spans]}
     if len(spans) != expected_count:
         # Fail closed: write nothing, report the mismatch for review.
@@ -62,7 +74,11 @@ def cmd_split(wav_path, expected_count, out_dir):
                           "error": "segment count mismatch"}))
         sys.exit(4)
     os.makedirs(out_dir, exist_ok=True)
-    for i, (s, e) in enumerate(spans):
+    cursor = 0
+    for i, n in enumerate(counts):
+        s = spans[cursor][0]
+        e = spans[cursor + n - 1][1]
+        cursor += n
         subprocess.run(
             ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
              "-i", wav_path, "-ss", f"{s:.3f}", "-to", f"{e:.3f}",
@@ -257,7 +273,7 @@ def check_atom(atom, heard, lang):
 
 if __name__ == "__main__":
     if sys.argv[1] == "split":
-        cmd_split(sys.argv[2], int(sys.argv[3]), sys.argv[4])
+        cmd_split(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "asr":
         cmd_asr(sys.argv[2], sys.argv[3], sys.argv[4])
     else:
