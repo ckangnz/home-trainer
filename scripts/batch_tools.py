@@ -34,6 +34,8 @@ def detect_speech_spans(wav_path):
          f"silencedetect=noise={SILENCE_NOISE_DB}dB:d={SILENCE_MIN_DUR}",
          "-f", "null", "-"],
         capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise RuntimeError(f"ffmpeg silence detection failed: {proc.stderr[-500:]}")
     log = proc.stderr
     starts = [float(m) for m in re.findall(r"silence_start: ([\d.]+)", log)]
     ends = [float(m) for m in re.findall(r"silence_end: ([\d.]+)", log)]

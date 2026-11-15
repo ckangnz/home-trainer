@@ -1,0 +1,292 @@
+[
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "100초",
+    "hash": "097143fc",
+    "heard": "백초",
+    "span": [
+      0,
+      1.1135000000000002
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "백초"
+    ],
+    "sha256": "3c22b728fba27a10c5cf2be39823e1524d6c75405fdde96e029c1971ea455975",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "105초",
+    "hash": "a74d97f1",
+    "heard": "105초",
+    "span": [
+      2.61067,
+      3.66987
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "105초"
+    ],
+    "sha256": "83255fd65f325ef20f4a68e14d8bc18021497f62a9b323fab344dc5a9dd6a746",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "10초",
+    "hash": "405d1ca4",
+    "heard": "10초",
+    "span": [
+      5.28221,
+      6.01704
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "10초"
+    ],
+    "sha256": "80a5d14127a2a123fd8732e7e9bf218745e35b50385030337f8ffc2b23e2310d",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "10초 남았어요.",
+    "hash": "a9657bde",
+    "heard": "10초 남았어요.",
+    "span": [
+      6.90308,
+      8.13617
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "10초 남았어요."
+    ],
+    "sha256": "58ef0cee6fd26b0901728cb1fe044f07c49fcde909826d544e4f416a4bf0866a",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "10초만 더, 침착하게.",
+    "hash": "30cd8ff3",
+    "heard": "10초만 더. 침착하게",
+    "span": [
+      8.82967,
+      11.2137
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "10초만 더.",
+      "침착하게"
+    ],
+    "sha256": "c46d43d53f573b9b0ffbb6b2c04dc3b3eda1b1d8388f1af55e10d9dbd22d273c",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "110초",
+    "hash": "9a4c1357",
+    "heard": "110초",
+    "span": [
+      13.282,
+      14.468499999999999
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "110초"
+    ],
+    "sha256": "5c421a482bff042fbc93494bd172b2eef7105f63504e98b8406766aa7539d359",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "115초",
+    "hash": "dc58df4a",
+    "heard": "115초",
+    "span": [
+      15.291,
+      16.672700000000003
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "115초"
+    ],
+    "sha256": "dbe7af90a3a14d7e6bb3ffd49d25b998a884959e3086f1830bc393902744e1a7",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "125초",
+    "hash": "c626445f",
+    "heard": "125초",
+    "span": [
+      18.8253,
+      19.829800000000002
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "125초"
+    ],
+    "sha256": "1b0d9f32d4af30b94a6f54f2c7ddd1e0285a51255b1199a36f6868439bd05838",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "12회",
+    "hash": "007d8b12",
+    "heard": "12회",
+    "span": [
+      20.4454,
+      21.4004
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "12회"
+    ],
+    "sha256": "a69261d9cc45b819646b50b37b4708f5887bd43764d7053ef84c07674ab53947",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "135초",
+    "hash": "c7f49270",
+    "heard": "135초",
+    "span": [
+      23.909799999999997,
+      25.16
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "135초"
+    ],
+    "sha256": "7c6db9718ca26820f280a10314829b0c4e80a095ee77c8ee11694be9f7cc3769",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "13회",
+    "hash": "1e7819e3",
+    "heard": "13회",
+    "span": [
+      25.5872,
+      26.3323
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "13회"
+    ],
+    "sha256": "306190037c2c9084875b72cd514338ed83ca5f2b133f8be602e71a12b32b5f24",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "140초",
+    "hash": "ce850170",
+    "heard": "140초",
+    "span": [
+      27.134,
+      28.203000000000003
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "140초"
+    ],
+    "sha256": "f6424377369540924139ade5d500dd998d409870ecea81b9d2afd0da2b80b15c",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "145초",
+    "hash": "9c784ead",
+    "heard": "145초",
+    "span": [
+      28.7045,
+      29.9828
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "145초"
+    ],
+    "sha256": "a9a73c31c3140831b9b180ddb8f9a7ee4ceec668294f0a84b7891a039574c4cd",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "14회",
+    "hash": "1c73659c",
+    "heard": "14회",
+    "span": [
+      30.386499999999998,
+      31.2254
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "14회"
+    ],
+    "sha256": "b180f881066ddd5817ac33309bbdf9679672ee88bdbf5d562c9dee732d4db210",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "150초",
+    "hash": "5e4d1d4b",
+    "heard": "150초",
+    "span": [
+      31.960499999999996,
+      32.949
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "150초"
+    ],
+    "sha256": "567d4d2312f71708f589b86802b6a1890cce6096e5b538ec1ccc44b643f0f23f",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "155초",
+    "hash": "c04b0156",
+    "heard": "155초",
+    "span": [
+      33.520399999999995,
+      34.606300000000005
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "155초"
+    ],
+    "sha256": "ace61b29c7857604cc3c084d7b2d1a0a4a1d08f5ca95754ef941e2fe8676cf57",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "15초",
+    "hash": "be5f0639",
+    "heard": "15초",
+    "span": [
+      35.043,
+      36.06
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "15초"
+    ],
+    "sha256": "9f43475ba95fabd80b71a020b9c7ab35892d4d05c49af66d63201259f07a36aa",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]

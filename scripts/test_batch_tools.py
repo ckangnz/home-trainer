@@ -1,5 +1,7 @@
 """Regression checks for coaching-number validation. Run: python -m unittest discover -s scripts -p test_batch_tools.py"""
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 import batch_tools as bt
 
 class EnglishNumberTests(unittest.TestCase):
@@ -45,6 +47,12 @@ class KoreanNumberTests(unittest.TestCase):
         for atom, heard in [('105초', '십오초'), ('6세트 중 6세트', '육세트 중 오세트'),
                             ('10회', '아홉 회'), ('한 다리', '두 다리')]:
             self.assertNotEqual(bt.numbers_in(atom, 'ko'), bt.numbers_in(heard, 'ko'))
+
+class SilenceDetectionTests(unittest.TestCase):
+    def test_ffmpeg_failure_is_not_a_whole_file_span(self):
+        with patch.object(bt.subprocess, 'run', return_value=SimpleNamespace(returncode=1, stderr='bad duration')):
+            with self.assertRaisesRegex(RuntimeError, 'silence detection failed'):
+                bt.detect_speech_spans('test.wav')
 
 if __name__ == '__main__':
     unittest.main()
