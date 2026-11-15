@@ -1,0 +1,19 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.",
+    "hash": "8ebd810b",
+    "heard": "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.",
+    "span": [
+      28.159,
+      31.102600000000002
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요."
+    ],
+    "sha256": "c40328784703b88da6a265c38f7d079a1b06b7b582a2576f78ff394550bf5a31",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]

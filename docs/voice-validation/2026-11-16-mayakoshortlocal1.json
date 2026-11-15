@@ -1,0 +1,36 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "베어 크롤",
+    "hash": "6d7c80bb",
+    "heard": "...베어 크롤",
+    "span": [
+      57.8981,
+      58.6402
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "...베어 크롤"
+    ],
+    "sha256": "56c67e321e9dfb80378940d5c9891b6b1a5761c90d6a373e02c9e16e4eb903c6",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "팔뚝은 고정하고 손목에서 움직임이 나오게 해요.",
+    "hash": "f9571b51",
+    "heard": "팔뚝은 고정하고 손 목에서 움직임이 나오게 해요",
+    "span": [
+      15.8108,
+      19.0123
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "팔뚝은 고정하고 손 목에서 움직임이 나오게 해요"
+    ],
+    "sha256": "9f47ef332899573a954c9815118874f9a53d157d95ced25a03e49812ce746089",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

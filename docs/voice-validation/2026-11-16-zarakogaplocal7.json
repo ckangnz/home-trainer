@@ -1,0 +1,87 @@
+[
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "어깨가 손목 바로 위에 오게 해요.",
+    "hash": "6cd43364",
+    "heard": "어깨가 손목 바로 위에 오게 해요",
+    "span": [
+      18.7242,
+      21.0853
+    ],
+    "repair_source_index": 8,
+    "span_transcripts": [
+      "어깨가 손목 바로 위에 오게 해요"
+    ],
+    "sha256": "e83edb20835293c658f39414a371d43e31fd91516e6fbd148e0b68e9b61cd505",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "위팔은 고정하고 아래팔만 움직여요.",
+    "hash": "f23ec7c1",
+    "heard": "위팔은 고정하고 아래팔만 움직여요",
+    "span": [
+      6.47804,
+      9.52108
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "위팔은 고정하고 아래팔만 움직여요"
+    ],
+    "sha256": "d55e61acda88ccc789ba366e1ec3764d7185cf5cc7932364ab38fc200930e22d",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "컬을 할 때 팔꿈치를 몸에 가깝게 붙여요.",
+    "hash": "c896b227",
+    "heard": "컬을 할 때 팔꿈치를 몸에 가깝게 붙여요",
+    "span": [
+      43.8112,
+      46.943000000000005
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "컬을 할 때 팔꿈치를 몸에 가깝게 붙여요"
+    ],
+    "sha256": "2b5c08a95bb57020a8c19ac3fb67b0b0c22388b046c500fca2ed46d681544393",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "파머스 마치",
+    "hash": "16a87c8d",
+    "heard": "파머스 마치",
+    "span": [
+      8.53021,
+      9.8855
+    ],
+    "repair_source_index": 10,
+    "span_transcripts": [
+      "파머스 마치"
+    ],
+    "sha256": "2fe8f75dc83a74286ec3ab6d2948a3b622b40a42291fc8b583d31e5eb03fcfbc",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "한 다리 햄스트링 스트레칭",
+    "hash": "729ece0b",
+    "heard": "한다리 햄스트링 스트레칭",
+    "span": [
+      20.924,
+      23.195500000000003
+    ],
+    "repair_source_index": 11,
+    "span_transcripts": [
+      "한다리 햄스트링 스트레칭"
+    ],
+    "sha256": "9fb3dc54fd0126cee2b5c2fc21749b90e090f2aa601dc872633298c6bc189570",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

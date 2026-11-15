@@ -297,7 +297,11 @@ def check_atom(atom, heard, lang):
             if not any(unit in h for h in heard_variants):
                 reasons.append(f"unit '{unit}' not heard")
             continue
-        if not any(tok in h for h in heard_variants):
+        # Apply the same contextual count normalization to a Korean token
+        # as to the transcript. Otherwise even identical 한쪽 fails because
+        # the transcript is canonicalized to 일쪽 but the token is not.
+        tokens = {normalize(tok, lang, e) for e in (False, True)} if lang == 'ko' else {tok}
+        if not any(t in h for t in tokens for h in heard_variants):
             reasons.append(f"token '{tok}' not heard")
     ratio = max(
         difflib.SequenceMatcher(None, normalize(atom, lang, e), normalize(heard, lang, h)).ratio()

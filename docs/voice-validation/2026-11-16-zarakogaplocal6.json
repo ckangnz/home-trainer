@@ -1,0 +1,121 @@
+[
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "3라운드 클리어!",
+    "hash": "4c91a15d",
+    "heard": "3라운드 클리어!",
+    "span": [
+      28.528,
+      29.977400000000003
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "3라운드 클리어!"
+    ],
+    "sha256": "69e3042031cf304fdc7effb6bde125c20f96d1701b41dd1ae3f4ac459d96b764",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "9라운드 클리어!",
+    "hash": "79b35c3f",
+    "heard": "9라운드 클리어!",
+    "span": [
+      14.3085,
+      15.4076
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "9라운드 클리어!"
+    ],
+    "sha256": "fdb55076f552c98b073d46b074181bb01da214b03160d08c34d9fa400e97178b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "글루트 브릿지 마치",
+    "hash": "fb4cbc9c",
+    "heard": "글루트 브릿지 마치!",
+    "span": [
+      5.05558,
+      6.673579999999999
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "글루트 브릿지 마치!"
+    ],
+    "sha256": "0aa2d6bdd6917557db93b725005f0776c61da29c96de2a0de231145d24d00955",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "덤벨 고블릿 스쿼트",
+    "hash": "cd604d60",
+    "heard": "덤벨 고블릿 스쿼트",
+    "span": [
+      53.3035,
+      54.942
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "덤벨 고블릿 스쿼트"
+    ],
+    "sha256": "bbd3bde26672451f74efcebbdd3a8f96a1553a452d85304d85b9ca046e9bd362",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "발이 뜨면 튼튼한 소파 아래에 발을 걸어요.",
+    "hash": "e6e7cf5f",
+    "heard": "발이 뜨면 튼튼한 소파 아래에 발을 걸어요",
+    "span": [
+      0.20620799999999997,
+      3.1905
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "발이 뜨면 튼튼한 소파 아래에 발을 걸어요"
+    ],
+    "sha256": "108755c9befa8c95d212d6bd80c3790ea73a925a401aa8311feb6edc7d8a30f6",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "밴드 패스스루",
+    "hash": "4ab5be8f",
+    "heard": "밴드 패스스루",
+    "span": [
+      17.7961,
+      19.136300000000002
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "밴드 패스스루"
+    ],
+    "sha256": "1b7f7b0d6c5b5a9b64f895881557b6a96a3b414ba46962499e5f0e24cdede942",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "zara",
+    "language": "ko",
+    "atom": "베어 크롤",
+    "hash": "6d7c80bb",
+    "heard": "베어 크롤",
+    "span": [
+      29.4653,
+      30.3226
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "베어 크롤"
+    ],
+    "sha256": "b8e700cff6e8b29d74e14c565ebd21f874c50763119c44f8245ac9e6f195f413",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

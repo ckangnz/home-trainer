@@ -1,0 +1,36 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "원암 덤벨 로우",
+    "hash": "f30f91f1",
+    "heard": "원암 덤벨로우",
+    "span": [
+      14.7151,
+      16.1401
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "원암 덤벨로우"
+    ],
+    "sha256": "fde5d461f4de6d9c85cc0af77ce2632caa6d45239ea5c55e0ad33b2a18a77bf4",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "의자 4자 스트레칭",
+    "hash": "a4a4f616",
+    "heard": "의자 4자 스트레칭",
+    "span": [
+      29.7942,
+      31.401200000000003
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "의자 4자 스트레칭"
+    ],
+    "sha256": "be201369dae1598f00809b4d8d2eba401190922e26e3b50ad97ad6818d57461d",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

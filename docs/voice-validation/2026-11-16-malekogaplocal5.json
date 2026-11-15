@@ -1,0 +1,104 @@
+[
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "밴드 풀 어파트",
+    "hash": "a66ae7dd",
+    "heard": "밴�,드,풀,어,파트",
+    "span": [
+      38.5246,
+      40.5186
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "밴�,드,풀,어,파트"
+    ],
+    "sha256": "5748fddee8a2a0542f57e2a2862a41395caf02acf1df3b6761ad5b8663309b96",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "보트 자세",
+    "hash": "5dfe7633",
+    "heard": "보트 자세",
+    "span": [
+      54.402899999999995,
+      55.267700000000005
+    ],
+    "repair_source_index": 3,
+    "span_transcripts": [
+      "보트 자세"
+    ],
+    "sha256": "7bf45895612cb108ec180b482f29288cb561191e871a810dce9f72e355c91490",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "스텝백 버피",
+    "hash": "2a56564b",
+    "heard": "스텝백 버피",
+    "span": [
+      37.214999999999996,
+      38.463300000000004
+    ],
+    "repair_source_index": 5,
+    "span_transcripts": [
+      "스텝백 버피"
+    ],
+    "sha256": "ff98731a516f440bb105362550769425319b0152b9682ed029588ebd7b24aada",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "의자 4자 스트레칭",
+    "hash": "a4a4f616",
+    "heard": "의자 4자 스트레칭",
+    "span": [
+      49.6665,
+      51.3097
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "의자 4자 스트레칭"
+    ],
+    "sha256": "5e03513632abd4682ebc3e53709480b829dcd1cbbf7b02fdef09908f5ac856cb",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "코사크 스쿼트",
+    "hash": "f82f37db",
+    "heard": "코사크 스쿼트",
+    "span": [
+      62.013999999999996,
+      63.2028
+    ],
+    "repair_source_index": 8,
+    "span_transcripts": [
+      "코사크 스쿼트"
+    ],
+    "sha256": "6495dfa49bcb21838b26bee2d5182d55e3593fe2006806551076d08f76b3975b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "패스트 피트",
+    "hash": "1aaf90e5",
+    "heard": "패스트 피트",
+    "span": [
+      41.1697,
+      42.0585
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "패스트 피트"
+    ],
+    "sha256": "05690934d719e5442b96b2628f3fe3fd927300709b294573c3eba2ecf64cf186",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

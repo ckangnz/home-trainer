@@ -1,0 +1,257 @@
+[
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "11회",
+    "hash": "e27fd641",
+    "heard": "11회",
+    "span": [
+      19.127,
+      19.864600000000003
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "11회"
+    ],
+    "sha256": "565a413780fa1ee1dbd19a2251e64958ec1c67f8b9b48c9c806f692c558d8c96",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "8라운드 마쳤습니다.",
+    "hash": "c926141c",
+    "heard": "8라운드 마쳤습니다.",
+    "span": [
+      11.5126,
+      12.9932
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "8라운드 마쳤습니다."
+    ],
+    "sha256": "b992318c6e04a50c04712414af17d9eaa51489135f90bda6850da7defd6403e7",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "9라운드 끝.",
+    "hash": "f1839543",
+    "heard": "구라운드 끝",
+    "span": [
+      14.796000000000001,
+      15.8735
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "구라운드 끝"
+    ],
+    "sha256": "a8760fa959dded44e1d1a2e9690e97041824c123ba94e39ad5d5cc5339e5d50b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "9라운드 마쳤습니다.",
+    "hash": "753c6e2b",
+    "heard": "9라운드 마쳤습니다",
+    "span": [
+      21.621599999999997,
+      23.093400000000003
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "9라운드 마쳤습니다"
+    ],
+    "sha256": "75115c47a1f48256f55f2204284c07b6dc4bd3ea173e93f809187bed0a7e2bdc",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "덤벨 고블릿 스쿼트",
+    "hash": "cd604d60",
+    "heard": "덤벨 고블릿 스쿼트",
+    "span": [
+      0,
+      2.11267
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "덤벨 고블릿 스쿼트"
+    ],
+    "sha256": "e05af0a50fe7cac3c90d3730b33d3f7a21e7f1eb5d035412c4ccec994e256c8e",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "맨 위에서 견갑골을 모아 조여요.",
+    "hash": "e56f4c7c",
+    "heard": "맨 위에서 견갑골을 모아 조여요.",
+    "span": [
+      28.7682,
+      32.268100000000004
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "맨 위에서 견갑골을 모아 조여요."
+    ],
+    "sha256": "e93babdaf80f7ef563d921999a7b2dff837fc4d370906cfe67f245feecb28dc0",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "위팔은 고정하고 아래팔만 움직여요.",
+    "hash": "f23ec7c1",
+    "heard": "위팔은 고정하고 아래팔만 움직여요",
+    "span": [
+      24.955499999999997,
+      27.9695
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "위팔은 고정하고 아래팔만 움직여요"
+    ],
+    "sha256": "476378c0d557f4bec4f036c7f89e6a6215defe7563ab48b70298f3b1cbfef2fe",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "위팔은 고정하고 팔꿈치만 움직여요.",
+    "hash": "cbafbd7d",
+    "heard": "위팔은 고정하고 팔꿈치만 움직여요",
+    "span": [
+      33.6745,
+      36.6529
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "위팔은 고정하고 팔꿈치만 움직여요"
+    ],
+    "sha256": "0db00a4461f95edb927b5ce2e4da881f1484dcf975c1e9415b9b59eb381b4221",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "의자 4자 스트레칭",
+    "hash": "a4a4f616",
+    "heard": "의자 4자 스트레.칭",
+    "span": [
+      37.7235,
+      39.320100000000004
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "의자 4자 스트레.칭"
+    ],
+    "sha256": "46d799f91daf37a819ba68bfbfa07b0f2f55fce6f4fb858298cb1e574aa02a89",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "5세트 중 5세트",
+    "hash": "777f5344",
+    "heard": "5세트 중 5세트",
+    "span": [
+      13.6265,
+      14.987499999999999
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "5세트 중 5세트"
+    ],
+    "sha256": "872164c6408d23f5b1cc55fce36f48912a71abf5dc7d9744ed5a79b18dddbb85",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "9라운드 완료!",
+    "hash": "1a91872b",
+    "heard": "구라운드 완료!",
+    "span": [
+      20.8239,
+      21.9358
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "구라운드 완료!"
+    ],
+    "sha256": "dbb92f3a6faac66f9a15e89d4465d0cadfa091a4fa0164128e36807210ed10a5",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "9라운드 클리어.",
+    "hash": "7eb3641e",
+    "heard": "구라운드 클리어!",
+    "span": [
+      22.461,
+      23.658
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "구라운드 클리어!"
+    ],
+    "sha256": "29c206daea4e41eb495373522c304446674bc17528fbb16d218e8a9178e04309",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "고블릿 리버스 런지",
+    "hash": "dfcd9f42",
+    "heard": "고블릿 리버스런지",
+    "span": [
+      28.272199999999998,
+      29.954900000000002
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "고블릿 리버스런지"
+    ],
+    "sha256": "37e84986fad9fb96ed56d613ed13e15748f1e6a860da3bcb7c67ccd9daa6a618",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "골반이 충분히 열렸을 때만 팔뚝까지 내려가요.",
+    "hash": "268d1c89",
+    "heard": "골반이 충분히 열렸을 때만 팔뚝까지 내려가요.",
+    "span": [
+      38.4492,
+      41.8987
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "골반이 충분히 열렸을 때만 팔뚝까지 내려가요."
+    ],
+    "sha256": "79a397fc2983ed62f9a30e9894502ed6b33b738df381a24d5b4d8cc3d9c51d2a",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "덤벨 고블릿 스쿼트",
+    "hash": "cd604d60",
+    "heard": "덤벨 고블릿 스쿼트",
+    "span": [
+      15.2078,
+      16.703300000000002
+    ],
+    "repair_source_index": 8,
+    "span_transcripts": [
+      "덤벨 고블릿 스쿼트"
+    ],
+    "sha256": "172075828f7f706e64078e12b4415d5bc00a669d128427ecc64a83bcccaeccb3",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

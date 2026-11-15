@@ -1,0 +1,70 @@
+[
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "2세트 중 1세트",
+    "hash": "6026847d",
+    "heard": "2세트 중 1세트.",
+    "span": [
+      5.26996,
+      6.61925
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "2세트 중 1세트."
+    ],
+    "sha256": "71f449045f403a01f898d313b4a498c45b8d016ec4439d9da7542732aa96c230",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "8라운드 끝!",
+    "hash": "e0f7a619",
+    "heard": "8라운드 끝",
+    "span": [
+      27.6543,
+      28.5877
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "8라운드 끝"
+    ],
+    "sha256": "2691abf81db953e942cba504da456a9f86d8f9db619ff18d973e8cb49a5a0cec",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "9라운드 완료.",
+    "hash": "17918272",
+    "heard": "구라운드 완료!",
+    "span": [
+      4.35496,
+      5.432119999999999
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "구라운드 완료!"
+    ],
+    "sha256": "3e6702615fee7ea4268b1c63c0864492a1df1273d3c826c0997786cd0f000fa0",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "뒷발 발끝은 정면을 향하게 해요.",
+    "hash": "3b529bf5",
+    "heard": "뒷발 발끝은 정면을 향하게 해요.",
+    "span": [
+      15.743,
+      17.6536
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "뒷발 발끝은 정면을 향하게 해요."
+    ],
+    "sha256": "ac4c2a5351094911d5f51774a157d76507b545a99f2c876db3592073fdcf1b6b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

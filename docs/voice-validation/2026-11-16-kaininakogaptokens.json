@@ -1,0 +1,38 @@
+[
+  {
+    "trainer": "kai",
+    "language": "ko",
+    "atom": "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.",
+    "hash": "8ebd810b",
+    "heard": "한쪽 다리를 다른 쪽 위에 올려. 압력을 더해요?",
+    "span": [
+      9.39854,
+      13.1985
+    ],
+    "repair_source_index": 6,
+    "span_transcripts": [
+      "한쪽 다리를",
+      "다른 쪽 위에 올려.",
+      "압력을 더해요?"
+    ],
+    "sha256": "6813949b292ecc945820bfb370953a25d9f88bbc2b9344b96c63d7b9ab6b2402",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.",
+    "hash": "8ebd810b",
+    "heard": "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.",
+    "span": [
+      35.3363,
+      37.9897
+    ],
+    "repair_source_index": 12,
+    "span_transcripts": [
+      "한쪽 다리를 다른 쪽 위에 올려 압력을 더해요."
+    ],
+    "sha256": "bfa65d2fc5db0bed3e3692fd6f08f968b8ea656903a6ed1abb4eed74d8c91394",
+    "method": "Independent per-speech-span ASR. Exact unique inventory text/count/unit match after explicit numeral/spacing normalization. No overlapping accepted groups. Not listened."
+  }
+]

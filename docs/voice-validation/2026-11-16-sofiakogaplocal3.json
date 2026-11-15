@@ -1,0 +1,19 @@
+[
+  {
+    "trainer": "sofia",
+    "language": "ko",
+    "atom": "맨 위에서 견갑골을 모아 조여요.",
+    "hash": "e56f4c7c",
+    "heard": "맨 위에서 견갑골을 모아 조여요.",
+    "span": [
+      19.369899999999998,
+      22.2088
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "맨 위에서 견갑골을 모아 조여요."
+    ],
+    "sha256": "cc26bec27baa4168255b0f9dd27ee499de4d31baf4b4a8eb466763103bb227c1",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

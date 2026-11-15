@@ -1,0 +1,70 @@
+[
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "9라운드 끝났습니다.",
+    "hash": "fa23a6da",
+    "heard": "9라운드 끝났습니다",
+    "span": [
+      25.3354,
+      26.7725
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "9라운드 끝났습니다"
+    ],
+    "sha256": "ec10e7e88c9342956da72fed717e28dd28a69614a680d601ca0ee18e23385a1e",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "고블릿 리버스 런지",
+    "hash": "dfcd9f42",
+    "heard": "고블릿 리버스 런지",
+    "span": [
+      35.360299999999995,
+      37.1141
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "고블릿 리버스 런지"
+    ],
+    "sha256": "294ed5a88461c64169684307d53391c9fd1378788f894d7ef7891be0c2d82cd3",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "글루트 브릿지",
+    "hash": "014a5e44",
+    "heard": "글루트 브릿지",
+    "span": [
+      4.86925,
+      6.29275
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "글루트 브릿지"
+    ],
+    "sha256": "fca074ba88885a81466c7fbcce8ecf1db908b3cae9ff5aace8f5521e4bf22a8c",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "male",
+    "language": "ko",
+    "atom": "덤벨 플로어 프레스",
+    "hash": "c750836d",
+    "heard": "덤벨 플로어 프레스",
+    "span": [
+      42.2522,
+      44.115500000000004
+    ],
+    "repair_source_index": 1,
+    "span_transcripts": [
+      "덤벨 플로어 프레스"
+    ],
+    "sha256": "09363492669e1ab8f406022b81596a78aa86ad0d041218998efc3777123859ff",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

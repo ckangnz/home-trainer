@@ -38,6 +38,11 @@ class KoreanNumberTests(unittest.TestCase):
             self.assertTrue(bt.check_atom(atom, heard, 'ko')['ok'], (atom, heard, bt.check_atom(atom, heard, 'ko')))
         self.assertEqual(bt.numbers_in('육세트 중 육세트', 'ko'), [6, 6])
 
+    def test_classifier_tokens_share_normalization(self):
+        for text in ['한쪽 다리를 다른 쪽 위에 올려 압력을 더해요.', '한 다리 햄스트링 스트레칭']:
+            self.assertTrue(bt.check_atom(text, text, 'ko')['ok'])
+        self.assertFalse(bt.check_atom('한쪽 다리', '두쪽 다리', 'ko')['ok'])
+
     def test_non_numeral_syllables_are_not_counts(self):
         for text in ['자세 바꿔요.', '가슴을 세우고', '스텝백 버피',
                      '바벨 백 스쿼트', '비둘기 자세', '네거티브 푸시업']:

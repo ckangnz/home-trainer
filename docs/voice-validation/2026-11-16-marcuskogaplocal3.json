@@ -1,0 +1,87 @@
+[
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "발을 부드럽게 내려 디뎌 소리를 줄이고 관절 부담을 덜어요.",
+    "hash": "ea063030",
+    "heard": "발을 부드럽게 내려 디뎌 소리를 줄이고 관절 부담을 덜어요.",
+    "span": [
+      35.9735,
+      39.8431
+    ],
+    "repair_source_index": 5,
+    "span_transcripts": [
+      "발을 부드럽게 내려 디뎌 소리를 줄이고 관절 부담을 덜어요."
+    ],
+    "sha256": "ecba88345b58a72bd67ed6cb15d87bdc11444b8c638b177c2fed540e9d6017bc",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "엇갈려 뺄 때도 골반은 정면을 향하게 해요.",
+    "hash": "fe218abc",
+    "heard": "엇갈려 뺄 때도 골반은 정면을 향하게 해요.",
+    "span": [
+      27.0475,
+      29.758200000000002
+    ],
+    "repair_source_index": 7,
+    "span_transcripts": [
+      "엇갈려 뺄 때도 골반은 정면을 향하게 해요."
+    ],
+    "sha256": "513fcdf09282cb3d0a7a39388850c1fae0858c87197d2e9aa0b7762ad759b3ec",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "위팔은 고정하고 아래팔만 움직여요.",
+    "hash": "f23ec7c1",
+    "heard": "위팔은 고정하고 아래팔만 움직여요",
+    "span": [
+      1.33192,
+      4.14875
+    ],
+    "repair_source_index": 8,
+    "span_transcripts": [
+      "위팔은 고정하고 아래팔만 움직여요"
+    ],
+    "sha256": "b439cab27033900c05ab5e417b05ab430a03aec4b9764a0d7268a025840d259b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "의자 4자 스트레칭",
+    "hash": "a4a4f616",
+    "heard": "의자 4자 스트레칭",
+    "span": [
+      14.077,
+      15.5437
+    ],
+    "repair_source_index": 8,
+    "span_transcripts": [
+      "의자 4자 스트레칭"
+    ],
+    "sha256": "544ed5f04af80abcc8d849643eeb01cf64e7c431f9ea3b0efd7db8e4b6577547",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "marcus",
+    "language": "ko",
+    "atom": "폼롤러 정강이",
+    "hash": "32511305",
+    "heard": "폼롤러 정강이!",
+    "span": [
+      41.757999999999996,
+      42.849000000000004
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "폼롤러 정강이!"
+    ],
+    "sha256": "92a5c5d799ea52c5e3cc8acbdc7ce5eae3b7ec45acfbdeb09b6d27a4dca192cb",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

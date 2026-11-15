@@ -1,0 +1,53 @@
+[
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "골반이 충분히 열렸을 때만 팔뚝까지 내려가요.",
+    "hash": "268d1c89",
+    "heard": "골반이 충분히 열렸을 때만 팔뚝까지 내려가요.",
+    "span": [
+      31.336,
+      34.176500000000004
+    ],
+    "repair_source_index": 0,
+    "span_transcripts": [
+      "골반이 충분히 열렸을 때만 팔뚝까지 내려가요."
+    ],
+    "sha256": "79485ccaecbedfd689b63735d84ee062423c270095f7722a6490e17a40713db9",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "바벨 로우",
+    "hash": "ad9a8747",
+    "heard": "바벨로우",
+    "span": [
+      24.941499999999998,
+      25.8837
+    ],
+    "repair_source_index": 2,
+    "span_transcripts": [
+      "바벨로우"
+    ],
+    "sha256": "1f805a0bc791a096553fac1993e79c4882d114624cf7af7483115fc252328319",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "female",
+    "language": "ko",
+    "atom": "폼롤러 정강이",
+    "hash": "32511305",
+    "heard": "폼롤러 정강이",
+    "span": [
+      49.8932,
+      51.38
+    ],
+    "repair_source_index": 4,
+    "span_transcripts": [
+      "폼롤러 정강이"
+    ],
+    "sha256": "daa01e3c23f1e676055eb0bd9c294aa10ab90a873088a12d680578e0ac4a760f",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]

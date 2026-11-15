@@ -1,0 +1,87 @@
+[
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "밴드 바이셉스 컬",
+    "hash": "4d750a26",
+    "heard": "밴드 바이셉스컬",
+    "span": [
+      31.691399999999998,
+      32.9814
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "밴드 바이셉스컬"
+    ],
+    "sha256": "df4f5b5edf0cb40a85d43fe91470abcce74eff14607d54e08cbad6ca7986b389",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "볼이 척추 위에 오지 않게 해요.",
+    "hash": "34f84962",
+    "heard": "볼이 척추위에 오지 않게 해요.",
+    "span": [
+      46.1335,
+      48.3849
+    ],
+    "repair_source_index": 9,
+    "span_transcripts": [
+      "볼이 척추위에 오지 않게 해요."
+    ],
+    "sha256": "e5b12540cf266baab1a16ce177bbda5a9e3707dd33a2fe41af16d2b4dd0a1678",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "파머스 마치",
+    "hash": "16a87c8d",
+    "heard": "파머스 마치",
+    "span": [
+      55.045899999999996,
+      56.1255
+    ],
+    "repair_source_index": 11,
+    "span_transcripts": [
+      "파머스 마치"
+    ],
+    "sha256": "4857953130c8931eec11e1711b1190728d4be970edd00833f414cf38c846a16b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "패스트 피트",
+    "hash": "1aaf90e5",
+    "heard": "패스트 피트",
+    "span": [
+      14.634400000000001,
+      15.510299999999999
+    ],
+    "repair_source_index": 12,
+    "span_transcripts": [
+      "패스트 피트"
+    ],
+    "sha256": "97f120ebc72cd6fced3205cfd79dcdae5cbd284ad264eec4f62e1f8f5207588b",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  },
+  {
+    "trainer": "nina",
+    "language": "ko",
+    "atom": "허리가 뜨기 시작하는 지점에서 더 내리지 말고 멈춰요.",
+    "hash": "8f9efd5e",
+    "heard": "허리가 뜨기 시작하는 지점에서 더 내리지 말고 멈춰요.",
+    "span": [
+      40.9493,
+      44.2675
+    ],
+    "repair_source_index": 12,
+    "span_transcripts": [
+      "허리가 뜨기 시작하는 지점에서 더 내리지 말고 멈춰요."
+    ],
+    "sha256": "c66fb67359c6f380bda2b9bdae12595fdcbee8b5b2f5d14320977ee3af08da62",
+    "method": "Fresh local faster-whisper small int8, no prompt, independent per-speech-span ASR. Exact unique inventory text/count/unit match. Not listened."
+  }
+]
