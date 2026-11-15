@@ -191,6 +191,11 @@ def normalize(text, lang, expand):
     # Numbers are spoken as words; TTS prompts carry digits, and ASR output
     # mixes both forms. Compare with digits kept AND with digits expanded to
     # the language's number words, and keep the best match.
+    # Exercise-name Roman numerals: "Warrior I/II/III" == "Warrior 1/2/3".
+    if lang == "en":
+        rm = {"i": "1", "ii": "2", "iii": "3", "one": "1", "two": "2", "three": "3"}
+        text = re.sub(r"(?i)\b(warrior)\s+(iii|ii|i|one|two|three)\b",
+                      lambda m: m.group(1) + " " + rm[m.group(2).lower()], text)
     if expand:
         conv = en_number if lang == "en" else ko_number
         text = re.sub(r"\d+", lambda m: conv(int(m.group())), text)
@@ -245,8 +250,18 @@ def cmd_asr(lang, expected_path, seg_dir):
     print(json.dumps(results, ensure_ascii=False))
 
 
+def canon_roman(text, lang):
+    """Exercise-name Roman numerals ("Warrior I/II/III") equal 1/2/3 (rule agreed with main 21:18)."""
+    if lang != "en":
+        return text
+    rm = {"i": "1", "ii": "2", "iii": "3"}
+    return re.sub(r"(?i)\b(warrior)\s+(iii|ii|i)\b", lambda m: m.group(1) + " " + rm[m.group(2).lower()], text)
+
+
 def check_atom(atom, heard, lang):
     reasons = []
+    atom_orig = atom
+    atom, heard = canon_roman(atom, lang), canon_roman(heard, lang)
     if numbers_in(atom, lang) != numbers_in(heard, lang):
         reasons.append(f"numbers {numbers_in(atom, lang)} != {numbers_in(heard, lang)}")
     heard_variants = {normalize(heard, lang, e) for e in (False, True)}
@@ -268,7 +283,7 @@ def check_atom(atom, heard, lang):
     )
     if ratio < 0.7:
         reasons.append(f"similarity {ratio:.2f} < 0.7")
-    return {"atom": atom, "ratio": round(ratio, 3), "ok": not reasons, "reasons": reasons}
+    return {"atom": atom_orig, "ratio": round(ratio, 3), "ok": not reasons, "reasons": reasons}
 
 
 if __name__ == "__main__":
