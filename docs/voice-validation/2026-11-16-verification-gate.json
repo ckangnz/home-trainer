@@ -1,0 +1,28 @@
+{
+  "status": "blocked_on_verification_capability",
+  "generation_permitted_by_this_fixture": false,
+  "pack_changes_permitted_by_this_fixture": false,
+  "purpose": "Evaluate a genuinely new validation route before any new recording pilot. This text-only fixture does not prove listening, pronunciation, dialect, timbre, or joins.",
+  "contrasts": [
+    { "expected": "무릎 당겨 안기", "reject": "무릎 당겨 앉기", "reason": "different action" },
+    { "expected": "덤벨 고블릿 스쿼트", "reject": "덤벨 고블린 스쿼트", "reason": "different exercise term" },
+    { "expected": "바는 어깨에 얹고 손가락 끝으로만 잡아 줘요.", "reject": "반은 어깨에 얹고 손가락 끝으로만 잡아 줘요.", "reason": "equipment word changed" },
+    { "expected": "5회", "reject": "오해", "reason": "count and unit not established by homophone recognition" },
+    { "expected": "10초", "reject": "10회", "reason": "time versus repetitions" }
+  ],
+  "requirements": [
+    "Use original same-speaker recordings with recoverable source and exact intended text.",
+    "Distinguish contrast words and reject wrong exercise, body part, action, count, and unit.",
+    "Changing ASR context, padding, speed, or encoding is not an independent listening route.",
+    "Never accept fuzzy text similarity as proof of correct pronunciation.",
+    "Preserve accepted assets; missing-only candidates remain separate until verified.",
+    "Record uncertainty explicitly. Passing a method gate does not complete full audio quality review."
+  ],
+  "evidence": {
+    "prior_pronunciation_pilot_accepted": "0/12 on both recognition routes, recovered from November 16 09:23-09:24 task records",
+    "raw_rejected_pilot_audio": "not preserved in repository; temporary original files no longer available",
+    "current_inventory": "2026-11-16-remaining-ko-inventory.json",
+    "current_missing_count": 206,
+    "unmanifested_same_trainer_wavs_available": 0
+  }
+}
