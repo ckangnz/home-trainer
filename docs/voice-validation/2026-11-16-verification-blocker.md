@@ -1,3 +1,13 @@
+# Superseded at November 16 22:27 NZDT
+
+The user asked to continue after clarification that ASR transcript disagreement
+did not prove faulty audio. The ASR-only stop below is historical, not the current
+production policy. All206 missing Korean atoms were subsequently requested
+individually with retained deployed voice identities and exact cue texts. See
+`2026-11-16-*-production.json` for per-clip digest and technical evidence.
+Automatic recognition is not an acceptance veto. No subjective listening,
+pronunciation, dialect, timbre, or join certification is claimed.
+
 # Korean coverage checkpoint, November 16 18:10 NZDT
 
 Remaining inventory was rebuilt from current source inventory and manifests at
