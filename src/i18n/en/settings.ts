@@ -10,6 +10,8 @@ export const settings = {
   },
   trainer: 'Your trainer',
   trainerPicker: {
+    random: 'Random',
+    randomHint: 'A different trainer each workout. Stays with you until the finish.',
     voiceHint: 'Select a trainer to hear a short greeting. Sound plays even when Voice coach is off.',
     hearGreeting: 'Hear {trainer} again',
     stopGreeting: 'Stop',

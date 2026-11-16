@@ -39,9 +39,15 @@ export function TrainerPicker() {
     <div className="trainer-picker">
       <p className="faint trainer-picker__voice-hint">{t('settings.trainerPicker.voiceHint')}</p>
       <div className="trainer-picker__options" role="radiogroup" aria-label={t('settings.trainerPicker.trainer')}>
+        <button type="button" role="radio" aria-checked={settings.randomTrainer} data-trainer="random" className="trainer-option"
+          onClick={() => { stopPreview(); setVoiceState('idle'); updateSettings({ randomTrainer: true }) }}>
+          <span className="trainer-option__stage trainer-option__random" aria-hidden="true">?</span>
+          <span className="trainer-option__name">{t('settings.trainerPicker.random')}</span>
+          <span className="trainer-option__tagline faint">{t('settings.trainerPicker.randomHint')}</span>
+        </button>
         {TRAINER_ORDER.map((id) => {
           const trainer = TRAINERS[id]
-          const selected = settings.trainer === id
+          const selected = !settings.randomTrainer && settings.trainer === id
           return (
             <button
               key={id}
@@ -51,7 +57,7 @@ export function TrainerPicker() {
               data-trainer={id}
               className="trainer-option"
               onClick={() => {
-                updateSettings(selected ? { trainer: id } : { trainer: id, skin: trainer.skin })
+                updateSettings(selected ? { trainer: id, randomTrainer: false } : { trainer: id, randomTrainer: false, skin: trainer.skin })
                 greet(id)
               }}
             >
@@ -64,7 +70,7 @@ export function TrainerPicker() {
           )
         })}
       </div>
-      <div className="trainer-picker__voice">
+      {!settings.randomTrainer ? <div className="trainer-picker__voice">
         <button type="button" className="btn btn--small" onClick={() => greet(settings.trainer)}>
           {t('settings.trainerPicker.hearGreeting', { trainer: TRAINERS[settings.trainer].name })}
         </button>
@@ -73,6 +79,7 @@ export function TrainerPicker() {
           {voiceState === 'playing' ? t('settings.trainerPicker.playingGreeting') : voiceState === 'error' ? t('settings.trainerPicker.greetingError') : ''}
         </span>
       </div>
+      : null}
       <div className="trainer-picker__skins" role="radiogroup" aria-label={t('settings.trainerPicker.skinTone')}>
         {SKINS.map((skin) => (
           <button

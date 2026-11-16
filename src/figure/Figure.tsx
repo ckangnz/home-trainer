@@ -1,3 +1,4 @@
+import { useWorkoutTrainer } from '@/player/sessionTrainer'
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react'
 import { useSettings } from '@/settings/settings'
 import { prepareAnimation, sampleSkeleton, thumbSkeleton, type PreparedAnimation } from './animate'
@@ -227,7 +228,8 @@ export function Figure({
   fps = 30,
 }: FigureProps) {
   const settings = useSettings()
-  const look = lookOverride ?? { trainer: settings.trainer, skin: settings.skin }
+  const sessionTrainer = useWorkoutTrainer()
+  const look = lookOverride ?? { trainer: sessionTrainer ?? settings.trainer, skin: settings.skin }
   const lookKey = `${look.trainer}-${look.skin}`
   const style = useMemo(() => lookStyle({ trainer: look.trainer, skin: look.skin }), [look.trainer, look.skin])
   const prepared = useMemo(() => prepareAnimation(animation), [animation])

@@ -10,6 +10,7 @@ import type { CompletionSource } from '@/data/models'
 import { AdUnit } from '@/ads/AdUnit'
 import { shouldRequestPauseAd } from '@/ads/policy'
 import { updateSettings, useSettings } from '@/settings/settings'
+import { useWorkoutTrainer } from './sessionTrainer'
 import { TRAINERS } from '@/figure/look'
 import { getCuratedWorkout } from '@/workouts/curated'
 import { DEFAULT_ROUTINE_DEFAULTS } from '@/workouts/routine'
@@ -235,7 +236,9 @@ function PlayerSession({ session }: { session: Session }) {
   const navigate = useNavigate()
   const { addCompletion } = useData()
   const { evaluation: awardsEvaluation } = useAwards()
-  const settings = useSettings()
+  const preferences = useSettings()
+  const sessionTrainer = useWorkoutTrainer()
+  const settings = { ...preferences, trainer: sessionTrainer ?? preferences.trainer }
   const t = useT()
   const text = useSessionText(frozen)
   const language = useLanguage()
@@ -415,7 +418,9 @@ function PlayerSession({ session }: { session: Session }) {
 }
 
 function ReadyView({ session, onStart }: { session: Session; onStart: () => void }) {
-  const settings = useSettings()
+  const preferences = useSettings()
+  const sessionTrainer = useWorkoutTrainer()
+  const settings = { ...preferences, trainer: sessionTrainer ?? preferences.trainer }
   const t = useT()
   const content = useContent()
   const text = useSessionText(session)
@@ -664,7 +669,9 @@ function DoneView({
   streak: number
   onAgain: () => void
 }) {
-  const settings = useSettings()
+  const preferences = useSettings()
+  const sessionTrainer = useWorkoutTrainer()
+  const settings = { ...preferences, trainer: sessionTrainer ?? preferences.trainer }
   const navigate = useNavigate()
   const t = useT()
   const fmt = useFormat()

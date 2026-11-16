@@ -9,6 +9,7 @@ export interface Settings {
   vibration: boolean
   keepAwake: boolean
   voiceName: string | null
+  randomTrainer: boolean
   trainer: TrainerId
   skin: SkinTone
   weightKg: number
@@ -22,6 +23,7 @@ export const DEFAULT_SETTINGS: Settings = {
   vibration: true,
   keepAwake: true,
   voiceName: null,
+  randomTrainer: false,
   trainer: 'female',
   skin: 'medium',
   weightKg: 70,
@@ -41,7 +43,7 @@ const KEY = 'hometrainer.settings.v1'
 const listeners = new Set<() => void>()
 let cached: Settings | null = null
 
-export const SYNCED_KEYS = ['voice', 'beeps', 'vibration', 'keepAwake', 'trainer', 'skin', 'weightKg', 'heightCm', 'language'] as const
+export const SYNCED_KEYS = ['voice', 'beeps', 'vibration', 'keepAwake', 'randomTrainer', 'trainer', 'skin', 'weightKg', 'heightCm', 'language'] as const
 
 export type SyncedSettings = Pick<Settings, (typeof SYNCED_KEYS)[number]>
 
@@ -54,6 +56,7 @@ export function normalizeSettings(stored: Partial<Record<keyof Settings, unknown
     vibration: typeof stored.vibration === 'boolean' ? stored.vibration : DEFAULT_SETTINGS.vibration,
     keepAwake: typeof stored.keepAwake === 'boolean' ? stored.keepAwake : DEFAULT_SETTINGS.keepAwake,
     voiceName: typeof stored.voiceName === 'string' ? stored.voiceName : null,
+    randomTrainer: stored.randomTrainer === true,
     trainer: isTrainerId(stored.trainer) ? stored.trainer : DEFAULT_SETTINGS.trainer,
     skin: SKIN_TONES.includes(stored.skin as SkinTone) ? (stored.skin as SkinTone) : DEFAULT_SETTINGS.skin,
     weightKg:

@@ -11,17 +11,17 @@ describe('TrainerPicker', () => {
   beforeEach(() => {
     start.mockReset().mockReturnValue(stop)
     stop.mockReset()
-    updateSettings({ trainer: 'female', skin: 'medium', language: 'en', voice: true })
+    updateSettings({ trainer: 'female', randomTrainer: false, skin: 'medium', language: 'en', voice: true })
   })
 
   it('offers every trainer with a name and a preview', () => {
     const { container } = render(<TrainerPicker />)
     const group = screen.getByRole('radiogroup', { name: 'Trainer' })
     const options = group.querySelectorAll('[role="radio"]')
-    expect(options).toHaveLength(TRAINER_ORDER.length)
+    expect(options).toHaveLength(TRAINER_ORDER.length + 1)
     TRAINER_ORDER.forEach((id, index) => {
-      expect(options[index].getAttribute('data-trainer')).toBe(id)
-      expect(options[index].textContent).toContain(TRAINERS[id].name)
+      expect(options[index + 1].getAttribute('data-trainer')).toBe(id)
+      expect(options[index + 1].textContent).toContain(TRAINERS[id].name)
     })
     expect(container.querySelector('[data-trainer="female"]')?.getAttribute('aria-checked')).toBe('true')
   })
@@ -61,4 +61,16 @@ describe('TrainerPicker', () => {
     expect(getSettings().skin).toBe('light')
     expect(screen.getByText(TRAINERS.zara.name).closest('[role="radio"]')?.getAttribute('aria-checked')).toBe('true')
   })
+})
+
+it('keeps Random selected without a surprise greeting, and fixed choices turn it off', () => {
+  start.mockClear()
+  updateSettings({ trainer: 'female', randomTrainer: false, language: 'en' })
+  render(<TrainerPicker />)
+  fireEvent.click(screen.getByRole('radio', { name: /Random/ }))
+  expect(getSettings().randomTrainer).toBe(true)
+  expect(start).not.toHaveBeenCalled()
+  expect(screen.queryByRole('button', { name: /Hear .* again/ })).not.toBeInTheDocument()
+  fireEvent.click(screen.getByText('Kai'))
+  expect(getSettings().randomTrainer).toBe(false)
 })

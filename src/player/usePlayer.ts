@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PlaybackStep } from '@/workouts/types'
 import { coach } from './coach'
+import { startSessionTrainer, endSessionTrainer } from './sessionTrainer'
+import { TRAINERS } from '@/figure/look'
 import { cuesBetween, type CoachContext } from './cues'
 import {
   completeReps,
@@ -83,12 +85,14 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
     }
   }, [state.status, apply])
 
-  useEffect(() => () => coach.silence(), [])
+  useEffect(() => () => { coach.silence(); endSessionTrainer() }, [])
 
   return {
     state,
     now,
     start: useCallback(() => {
+      const trainer = startSessionTrainer()
+      contextRef.current = { ...contextRef.current, trainer, trainerName: TRAINERS[trainer].name }
       coach.unlock()
       apply(startPlayer)
     }, [apply]),

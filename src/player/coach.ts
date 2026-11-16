@@ -1,3 +1,4 @@
+import { getWorkoutTrainer } from './sessionTrainer'
 import { TRAINERS, type TrainerId, type VoiceGender } from '@/figure/look'
 import { getSettings } from '@/settings/settings'
 import type { Cue } from './cues'
@@ -129,7 +130,8 @@ function speak(text: string, interrupt: boolean) {
     synth.cancel()
   }
   const utterance = new SpeechSynthesisUtterance(text)
-  const { voiceName, trainer } = getSettings()
+  const { voiceName } = getSettings()
+  const trainer = getWorkoutTrainer()
   const language = getLanguage()
   const voices = synth.getVoices()
   const chosen = voiceName ? voices.find((candidate) => candidate.name === voiceName) : undefined
@@ -154,7 +156,7 @@ let speechSession = 0
 
 export const coach = {
   unlock() {
-    if (getSettings().voice) unlockVoicePack(getSettings().trainer, getLanguage())
+    if (getSettings().voice) unlockVoicePack(getWorkoutTrainer(), getLanguage())
     const context = audioContext()
     if (context && context.state !== 'running') {
       void context.resume().catch(() => undefined)
@@ -181,7 +183,7 @@ export const coach = {
           if (cue.atoms) {
             // Prefer pre-generated trainer clips; fall back to speechSynthesis
             // when the voice pack cannot cover every atom.
-            const { trainer } = getSettings()
+            const trainer = getWorkoutTrainer()
             const language = getLanguage()
             void tryVoicePack(cue.atoms, trainer, language, interrupt).then((played) => {
               if (!played && token === speechSession && getSettings().voice) {

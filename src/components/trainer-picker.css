@@ -85,3 +85,4 @@
 .trainer-picker__voice { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
 .trainer-picker__voice [role='status'] { flex-basis: 100%; font-size: var(--text-sm); }
 .trainer-option__tagline { word-break: keep-all; overflow-wrap: break-word; }
+.trainer-option__random { display: grid; place-items: center; font-size: 4rem; font-weight: 750; color: var(--color-accent); }
