@@ -1,5 +1,5 @@
 import { beforeEach, expect, it, vi } from 'vitest'
-const pack = vi.hoisted(() => ({ tryVoicePack: vi.fn(), silenceVoicePack: vi.fn() }))
+const pack = vi.hoisted(() => ({ tryVoicePack: vi.fn(), silenceVoicePack: vi.fn(), unlockVoicePack: vi.fn() }))
 vi.mock('./voicepack', () => pack)
 vi.mock('@/settings/settings', () => ({ getSettings: () => ({ voice: true, beeps: false, vibration: false, trainer: 'female', voiceName: null }) }))
 vi.mock('@/i18n/language', () => ({ getLanguage: () => 'ko' }))

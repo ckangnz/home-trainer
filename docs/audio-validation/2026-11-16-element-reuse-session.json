@@ -1,0 +1,599 @@
+[
+  {
+    "kind": "speech-request",
+    "text": " "
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 0,
+    "cues": [
+      {
+        "kind": "say",
+        "text": "Maya예요. 준비됐죠? 첫 운동은 스쿼트!",
+        "atoms": [
+          "마야예요. 준비됐죠? 첫 운동은",
+          "스쿼트"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "speech-error",
+    "error": "interrupted"
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/0c954324.wav"
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/0c954324.wav",
+    "t": 0
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 0,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 3.0127891156462585
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav"
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "t": 0
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 0,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 4.01124716553288
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "t": 1.08
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 0,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 5.012607709750567
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 1,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "go"
+      },
+      {
+        "kind": "say",
+        "text": "스쿼트, 왼쪽, 8초. 할 수 있어요!",
+        "atoms": [
+          "스쿼트",
+          "왼쪽",
+          "8초",
+          "할 수 있어요!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 6.011065759637188
+  },
+  {
+    "kind": "speech-request",
+    "text": "스쿼트, 왼쪽, 8초. 할 수 있어요!"
+  },
+  {
+    "kind": "speech-start",
+    "text": "스쿼트, 왼쪽, 8초. 할 수 있어요!"
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 1,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 11.012063492063492
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 1,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 12.010521541950114
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 1,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 13.0118820861678
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 2,
+    "cues": [
+      {
+        "kind": "say",
+        "text": "이제 반대쪽!",
+        "atoms": [
+          "이제 반대쪽!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/8440863d.wav"
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/8440863d.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/8440863d.wav",
+    "t": 1.4
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 2,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 17.01151927437642
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 2,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 18.012879818594104
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 2,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 19.011337868480727
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 3,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "go"
+      },
+      {
+        "kind": "say",
+        "text": "스쿼트, 오른쪽, 8초. 시작!",
+        "atoms": [
+          "스쿼트",
+          "오른쪽",
+          "8초",
+          "시작!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 20.012698412698413
+  },
+  {
+    "kind": "speech-request",
+    "text": "스쿼트, 오른쪽, 8초. 시작!"
+  },
+  {
+    "kind": "speech-start",
+    "text": "스쿼트, 오른쪽, 8초. 시작!"
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 3,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 25.01079365079365
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 3,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 26.012154195011338
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 3,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 27.01061224489796
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 4,
+    "cues": [
+      {
+        "kind": "say",
+        "text": "이제 마지막, 스쿼트! 전부 쏟아 봐요!",
+        "atoms": [
+          "이제 마지막,",
+          "스쿼트",
+          "전부 쏟아 봐요!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/b3302c62.wav"
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/b3302c62.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav"
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/bb6a087f.wav"
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/bb6a087f.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/bb6a087f.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/bb6a087f.wav",
+    "t": 0.938667
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 4,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 31.010249433106576
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 4,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 32.01160997732426
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 4,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 33.010068027210885
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 5,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "go"
+      },
+      {
+        "kind": "say",
+        "text": "스쿼트, 8초. 할 수 있어요!",
+        "atoms": [
+          "스쿼트",
+          "8초",
+          "할 수 있어요!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 34.011428571428574
+  },
+  {
+    "kind": "speech-request",
+    "text": "스쿼트, 8초. 할 수 있어요!"
+  },
+  {
+    "kind": "speech-start",
+    "text": "스쿼트, 8초. 할 수 있어요!"
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 5,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 39.01242630385487
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 5,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 40.010884353741496
+  },
+  {
+    "kind": "transition",
+    "status": "running",
+    "index": 5,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 41.012244897959185
+  },
+  {
+    "kind": "transition",
+    "status": "finished",
+    "index": 5,
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "end"
+      },
+      {
+        "kind": "say",
+        "text": "운동 끝! 정말 잘했어요!",
+        "atoms": [
+          "운동 끝! 정말 잘했어요!"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 42.01070294784581
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 42.01070294784581
+  },
+  {
+    "kind": "beep",
+    "state": "running",
+    "time": 42.02231292517007
+  },
+  {
+    "kind": "finished"
+  },
+  {
+    "kind": "clip-request",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/cdca2fb6.wav"
+  },
+  {
+    "kind": "clip-playing",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/cdca2fb6.wav",
+    "t": 0
+  },
+  {
+    "kind": "clip-ended",
+    "element": 1,
+    "url": "http://127.0.0.1:5178/voices/female/ko/cdca2fb6.wav",
+    "t": 3.4
+  }
+]

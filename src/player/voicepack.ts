@@ -16,6 +16,7 @@ const MANIFEST_TIMEOUT_MS = 900
 
 const manifests = new Map<string, Promise<VoiceManifest | null>>()
 let current: HTMLAudioElement | null = null
+let player: HTMLAudioElement | null = null
 let cancelCurrent: (() => void) | null = null
 let session = 0
 
@@ -51,14 +52,32 @@ function timeout(ms: number): Promise<null> {
   return new Promise((resolve) => setTimeout(() => resolve(null), ms))
 }
 
+function packPlayer(): HTMLAudioElement {
+  player ??= new Audio()
+  return player
+}
+
+// Called directly by Start/Resume, not after fetching the manifest. Safari
+// unlocks media per element; every later timer-driven atom reuses this element.
+// Loading a real greeting primes the element without playing an extra sound.
+export function unlockVoicePack(trainer: TrainerId, language: Language) {
+  const audio = packPlayer()
+  if (!current) {
+    audio.src = `${packBase(trainer, language)}greeting.wav`
+    audio.load()
+  }
+  void loadManifest(trainer, language)
+}
+
 function playOne(url: string, token: number): Promise<boolean> {
   return new Promise((resolve) => {
     if (token !== session) {
       resolve(false)
       return
     }
-    const audio = new Audio(url)
+    const audio = packPlayer()
     current = audio
+    audio.src = url
     let settled = false
     const settle = (ok: boolean) => {
       if (settled) return

@@ -3,7 +3,7 @@ import { getSettings } from '@/settings/settings'
 import type { Cue } from './cues'
 import { getLanguage } from '@/i18n/language'
 import type { Language } from '@/i18n/types'
-import { silenceVoicePack, tryVoicePack } from './voicepack'
+import { silenceVoicePack, tryVoicePack, unlockVoicePack } from './voicepack'
 
 type AudioContextConstructor = typeof AudioContext
 
@@ -154,6 +154,7 @@ let speechSession = 0
 
 export const coach = {
   unlock() {
+    if (getSettings().voice) unlockVoicePack(getSettings().trainer, getLanguage())
     const context = audioContext()
     if (context && context.state !== 'running') {
       void context.resume().catch(() => undefined)

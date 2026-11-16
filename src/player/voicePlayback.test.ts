@@ -9,7 +9,7 @@ class FakeAudio {
   load = vi.fn()
   removeAttribute = vi.fn()
   play = vi.fn(() => Promise.resolve())
-  constructor(src: string) { this.src = src; audios.push(this) }
+  constructor(src: string = '') { this.src = src; audios.push(this) }
 }
 beforeEach(() => {
   vi.resetModules(); vi.restoreAllMocks(); audios = []
@@ -58,4 +58,38 @@ describe('workout clip failure and cancellation', () => {
     expect(await pending).toBe(true)
     expect(audios[0].pause).toHaveBeenCalledOnce()
   })
+})
+
+it('primes one real media element during Start and reuses it for later timer cues', async () => {
+  const { unlockVoicePack, tryVoicePack } = await import('./voicepack')
+  unlockVoicePack('female', 'ko')
+  expect(audios).toHaveLength(1)
+  expect(audios[0].load).toHaveBeenCalledOnce()
+  expect(audios[0].play).not.toHaveBeenCalled()
+  expect(audios[0].src).toContain('/female/ko/greeting.wav')
+  for (let i = 0; i < 2; i++) {
+    const pending = tryVoicePack(['Go!'], 'female', 'ko', true)
+    await vi.waitFor(() => expect(audios[0].play).toHaveBeenCalledTimes(i + 1))
+    audios[0].onended?.()
+    expect(await pending).toBe(true)
+  }
+  expect(audios).toHaveLength(1)
+})
+
+it('a cancelled old media error cannot clear the reused element next handlers', async () => {
+  const { tryVoicePack, silenceVoicePack } = await import('./voicepack')
+  const first = tryVoicePack(['Go!'], 'female', 'en', true)
+  await vi.waitFor(() => expect(audios[0]?.play).toHaveBeenCalledOnce())
+  // Simulate a later browser event from the old source after the next source.
+  const oldError = audios[0].onerror
+  silenceVoicePack()
+  expect(await first).toBe(true)
+  const second = tryVoicePack(['Go!'], 'female', 'en', true)
+  await vi.waitFor(() => expect(audios[0].play).toHaveBeenCalledTimes(2))
+  const nextEnd = audios[0].onended
+  oldError?.()
+  expect(audios[0].onended).toBe(nextEnd)
+  nextEnd?.()
+  expect(await second).toBe(true)
+  expect(audios).toHaveLength(1)
 })
