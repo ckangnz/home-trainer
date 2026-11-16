@@ -47,3 +47,11 @@ it('resumes an interrupted countdown context and schedules all three finish tone
   expect(context.createOscillator).toHaveBeenCalledTimes(3)
   expect(oscillator.start).toHaveBeenCalledTimes(3)
 })
+it('does not play alternate prepare audio or device speech when app Voice coach is muted', async () => {
+  vi.doMock('@/settings/settings', () => ({ getSettings: () => ({ voice: false, beeps: false, vibration: false, trainer: 'nina', voiceName: null }) }))
+  const { coach } = await import('./coach')
+  coach.play([{kind:'say',text:'준비 안내',atoms:['missing'],alternativeAtoms:[['existing']]}])
+  await Promise.resolve()
+  expect(pack.tryVoicePack).not.toHaveBeenCalled()
+  expect(speechSynthesis.speak).not.toHaveBeenCalled()
+})

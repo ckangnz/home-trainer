@@ -5,7 +5,7 @@ import { segBankFor } from './cueSegments'
 import type { PlaybackStep, WorkStep } from '@/workouts/types'
 import { stepElapsed, stepLimitMs, type PlayerState } from './machine'
 
-export type Cue = { kind: 'say'; text: string; atoms?: string[] } | { kind: 'beep'; tone: 'count' | 'go' | 'end' }
+export type Cue = { kind: 'say'; text: string; atoms?: string[]; alternativeAtoms?: string[][] } | { kind: 'beep'; tone: 'count' | 'go' | 'end' }
 
 export type NameOf = (exerciseId: string) => string
 
@@ -294,7 +294,17 @@ export function cuesBetween(previous: PlayerState, next: PlayerState, previousNo
     const text = entryAnnouncement(next, context)
     if (text) {
       const atoms = announcementAtoms(next, context)
-      cues.push(atoms ? { kind: 'say', text, atoms } : { kind: 'say', text })
+      if (atoms && step?.kind === 'pause' && step.reason === 'getReady') {
+        const seg = segBankFor(context.trainer ?? 'female', context.language ?? 'en')
+        const nextWork = upNext(next.steps, next.index)
+        const name = nextWork ? context.nameOf(nextWork.exerciseId) : null
+        // A missing personalized variant must not force device speech when
+        // another complete recorded intro from this same trainer is available.
+        const alternativeAtoms = name && seg ? seg.intro.map(intro => [...intro, name]) : []
+        cues.push({ kind: 'say', text, atoms, alternativeAtoms })
+      } else {
+        cues.push(atoms ? { kind: 'say', text, atoms } : { kind: 'say', text })
+      }
     }
     return cues
   }

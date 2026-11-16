@@ -186,13 +186,15 @@ export const coach = {
             const trainer = getWorkoutTrainer()
             const language = getLanguage()
             let completedAtoms = 0
-            void tryVoicePack(cue.atoms, trainer, language, interrupt, (completed) => {
+            let selectedAtoms = cue.atoms
+            void tryVoicePack(cue.atoms, trainer, language, interrupt, (completed, selected) => {
               completedAtoms = completed
-            }).then((played) => {
+              selectedAtoms = selected
+            }, cue.alternativeAtoms).then((played) => {
               if (!played && token === speechSession && getSettings().voice) {
                 // A later failed clip must not replay the exercise name or
                 // other atoms the user already heard successfully.
-                const remaining = completedAtoms > 0 ? cue.atoms!.slice(completedAtoms).join(', ') : cue.text
+                const remaining = completedAtoms > 0 ? selectedAtoms.slice(completedAtoms).join(', ') : cue.text
                 if (remaining) speak(remaining, interrupt)
               }
             })

@@ -1,0 +1,53 @@
+[
+  {
+    "kind": "speech-request",
+    "text": " "
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "say",
+        "text": "Nina예요. 자세부터 챙기고, 거꾸로 덤벨 팔 돌리기로 시작해요.",
+        "atoms": [
+          "니나입니다. 정확하게, 그리고 즐겁게! 첫 운동은",
+          "거꾸로 덤벨 팔 돌리기"
+        ],
+        "alternativeAtoms": [
+          [
+            "안녕하세요, 니나예요! 자세는 깔끔하게, 기분은 가볍게. 첫 운동은",
+            "거꾸로 덤벨 팔 돌리기"
+          ],
+          [
+            "니나입니다. 정확하게, 그리고 즐겁게! 첫 운동은",
+            "거꾸로 덤벨 팔 돌리기"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "play",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/350fe36e.wav"
+  },
+  {
+    "kind": "playing",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/350fe36e.wav"
+  },
+  {
+    "kind": "play",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/99d3ac09.wav"
+  },
+  {
+    "kind": "ended",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/350fe36e.wav"
+  },
+  {
+    "kind": "playing",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/99d3ac09.wav"
+  },
+  {
+    "kind": "ended",
+    "url": "http://127.0.0.1:5178/voices/nina/ko/99d3ac09.wav"
+  }
+]
