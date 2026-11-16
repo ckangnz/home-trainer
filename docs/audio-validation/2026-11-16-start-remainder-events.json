@@ -1,0 +1,38 @@
+[
+  {
+    "kind": "speech-request",
+    "text": " "
+  },
+  {
+    "kind": "play",
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav"
+  },
+  {
+    "kind": "playing",
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav"
+  },
+  {
+    "kind": "play",
+    "url": "http://127.0.0.1:5178/voices/female/ko/7dc65a5a.wav"
+  },
+  {
+    "kind": "injected-failure",
+    "url": "http://127.0.0.1:5178/voices/female/ko/7dc65a5a.wav"
+  },
+  {
+    "kind": "speech-request",
+    "text": "30초, 할 수 있어요!"
+  },
+  {
+    "kind": "ended",
+    "url": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav"
+  },
+  {
+    "kind": "speech-start",
+    "text": "30초, 할 수 있어요!"
+  },
+  {
+    "kind": "speech-end",
+    "text": "30초, 할 수 있어요!"
+  }
+]

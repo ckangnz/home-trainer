@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "speak",
+    "text": " ",
+    "time": 553
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "say",
+        "text": "Maya예요. 준비됐죠? 첫 운동은 스쿼트!",
+        "atoms": [
+          "마야예요. 준비됐죠? 첫 운동은",
+          "스쿼트"
+        ]
+      }
+    ],
+    "time": 554
+  },
+  {
+    "kind": "play",
+    "src": "http://127.0.0.1:5178/voices/female/ko/0c954324.wav",
+    "time": 588
+  },
+  {
+    "kind": "playing",
+    "src": "http://127.0.0.1:5178/voices/female/ko/0c954324.wav",
+    "current": 0,
+    "time": 602
+  },
+  {
+    "kind": "play",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "time": 3855
+  },
+  {
+    "kind": "ended",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "current": 0,
+    "time": 3855
+  },
+  {
+    "kind": "playing",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "current": 0,
+    "time": 3862
+  },
+  {
+    "kind": "ended",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "current": 1.08,
+    "time": 4993
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ],
+    "time": 7554
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ],
+    "time": 8554
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "count"
+      }
+    ],
+    "time": 9554
+  },
+  {
+    "kind": "cue",
+    "cues": [
+      {
+        "kind": "beep",
+        "tone": "go"
+      },
+      {
+        "kind": "say",
+        "text": "스쿼트, 30초. 할 수 있어요!",
+        "atoms": [
+          "스쿼트",
+          "30초",
+          "할 수 있어요!"
+        ]
+      }
+    ],
+    "time": 10554
+  },
+  {
+    "kind": "play",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "time": 10555
+  },
+  {
+    "kind": "playing",
+    "src": "http://127.0.0.1:5178/voices/female/ko/6f18007f.wav",
+    "current": 0.000158,
+    "time": 10559
+  },
+  {
+    "kind": "play",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7dc65a5a.wav",
+    "time": 11690
+  },
+  {
+    "kind": "ended",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7dc65a5a.wav",
+    "current": 0,
+    "time": 11691
+  },
+  {
+    "kind": "playing",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7dc65a5a.wav",
+    "current": 0,
+    "time": 11699
+  },
+  {
+    "kind": "play",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7663c72a.wav",
+    "time": 12958
+  },
+  {
+    "kind": "ended",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7663c72a.wav",
+    "current": 0,
+    "time": 12958
+  },
+  {
+    "kind": "playing",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7663c72a.wav",
+    "current": 0,
+    "time": 12964
+  },
+  {
+    "kind": "ended",
+    "src": "http://127.0.0.1:5178/voices/female/ko/7663c72a.wav",
+    "current": 1.64,
+    "time": 14649
+  }
+]

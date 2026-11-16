@@ -185,9 +185,15 @@ export const coach = {
             // when the voice pack cannot cover every atom.
             const trainer = getWorkoutTrainer()
             const language = getLanguage()
-            void tryVoicePack(cue.atoms, trainer, language, interrupt).then((played) => {
+            let completedAtoms = 0
+            void tryVoicePack(cue.atoms, trainer, language, interrupt, (completed) => {
+              completedAtoms = completed
+            }).then((played) => {
               if (!played && token === speechSession && getSettings().voice) {
-                speak(cue.text, interrupt)
+                // A later failed clip must not replay the exercise name or
+                // other atoms the user already heard successfully.
+                const remaining = completedAtoms > 0 ? cue.atoms!.slice(completedAtoms).join(', ') : cue.text
+                if (remaining) speak(remaining, interrupt)
               }
             })
           } else {

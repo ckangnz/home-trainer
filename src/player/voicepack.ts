@@ -107,7 +107,7 @@ export function silenceVoicePack() {
 // Plays the atom clips in order. Returns false without playing anything when
 // the pack cannot fully cover the atoms (caller falls back to speechSynthesis
 // with the full text).
-export async function tryVoicePack(atoms: string[], trainer: TrainerId, language: Language, interrupt: boolean): Promise<boolean> {
+export async function tryVoicePack(atoms: string[], trainer: TrainerId, language: Language, interrupt: boolean, onAtomEnded?: (completed: number) => void): Promise<boolean> {
   if (atoms.length === 0) {
     return false
   }
@@ -123,10 +123,11 @@ export async function tryVoicePack(atoms: string[], trainer: TrainerId, language
     return false
   }
   const base = packBase(trainer, language)
-  for (const file of files) {
+  for (const [index, file] of files.entries()) {
     if (!file || !(await playOne(base + file, token))) {
       return token !== session // canceled is handled; a real failure needs fallback
     }
+    onAtomEnded?.(index + 1)
   }
   return true
 }
