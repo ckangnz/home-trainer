@@ -39,6 +39,9 @@ function beep(tone: Extract<Cue, { kind: 'beep' }>['tone']) {
   if (!context) {
     return
   }
+  if (context.state !== 'running') {
+    void context.resume().catch(() => undefined)
+  }
   let start = context.currentTime
   for (const note of TONES[tone]) {
     const oscillator = context.createOscillator()
@@ -147,11 +150,13 @@ function vibrate(pattern: number | number[]) {
   }
 }
 
+let speechSession = 0
+
 export const coach = {
   unlock() {
     const context = audioContext()
-    if (context && context.state === 'suspended') {
-      void context.resume()
+    if (context && context.state !== 'running') {
+      void context.resume().catch(() => undefined)
     }
     if (speechAvailable() && getSettings().voice) {
       const primer = new SpeechSynthesisUtterance(' ')
@@ -162,10 +167,15 @@ export const coach = {
   play(cues: Cue[]) {
     const settings = getSettings()
     let spoken = false
+    let token = speechSession
     for (const cue of cues) {
       if (cue.kind === 'say') {
         if (settings.voice) {
           const interrupt = !spoken
+          if (interrupt) {
+            token = ++speechSession
+            if (speechAvailable()) window.speechSynthesis.cancel()
+          }
           spoken = true
           if (cue.atoms) {
             // Prefer pre-generated trainer clips; fall back to speechSynthesis
@@ -173,7 +183,7 @@ export const coach = {
             const { trainer } = getSettings()
             const language = getLanguage()
             void tryVoicePack(cue.atoms, trainer, language, interrupt).then((played) => {
-              if (!played) {
+              if (!played && token === speechSession && getSettings().voice) {
                 speak(cue.text, interrupt)
               }
             })
@@ -192,6 +202,7 @@ export const coach = {
     }
   },
   silence() {
+    speechSession += 1
     silenceVoicePack()
     if (speechAvailable()) {
       window.speechSynthesis.cancel()

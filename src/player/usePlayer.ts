@@ -96,7 +96,7 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
       coach.silence()
       apply(pausePlayer)
     }, [apply]),
-    resume: useCallback(() => apply(resumePlayer), [apply]),
+    resume: useCallback(() => { coach.unlock(); apply(resumePlayer) }, [apply]),
     next: useCallback(() => apply(nextStep), [apply]),
     previous: useCallback(() => apply(previousStep), [apply]),
     done: useCallback(() => apply(completeReps), [apply]),

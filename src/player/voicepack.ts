@@ -16,6 +16,7 @@ const MANIFEST_TIMEOUT_MS = 900
 
 const manifests = new Map<string, Promise<VoiceManifest | null>>()
 let current: HTMLAudioElement | null = null
+let cancelCurrent: (() => void) | null = null
 let session = 0
 
 function packBase(trainer: TrainerId, language: Language): string {
@@ -58,25 +59,30 @@ function playOne(url: string, token: number): Promise<boolean> {
     }
     const audio = new Audio(url)
     current = audio
+    let settled = false
     const settle = (ok: boolean) => {
+      if (settled) return
+      settled = true
+      audio.onended = null
+      audio.onerror = null
       if (current === audio) {
         current = null
+        cancelCurrent = null
       }
       resolve(ok && token === session)
     }
+    cancelCurrent = () => { audio.pause(); audio.removeAttribute('src'); audio.load(); settle(false) }
     audio.onended = () => settle(true)
     audio.onerror = () => settle(false)
-    void audio.play().catch(() => settle(false))
+    try { void audio.play().catch(() => settle(false)) } catch { settle(false) }
   })
 }
 
 export function silenceVoicePack() {
   session += 1
-  if (current) {
-    current.pause()
-    current.src = ''
-    current = null
-  }
+  cancelCurrent?.()
+  current = null
+  cancelCurrent = null
 }
 
 // Plays the atom clips in order. Returns false without playing anything when
@@ -86,7 +92,10 @@ export async function tryVoicePack(atoms: string[], trainer: TrainerId, language
   if (atoms.length === 0) {
     return false
   }
+  if (interrupt) silenceVoicePack()
+  const token = session
   const manifest = await Promise.race([loadManifest(trainer, language), timeout(MANIFEST_TIMEOUT_MS)])
+  if (token !== session) return true // canceled: never start stale fallback
   if (!manifest) {
     return false
   }
@@ -94,14 +103,10 @@ export async function tryVoicePack(atoms: string[], trainer: TrainerId, language
   if (files.some((file) => !file)) {
     return false
   }
-  if (interrupt) {
-    silenceVoicePack()
-  }
-  const token = session
   const base = packBase(trainer, language)
   for (const file of files) {
     if (!file || !(await playOne(base + file, token))) {
-      return true // playback started; do not double-speak via speechSynthesis
+      return token !== session // canceled is handled; a real failure needs fallback
     }
   }
   return true
