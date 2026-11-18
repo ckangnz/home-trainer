@@ -133,3 +133,47 @@ export async function tryVoicePack(atoms: string[], trainer: TrainerId, language
   }
   return true
 }
+
+const clipDurations = new Map<string, Promise<number | null>>()
+
+function clipDurationMs(url: string): Promise<number | null> {
+  const cached = clipDurations.get(url)
+  if (cached) return cached
+  const pending = new Promise<number | null>((resolve) => {
+    if (typeof Audio === 'undefined') {
+      resolve(null)
+      return
+    }
+    const audio = new Audio()
+    audio.preload = 'metadata'
+    const done = (value: number | null) => {
+      audio.onloadedmetadata = null
+      audio.onerror = null
+      resolve(value)
+    }
+    audio.onloadedmetadata = () => done(Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration * 1000 : null)
+    audio.onerror = () => done(null)
+    setTimeout(() => done(null), 2500)
+    audio.src = url
+  })
+  clipDurations.set(url, pending)
+  return pending
+}
+
+// Per-clip start latency between consecutive atoms (src swap + play()).
+const ATOM_GAP_MS = 60
+
+// Total playback time of the clips tryVoicePack would play for these atoms, or
+// null when the pack cannot cover them (device speech has no known length).
+export async function atomsDurationMs(atoms: string[], trainer: TrainerId, language: Language): Promise<number | null> {
+  const manifest = await Promise.race([loadManifest(trainer, language), timeout(MANIFEST_TIMEOUT_MS)])
+  if (!manifest || atoms.length === 0 || !atoms.every((atom) => manifest.clips[hashAtom(atom)])) {
+    return null
+  }
+  const base = packBase(trainer, language)
+  const lengths = await Promise.all(atoms.map((atom) => clipDurationMs(base + manifest.clips[hashAtom(atom)])))
+  if (lengths.some((length) => length === null)) {
+    return null
+  }
+  return (lengths as number[]).reduce((sum, length) => sum + length, 0) + atoms.length * ATOM_GAP_MS
+}
