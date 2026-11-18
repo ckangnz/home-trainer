@@ -121,9 +121,9 @@ const DELIVERY: Record<TrainerId, { rate: number; pitch: number }> = {
   nina: { rate: 1.06, pitch: 1.12 },
 }
 
-function speak(text: string, interrupt: boolean) {
+function speak(text: string, interrupt: boolean): Promise<void> {
   if (!speechAvailable()) {
-    return
+    return Promise.resolve()
   }
   const synth = window.speechSynthesis
   if (interrupt) {
@@ -143,7 +143,12 @@ function speak(text: string, interrupt: boolean) {
   const delivery = DELIVERY[trainer] ?? DELIVERY.female
   utterance.rate = delivery.rate
   utterance.pitch = delivery.pitch
+  const finished = new Promise<void>((resolve) => {
+    utterance.onend = () => resolve()
+    utterance.onerror = () => resolve()
+  })
   synth.speak(utterance)
+  return finished
 }
 
 function vibrate(pattern: number | number[]) {
@@ -167,8 +172,11 @@ export const coach = {
       window.speechSynthesis.speak(primer)
     }
   },
-  play(cues: Cue[]) {
+  // Resolves once every spoken cue has finished (or immediately when nothing
+  // is spoken), so callers can start timing exactly when the voice ends.
+  play(cues: Cue[]): Promise<void> {
     const settings = getSettings()
+    const pending: Promise<unknown>[] = []
     let spoken = false
     let token = speechSession
     for (const cue of cues) {
@@ -187,7 +195,7 @@ export const coach = {
             const language = getLanguage()
             let completedAtoms = 0
             let selectedAtoms = cue.atoms
-            void tryVoicePack(cue.atoms, trainer, language, interrupt, (completed, selected) => {
+            pending.push(tryVoicePack(cue.atoms, trainer, language, interrupt, (completed, selected) => {
               completedAtoms = completed
               selectedAtoms = selected
             }, cue.alternativeAtoms).then((played) => {
@@ -195,11 +203,11 @@ export const coach = {
                 // A later failed clip must not replay the exercise name or
                 // other atoms the user already heard successfully.
                 const remaining = completedAtoms > 0 ? selectedAtoms.slice(completedAtoms).join(', ') : cue.text
-                if (remaining) speak(remaining, interrupt)
+                if (remaining) return speak(remaining, interrupt)
               }
-            })
+            }))
           } else {
-            speak(cue.text, interrupt)
+            pending.push(speak(cue.text, interrupt))
           }
         }
       } else {
@@ -211,6 +219,7 @@ export const coach = {
         }
       }
     }
+    return Promise.all(pending).then(() => undefined, () => undefined)
   },
   silence() {
     speechSession += 1
