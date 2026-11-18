@@ -179,3 +179,14 @@ describe('Korean coach cues', () => {
     expect(korean).toMatch(/[가-힣]/)
   })
 })
+
+describe('start cue voice hold', () => {
+  it('keeps the work clock at zero until the start cue finishes', async () => {
+    const { createPlayer, startPlayer, holdForVoice, releaseVoiceHold, tickPlayer, stepElapsed } = await import('./machine')
+    const steps = [{ kind: 'work', exerciseId: 'x', target: { kind: 'time', ms: 5000 }, set: 1, sets: 1, round: 1, rounds: 1 }] as never
+    const held = holdForVoice(startPlayer(createPlayer(steps), 0))
+    expect(stepElapsed(tickPlayer(held, 4000), 4000)).toBe(0)
+    const released = releaseVoiceHold(held, 4000)
+    expect(stepElapsed(released, 6000)).toBe(2000)
+  })
+})
