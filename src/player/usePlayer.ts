@@ -11,9 +11,7 @@ import {
   createPlayer,
   extendPause,
   nextStep,
-  holdForVoice,
   pausePlayer,
-  releaseVoiceHold,
   stepLimitMs,
   stepRemaining,
   previousStep,
@@ -24,7 +22,6 @@ import {
 } from './machine'
 
 const TICK_MS = 100
-const START_CUE_MAX_HOLD_MS = 12000
 // A lead-in only fits when the pause is long enough to also hear its own cue.
 const LEAD_IN_MIN_EXTRA_MS = 2500
 
@@ -126,15 +123,6 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
         cues = [...cues, pending.cue]
       }
     }
-    const speaksStart =
-      getSettings().voice &&
-      next.status === 'running' &&
-      next.steps[next.index]?.kind === 'work' &&
-      (next.index !== previous.index || next.runId !== previous.runId) &&
-      cues.some((cue) => cue.kind === 'say')
-    if (speaksStart) {
-      next = holdForVoice(next)
-    }
     stateRef.current = next
     lastTimeRef.current = time
     if (next !== previous) {
@@ -142,23 +130,8 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
     }
     setNow(time)
     if (cues.length > 0) {
-      const played = coach.play(cues)
-      if (speaksStart) {
-        const { index, runId } = next
-        const release = () => {
-          const live = stateRef.current
-          if (live.voiceHold && live.index === index && live.runId === runId) {
-            const at = clockNow()
-            const released = releaseVoiceHold(live, at)
-            stateRef.current = released
-            lastTimeRef.current = at
-            setState(released)
-            setNow(at)
-          }
-        }
-        // The cap keeps a stalled audio element from freezing the workout.
-        void Promise.race([played, new Promise<void>((resolve) => setTimeout(resolve, START_CUE_MAX_HOLD_MS))]).then(release)
-      }
+      // The timer never waits for the voice: cues are played ahead of time.
+      void coach.play(cues)
     }
   }, [])
 
