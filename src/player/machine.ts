@@ -24,9 +24,6 @@ export interface PlayerState {
   completedWork: number
   workLog: WorkLogEntry[]
   runId: number
-  // True while a work step's start cue is still speaking: the step clock
-  // starts when the voice ends, so "go" lands exactly at zero.
-  voiceHold: boolean
 }
 
 export function createPlayer(steps: PlaybackStep[]): PlayerState {
@@ -45,7 +42,6 @@ export function createPlayer(steps: PlaybackStep[]): PlayerState {
     completedWork: 0,
     workLog: [],
     runId: 0,
-    voiceHold: false,
   }
 }
 
@@ -87,7 +83,6 @@ function enter(state: PlayerState, index: number, now: number, trigger: EntryTri
       status: 'finished',
       stepElapsedMs: 0,
       runningSince: null,
-      voiceHold: false,
       extraMs: 0,
       enteredBy: trigger,
       finishedAt: now,
@@ -101,7 +96,6 @@ function enter(state: PlayerState, index: number, now: number, trigger: EntryTri
     index,
     stepElapsedMs: running ? 0 : carryMs,
     runningSince: running ? now - carryMs : null,
-    voiceHold: false,
     extraMs: 0,
     enteredBy: trigger,
     completedWork,
@@ -123,25 +117,7 @@ export function startPlayer(state: PlayerState, now: number): PlayerState {
   }
 }
 
-// Freezes the freshly entered work step until its start cue finishes speaking.
-export function holdForVoice(state: PlayerState): PlayerState {
-  if (state.status !== 'running' || currentStep(state)?.kind !== 'work') {
-    return state
-  }
-  return { ...state, voiceHold: true, stepElapsedMs: 0, runningSince: null }
-}
-
-export function releaseVoiceHold(state: PlayerState, now: number): PlayerState {
-  if (!state.voiceHold || state.status !== 'running') {
-    return state
-  }
-  return { ...state, voiceHold: false, stepElapsedMs: 0, runningSince: now }
-}
-
 export function tickPlayer(state: PlayerState, now: number): PlayerState {
-  if (state.voiceHold) {
-    return state
-  }
   let next = state
   for (let guard = 0; guard < next.steps.length + 1 && next.status === 'running'; guard += 1) {
     const limit = stepLimitMs(next)
@@ -174,7 +150,6 @@ export function resumePlayer(state: PlayerState, now: number): PlayerState {
     status: 'running',
     runningSince: now - state.stepElapsedMs,
     stepElapsedMs: 0,
-    voiceHold: false,
     pausedMs: state.pausedMs + pausedFor,
     pausedSince: null,
   }
