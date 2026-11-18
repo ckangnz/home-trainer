@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PlaybackStep } from '@/workouts/types'
 import { coach } from './coach'
+import { getSettings } from '@/settings/settings'
 import { startSessionTrainer, endSessionTrainer } from './sessionTrainer'
 import { TRAINERS } from '@/figure/look'
 import { cuesBetween, type CoachContext } from './cues'
@@ -9,7 +10,9 @@ import {
   createPlayer,
   extendPause,
   nextStep,
+  holdForVoice,
   pausePlayer,
+  releaseVoiceHold,
   previousStep,
   resumePlayer,
   startPlayer,
@@ -18,6 +21,7 @@ import {
 } from './machine'
 
 const TICK_MS = 100
+const START_CUE_MAX_HOLD_MS = 12000
 
 function clockNow(): number {
   return typeof performance === 'undefined' ? Date.now() : performance.now()
@@ -55,8 +59,17 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
   const apply = useCallback((transition: (current: PlayerState, time: number) => PlayerState) => {
     const time = clockNow()
     const previous = stateRef.current
-    const next = transition(previous, time)
+    let next = transition(previous, time)
     const cues = cuesBetween(previous, next, lastTimeRef.current, time, contextRef.current)
+    const speaksStart =
+      getSettings().voice &&
+      next.status === 'running' &&
+      next.steps[next.index]?.kind === 'work' &&
+      (next.index !== previous.index || next.runId !== previous.runId) &&
+      cues.some((cue) => cue.kind === 'say')
+    if (speaksStart) {
+      next = holdForVoice(next)
+    }
     stateRef.current = next
     lastTimeRef.current = time
     if (next !== previous) {
@@ -64,7 +77,23 @@ export function usePlayer(steps: PlaybackStep[], coachContext: CoachContext): Pl
     }
     setNow(time)
     if (cues.length > 0) {
-      coach.play(cues)
+      const played = coach.play(cues)
+      if (speaksStart) {
+        const { index, runId } = next
+        const release = () => {
+          const live = stateRef.current
+          if (live.voiceHold && live.index === index && live.runId === runId) {
+            const at = clockNow()
+            const released = releaseVoiceHold(live, at)
+            stateRef.current = released
+            lastTimeRef.current = at
+            setState(released)
+            setNow(at)
+          }
+        }
+        // The cap keeps a stalled audio element from freezing the workout.
+        void Promise.race([played, new Promise<void>((resolve) => setTimeout(resolve, START_CUE_MAX_HOLD_MS))]).then(release)
+      }
     }
   }, [])
 
