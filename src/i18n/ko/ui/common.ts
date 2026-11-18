@@ -3,6 +3,8 @@ import type { common as en } from '../../en/common'
 
 export const common = {
   loading: '불러오는 중',
+  slowConnection: '평소보다 오래 걸리고 있어요. 연결을 확인하거나 새로고침해 보세요.',
+  reload: '새로고침',
   save: '저장',
   saving: '저장 중…',
   cancel: '취소',

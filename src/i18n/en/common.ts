@@ -1,5 +1,7 @@
 export const common = {
   loading: 'Loading',
+  slowConnection: 'Taking longer than usual. Check your connection, or reload to try again.',
+  reload: 'Reload',
   save: 'Save',
   saving: 'Saving…',
   cancel: 'Cancel',

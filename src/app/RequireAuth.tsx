@@ -54,7 +54,7 @@ function SetupNotice() {
 
 export function RequireAuth({ children, guestWhenUnconfigured = false }: { children?: ReactNode; guestWhenUnconfigured?: boolean }) {
   const t = useT()
-  const { status } = useAuth()
+  const { status, slowLoading } = useAuth()
   if (status === 'unconfigured' && guestWhenUnconfigured) {
     return children ? <>{children}</> : <Outlet />
   }
@@ -62,6 +62,20 @@ export function RequireAuth({ children, guestWhenUnconfigured = false }: { child
     return (
       <div className="center" role="status" aria-label={t('common.loading')}>
         <div className="spinner" />
+        {slowLoading ? (
+          <div className="stack" style={{ justifyItems: 'center' }}>
+            <p className="muted">{t('common.slowConnection')}</p>
+            <button
+              type="button"
+              className="btn btn--outline"
+              onClick={() => {
+                window.location.reload()
+              }}
+            >
+              {t('common.reload')}
+            </button>
+          </div>
+        ) : null}
       </div>
     )
   }

@@ -13,6 +13,7 @@ interface AuthContextValue {
   status: AuthStatus
   user: User | null
   error: string | null
+  slowLoading: boolean
   signIn: () => Promise<boolean>
   signOut: () => Promise<void>
   refreshProfile: () => Promise<'updated' | 'unchanged' | 'missing' | 'failed'>
@@ -24,12 +25,27 @@ const AuthContext = createContext<AuthContextValue | null>(null)
 
 const loadAuth = (): Promise<AuthModule> => import('@/data/auth')
 
+// Firebase Auth can take tens of seconds to deliver the first auth event on a
+// cold iOS PWA start (persisted session refresh). Surface that state so the UI
+// can offer a manual reload instead of an unexplained endless spinner.
+const SLOW_LOADING_MS = 8000
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [status, setStatus] = useState<AuthStatus>(isFirebaseConfigured ? 'loading' : 'unconfigured')
   const [error, setError] = useState<string | null>(null)
   const moduleRef = useRef<AuthModule | null>(null)
   const [profileVersion, setProfileVersion] = useState(0)
+  const [slowLoading, setSlowLoading] = useState(false)
+
+  useEffect(() => {
+    if (status !== 'loading') {
+      setSlowLoading(false)
+      return
+    }
+    const timer = window.setTimeout(() => setSlowLoading(true), SLOW_LOADING_MS)
+    return () => window.clearTimeout(timer)
+  }, [status])
 
   useEffect(() => {
     if (!isFirebaseConfigured) {
@@ -109,8 +125,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const clearError = useCallback(() => setError(null), [])
 
   const value = useMemo<AuthContextValue>(
-    () => ({ status, user, error, signIn, signOut, refreshProfile, clearError, profileVersion }),
-    [status, user, error, signIn, signOut, refreshProfile, clearError, profileVersion],
+    () => ({ status, user, error, slowLoading, signIn, signOut, refreshProfile, clearError, profileVersion }),
+    [status, user, error, slowLoading, signIn, signOut, refreshProfile, clearError, profileVersion],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
