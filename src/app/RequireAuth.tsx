@@ -64,7 +64,9 @@ export function RequireAuth({ children, guestWhenUnconfigured = false }: { child
         <div className="spinner" />
         {slowLoading ? (
           <div className="stack" style={{ justifyItems: 'center' }}>
-            <p className="muted">{t('common.slowConnection')}</p>
+            <p className="muted" style={{ maxWidth: '34ch', textAlign: 'center' }}>
+              {t('common.slowConnection')}
+            </p>
             <button
               type="button"
               className="btn btn--outline"
