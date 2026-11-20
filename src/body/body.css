@@ -286,6 +286,22 @@
 
 .body-form__row {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.body-form__row .ui-control {
+  min-width: 0;
+}
+
+/* iOS Safari renders date inputs at their intrinsic size, ignoring min-height
+   and the grid column width, so the field overflows its column and sits lower
+   than the weight input. Resetting the appearance lets our sizing apply; the
+   native picker still opens on tap. */
+@supports (-webkit-touch-callout: none) {
+  .body-form__row input[type='date'] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 }
 
 .body-form__hint {
