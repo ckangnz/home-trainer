@@ -94,13 +94,13 @@ Firebase stays on the free Spark plan: Google sign-in plus Firestore (routines, 
 AdSense does not allow web publishers to trigger interstitial or video ads at moments they choose, forbids overlays
 and ads next to navigation buttons, and does not allow refreshing ads without a user request. The player therefore:
 
-- shows a standard responsive display unit labeled "Advertisement" on rest and get-ready screens, below the
+- shows a standard responsive display unit labeled "Advertisement" on rest, get-ready, and summary screens, below the
   next-exercise preview and instructions and away from the controls;
-- never shows ads during an exercise or a switch-sides pause;
-- requests a fresh ad when one of those screens is shown, at most once every 30 seconds (`src/ads/policy.ts`).
-  Rest screens begin from the countdown, and AdSense forbids refreshing ads without a user request, so the
-  spacing stays. The old 10-second minimum rest and tap-only trigger were app-side choices and are gone, and
-  when spacing would keep landing ads on the same kind of rest, the next different kind of rest gets it instead.
+- never shows ads during an exercise or a switch-sides pause, or on rests shorter than 10 seconds;
+- requests a new rest or get-ready ad only when the user's own tap led to that screen (Start, Done, Skip) and at least
+  30 seconds after the previous request (`src/ads/policy.ts`). Rests started by the countdown show the same content
+  without a new ad. The one-off workout summary shows an ad whenever 30 seconds have passed since the last one.
+  Changing `REST_AD_TRIGGER` to `'every-rest'` loads ads on every rest, so confirm that with AdSense first.
 
 Setting up AdSense for this site:
 
