@@ -97,9 +97,10 @@ and ads next to navigation buttons, and does not allow refreshing ads without a 
 - shows a standard responsive display unit labeled "Advertisement" on rest and get-ready screens, below the
   next-exercise preview and instructions and away from the controls;
 - never shows ads during an exercise or a switch-sides pause;
-- requests a fresh ad every time one of those screens is shown (`src/ads/policy.ts`). An earlier version spaced
-  requests 30 seconds apart and skipped rests under 10 seconds; those were app-side choices, not AdSense
-  requirements, and were removed so every rest screen carries an ad.
+- requests a fresh ad when one of those screens is shown, at most once every 30 seconds (`src/ads/policy.ts`).
+  Rest screens begin from the countdown, and AdSense forbids refreshing ads without a user request, so the
+  spacing stays. The old 10-second minimum rest and tap-only trigger were app-side choices and are gone, and
+  when spacing would keep landing ads on the same kind of rest, the next different kind of rest gets it instead.
 
 Setting up AdSense for this site:
 
