@@ -262,7 +262,6 @@ function PlayerSession({ session }: { session: Session }) {
   const { state, now } = player
   const wallStart = useRef(0)
   const recorded = useRef(new Set<number>())
-  const lastAdAt = useRef<number | null>(null)
   const [adKey, setAdKey] = useState<string | null>(null)
   const active = state.status === 'running' || state.status === 'paused'
   const stepKey = `${state.runId}:${state.status === 'finished' ? 'done' : state.index}`
@@ -278,10 +277,7 @@ function PlayerSession({ session }: { session: Session }) {
     if (state.status === 'ready' || state.status === 'finished') {
       return
     }
-    const time = performance.now()
-    const context = { enteredBy: state.enteredBy, lastRequestAt: lastAdAt.current, now: time }
-    if (shouldRequestPauseAd(currentStep(state), context)) {
-      lastAdAt.current = time
+    if (shouldRequestPauseAd(currentStep(state))) {
       setAdKey(stepKey)
     }
     // Ads are decided once per step entry; later re-renders of the same step must not request again.
